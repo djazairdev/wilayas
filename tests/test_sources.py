@@ -17,11 +17,14 @@ SOURCE = os.path.join(DATA, 'source')
 
 LIST_FIELDS = ['text', 'article', 'via', 'item', 'of', 'name_fr', 'name_ar', 'check']
 DECREE_FIELDS = ['text', 'article', 'item', 'name_fr', 'seat_fr', 'name_ar', 'seat_ar', 'check']
+DAIRA_FIELDS = ['text', 'wilaya', 'daira', 'item', 'name_fr', 'name_ar', 'check']
 READING_FIELDS = ['text', 'article', 'item', 'edition', 'name', 'pdf_page', 'by', 'note']
 TEXT_FIELDS = ['id', 'kind', 'number', 'signed', 'jo_number', 'jo_date', 'url_ar', 'url_fr', 'sha256_ar', 'sha256_fr']
 
 # Arabic letters and the shadda, words separated by single spaces
 ARABIC = re.compile(r'^[ء-يّ]+(?: [ء-يّ]+)*$')
+# Decree 91-306 is a scan, transcribed without harakat; it prints ڤ for the sound g
+ARABIC_SCAN = re.compile(r'^[ء-يڤ]+(?: [ء-يڤ]+)*$')
 FRENCH = re.compile(r"^[A-Za-zÀ-ÿ’']+(?:[ -][A-Za-zÀ-ÿ’']+)*$")
 DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 
@@ -45,7 +48,7 @@ PARENTS_26_06 = ['Laghouat', 'Batna', 'Biskra', 'Tébessa', 'Tlemcen', 'Tiaret',
 
 # Biskra is the one wilaya both laws list. Law 26-06 splits its 2019 list between
 # Biskra and El Kantara, and spells some names differently (Law 19-12 -> Law 26-06).
-# These become aliases (PRD §7.4).
+# These become aliases (data/source/README.md, Spellings).
 BISKRA_SPELLINGS = {
     'name_ar': {'البرانس': 'البرانيس', 'لشانة': 'ليشانة', 'لواء': 'ليوة', 'مخادمة': 'أمخادمة', 'مليلي': 'أمليلي'},
     'name_fr': {'Khenguet Sidi Nadji': 'Khangat Sidi Nadji', "M'Lili": 'M’Lili', 'Oumach': 'Oumache'},
@@ -65,6 +68,27 @@ DECREES = {
 }
 # Chefs-lieux the decree spells differently from the law's list (decree -> law)
 SEAT_SPELLINGS = {'El M’Ghaier': 'El Megaier'}
+
+# Decree 91-306 lists 553 daïras in the 48 wilayas. The French has 1,540 communes and leaves out
+# Rouissat: 1,541. The rows only one edition prints are all in the Arabic:
+# (wilaya, daïra, item) -> the name.
+GAPS_91_306 = {
+    ('18', '10', '3'): 'بني ياجيس',  # the French prints Boudria Beniyadjis as one commune, the Arabic as two
+    ('30', '10', '2'): 'الرويسات',   # Rouissat, which the French leaves out
+    ('34', '3', '4'): 'تكستين',      # Tixter again: both editions list it in 34 9/2
+}
+# The name whose start the press didn't print: […] stands for the missing letters
+UNPRINTED_91_306 = {('15', '17', '3'): '[…]بتين'}
+# Seats printed with a lower-case l
+SEATS_NOT_IN_CAPITALS = {'El HACHIMIA', 'OUED El ABTAL'}
+# Seats named or spelled differently from the commune that heads their list (seat -> commune)
+SEAT_SPELLINGS_91_306 = {
+    'fr': {'AIN DJASSER': 'Aïn Djassar', 'BEDJIA': 'Béjaia', 'BENNI YENNI': 'Béni Yenni', 'BOUTLETIS': 'Boutlelis',
+           'EL MALAH': 'El Maleh', 'GUENZET': 'Gunzet', 'GUIDJEL': 'Guijel', 'IFRI OUZELLAGUENE': 'Ouzellaguène',
+           'MARSA BEN MEHDI': 'Marsa Ben M’Hidi', 'MOSTEFA BEN BRAHIM': 'Mostepha Ben Brahim',
+           'OULED ATTIA': 'Ouled Atia'},
+    'ar': {'الرغاية': 'رغاية', 'عين الكحيل': 'عين الكيحل', 'عين موسى': 'عمي موسى'},
+}
 
 
 def read(path):
@@ -88,6 +112,12 @@ def loose_fr(s):
 
 def loose_ar(s):
     return re.sub('[أإآ]', 'ا', s)
+
+
+def row_key(r):
+    """(article, item) of a transcribed row, as readings.csv names it: for Decree 91-306,
+    the wilaya and 'daïra/item'."""
+    return (r['wilaya'], f"{r['daira']}/{r['item']}") if 'wilaya' in r else (r['article'], r['item'])
 
 
 class Files(unittest.TestCase):
@@ -225,6 +255,73 @@ class Decrees(unittest.TestCase):
                     self.assertEqual(loose_ar(first['name_ar']), loose_ar(r['seat_ar']))
 
 
+class Dairas(unittest.TestCase):
+    """Executive Decree 91-306: the daïras of each wilaya, each with its seat and the communes
+    its chef de daïra runs."""
+    fields, rows = read(os.path.join(SOURCE, 'executive-decree-91-306.csv'))
+
+    def dairas(self):
+        """{(wilaya, daïra): [rows]} in the order of the text, the seat first."""
+        out = {}
+        for r in self.rows:
+            out.setdefault((r['wilaya'], r['daira']), []).append(r)
+        return out
+
+    def test_fields(self):
+        self.assertEqual(self.fields, DAIRA_FIELDS)
+        self.assertEqual({r['text'] for r in self.rows}, {'executive-decree-91-306'})
+
+    def test_layout(self):
+        """The 48 wilayas in order, each with its daïras numbered from 1; each daïra is its seat,
+        then its communes numbered from 1."""
+        dairas = self.dairas()
+        self.assertEqual(len(dairas), 553)
+        wilayas = list(dict.fromkeys(w for w, d in dairas))
+        self.assertEqual(wilayas, [f'{n:02d}' for n in range(1, 49)])
+        for w in wilayas:
+            numbers = [d for x, d in dairas if x == w]
+            self.assertEqual(numbers, [str(n) for n in range(1, len(numbers) + 1)])
+        for key, rows in dairas.items():
+            with self.subTest(daira=key):
+                self.assertGreater(len(rows), 1)
+                self.assertEqual([r['item'] for r in rows], ['seat'] + [str(n) for n in range(1, len(rows))])
+
+    def test_communes(self):
+        communes = [r for r in self.rows if r['item'] != 'seat']
+        self.assertEqual(sum(1 for r in communes if r['name_fr']), 1540)
+        self.assertEqual(sum(1 for r in communes if r['name_ar']), 1540 + len(GAPS_91_306))
+
+    def test_names(self):
+        for r in self.rows:
+            key = (r['wilaya'], r['daira'], r['item'])
+            with self.subTest(row=key):
+                self.assertIn(r['check'], ('', 'eye'), 'every name is checked: two readings agree, or it was read on the page')
+                if key in GAPS_91_306:
+                    self.assertEqual((r['name_fr'], r['name_ar']), ('', GAPS_91_306[key]))
+                    continue
+                self.assertRegex(r['name_fr'], FRENCH)
+                if key in UNPRINTED_91_306:
+                    self.assertEqual(r['name_ar'], UNPRINTED_91_306[key])
+                else:
+                    self.assertRegex(r['name_ar'], ARABIC_SCAN)
+                if r['item'] == 'seat' and r['name_fr'] not in SEATS_NOT_IN_CAPITALS:
+                    self.assertEqual(r['name_fr'], r['name_fr'].upper(), 'the French prints the seats in capitals')
+
+    def test_each_seat_heads_its_list(self):
+        """A daïra's seat is the first commune of its list, but for the names in SEAT_SPELLINGS_91_306.
+        The seats are in capitals without accents, and the Arabic writes final ي and ة with or
+        without their dots."""
+        loose = {'fr': lambda s: loose_fr(s).replace('-', ' '),
+                 'ar': lambda s: loose_ar(s).replace('ى', 'ي').replace('ة', 'ه')}
+        for key, rows in self.dairas().items():
+            seat, first = rows[0], rows[1]
+            for edition in ('fr', 'ar'):
+                with self.subTest(daira=key, edition=edition):
+                    name = seat['name_' + edition]
+                    name = SEAT_SPELLINGS_91_306[edition].get(name, name)
+                    self.assertEqual(loose[edition](name), loose[edition](first['name_' + edition]))
+
+
 class Readings(unittest.TestCase):
     """data/source/readings.csv: the names read on the rendered page, and who read them."""
     fields, readings = read(os.path.join(SOURCE, 'readings.csv'))
@@ -236,7 +333,7 @@ class Readings(unittest.TestCase):
         for r in read(os.path.join(SOURCE, text_id + '.csv'))[1]:
             if r['check'] != 'eye':
                 continue
-            key = (r['article'], r['item'])
+            key = row_key(r)
             if 'seat_ar' in r:
                 out[key + ('ar',)] = f"ولاية {r['name_ar']}، مقرها مدينة {r['seat_ar']}"
                 out[key + ('fr',)] = None
@@ -267,7 +364,7 @@ class Readings(unittest.TestCase):
                 continue
             for r in read(path)[1]:
                 if r['check'] == 'eye':
-                    self.assertIn((text_id, r['article'], r['item']), read_keys)
+                    self.assertIn((text_id,) + row_key(r), read_keys)
 
 
 if __name__ == '__main__':

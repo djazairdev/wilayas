@@ -12,6 +12,15 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
 | `lists.py` | Builds the lists of communes of a law or an ordinance from both editions. |
 | `decree.py` | Builds the names and chefs-lieux of new wilayas from Decree 21-117 (49 to 58) or Decree 26-206 (59 to 69). |
 | `review.py` | Crops the printed line of every name in `readings.csv`, to check the readings against the page. |
+| `rules.swift` | Finds the rules between the rows of the tables on scanned pages (Decree 91-306). |
+| `regions.py` | Prints the parts of Decree 91-306's pages to read again by OCR: each half-page column, or each row of a table. |
+| `regions.swift` | Reads those parts with macOS Vision OCR, as `ocr.swift` reads whole pages. |
+| `dairas.py` | Builds the daïra tables of one edition of Decree 91-306 from the OCR and the rules. |
+| `wikidata.py` | Fetches the labels of Algeria's communes from Wikidata (CC0), which the OCR's readings are checked against. Nothing from Wikidata goes into the data. |
+| `annex.py` | Pairs the two editions' tables of Decree 91-306 and checks each name. |
+| `sheets.py`, `grid.swift` | Lay out on sheets, to read by eye, the names of Decree 91-306 that the OCR doesn't settle. |
+| `bitmap.swift` | Renders parts of pages as black-and-white bitmaps, to measure the letters. |
+| `alifs.py` | Checks the hamzas of Decree 91-306's Arabic names against the shapes of the alifs on the scan. |
 
 ## Method
 
@@ -20,6 +29,7 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
   - Where they have the same letters, the PDF's characters are kept.
   - Every other name is read on the rendered page and recorded, with who read it, in [`data/source/readings.csv`](../../data/source/readings.csv).
 - Both editions must give the same articles, with the same number of communes in each list.
+- **Scans** (Decree 91-306, both editions): each page is read by OCR four ways: whole and by half-page column at 300 dpi, and by row of the tables at 300 and 400 dpi. A name is taken from the OCR when every reading agrees and is the label of a commune in Wikidata. Every other name is read on the rendered page and recorded in `readings.csv`. Both editions must give the same tables, but for the lines listed in `GAPS` in `annex.py`.
 
 ## Commands
 
@@ -50,6 +60,21 @@ swift tools/gazette/columns.swift fr sources/joradp/F2026040.pdf 5 5 > work/F202
 swift tools/gazette/columns.swift ar sources/joradp/A2026040.pdf 6 6 > work/A2026040.txt
 swift tools/gazette/ocr.swift sources/joradp/A2026040.pdf 6 6 ar-SA > work/A2026040.ocr.jsonl
 python3 tools/gazette/decree.py presidential-decree-26-206 work/F2026040.txt work/A2026040.txt work/A2026040.ocr.jsonl > data/source/presidential-decree-26-206.csv
+
+# Executive Decree 91-306 (JO n° 41 of 1991): both editions are scans
+swift tools/gazette/ocr.swift sources/joradp/F1991041.pdf 3 28 fr-FR > work/F1991041.ocr.jsonl
+swift tools/gazette/ocr.swift sources/joradp/A1991041.pdf 3 32 ar-SA > work/A1991041.ocr.jsonl
+swift tools/gazette/rules.swift sources/joradp/F1991041.pdf 3 28 > work/F1991041.rules.jsonl
+swift tools/gazette/rules.swift sources/joradp/A1991041.pdf 3 32 > work/A1991041.rules.jsonl
+for e in F:fr A:ar; do
+  f=work/${e%:*}1991041 l=${e#*:}
+  python3 tools/gazette/regions.py columns $l $f.ocr.jsonl | swift tools/gazette/regions.swift > $f.columns.ocr.jsonl
+  python3 tools/gazette/regions.py rows $l $f.ocr.jsonl $f.rules.jsonl | swift tools/gazette/regions.swift > $f.rows.ocr.jsonl
+  python3 tools/gazette/regions.py rows $l $f.ocr.jsonl $f.rules.jsonl 400 | swift tools/gazette/regions.swift > $f.rows400.ocr.jsonl
+  python3 tools/gazette/dairas.py $l $f.rules.jsonl $f.rows.jsonl $f.ocr.jsonl $f.columns.ocr.jsonl $f.rows.ocr.jsonl $f.rows400.ocr.jsonl
+done
+python3 tools/gazette/wikidata.py > work/wikidata-labels.json
+python3 tools/gazette/annex.py work/F1991041.rows.jsonl work/A1991041.rows.jsonl work/wikidata-labels.json > data/source/executive-decree-91-306.csv
 ```
 
 `lists.py` and `decree.py` list on stderr every name still waiting to be read on the page. To read one, render it:
@@ -64,4 +89,12 @@ To check the names already read on the page, crop each one with its neighbours. 
 
 ```sh
 python3 tools/gazette/review.py work/review   # writes work/review/crops/*.png and work/review/readings.json
+```
+
+For Decree 91-306, `annex.py` lists on stderr the names that need the page, and `sheets.py` lays them out, 24 to a sheet, with the OCR's readings and the nearest Wikidata label in `items.json`. Once the readings are in `readings.csv`, `alifs.py` lists the Arabic names whose hamzas the scan contradicts, to look at again:
+
+```sh
+python3 tools/gazette/sheets.py work/F1991041.rows.jsonl work/A1991041.rows.jsonl work/wikidata-labels.json work/eye
+python3 tools/gazette/alifs.py work/F1991041.rows.jsonl work/A1991041.rows.jsonl
+python3 tools/gazette/alifs.py work/F1991041.rows.jsonl work/A1991041.rows.jsonl --show 44 8/3   # one name, drawn in text
 ```

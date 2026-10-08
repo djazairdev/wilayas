@@ -60,3 +60,1413 @@ ordinance-21-03,52 bis 6,8,ar,المنقر,7,claude,the OCR cut it short
 presidential-decree-21-117,1,49,ar,ولاية تيميمون، مقرها مدينة تيميمون,8,claude,the PDF's text splits a word
 presidential-decree-21-117,1,57,ar,ولاية المغير، مقرها مدينة المغير,8,claude,the PDF's text splits a word and runs it into entry 58
 presidential-decree-21-117,1,58,ar,ولاية المنيعة، مقرها مدينة المنيعة,8,claude,the PDF's text runs it into entry 57
+executive-decree-91-306,01,3/seat,fr,BORDJ BADJI MOKHTAR,3,claude,the OCR’s readings differ
+executive-decree-91-306,01,4/1,fr,Aoulef,3,claude,the OCR’s readings differ
+executive-decree-91-306,01,4/1,ar,أولف,4,claude,"the OCR’s readings differ; the hamza merges into the alif’s head, 10 px wide over a 6 px stem"
+executive-decree-91-306,01,4/2,fr,Timekten,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,4/4,ar,اقبلي,4,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,01,5/seat,ar,تيميمون,4,claude,the OCR’s readings differ
+executive-decree-91-306,01,5/1,ar,تيميمون,4,claude,the OCR’s readings differ
+executive-decree-91-306,01,6/1,fr,Tsabit,3,claude,"the OCR read ’Tsabit; a speck before the name, not an apostrophe"
+executive-decree-91-306,01,6/2,fr,Sbaa,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,9/3,ar,أولاد عيسى,4,claude,"the OCR’s readings differ, and none is as printed; the ى has no dots"
+executive-decree-91-306,01,10/seat,fr,ZAOUIAT KOUNTA,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,10/1,fr,Zaouiat Kounta,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,10/2,fr,In Zeghmir,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,11/seat,fr,ADRAR,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,11/seat,ar,أدرار,4,claude,the OCR’s readings differ
+executive-decree-91-306,01,11/1,fr,Adrar,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,11/1,ar,أدرار,4,claude,"the OCR read ادرار; the hamza merges into the alif’s head, 11 px wide over a 6 px stem, as in the seat’s name"
+executive-decree-91-306,01,11/3,fr,Ouled Ahmed Timmi,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,01,11/3,ar,أولاد أحمد تيمي,4,claude,"the OCR read لولاد أحمد تيمي; the alif of أولاد touches the و; its head is a hamza’s, 13 px wide over a 6 px stem"
+executive-decree-91-306,02,1/2,fr,Sobha,3,claude,the OCR read Søbha; a crack across the o
+executive-decree-91-306,02,1/2,ar,صبحة,4,claude,the OCR’s readings differ
+executive-decree-91-306,02,2/2,fr,Sidi Akacha,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,2/2,ar,سيدي عكاشة,4,claude,the OCR’s readings differ
+executive-decree-91-306,02,3/1,fr,Ouled Farès,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,3/3,fr,Labiodh Medjadja,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,4/2,fr,Ouled Abbas,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,4/3,fr,Béni Rached,3,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,5/1,fr,Béni Haoua,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,6/1,fr,Ain Merane,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,6/2,ar,الهرنفة,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,7/2,fr,Harchoune,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,7/2,ar,حرشون,4,claude,the OCR’s readings differ; the dot of the ن is small
+executive-decree-91-306,02,7/3,fr,Béni Bouatteb,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,8/seat,fr,OULED BEN ABDELKADER,4,claude,"the OCR’s readings differ, and none is as printed; hyphenated at the line break: AB-DELKADER"
+executive-decree-91-306,02,8/2,fr,El Hadjadj,4,claude,the OCR’s readings differ
+executive-decree-91-306,02,9/1,ar,أبو الحسن,4,claude,the OCR’s readings differ
+executive-decree-91-306,02,9/3,ar,تلعصة,4,claude,the OCR’s readings differ
+executive-decree-91-306,02,10/1,fr,Zeboudja,4,claude,the OCR’s readings differ
+executive-decree-91-306,02,10/1,ar,الزبوجة,4,claude,the OCR read الزبوجه
+executive-decree-91-306,02,10/2,fr,Benaria,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,10/2,ar,بنارية,4,claude,"the OCR’s readings agree but match no Wikidata label; a crack splits a sliver off the alif’s left side, too small for a hamza"
+executive-decree-91-306,02,10/3,fr,Bouzeghaïa,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,11/3,fr,Moussedek,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,11/3,ar,محسدق,5,claude,"the OCR’s readings differ, and none is as printed; uncertain: after the م the scan shows a slanted stroke like the ح of الحسن, then two teeth, where ص in this type is a flat loop (تلعصة, القصر); the French edition prints Moussedek"
+executive-decree-91-306,02,12/2,ar,الظهرة,5,claude,the OCR’s readings differ
+executive-decree-91-306,02,13/seat,fr,CHLEF,4,claude,the OCR’s readings differ
+executive-decree-91-306,02,13/2,ar,أم الدروع,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,02,13/3,ar,السنجاس,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,1/seat,fr,AFLOU,4,claude,the OCR’s readings differ
+executive-decree-91-306,03,1/seat,ar,آفلو,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,1/1,ar,آفلو,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,1/3,ar,سيدي بوزيد,5,claude,the OCR’s readings differ
+executive-decree-91-306,03,2/2,fr,Hadj Mecheri,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,2/2,ar,الحاج مشري,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,2/3,fr,Taouiala,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,3/2,fr,Benacer Benchohra,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,4/1,fr,Aïn Madhi,4,claude,the OCR’s readings differ
+executive-decree-91-306,03,4/1,ar,عين ماضي,5,claude,"the OCR read غين ماضي; a thin upright mark stands on the head of the ع, where a dot of this type is a round speck apart from its letter (compare عين in 04 5/seat and 04 11/2); read as a flaw, not غ"
+executive-decree-91-306,03,4/3,fr,El Houita,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,4/3,ar,الحويطة,5,claude,the OCR’s readings agree but match no Wikidata label; the article’s alif runs below the line into a blot
+executive-decree-91-306,03,4/5,fr,Tadjerouna,4,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,5/2,ar,حاسي الدلاعة,5,claude,the OCR’s readings agree but match no Wikidata label; a blot on the right of the article’s alif
+executive-decree-91-306,03,6/seat,ar,قلتة سيدي سعد,5,claude,the OCR read قلته سيدي سعد
+executive-decree-91-306,03,6/3,ar,بيضاء,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,03,7/2,ar,العسفية,5,claude,the OCR’s readings differ
+executive-decree-91-306,03,9/1,ar,الغيشة,5,claude,the OCR’s readings differ
+executive-decree-91-306,04,2/2,ar,الزرق,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,3/1,fr,Aïn M’Lila,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,4/2,ar,بحير الشرقى,5,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots; a speck above بحير
+executive-decree-91-306,04,4/3,fr,El Bellala,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,4/4,ar,الراحية,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,5/seat,ar,عين الفكرون,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,5/1,ar,عين الفكرون,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,6/3,fr,Ouled Zoui,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,6/3,ar,أولاد الزوي,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,7/2,ar,هنشير تومغاني,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,8/seat,fr,F’KIRINA,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,8/seat,ar,فكيرينة,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,8/1,fr,F’Kirina,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,8/1,ar,فكيرينة,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,9/2,fr,Djazia,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,10/seat,ar,قصر الصباحي,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,10/1,ar,قصر الصباحي,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,04,11/2,ar,عين الزيتون,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,1/2,ar,قيقبة,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,1/3,fr,Guecha,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,1/3,ar,الڤشة,6,claude,"the OCR’s readings agree but match no Wikidata label; the letter after the article has three dots above, for the sound g"
+executive-decree-91-306,05,2/1,ar,بريكة,6,claude,the OCR’s readings differ
+executive-decree-91-306,05,2/2,ar,بيطام,6,claude,"the OCR read بيظام; a small irregular mark above the ط, smaller than this type’s dots; read as a speck, not ظ"
+executive-decree-91-306,05,2/3,fr,M’Doukel,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,2/3,ar,مدوكل,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,3/1,fr,Aïn Touta,5,claude,the OCR’s readings differ
+executive-decree-91-306,05,3/4,fr,Béni Foudala El Hakania,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,4/1,ar,مروانة,6,claude,the OCR’s readings differ
+executive-decree-91-306,05,4/3,fr,Ksar Belezma,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,6/3,fr,Zana El Beida,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,7/3,fr,Aïn Yagout,5,claude,the OCR’s readings differ
+executive-decree-91-306,05,8/2,fr,Ouyoun El-Assafir,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,9/seat,fr,THENIET EL ABED,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,9/1,fr,Theniet El Abed,5,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,9/2,ar,شير,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,9/3,ar,وادي التاقة,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,10/seat,ar,أريس,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,10/1,ar,أريس,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,10/2,ar,تغانمين,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,11/2,fr,Ouled Fadhel,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,12/seat,ar,شمرة,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,12/1,ar,شمرة,6,claude,the OCR’s readings differ
+executive-decree-91-306,05,12/2,fr,Boulhilet,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,12/2,ar,بو الحيلات,6,claude,the OCR’s readings agree but match no Wikidata label; a speck touches the top of the article’s alif
+executive-decree-91-306,05,13/1,fr,Aïn Djassar,6,claude,the OCR’s readings differ
+executive-decree-91-306,05,14/seat,fr,OULED SELLEM,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,14/1,fr,Ouled Sellem,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,14/2,ar,تالغمت,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,15/seat,fr,TKOUT,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,15/1,fr,Tkout,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,15/3,fr,Kimel,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,16/seat,fr,DJEZZAR,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,16/1,fr,Djezzar,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,16/3,fr,Metkaouek,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,16/3,ar,المتكوك,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,17/2,ar,لرباع,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,05,18/seat,fr,MENAA,6,claude,the OCR’s readings differ
+executive-decree-91-306,05,18/2,fr,Tigherghar,6,claude,the OCR’s readings differ
+executive-decree-91-306,05,19/1,fr,Ichmoul,6,claude,the OCR’s readings differ
+executive-decree-91-306,05,19/3,ar,إنوغيسن,7,claude,the OCR’s readings differ
+executive-decree-91-306,05,20/1,ar,سقانة,7,claude,the OCR’s readings differ
+executive-decree-91-306,05,21/seat,ar,أولاد سي سليمان,7,claude,the OCR’s readings differ
+executive-decree-91-306,06,2/seat,ar,آقبو,7,claude,the OCR’s readings differ
+executive-decree-91-306,06,2/1,ar,آقبو,7,claude,the OCR’s readings differ
+executive-decree-91-306,06,2/2,ar,اغرم,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,2/3,ar,تامقرة,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,3/2,fr,Béni Djellil,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,3/3,fr,Semaoune,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,3/3,ar,سمعون,7,claude,the OCR’s readings differ
+executive-decree-91-306,06,3/4,fr,Ferraoun,6,claude,the OCR’s readings differ
+executive-decree-91-306,06,4/seat,fr,ADEKAR,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,4/seat,ar,أذكار,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,4/1,fr,Adekar,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,4/1,ar,أذكار,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,4/2,ar,تاوريرت اغيل,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,4/3,fr,Béni Ksila,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,4/3,ar,بني كسيلة,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,5/4,fr,M’Cisna,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,6/seat,ar,خراطة,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,6/1,ar,خراطة,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,6/2,fr,Draa El Kaïd,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,7/3,fr,Thinabdher,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,7/5,ar,سيدي عياد,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,8/seat,fr,TIMZRIT,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,8/1,fr,Timzrit,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,9/2,ar,السوق أوفلا,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,10/2,fr,Aitrizine,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,10/2,ar,آيت رزين,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,11/seat,ar,سوق الاثنين,7,claude,the OCR’s readings differ; a speck between the words
+executive-decree-91-306,06,11/1,fr,Souk El Tenine,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,11/1,ar,سوق الاثنين,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,12/3,fr,Iflaine El Maten,6,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,12/3,ar,فلاين الماثن,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,14/3,fr,Aït Smaïl,7,claude,the OCR’s readings differ
+executive-decree-91-306,06,14/3,ar,آيت إسماعيل,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,15/1,fr,Béni Maouche,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,16/2,ar,تيزي نبربر,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,17/seat,fr,IFRI OUZELLAGUENE,7,claude,the OCR read IFRI OUZELLA- GUENE; hyphenated at the line break: OUZELLA-GUENE
+executive-decree-91-306,06,17/1,fr,Ouzellaguène,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,18/2,fr,Béni Melikeche,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,06,19/seat,fr,BEDJIA,7,claude,the OCR’s readings agree but match no Wikidata label; printed so; the commune is Béjaia
+executive-decree-91-306,06,19/1,fr,Béjaia,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,1/seat,ar,الوطاية,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,1/1,ar,الوطاية,8,claude,"the OCR’s readings agree but match no Wikidata label; a mark on the top of the ط’s stroke, not over its loop where ظ has its dot"
+executive-decree-91-306,07,2/seat,ar,سيدي عقبة,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,2/1,ar,سيدي عقبة,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,3/2,fr,Bouchagroun,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,3/3,ar,لشانة,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,3/4,fr,Bordj Benazzouz,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,4/3,fr,Chaïba,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,5/3,ar,لواء,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,6/2,ar,الفيض,8,claude,the OCR’s readings differ
+executive-decree-91-306,07,6/3,fr,Khanguet Sidi Nadji,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,6/4,fr,Meziraa,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,6/4,ar,المزيرعة,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,7/seat,ar,القنطرة,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,7/1,ar,القنطرة,8,claude,the OCR’s readings differ
+executive-decree-91-306,07,7/2,fr,Aïn Zaatout,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,8/2,ar,بسباس,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,8/3,ar,رأس الميعاد,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,9/2,fr,El GHrous,7,claude,the OCR’s readings agree but match no Wikidata label; printed with a capital H
+executive-decree-91-306,07,10/seat,fr,MECHOUNECHE,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,10/1,fr,Mechounèche,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,12/seat,fr,DJEMOURAH,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,12/1,fr,Djemourah,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,07,12/2,ar,البرانس,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,1/seat,ar,قنادسة,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,1/1,ar,قنادسة,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,2/seat,ar,بني ونيف,9,claude,the OCR’s readings differ
+executive-decree-91-306,08,3/1,ar,العبادلة,9,claude,the OCR’s readings differ
+executive-decree-91-306,08,3/2,fr,Mechra Houari Boumédiène,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,3/3,fr,Arg Ferradj,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,4/seat,ar,بني عباس,9,claude,the OCR’s readings differ; a speck before the name
+executive-decree-91-306,08,4/1,fr,Béni Abbes,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,4/2,ar,تامترت,9,claude,the OCR’s readings differ
+executive-decree-91-306,08,6/seat,ar,الأحمر,9,claude,the OCR’s readings differ
+executive-decree-91-306,08,6/1,ar,الأحمر,9,claude,the OCR’s readings differ
+executive-decree-91-306,08,6/2,fr,Boukais,7,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,6/2,ar,بوقايس,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,7/seat,ar,تاغيت,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,7/1,ar,تاغيت,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,8/seat,ar,إيقلي,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,8/1,ar,إيقلي,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,9/seat,ar,الوطاء,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,9/1,ar,الوطاء,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,9/2,fr,Beni Ikhlef,8,claude,the OCR’s readings differ
+executive-decree-91-306,08,10/seat,fr,OULED KHODEIR,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,10/1,fr,Ouled Khodeir,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,10/2,ar,قصابي,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,08,12/1,fr,Bechar,8,claude,"the OCR’s readings agree but match no Wikidata label; a speck under the c, not a cedilla"
+executive-decree-91-306,08,12/1,ar,بشار,9,claude,the OCR’s readings differ
+executive-decree-91-306,09,1/2,fr,Guerrouaou,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,2/seat,ar,الاربعاء,9,claude,"the OCR’s readings agree but match no Wikidata label; printed without a hamza on the lam-alif, where الأحمر (08 6/seat and 08 6/1) has one"
+executive-decree-91-306,09,2/1,ar,الاربعاء,9,claude,"the OCR’s readings agree but match no Wikidata label; printed without a hamza, as the seat’s name"
+executive-decree-91-306,09,3/2,ar,وادي جر,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,4/1,fr,Ouled Yaich,8,claude,"the OCR’s readings agree but match no Wikidata label; the print is smudged over ""aic""; one dot shows above the i"
+executive-decree-91-306,09,4/1,ar,أولاد يعيش,9,claude,the OCR’s readings differ
+executive-decree-91-306,09,4/2,fr,Béni Mered,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,5/seat,ar,الشبلي,9,claude,the OCR’s readings differ
+executive-decree-91-306,09,5/2,ar,بوعينان,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,6/2,fr,Hammam El Ouane,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,6/2,ar,حمام ألوان,9,claude,the OCR’s readings differ
+executive-decree-91-306,09,7/seat,fr,OUED EL ALLEUG,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,7/1,fr,Oued El Alleug,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,7/2,fr,Béni Tamou,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,7/3,fr,Ben Khellil,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,7/3,ar,ابن خليل,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,8/seat,ar,بئر التوتة,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,8/1,ar,بئر التوتة,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,8/2,fr,Tassala el Merdja,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,8/2,ar,تسالة المرجة,9,claude,the OCR’s readings agree but match no Wikidata label; the two words are set close together
+executive-decree-91-306,09,9/1,fr,Mouzaïa,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,9/2,fr,Ain Romana,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,10/seat,fr,MEFTAH,8,claude,"the OCR’s readings differ, and none is as printed; the OCR read some of the letters as Cyrillic ones"
+executive-decree-91-306,09,10/2,ar,جبابرة,9,claude,the OCR’s readings differ
+executive-decree-91-306,09,11/2,fr,Ouled Selama,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,11/2,ar,أولاد سلامة,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,09,12/1,ar,البليدة,9,claude,the OCR’s readings differ
+executive-decree-91-306,09,12/2,ar,بوعرفة,9,claude,the OCR’s readings differ
+executive-decree-91-306,10,1/2,ar,بوكرم,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,1/5,fr,Z’barbar,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,1/5,ar,زبربر,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,1/6,ar,معلة,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,2/seat,ar,الحيزر,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,2/1,ar,الحيزر,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/seat,fr,M’CHEDELLAH,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/seat,ar,مشد الله,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,3/1,fr,M’Chedellah,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/1,ar,مشد الله,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/2,ar,الصهاريج,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/3,ar,الشرفاء,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/5,fr,Hanif,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/5,ar,حنيف,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/6,fr,Taourirt,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,3/6,ar,تاوريرت,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,4/seat,fr,SOUR EL-GHOZLANE,8,claude,"the OCR read SOUR EL- GHOZLANE; the hyphen ends the line but falls between two words, so it is kept"
+executive-decree-91-306,10,4/5,fr,Dirah,8,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,4/6,ar,الحكيمية,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,6/seat,ar,القادرية,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,6/1,ar,القادرية,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,6/2,ar,أعمر,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,6/3,ar,جباحية,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,7/2,ar,العجيبة,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,7/3,ar,أهل القصر,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,7/4,fr,Ouled Rached,8,claude,the OCR’s readings differ
+executive-decree-91-306,10,7/4,ar,أولاد راشد,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,7/5,ar,الاسنام,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,8/seat,fr,El HACHIMIA,9,claude,the OCR read EI HACHIMIA; printed with a lower-case l
+executive-decree-91-306,10,9/seat,ar,برج أوخريص,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,9/1,ar,برج أوخريص,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,9/2,fr,Mesdour,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,9/4,fr,Hadjra Zerga,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,10/2,ar,الروراوة,10,claude,the OCR’s readings differ
+executive-decree-91-306,10,10/3,fr,El Khebouzia,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,12/2,fr,Ain Turk,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,12/3,fr,Ait Laaziz,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,10,12/3,ar,آيت لعزيز,10,claude,the OCR’s readings differ
+executive-decree-91-306,11,1/seat,ar,تازروق,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,1/1,ar,تازروق,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,1/2,fr,Idlès,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,1/2,ar,ادلس,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,2/seat,fr,SILET ABALESSA,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,2/seat,ar,سيلات أباليسا,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,2/1,fr,Silet Abalessa,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,2/1,ar,سيلات أباليسا,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,3/seat,ar,إن قزام,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,3/1,ar,ان قزام,10,claude,the OCR’s readings differ; printed without the hamza below that the seat’s name has; specks above قزام
+executive-decree-91-306,11,4/1,ar,ان صالح,10,claude,the OCR’s readings agree but match no Wikidata label; a speck between the words
+executive-decree-91-306,11,4/2,fr,Foggaret Ezzouaoua,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,4/2,ar,فقارات الزاوية,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,5/seat,fr,TIN ZOUATINE,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,5/seat,ar,تين زواتين,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,5/1,fr,Tin Zouatine,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,5/1,ar,تين زواتين,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,6/1,ar,ان غار,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,7/seat,fr,TAMANGHASSET,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,7/seat,ar,تامنغست,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,7/1,fr,Tamanghasset,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,7/1,ar,تامنغست,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,11,7/2,ar,إن أمقل,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,1/3,fr,Boulhef Dyn,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,1/3,ar,بولحاف الدين,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,2/seat,fr,BIR EL ATER,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,2/seat,ar,بئر العاتر,11,claude,the OCR’s readings differ
+executive-decree-91-306,12,2/1,fr,Bir El Ater,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,2/1,ar,بئر العاتر,11,claude,the OCR’s readings differ
+executive-decree-91-306,12,2/2,fr,El Ogla El Malha,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,4/1,fr,Chéria,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,4/2,fr,Thilidjène,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,5/3,fr,El Mezraa,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,5/4,ar,سطح قنطيس,11,claude,the OCR’s readings differ
+executive-decree-91-306,12,6/3,ar,عين الزرقاء,11,claude,the OCR’s readings differ
+executive-decree-91-306,12,8/seat,ar,الماء الأبيض,11,claude,the OCR’s readings differ
+executive-decree-91-306,12,9/seat,fr,BIR MOKADEM,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,9/seat,ar,بئر المقدم,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,9/1,fr,Bir Mokadem,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,9/1,ar,بئر المقدم,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,9/3,fr,Ghorriguer,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,9/3,ar,قوريقر,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,12,10/seat,ar,أم علي,11,claude,the OCR’s readings differ
+executive-decree-91-306,12,10/1,ar,أم علي,11,claude,the OCR’s readings differ; a speck after أم
+executive-decree-91-306,12,11/seat,ar,مرسط,11,claude,the OCR’s readings differ
+executive-decree-91-306,12,11/2,fr,Bir Deheb,9,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,1/2,fr,Hammam Bougherara,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,2/seat,ar,الغزوات,11,claude,the OCR’s readings differ
+executive-decree-91-306,13,2/2,fr,Dar Yaghmoracen,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,2/4,fr,Tianet,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,5/2,fr,Aïn Youcef,10,claude,the OCR’s readings differ
+executive-decree-91-306,13,5/2,ar,عين يوسف,11,claude,the OCR’s readings differ
+executive-decree-91-306,13,5/3,fr,Béni Ouarsous,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,5/3,ar,بني وارسوس,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,6/seat,ar,سبدو,11,claude,the OCR’s readings differ
+executive-decree-91-306,13,6/2,ar,الغور,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,6/3,ar,العريشة,11,claude,the OCR’s readings differ
+executive-decree-91-306,13,7/seat,fr,BAB EL ASSA,10,claude,"the OCR’s readings differ, and none is as printed; the text showing through from the other side of the page is not part of it"
+executive-decree-91-306,13,7/1,ar,باب العسة,11,claude,the OCR’s readings differ
+executive-decree-91-306,13,7/2,ar,السوانى,11,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,13,7/3,fr,Souk Thlata,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,8/2,fr,Terny Beni Hediel,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,8/2,ar,تيرنى بنى هديل,11,claude,the OCR’s readings agree but match no Wikidata label; the two ى have no dots
+executive-decree-91-306,13,8/3,ar,عين الغرابة,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,8/4,fr,Béni Mester,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,8/4,ar,بني مستر,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,9/seat,ar,اولاد ميمون,11,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,13,9/2,fr,Béni Semiel,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,9/3,fr,Oued Chouli,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,9/3,ar,وادى الشولي,11,claude,the OCR’s readings agree but match no Wikidata label; the ى of وادى has no dots
+executive-decree-91-306,13,10/1,ar,سيدى الجيلالي,12,claude,the OCR’s readings agree but match no Wikidata label; the ى of سيدى has no dots
+executive-decree-91-306,13,12/seat,ar,حنين,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,12/1,fr,Honaine,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,12/1,ar,حنين,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,12/2,fr,Béni Khaled,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,12/2,ar,بني خالد,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,13/1,fr,Béni Snous,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,13/2,fr,Azail,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,13/2,ar,العزيل,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,13/3,fr,Béni Bahdel,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,14/seat,ar,بنى بوسعيد,12,claude,"the OCR’s readings agree but match no Wikidata label; the ى has no dots, where the commune’s name has ي"
+executive-decree-91-306,13,14/1,fr,Béni Boussaid,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,14/1,ar,بني بوسعيد,12,claude,the OCR’s readings differ
+executive-decree-91-306,13,14/2,ar,سيدى مجاهد,12,claude,the OCR’s readings agree but match no Wikidata label; the ى of سيدى has no dots
+executive-decree-91-306,13,15/seat,fr,MARSA BEN MEHDI,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,15/2,fr,M’Cirda Fouaga,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,16/1,fr,Fellaoucène,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,16/2,ar,العين الكبيرة,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,16/3,fr,Ain Fetah,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,16/3,ar,عين الفتح,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,17/seat,ar,عين تالوت,12,claude,the OCR read سين تالوت; the ع is broken: only a stub and its link to the ي show
+executive-decree-91-306,13,17/2,fr,Aïn Nahala,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,18/seat,ar,ابن سكران,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,18/1,ar,ابن سكران,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,18/2,ar,سيدي عبد اللي,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,13,19/3,fr,Ouled Ryah,10,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,1/1,fr,Dahmouni,11,claude,the OCR’s readings differ
+executive-decree-91-306,14,1/2,fr,Aïn Bouchkif,11,claude,the OCR’s readings differ
+executive-decree-91-306,14,2/3,ar,سيدي عبد الغني,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,3/seat,ar,قصر الشلالة,12,claude,the OCR’s readings differ
+executive-decree-91-306,14,3/2,fr,Serguine,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,3/2,ar,سرقين,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,3/3,fr,Zmalat Emir Abdelkader,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,4/3,fr,Takhmaret,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,4/3,ar,تاخمارت,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,5/2,fr,Sebaine,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,5/3,fr,Aïn Dzarit,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,5/4,ar,الناظورة,12,claude,the OCR’s readings differ
+executive-decree-91-306,14,6/seat,ar,رحوية,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,6/1,ar,رحوية,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,7/3,ar,سيدي عبد الرحمن,12,claude,the OCR’s readings differ
+executive-decree-91-306,14,7/4,ar,جبيلة الرصفاء,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,8/seat,fr,MECHRAA SFA,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,8/1,fr,Mechraa Sfa,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,8/2,ar,جيلالي بن عمرو,12,claude,the OCR’s readings differ
+executive-decree-91-306,14,9/seat,fr,OUED LILI,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,9/1,fr,Oued Lili,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,10/3,fr,Racheiga,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,12/seat,fr,MEGHILA,11,claude,the OCR’s readings differ
+executive-decree-91-306,14,12/2,ar,السبت,13,claude,the OCR’s readings differ
+executive-decree-91-306,14,13/seat,fr,AIN DHEB,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,13/1,fr,Ain Dheb,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,13/2,fr,Chahaima,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,14,13/2,ar,شحيمة,13,claude,the OCR’s readings differ
+executive-decree-91-306,14,13/3,fr,Naïma,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,1/2,fr,Aït Boumahdi,11,claude,the OCR’s readings differ
+executive-decree-91-306,15,1/2,ar,آيت بومهدي,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,1/3,ar,آيت تودرت,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,2/2,fr,Aït Yahia,11,claude,the OCR’s readings differ
+executive-decree-91-306,15,2/2,ar,آيت يحي,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,2/3,fr,Akbil,11,claude,the OCR’s readings differ
+executive-decree-91-306,15,2/3,ar,أقبيل,13,claude,the OCR’s readings differ; specks around the alif; its head is a hamza’s
+executive-decree-91-306,15,2/4,ar,أبى يوسف,13,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,15,3/seat,fr,AZZAZGA,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,3/1,fr,Azzazga,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,3/2,fr,Fréha,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,3/4,fr,Yakourène,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,3/4,ar,يعكورن,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,3/5,ar,ايفيغاء,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,4/2,ar,مشتراس,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,4/4,ar,سي يوسف,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,5/seat,fr,DRAA EL MIZAN,11,claude,"the OCR’s readings differ, and none is as printed; the foot of the L is broken off"
+executive-decree-91-306,15,5/1,fr,Draa El Mizan,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,5/4,ar,آيت يحي موسى,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,6/3,fr,Djebel Aïssa Mimoun,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,6/3,ar,جبل عيسى ميمون,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,7/seat,fr,LARBAA NATH IRATEN,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,7/seat,ar,الأربعاء نايث ايراثن,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,7/1,fr,Larbaa Nath Iraten,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,7/1,ar,الأربعاء نايث ايراثن,13,claude,"the OCR’s readings differ; a speck of 4 pixels under the alif of ايراثن, where a hamza below in this type covers 57 to 94 (05 19/3, 06 14/3, 08 8/seat, 11 3/seat and 11 7/2)"
+executive-decree-91-306,15,7/2,fr,Aït Agouacha,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,7/2,ar,آيت قواشة,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,7/3,ar,ارجن,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,7/4,fr,Aït Oumalou,11,claude,the OCR’s readings differ
+executive-decree-91-306,15,7/4,ar,آيت أومالو,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,8/seat,fr,AZZEFOUN,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,8/1,fr,Azzefoun,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,8/1,ar,أزفون,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,8/3,fr,Aït Chaffa,11,claude,the OCR’s readings differ
+executive-decree-91-306,15,8/3,ar,آيت شفة,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,8/4,fr,Aghrib,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,9/seat,fr,DRAA BEN KHEDDA,11,claude,the OCR’s readings differ
+executive-decree-91-306,15,9/1,fr,Draa Ben Khedda,11,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,9/1,ar,ذراع بن خدة,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,9/3,ar,سيدي النعمان,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,9/4,ar,تيرمتين,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,10/seat,ar,تيقزرت,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,10/1,ar,تيقزرت,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,10/2,ar,افليسن,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,10/3,ar,مزرانة,13,claude,the OCR’s readings differ
+executive-decree-91-306,15,11/2,fr,Idjeur,12,claude,the OCR’s readings differ
+executive-decree-91-306,15,11/3,ar,ايلولة أومالو,13,claude,"the OCR’s readings agree but match no Wikidata label; the alif of ايلولة is bare, its top no wider than its stem; the alif of أومالو has a hamza’s head, 11 px wide over a 5 px stem"
+executive-decree-91-306,15,11/4,fr,Béni Zeki,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,11/4,ar,بني زكي,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,12/1,fr,Béni Douala,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,12/2,fr,Aït Mahmoud,12,claude,the OCR’s readings differ
+executive-decree-91-306,15,12/2,ar,آيت محمود,14,claude,the OCR’s readings differ
+executive-decree-91-306,15,12/3,fr,Béni Aïssi,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,12/4,fr,Béni Zmenzer,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,13/2,fr,Aghni Goughrane,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,13/2,ar,أقنى قغران,14,claude,"the OCR’s readings differ; the ى has no dots; the alif of أقنى has a hamza’s head, 10 px wide over a 5 px stem"
+executive-decree-91-306,15,13/3,fr,Tizi N’talata,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,13/4,fr,Aït Bouadou,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,13/4,ar,آيت بوعدو,14,claude,"the OCR’s readings differ; the alif carries a madda: a cap 9 px wide on its top rows, then a neck of 4 px"
+executive-decree-91-306,15,14/seat,fr,MAATKA,12,claude,the OCR’s readings differ
+executive-decree-91-306,15,14/1,fr,Maatka,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,14/2,fr,Souk El Tenine,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,14/2,ar,سوق الاثنين,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,15/2,fr,Aït Khelili,12,claude,the OCR’s readings differ
+executive-decree-91-306,15,15/2,ar,آيت خليلي,14,claude,"the OCR’s readings differ; the alif carries a madda: a cap 9 px wide on its top rows, then a neck of 3 px"
+executive-decree-91-306,15,16/seat,fr,BENNI YENNI,12,claude,the OCR’s readings differ; printed so; the commune is Béni Yenni
+executive-decree-91-306,15,16/1,fr,Béni Yenni,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,16/2,fr,Yatafène,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,16/2,ar,ياطفان,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,16/3,fr,Iboudrarène,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,16/3,ar,إبودرار,14,claude,the OCR’s readings agree but match no Wikidata label; the last ر is faint
+executive-decree-91-306,15,17/seat,ar,ايفرحونن,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,17/1,ar,ايفرحونن,14,claude,"the OCR’s readings differ, and none is as printed; the letters between ايفر and نن are broken and only traces show; read as the seat’s name"
+executive-decree-91-306,15,17/2,fr,Imsouhal,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,17/2,ar,أمسوحال,14,claude,"the OCR’s readings differ, and none is as printed; the م is a loop cut off from the س, whose teeth are broken"
+executive-decree-91-306,15,17/3,fr,Illilten,12,claude,the OCR’s readings differ
+executive-decree-91-306,15,17/3,ar,[…]بتين,14,claude,"the OCR read بتين; only the end of the name is printed: the 5 mm after the dash, room for three or four letters, show specks and no letters; the first letter that shows is a tooth with one dot below (ب, or ي if a second dot was lost); the French edition prints Illilten"
+executive-decree-91-306,15,18/seat,ar,تيزى راشد,14,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,15,18/1,ar,تيزى راشد,14,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,15,19/seat,fr,TIZI GHENIF,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,19/seat,ar,تيزى غنيف,14,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,15,19/1,fr,Tizi Ghenif,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,15,19/1,ar,تيزى غنيف,14,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,15,21/1,ar,تيزى وزو,14,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,16,1/2,ar,وادي قريش,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,2/seat,fr,EL HARRACH,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,2/1,fr,El Harrach,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,2/3,fr,Mohammedia,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,4/1,fr,Dar El Beida,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,4/2,fr,Bab Ezzouar,12,claude,the OCR’s readings differ
+executive-decree-91-306,16,5/seat,ar,سيدي أمحمد,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,5/1,ar,سيدى أمحمد,14,claude,"the OCR’s readings differ; the ى of سيدى has no dots, where the seat’s name has ي"
+executive-decree-91-306,16,5/2,fr,Alger Centre,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,5/2,ar,الجزائر الوسطى,14,claude,the OCR’s readings differ
+executive-decree-91-306,16,6/2,fr,Maquaria,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,6/2,ar,المقارية,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,6/3,ar,القبة,14,claude,the OCR’s readings differ
+executive-decree-91-306,16,7/2,fr,Badjarah,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,7/2,ar,باش جراح,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,8/seat,ar,براقى,14,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,16,8/2,fr,Gué de Constantine,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,8/2,ar,جسر قسنطينة,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,8/3,fr,Eucalyptus,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,9/1,fr,Bouzaréah,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,10/2,ar,الرايس حميدو,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,11/seat,ar,ابن عكنون,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,11/1,ar,ابن عكنون,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,11/2,ar,دالي ابراهيم,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,11/3,fr,El Biar,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,11/3,ar,الابيار,14,claude,"the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge of الاربعاء (09 2/seat and 09 2/1), not the round head of الأحمر (08 6/seat and 08 6/1)"
+executive-decree-91-306,16,12/seat,fr,HAMMA ANNASSERS,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,12/seat,ar,حامة العناصر,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,12/1,fr,Hamma Annassers,12,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,12/1,ar,حامة العناصر,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,16,12/2,ar,المدنية,14,claude,the OCR’s readings differ
+executive-decree-91-306,17,1/4,ar,زعفران,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,2/seat,ar,الادريسية,15,claude,"the OCR’s readings differ; printed without a hamza: the lam-alif’s top is the plain wedge, and no mark stands under it"
+executive-decree-91-306,17,2/1,ar,الادريسية,15,claude,"the OCR’s readings agree but match no Wikidata label; printed without a hamza, as the seat’s name"
+executive-decree-91-306,17,2/2,ar,دويس,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,2/3,ar,عين الشهداء,15,claude,the OCR’s readings differ
+executive-decree-91-306,17,3/seat,fr,AIN OUSSERA,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,3/1,fr,Aïn Oussera,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,3/2,ar,قرنيني,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,4/seat,ar,بيرين,15,claude,the OCR’s readings agree but match no Wikidata label; a short stroke trails from the ن’s dot
+executive-decree-91-306,17,4/1,ar,بيرين,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,4/2,ar,بن هار,15,claude,the OCR’s readings agree but match no Wikidata label; printed as two words
+executive-decree-91-306,17,5/2,fr,Mouadjebar,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,5/3,ar,تاعظميت,15,claude,the OCR’s readings differ
+executive-decree-91-306,17,5/4,fr,Zaccar,13,claude,the OCR’s readings differ
+executive-decree-91-306,17,6/seat,ar,مسعد,15,claude,the OCR’s readings differ
+executive-decree-91-306,17,6/1,ar,مسعد,15,claude,"the OCR’s readings differ; a speck under the س, smaller than a dot; the teeth are spaced as in the seat’s name"
+executive-decree-91-306,17,6/2,ar,القطارة,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,6/3,ar,سلمانه,15,claude,the OCR’s readings agree but match no Wikidata label; ends in ه: no dots over the last letter
+executive-decree-91-306,17,6/5,ar,سد الرحال,15,claude,"the OCR’s readings differ; a hairline stroke above the ر, not a dot"
+executive-decree-91-306,17,7/3,ar,المليليحة,15,claude,the OCR’s readings differ; specks above the name
+executive-decree-91-306,17,8/3,fr,Beni Yacoub,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,8/3,ar,بني يعقوب,15,claude,the OCR’s readings differ; specks around بني
+executive-decree-91-306,17,9/2,fr,Oum El Adham,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,9/2,ar,أم العظم,15,claude,the OCR’s readings differ
+executive-decree-91-306,17,10/seat,ar,سيدي العجال,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,10/1,ar,سيدي العجال,15,claude,the OCR’s readings agree but match no Wikidata label; a slanted mark sits on top of the article’s lam; read as a flaw
+executive-decree-91-306,17,11/seat,fr,HAD SAHARY,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,11/seat,ar,حد الصحاري,15,claude,the OCR’s readings differ
+executive-decree-91-306,17,11/1,fr,Had Sahary,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,11/2,fr,Aïn Feka,13,claude,the OCR’s readings differ
+executive-decree-91-306,17,11/2,ar,عين فكة,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,11/3,fr,Bouira Lahdeb,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,17,11/3,ar,بويرة الأحدب,15,claude,the OCR’s readings agree but match no Wikidata label; the hamza stands apart above the lam-alif
+executive-decree-91-306,18,1/2,fr,Ouled Yahia khadrouche,13,claude,the OCR’s readings agree but match no Wikidata label; printed with a lower-case k
+executive-decree-91-306,18,1/2,ar,أولاد يحي خدروش,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,2/seat,ar,العنصر,15,claude,the OCR’s readings differ; a crack cuts the tops of the article’s alif and lam off their stems
+executive-decree-91-306,18,2/2,fr,Khier Oued Adjoul,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,2/2,ar,خير وادي عجول,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,2/3,ar,الجمعة بنى حبيبي,15,claude,the OCR’s readings agree but match no Wikidata label; the ى of بنى has no dots
+executive-decree-91-306,18,2/4,ar,بوراوى بلهادف,15,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,18,3/2,ar,الشحنة,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,3/3,fr,Oudjana,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,3/5,ar,بوسيف أولاد عسكر,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,4/seat,ar,تاكسانة,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,4/1,ar,تاكسانة,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,5/1,ar,العوانة,15,claude,the OCR’s readings differ
+executive-decree-91-306,18,5/2,fr,Selma Ben Ziada,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,6/seat,fr,ZIAMAH MANSOURIAH,13,claude,the OCR read ZIAMAH MAN- SOURIAH; hyphenated at the line break: MAN-SOURIAH
+executive-decree-91-306,18,6/1,fr,Ziamah Mansouriah,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,6/2,fr,Erraguène,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,6/2,ar,اراقن,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,7/seat,fr,SIDI MAROUF,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,7/seat,ar,سيدى معروف,15,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,18,7/1,fr,Sidi Marouf,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,8/seat,ar,شقفة,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,8/1,ar,شقفة,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,8/2,ar,القنار نوشفي,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,8/3,ar,سيدى عبد العزيز,15,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,18,8/4,fr,Bordj T’Har,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,9/1,fr,Settara,13,claude,the OCR’s readings differ
+executive-decree-91-306,18,10/seat,fr,JIMLA,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,10/1,fr,Jimla,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,10/2,fr,Boudria Beniyadjis,13,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,10/2,ar,بودريعة,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,10/3,ar,بني ياجيس,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,18,11/seat,fr,JIJEL,13,claude,the OCR’s readings differ
+executive-decree-91-306,19,1/1,fr,Aïn Arnat,14,claude,the OCR’s readings differ
+executive-decree-91-306,19,1/1,ar,عين أرنات,16,claude,the OCR’s readings differ
+executive-decree-91-306,19,1/3,ar,الوريسية,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,2/seat,fr,BENI AZIZ,14,claude,the OCR’s readings differ
+executive-decree-91-306,19,2/1,ar,بنى عزيز,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,3/1,ar,بنى ورتيلان,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,3/2,fr,Aïn Legradj,14,claude,the OCR’s readings differ
+executive-decree-91-306,19,3/3,ar,بنى شبانة,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,3/4,ar,بنى موحلي,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,4/3,fr,Aït Tizi,14,claude,"the OCR’s readings differ, and none is as printed; a mark after the name, apart from the letters"
+executive-decree-91-306,19,4/3,ar,أيت تيزى,16,claude,"the OCR’s readings agree but match no Wikidata label; the ى has no dots; the hamza merges into the alif’s head, 15 px wide over a 5 px stem; specks above أيت"
+executive-decree-91-306,19,4/4,fr,Aït Naoual M’Zada,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,5/1,fr,Aïn Oulmène,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,5/2,ar,أولاد سى أحمد,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,5/3,fr,Kasr El Abtal,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,6/seat,ar,عين أزال,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,6/1,ar,عين أزال,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,6/2,fr,Beida Bordj,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,6/2,ar,بيضاء البرج,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,6/4,fr,Bir Heddada,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,7/2,fr,Bazer Sakra,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,7/3,fr,Guelta Zerga,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,7/3,ar,القلتة الزرقاء,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,8/2,fr,Beni Oussine,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,8/2,ar,بنى وسين,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,9/seat,ar,العين الكبيرة,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,9/1,ar,العين الكبيرة,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,9/2,ar,الدهامشة,16,claude,the OCR’s readings differ
+executive-decree-91-306,19,10/1,ar,صالح باى,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,11/seat,fr,HAMMAM GUERGOUR,14,claude,the OCR’s readings differ
+executive-decree-91-306,19,11/seat,ar,حمام القرقور,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,11/1,ar,حمام القرقور,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,11/2,ar,ذراع القبيلة,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,12/2,fr,Tizi N’Bchar,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,12/2,ar,تيزى نبشار,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,12/3,fr,Oued Bared,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,12/3,ar,الوادى البارد,16,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,13/1,fr,Guijel,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,15/seat,fr,HAMMAM SOKHNA,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,15/seat,ar,حمام السخونة,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,15/1,fr,Hammam Sokhna,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,15/1,ar,حمام السخونة,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,15/3,fr,Telaa,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,15/3,ar,تلعة,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,16/2,fr,Beni Foudda,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,16/2,ar,بنى فودة,17,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,19,17/2,fr,Tala Ifacène,14,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,19,18/1,fr,Gunzet,14,claude,the OCR’s readings agree but match no Wikidata label; printed so; the seat of its daïra is printed GUENZET
+executive-decree-91-306,19,18/1,ar,قنزات,17,claude,the OCR’s readings differ
+executive-decree-91-306,19,19/1,ar,بئر العرش,17,claude,the OCR’s readings differ
+executive-decree-91-306,19,19/2,ar,بلعة,17,claude,the OCR’s readings differ
+executive-decree-91-306,19,19/3,fr,El Ouldja,14,claude,the OCR’s readings differ; a speck before the name
+executive-decree-91-306,20,1/2,ar,مولاى العربي,17,claude,the OCR’s readings agree but match no Wikidata label; the ى of مولاى has no dots
+executive-decree-91-306,20,1/3,ar,سيدى أحمد,17,claude,the OCR’s readings differ; the ى has no dots
+executive-decree-91-306,20,2/seat,fr,AL HASSASNA,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,20,2/1,fr,Al Hassasna,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,20,2/2,ar,المعمورة,17,claude,the OCR’s readings differ
+executive-decree-91-306,20,2/3,fr,Aïn Skhouna,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,20,2/3,ar,العين السخونة,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,20,3/1,ar,سيدى بوبكر,17,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,20,3/3,ar,سيدى عمار,17,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,20,3/4,ar,حنات,17,claude,"the OCR’s readings differ, and none is as printed; a broken hook hangs from the dash, apart from the ح, which has no dot; Law 84-09 prints the same name"
+executive-decree-91-306,20,4/2,fr,Doui Tabet,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,20,4/2,ar,دوي ثابت,17,claude,the OCR’s readings agree but match no Wikidata label; the د has no dot
+executive-decree-91-306,20,5/seat,ar,أولاد ابراهيم,17,claude,"the OCR’s readings agree but match no Wikidata label; the alif after the ر is thick at the top, 8 px over a 5 px stem, short of a hamza’s head"
+executive-decree-91-306,20,5/1,ar,أولاد ابراهيم,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,20,5/3,ar,عين السلطان,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,1/2,ar,جندل سعدي محمد,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,1/3,fr,Essebt,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,1/3,ar,السبت,17,claude,the OCR’s readings differ
+executive-decree-91-306,21,1/4,ar,الغدير,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,1/5,fr,Aïn Cherchar,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,2/2,fr,Beni Bachir,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,3/2,fr,Zardezas,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,3/3,ar,صالح بو الشعور,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,3/4,fr,Ouled Hebaba,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,3/4,ar,أولاد حبابة,17,claude,"the OCR’s readings differ; a shadda over the first ب (a small loop with a tail, 10 px wide, apart from the letters); harakat are not transcribed"
+executive-decree-91-306,21,3/5,ar,مجاز الدشيش,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,4/2,fr,Bein El Ouiden,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,5/3,fr,Cheraia,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,5/3,ar,الشرائع,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,6/seat,fr,BENAZOUZ,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,6/seat,ar,ابن عزوز,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,6/1,fr,Benazouz,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,6/1,ar,ابن عزوز,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,6/3,ar,بكوش الأخضر,17,claude,the OCR’s readings agree but match no Wikidata label; the hamza stands above the lam-alif
+executive-decree-91-306,21,8/2,fr,Kenoua,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,9/seat,ar,سيدى مزغيش,17,claude,the OCR’s readings differ; the ى has no dots
+executive-decree-91-306,21,9/1,ar,سيدى مزغيش,17,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,21,10/1,ar,أم الطوب,17,claude,the OCR’s readings differ
+executive-decree-91-306,21,11/2,fr,Oued Z’Hour,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,11/2,ar,وادى الزهور,18,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,21,11/3,fr,Khenag Mayoun,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,11/3,ar,خنق مايون,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,12/seat,fr,AIN KECHERA,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,12/1,fr,Aïn Kechera,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,13/3,fr,Hammadi Krouma,15,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,21,13/3,ar,حمادي كرومة,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,1/seat,fr,SIDI LAHCENE,16,claude,"the OCR’s readings differ; a mark touches the foot of the C; read as a speck, since French puts no cedilla before E"
+executive-decree-91-306,22,1/seat,ar,سيدي لحسن,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,1/1,fr,Sidi Lahcène,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,1/1,ar,سيدي لحسن,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,1/2,ar,سيدي خالد,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,1/3,ar,أمرناس,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,2/2,fr,Hassi Zehana,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,2/3,fr,Bedradine El Mokrani,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,2/4,fr,Chetouane Belaila,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,2/4,ar,شتوان بليلة,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,3/seat,ar,الزفيزف,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,3/1,ar,الزفيزف,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,3/3,fr,Aïn Adden,16,claude,the OCR’s readings differ
+executive-decree-91-306,22,3/3,ar,عين عدان,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,3/4,ar,مسيد,18,claude,"the OCR’s readings differ; a long mark, 9 px tall, under the last tooth of the س, which keeps its three teeth; read as a flaw, not a dot"
+executive-decree-91-306,22,4/1,ar,تلاغ,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,4/2,ar,تغالميت,18,claude,"the OCR’s readings differ; the م comes before the ي, where the French edition prints Teghalimet; a blot on the alif’s left side and a loose curl over the lam, under the tail of the غ of تلاغ on the line above"
+executive-decree-91-306,22,5/seat,ar,رأس الماء,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,5/1,ar,رأس الماء,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,5/2,ar,وادي السبع,18,claude,the OCR’s readings agree but match no Wikidata label; a shadda over the س; harakat are not transcribed
+executive-decree-91-306,22,6/2,fr,Oued Sefioune,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,6/2,ar,وادي سفيون,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,6/3,fr,Hassi Daho,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,7/1,fr,Aïn El Berd,16,claude,the OCR’s readings differ
+executive-decree-91-306,22,7/3,ar,سيدي حمادوش,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,7/4,fr,Sidi Brahim,16,claude,the OCR’s readings differ; text showing through from the other side of the page covers the m
+executive-decree-91-306,22,7/4,ar,سيدي إبراهيم,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,8/2,fr,Haçaiba,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,8/3,fr,Aïn Tidamine,16,claude,the OCR’s readings differ
+executive-decree-91-306,22,8/3,ar,عين تيدمين,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,9/2,fr,Sidi Chaïb,16,claude,the OCR’s readings differ
+executive-decree-91-306,22,9/3,fr,Bir El H’Mam,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,10/2,fr,Lemtar,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,10/2,ar,لمطار,18,claude,the OCR’s readings differ
+executive-decree-91-306,22,10/4,fr,Sidi Dahou Dezairs,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,10/4,ar,سيدي دحو الزاير,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,11/1,fr,Mostepha Ben Brahim,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,11/4,fr,Zerrouala,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,12/2,ar,وادي توريرة,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,12/4,fr,Tafessour,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,12/4,ar,تافيسور,18,claude,"the OCR’s readings differ; a small dot, 4 px, under the last tooth of the س, which keeps its three teeth; read as a flaw, not ب"
+executive-decree-91-306,22,13/3,ar,سحالة ثاورة,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,14/seat,fr,SIDI ALI BEN YOUB,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,14/1,fr,Sidi Ali Ben Youb,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,22,14/2,fr,Boukhenefis,16,claude,the OCR’s readings differ
+executive-decree-91-306,22,15/1,fr,Sidi Bel Abbes,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,23,2/seat,ar,برحال,19,claude,"the OCR read برجال; a speck of 8 pixels under the ح, where this type’s dots cover about 30; read as ح, not ج"
+executive-decree-91-306,23,2/2,ar,وادي العنب,19,claude,the OCR’s readings differ
+executive-decree-91-306,23,2/3,ar,التريعات,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,23,5/seat,fr,AIN EL BERDA,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,23,5/seat,ar,العين الباردة,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,23,5/1,fr,Aïn El Berda,16,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,23,5/1,ar,العين الباردة,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,23,5/3,ar,الشرفاء,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,1/seat,fr,GUELAAT BOUSBAA,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,1/seat,ar,قلعة بوسبع,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,1/1,fr,Guelaat Bousbaa,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,1/1,ar,قلعة بوسبع,19,claude,the OCR’s readings differ
+executive-decree-91-306,24,1/2,fr,Nechmaya,17,claude,the OCR’s readings differ
+executive-decree-91-306,24,1/2,ar,نشماية,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,1/3,fr,Djebala Khemissi,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,1/3,ar,جبالة الخميسي,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,2/2,ar,مجاز الصفاء,19,claude,the OCR’s readings differ
+executive-decree-91-306,24,2/3,fr,Oued Fraga,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,2/3,ar,وادي فراغا,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,2/4,fr,Aïn Ben Beida,17,claude,the OCR’s readings differ
+executive-decree-91-306,24,3/seat,fr,KHZARA,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,3/seat,ar,خزارة,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,3/1,fr,Khzara,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,3/1,ar,خزارة,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,4/seat,ar,وادي زناتي,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,4/1,ar,وادي زناتي,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,4/2,fr,Ain Regada,17,claude,the OCR’s readings differ; a speck before the name
+executive-decree-91-306,24,4/3,fr,Bordj Sabat,17,claude,the OCR’s readings differ
+executive-decree-91-306,24,5/seat,fr,HAMMAM DEBAGH,17,claude,the OCR’s readings differ
+executive-decree-91-306,24,5/3,ar,الركنية,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,6/seat,fr,HELIOPOLIS,17,claude,the OCR’s readings differ
+executive-decree-91-306,24,6/seat,ar,هيليو بوليس,19,claude,the OCR’s readings agree but match no Wikidata label; printed as two words
+executive-decree-91-306,24,6/1,fr,Heliopolis,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,6/1,ar,هيليو بوليس,19,claude,the OCR’s readings agree but match no Wikidata label; printed as two words
+executive-decree-91-306,24,7/seat,fr,HAMMAM N’BAILS,17,claude,the OCR’s readings differ
+executive-decree-91-306,24,7/1,fr,Hammam N’Bails,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,9/seat,fr,AIN HSAINIA,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,9/seat,ar,عين الحساينية,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,9/1,fr,Aïn Hsainia,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,9/1,ar,عين الحساينية,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,9/3,ar,رأس العقبة,19,claude,the OCR’s readings differ
+executive-decree-91-306,24,9/4,ar,سلاوة عنونة,19,claude,"the OCR’s readings differ; a stroke and a dot hang below the first tooth of the س, which keeps its three teeth; read as flaws, not ب"
+executive-decree-91-306,24,10/2,fr,Badjarah,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,24,10/2,ar,باجراح,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,1/seat,fr,EL KHROUB,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,1/1,fr,El Khroub,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,1/2,fr,Ouled Rahmoun,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,2/2,fr,Beni Hamidane,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,3/seat,fr,AIN ABID,17,claude,the OCR’s readings differ
+executive-decree-91-306,25,4/seat,fr,HAMMA BOUZIANE,17,claude,the OCR’s readings differ
+executive-decree-91-306,25,5/seat,ar,ابن زياد,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,5/1,ar,ابن زياد,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,5/2,fr,Messaoud Boudjeriou,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,5/2,ar,مسعود بوجريو,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,25,6/seat,ar,قسنطينة,20,claude,the OCR’s readings differ
+executive-decree-91-306,26,1/seat,fr,OUZERA,17,claude,the OCR’s readings differ
+executive-decree-91-306,26,1/seat,ar,وزرة,20,claude,the OCR’s readings differ
+executive-decree-91-306,26,1/1,ar,وزرة,20,claude,the OCR read وزدة
+executive-decree-91-306,26,1/3,ar,تيزي مهدي,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,2/seat,fr,BERROUAGHIA,17,claude,the OCR’s readings differ
+executive-decree-91-306,26,2/2,ar,أولاد دايد,20,claude,the OCR’s readings differ
+executive-decree-91-306,26,3/2,ar,السانق,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,3/3,fr,Meftaha,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,3/3,ar,مفتاحة,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,4/seat,ar,العمرية,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,4/1,ar,العمرية,20,claude,"the OCR’s readings differ; a blot under the article’s alif, 7 by 10 px, narrower than this type’s hamza below (10 to 12 px wide); read as a flaw"
+executive-decree-91-306,26,4/2,ar,أولاد إبراهيم,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,5/3,fr,Ouled Maref,17,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,5/5,ar,سيدي دامد,20,claude,the OCR read سيدي- دامد; a speck between the words
+executive-decree-91-306,26,6/2,ar,الحوضان,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,6/3,fr,Mezghana,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,6/4,fr,El Aïssaouia,18,claude,the OCR’s readings differ
+executive-decree-91-306,26,6/4,ar,عيساوة,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,7/2,fr,Sidi Rabie,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,7/3,fr,Bousekene,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,9/3,fr,Tlelat Ed Douair,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,9/3,ar,ثلاث دوائر,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,9/4,fr,Medjebeur,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,10/1,ar,عزيز,20,claude,the OCR’s readings differ
+executive-decree-91-306,26,10/3,fr,Oum El Djallil,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,11/seat,fr,CHELLALAT EL ADHAOURA,18,claude,the OCR’s readings differ
+executive-decree-91-306,26,11/3,ar,شنيقل,20,claude,the OCR’s readings differ
+executive-decree-91-306,26,12/1,fr,El Azizia,18,claude,the OCR’s readings differ
+executive-decree-91-306,26,13/seat,fr,SOUAGHI,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,13/1,fr,Souaghi,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,14/3,fr,Bouaiche,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,15/seat,ar,عوامري,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,15/1,ar,عوامري,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,15/3,fr,Hanacha,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,17/seat,fr,GUELB EL KEBIR,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,17/1,fr,Guelb El Kebir,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,17/2,fr,Sedraya,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,17/3,ar,بئر بن عابد,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,18/3,fr,Khams Djouamaa,18,claude,the OCR’s readings differ
+executive-decree-91-306,26,18/3,ar,خمسة جوامع,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,19/seat,fr,MEDEA,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,19/seat,ar,المدية,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,19/1,fr,Médéa,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,19/1,ar,المدية,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,19/2,fr,Draa Essamar,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,26,19/3,ar,تامسقيدة,21,claude,the OCR’s readings differ
+executive-decree-91-306,27,1/seat,ar,حاسي معمش,21,claude,the OCR’s readings differ
+executive-decree-91-306,27,1/1,ar,حاسي معمش,21,claude,the OCR’s readings differ
+executive-decree-91-306,27,1/3,fr,Mezeghrane,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,2/seat,fr,AIN TEDELES,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,2/1,fr,Aïn Tédeles,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,2/2,ar,صور,21,claude,the OCR’s readings agree but match no Wikidata label; a speck above the و
+executive-decree-91-306,27,2/3,fr,Sidi Bellatar,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,2/3,ar,سيدى بلعطار,21,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,27,2/4,ar,وادي الخير,21,claude,the OCR’s readings differ; debris between the د and the ي: a broken stroke and specks
+executive-decree-91-306,27,3/3,ar,سيرات,21,claude,the OCR’s readings differ
+executive-decree-91-306,27,3/4,ar,صفصاف,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,4/2,ar,تزقايت,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,4/3,fr,Ouled Maalah,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,5/seat,fr,ACHACHA,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,5/1,fr,Achacha,18,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,5/2,ar,نكمارية,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,5/3,ar,خضراء,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,6/seat,fr,AIN NOUICY,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,6/seat,ar,عين نويسي,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,6/1,fr,Aïn Nouicy,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,6/1,ar,عين نويسي,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,6/2,ar,فرناقة,21,claude,the OCR’s readings differ; a speck under the ر
+executive-decree-91-306,27,7/seat,fr,MASRA,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,7/1,fr,Masra,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,7/1,ar,ماسرة,21,claude,the OCR’s readings differ
+executive-decree-91-306,27,7/2,fr,Aïn Sidi Chrif,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,7/2,ar,عين سيدى الشريف,21,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,27,8/seat,fr,KHEIR EDDINE,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,8/1,fr,Kheir Eddine,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,9/1,ar,سيدى الاخضر,21,claude,"the OCR’s readings differ; the ى has no dots; printed without a hamza: the lam-alif’s top is the plain wedge, with a hairline above it"
+executive-decree-91-306,27,9/2,fr,Hadjajd,19,claude,the OCR’s readings agree but match no Wikidata label; printed so
+executive-decree-91-306,27,9/3,fr,Benabdelmalek Ramdane,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,27,10/1,ar,مستغانم,21,claude,the OCR’s readings differ
+executive-decree-91-306,28,1/seat,fr,HAMMAM DHALAA,19,claude,the OCR’s readings differ
+executive-decree-91-306,28,1/1,ar,حمام الضلعة,21,claude,the OCR’s readings differ; a speck between the words
+executive-decree-91-306,28,2/seat,ar,أولاد دراج,21,claude,the OCR read اولاد دراج
+executive-decree-91-306,28,3/3,ar,بوطي السايح,22,claude,the OCR’s readings differ
+executive-decree-91-306,28,4/2,fr,Aïn Rich,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,4/3,ar,سيدي محمد,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,4/5,ar,بئر الفضة,22,claude,the OCR’s readings differ
+executive-decree-91-306,28,5/seat,fr,BENSROUR,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,5/1,fr,Bensrour,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,5/3,fr,Oued Chair,19,claude,the OCR’s readings differ
+executive-decree-91-306,28,5/3,ar,وادي الشعير,22,claude,the OCR’s readings differ
+executive-decree-91-306,28,6/seat,fr,BOUSSAADA,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,6/1,fr,Boussaada,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,6/2,fr,Oultene,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,6/2,ar,ولتان,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,7/seat,ar,أولاد سيدى ابراهيم,22,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,28,7/2,ar,بن زوح,22,claude,the OCR’s readings differ
+executive-decree-91-306,28,8/seat,ar,سيدى عامر,22,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,28,8/1,ar,سيدي عامر,22,claude,"the OCR’s readings differ; printed with ي, where the seat’s name has ى"
+executive-decree-91-306,28,8/2,fr,Temsa,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,9/4,fr,Aïn El Khadra,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,9/4,ar,عين خضراء,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,9/5,fr,Dehahna,19,claude,the OCR’s readings differ; the crossbar of the e is broken
+executive-decree-91-306,28,10/2,fr,Ouled Mahdi,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,10/3,fr,Khatouti Sed El Djir,19,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,10/3,ar,خطوطي سد الجير,22,claude,the OCR’s readings differ; سد and الجير are set close together
+executive-decree-91-306,28,10/4,ar,المعاريف,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,12/seat,ar,مجدل,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,12/1,ar,مجدل,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,13/1,fr,Aïn El Hadjel,19,claude,the OCR’s readings differ
+executive-decree-91-306,28,14/seat,ar,جبل مسعد,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,28,14/1,ar,جبل مسعد,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,1/seat,fr,BOUHANIFIA,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,1/1,fr,Bouhanifia,20,claude,the OCR’s readings differ
+executive-decree-91-306,29,1/1,ar,بوحنيفية,22,claude,the OCR’s readings differ
+executive-decree-91-306,29,1/2,ar,حسين,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,1/3,fr,El Gueithna,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,1/3,ar,القطنة,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,2/seat,fr,TIGHENIF,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,2/1,fr,Tighenif,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,2/1,ar,تيغنيف,22,claude,the OCR’s readings differ
+executive-decree-91-306,29,2/3,ar,سيدى قادة,22,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,29,3/4,fr,Sidi Boussaïd,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,3/4,ar,سيدى بوسعيد,22,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,29,4/seat,fr,MOHAMMEDIA,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,4/1,fr,Mohammedia,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,4/2,ar,الغمري,22,claude,the OCR read الغري
+executive-decree-91-306,29,4/3,fr,Sidi Abdelmoumène,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,4/5,ar,مقطع الدوز,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,5/1,ar,سيق,23,claude,the OCR’s readings differ
+executive-decree-91-306,29,5/2,ar,الشرفاء,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,5/3,ar,بوهنى,23,claude,the OCR’s readings differ; the ى has no dots
+executive-decree-91-306,29,6/seat,fr,RACHEM,20,claude,the OCR’s readings agree but match no Wikidata label; printed so; the commune is printed Rachem too
+executive-decree-91-306,29,6/seat,ar,الحشم,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,6/1,fr,Rachem,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,6/1,ar,الحشم,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,6/2,fr,Zelamta,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,6/2,ar,زلامطة,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,8/1,fr,El Bordj,20,claude,the OCR’s readings differ
+executive-decree-91-306,29,8/3,ar,خلوية,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,9/1,fr,Aïn Fares,20,claude,"the OCR’s readings differ, and none is as printed; a speck after the name"
+executive-decree-91-306,29,9/2,ar,المأمونية,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,10/2,fr,Bénian,20,claude,the OCR read Benian; the acute accent is faint
+executive-decree-91-306,29,10/2,ar,بنيان,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,10/3,fr,Gharouss,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,11/seat,fr,OUED El ABTAL,20,claude,the OCR read OUED EI ABTAL; printed with a lower-case l
+executive-decree-91-306,29,11/3,fr,Sidi Abdeldjebar,20,claude,the OCR’s readings differ
+executive-decree-91-306,29,12/seat,ar,تيزي,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,12/1,ar,تيزي,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,12/2,ar,القرط,23,claude,the OCR’s readings differ
+executive-decree-91-306,29,13/seat,ar,وادي طاغية,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,13/1,ar,وادي طاغية,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,14/seat,ar,عكاز,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,14/1,ar,عكاز,23,claude,"the OCR’s readings differ, and none is as printed; specks above the ع and under the ك, smaller than dots"
+executive-decree-91-306,29,14/2,fr,Ras Ain Amirouche,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,14/3,fr,El Alaimia,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,15/seat,fr,AIN FEKKAN,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,15/1,fr,Aïn Fekkan,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,15/2,fr,Ain Frass,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,29,15/2,ar,عين الفرس,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,1/seat,ar,توقرت,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,1/1,ar,توقرت,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,1/3,ar,تيبسبست,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,1/4,ar,زاوية العابدية,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,2/seat,ar,الحجيرة,23,claude,the OCR’s readings differ
+executive-decree-91-306,30,2/1,ar,الحجيرة,23,claude,"the OCR’s readings differ; a short dash touches the lam’s left side halfway up, with no tooth under it; read as a flaw, not ت"
+executive-decree-91-306,30,2/2,fr,El Alia,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,2/2,ar,العالية,23,claude,the OCR’s readings differ
+executive-decree-91-306,30,3/1,fr,Taïbet,20,claude,the OCR’s readings differ
+executive-decree-91-306,30,3/3,fr,Bennaceur,20,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,4/seat,ar,حاسى مسعود,23,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,30,4/1,ar,حاسى مسعود,23,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,30,5/1,ar,سيدى خويلد,23,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,30,5/3,ar,حاسى بن عبد الله,23,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,30,6/seat,ar,المقارين,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,6/1,ar,المقارين,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,6/2,ar,سيدى سليمان,23,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,30,7/seat,ar,نقوسة,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,7/1,ar,نقوسة,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,8/seat,fr,TEMACINE,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,8/1,fr,Temacine,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,8/2,fr,Blidate Ameur,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,30,8/2,ar,بليدة عامر,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,1/1,fr,Es Senia,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,1/3,fr,Sidi Chahmi,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,2/seat,fr,AIN TURK,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,2/seat,ar,عين الترك,24,claude,"the OCR read عين لترك; the article’s alif is broken: only a hairline of its top shows, where the alif stands, beside the lam"
+executive-decree-91-306,31,2/1,fr,Aïn Turk,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,2/2,fr,Mers El Kebir,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,2/4,fr,El Ançar,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,3/seat,ar,أرزيو,24,claude,the OCR’s readings differ
+executive-decree-91-306,31,4/seat,fr,BOUTLETIS,21,claude,the OCR’s readings agree but match no Wikidata label; printed so; the commune is printed Boutlelis
+executive-decree-91-306,31,4/2,fr,Aïn El Karma,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,5/2,fr,Mersa El Hadjadj,21,claude,the OCR’s readings differ
+executive-decree-91-306,31,5/3,fr,Aïn Biya,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,7/2,ar,طفراوى,24,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,31,7/3,ar,البراية,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,7/4,ar,بوفطيس,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,8/1,ar,بئر الجير,24,claude,the OCR’s readings differ; specks before the name
+executive-decree-91-306,31,8/3,fr,Hassi Benokba,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,31,8/3,ar,حاسي بن عقبة,24,claude,"the OCR’s readings differ, and none is as printed; the ع of عقبة is broken: only fragments of it show"
+executive-decree-91-306,31,9/1,ar,وهران,24,claude,the OCR’s readings differ; the ن is broken
+executive-decree-91-306,32,1/seat,ar,بوقطب,24,claude,the OCR’s readings differ
+executive-decree-91-306,32,2/2,fr,Sidi Taifour,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,2/2,ar,سيدي طيفور,24,claude,the OCR’s readings differ
+executive-decree-91-306,32,2/3,ar,سيدي عامر,24,claude,the OCR’s readings differ
+executive-decree-91-306,32,2/4,fr,Stiten,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,3/seat,fr,LABIODH SIDI CHEIKH,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,3/seat,ar,الابيض سيدي الشيخ,24,claude,the OCR’s readings differ; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,32,3/1,fr,Labiodh Sidi Cheikh,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,3/1,ar,الابيض سيدي الشيخ,24,claude,"the OCR’s readings differ; printed without a hamza, as the seat’s name"
+executive-decree-91-306,32,3/3,fr,Arbaout,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,3/3,ar,عرباوة,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,4/seat,ar,رقاصة,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,4/1,fr,Rogassa,21,claude,the OCR’s readings differ
+executive-decree-91-306,32,4/1,ar,رقاصة,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,4/2,ar,الشقيق,24,claude,the OCR’s readings differ
+executive-decree-91-306,32,4/3,fr,Kef Lahmar,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,4/3,ar,الكاف الأحمر,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,5/2,ar,غسول,24,claude,"the OCR’s readings agree but match no Wikidata label; the غ is printed faint and thin, with its dot"
+executive-decree-91-306,32,5/3,fr,Krakda,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,6/seat,fr,BOUSSEMGHOUM,21,claude,"the OCR’s readings differ, and none is as printed; hyphenated at the line break: BOUS-SEMGHOUM"
+executive-decree-91-306,32,6/seat,ar,بوسمغون,24,claude,the OCR’s readings differ; the ب is thin and its dot only a faint trace
+executive-decree-91-306,32,6/1,fr,Boussemghoum,21,claude,the OCR’s readings differ
+executive-decree-91-306,32,6/1,ar,بوسمغون,24,claude,the OCR’s readings differ
+executive-decree-91-306,32,7/seat,ar,شلالة,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,7/1,ar,شلالة,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,7/2,ar,المهارة,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,8/seat,ar,البيض,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,32,8/1,ar,البيض,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,33,1/2,fr,Bordj El Houasse,21,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,33,2/1,ar,ان اميناس,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,33,3/seat,fr,ILLIZI,21,claude,the OCR’s readings differ
+executive-decree-91-306,33,3/1,fr,Illizi,21,claude,the OCR’s readings differ
+executive-decree-91-306,33,3/1,ar,اليزي,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,1/2,fr,Theniet En Nasr,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,1/4,ar,الياشير,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,2/4,fr,El Mehir,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,2/5,ar,اولاد سيدي ابراهيم,25,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif of اولاد is no wider at the top than its stem
+executive-decree-91-306,34,3/seat,ar,رأس الوادي,25,claude,the OCR’s readings differ
+executive-decree-91-306,34,3/2,fr,Ouled Braham,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,3/2,ar,أولاد إبراهيم,25,claude,the OCR’s readings differ; the hamza below merges into the foot of the alif of إبراهيم
+executive-decree-91-306,34,3/3,ar,عين تسرة,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,3/4,ar,تكستين,25,claude,the OCR’s readings differ; debris under the name
+executive-decree-91-306,34,4/seat,fr,BORDJ GHDIR,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,4/1,fr,Bordj Ghdir,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,4/5,ar,تقليت,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,6/3,fr,Sidi M’Barek,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,6/3,ar,سيدي مبارك,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,7/seat,fr,BORDJ ZEMMOURA,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,7/1,fr,Bordj Zemmoura,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,7/2,fr,Tasmart,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,7/2,ar,تسمرت,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,8/seat,ar,الجعافرة,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,8/1,ar,الجعافرة,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,8/2,fr,El Main,22,claude,the OCR’s readings agree but match no Wikidata label; a mark above the l comes from the line above
+executive-decree-91-306,34,8/3,fr,Tafreg,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,9/1,fr,Ain Taghrout,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,9/2,ar,تيكستر,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,34,10/1,fr,Bordj Bou Arréridj,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,1/2,ar,جينات,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,1/3,fr,Lagata,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,2/2,fr,El Kharouba,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,2/3,fr,Keddara,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,3/1,fr,Rouiba,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,3/2,ar,عين طاية,25,claude,the OCR read عين طابة; the two dots under the ي run together
+executive-decree-91-306,35,3/4,ar,برج البحري,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,4/2,ar,تورقة,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,4/3,fr,Benchoud,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,4/4,ar,أفير,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,5/seat,fr,THENIA,22,claude,the OCR’s readings differ; a speck after the name
+executive-decree-91-306,35,5/1,fr,Thenia,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,5/2,ar,سوق الأحد,26,claude,the OCR’s readings differ
+executive-decree-91-306,35,5/3,ar,بني عمران,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,5/4,ar,عمال,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,6/seat,fr,ISSER,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,6/1,fr,Isser,22,claude,the OCR’s readings differ
+executive-decree-91-306,35,6/2,fr,Chaabet El Ameur,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,6/3,ar,تمزريت,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,7/seat,ar,خميس الخشنة,26,claude,the OCR’s readings differ
+executive-decree-91-306,35,7/2,ar,حمادي,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,7/3,ar,الاربعطاش,26,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,35,7/4,ar,اولاد موسى,26,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem; the ى has no dots
+executive-decree-91-306,35,8/seat,ar,الرغاية,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,8/1,ar,رغاية,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,8/2,fr,Haroua,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,8/3,fr,Ouled Hadjadj,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,8/3,ar,أولاد حجاج,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,9/seat,ar,الناصرية,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,9/1,ar,الناصرية,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,9/3,ar,اولاد عيسى,26,claude,the OCR’s readings differ; printed without a hamza: the alif’s top is no wider than its stem; a blot and specks on the و; the ى has no dots
+executive-decree-91-306,35,10/seat,fr,BOUMERDES,22,claude,the OCR’s readings agree but match no Wikidata label; a speck after the name
+executive-decree-91-306,35,10/seat,ar,بومرداس,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,10/1,fr,Boumerdes,22,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,10/1,ar,بومرداس,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,35,10/3,fr,Tidjelabine,22,claude,the OCR’s readings differ
+executive-decree-91-306,35,10/3,ar,تجلبين,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,1/1,fr,Drean,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,1/2,fr,Chbaita Mokhtar,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,1/2,ar,شبايطة مختار,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,1/3,ar,شهاني,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,2/seat,fr,BEN M’HIDI,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,2/seat,ar,بن مهيدي,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,2/1,fr,Ben M’Hidi,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,2/1,ar,بن مهيدي,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,2/2,fr,Chatt,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,3/seat,ar,بوحجار,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,3/1,ar,بوحجار,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,3/2,ar,وادي الزيتون,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,3/3,fr,Aïn Karma,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,3/4,ar,حمام بن صالح,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,4/3,fr,El Aïoun,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,4/4,fr,Raml Essouk,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,5/seat,ar,البسباس,26,claude,the OCR’s readings differ
+executive-decree-91-306,36,5/3,ar,عصفور,26,claude,the OCR’s readings differ; a speck under the ر
+executive-decree-91-306,36,6/1,fr,Bouteldja,23,claude,"the OCR’s readings differ; a short upright mark above the e; an acute in this type slants, so read as a speck"
+executive-decree-91-306,36,6/2,fr,Lac des oiseaux,23,claude,the OCR’s readings agree but match no Wikidata label; printed with a lower-case o
+executive-decree-91-306,36,6/3,fr,Cheffia,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,36,7/1,ar,الطارف,26,claude,the OCR’s readings differ
+executive-decree-91-306,36,7/3,fr,Bouggous,23,claude,the OCR’s readings agree but match no Wikidata label; a speck before the name
+executive-decree-91-306,37,1/seat,ar,تيندوف,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,37,1/1,ar,تيندوف,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,37,1/2,fr,Oum El Assel,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,37,1/2,ar,أم العسل,27,claude,the OCR’s readings differ
+executive-decree-91-306,38,1/2,fr,Layoun,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,2/2,ar,سيدي بوتوشنت,27,claude,the OCR’s readings differ
+executive-decree-91-306,38,3/seat,ar,برج بونعامة,27,claude,the OCR’s readings differ; specks between the words
+executive-decree-91-306,38,3/3,fr,Béni Chaïb,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,3/4,fr,Béni Lahcène,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,3/4,ar,بني لحسن,27,claude,the OCR’s readings differ
+executive-decree-91-306,38,4/seat,ar,الأرجم,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,4/1,ar,الارجم,27,claude,"the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge, where the seat’s name has a hamza above it"
+executive-decree-91-306,38,4/3,ar,ملعب,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,4/4,fr,Tamelaht,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,4/4,ar,تاملاحت,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,5/1,ar,الازهرية,27,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,38,5/2,fr,Boukaïd,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,5/3,ar,الاربعاء,27,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,38,6/3,fr,Naaçem,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,7/seat,fr,BORDJ EMIR ABDELKADER,23,claude,the OCR’s readings agree but match no Wikidata label; printed on two lines
+executive-decree-91-306,38,7/1,fr,Bordj Emir Abdelkader,23,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,38,7/1,ar,برج الامير عبد القادر,27,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge; specks around برج
+executive-decree-91-306,38,8/seat,ar,تيسمسيلت,27,claude,the OCR’s readings differ
+executive-decree-91-306,38,8/1,ar,تيسمسيلت,27,claude,the OCR’s readings differ
+executive-decree-91-306,39,1/3,fr,Tinedla,24,claude,the OCR’s readings differ
+executive-decree-91-306,39,1/3,ar,تندلة,27,claude,the OCR’s readings differ
+executive-decree-91-306,39,1/4,fr,M’Ghagha,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,1/4,ar,مغاغة,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,2/3,fr,Ben Guecha,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,2/3,ar,بني ڤشة,27,claude,"the OCR’s readings differ; the letter after بني has three dots above, for the sound g"
+executive-decree-91-306,39,3/2,ar,حساني عبد الكريم,27,claude,"the OCR’s readings differ; a short slanted stroke above the ح, like a fatha; harakat are not transcribed"
+executive-decree-91-306,39,4/3,fr,Ourmes,24,claude,the OCR’s readings agree but match no Wikidata label; the marks above the O come from the line above
+executive-decree-91-306,39,5/seat,fr,EL MEGHAIER,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,5/seat,ar,المغير,27,claude,the OCR’s readings differ; a crack cuts the tops of the article’s alif and lam off their stems
+executive-decree-91-306,39,5/1,fr,El Meghaier,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,5/2,fr,Sidi Khelil,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,5/3,ar,أم الطيور,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,7/seat,fr,HASSI KHELIFA,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,7/1,fr,Hassi Khelifa,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,8/seat,ar,المقرن,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,8/1,ar,المقرن,27,claude,the OCR’s readings agree but match no Wikidata label; a short stroke stands above the two dots of the ق
+executive-decree-91-306,39,11/seat,fr,MIH OUENSA,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,11/seat,ar,مية وانسة,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,11/1,fr,Mih Ouensa,24,claude,the OCR’s readings agree but match no Wikidata label; a speck above the e
+executive-decree-91-306,39,11/1,ar,مية وانسة,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,11/2,fr,Oued Allenda,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,11/2,ar,وادي العندلة,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,12/seat,ar,الوادي,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,39,12/1,ar,الوادي,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,40,1/3,fr,Taouzinet,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,40,1/3,ar,تاوزينت,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,40,2/seat,ar,الحامة,28,claude,the OCR’s readings differ
+executive-decree-91-306,40,2/2,ar,تامزة,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,40,2/3,ar,انسيغة,28,claude,the OCR’s readings differ; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,40,2/4,fr,Baghai,24,claude,the OCR’s readings agree but match no Wikidata label; the curve above the h comes from the line above
+executive-decree-91-306,40,3/3,fr,Khairane,24,claude,the OCR’s readings agree but match no Wikidata label; the mark above the K comes from the line above
+executive-decree-91-306,40,4/2,fr,Chellia,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,40,4/3,ar,مصارة,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,40,6/seat,ar,اولاد رشاش,28,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,40,6/2,fr,El Mahmel,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,40,8/1,ar,خنشلة,28,claude,the OCR’s readings differ
+executive-decree-91-306,41,1/3,fr,Sidi Fredj,24,claude,the OCR read Sidi Fredi; the tail of the j runs into the rule below
+executive-decree-91-306,41,2/seat,ar,سدراته,28,claude,the OCR’s readings agree but match no Wikidata label; ends in ه: no dots over the last letter
+executive-decree-91-306,41,2/2,ar,خميسة,28,claude,the OCR’s readings differ
+executive-decree-91-306,41,3/1,fr,M’Daourouch,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,3/3,ar,الرقوبة,28,claude,"the OCR’s readings agree but match no Wikidata label; the foot of the article’s alif runs about 6 px below the line in a thin hook, half the size of this type’s hamza below (22 7/4 and 26 4/2); read as a flaw"
+executive-decree-91-306,41,4/3,fr,Drea,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,5/seat,ar,أولاد أدريس,28,claude,"the OCR’s readings differ; the alif of أدريس carries a hamza above, its head 9 px wide over a 4 px stem, and no mark below"
+executive-decree-91-306,41,5/1,ar,أولاد ادريس,28,claude,"the OCR’s readings agree but match no Wikidata label; the alif of ادريس is bare, where the seat’s name has a hamza above"
+executive-decree-91-306,41,5/2,fr,Ain Zana,24,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,5/2,ar,عين الزانة,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,6/seat,fr,HADDADA,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,6/1,fr,Haddada,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,6/2,ar,لخضارة,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,6/3,ar,اولاد مؤمن,28,claude,the OCR’s readings differ; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,41,7/2,fr,Hannencha,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,8/seat,fr,BIR BOUHOUCHE,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,8/1,fr,Bir Bouhouche,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,8/3,fr,Safel Ouiden,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,9/seat,ar,أم العظايم,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,9/1,ar,أم العظايم,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,9/2,fr,Tarraguelt,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,41,9/3,fr,Oued Kebrit,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,1/1,fr,Cheraga,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,1/2,ar,اولاد فايت,29,claude,"the OCR’s readings differ; printed without a hamza: the alif’s top is no wider than its stem; a speck above the د, smaller than a dot"
+executive-decree-91-306,42,1/3,fr,Aïn Benian,25,claude,the OCR’s readings differ
+executive-decree-91-306,42,1/3,ar,عين البنيان,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,2/1,fr,Zeralda,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,2/2,fr,Staouéli,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,2/2,ar,سطوالي,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,2/3,fr,Maalma,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,3/2,fr,Sidi Ghilesse,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,3/3,fr,Hadjrat Nouss,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,4/3,fr,Hattatba,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,5/2,ar,مراد,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,6/1,ar,درارية,29,claude,the OCR’s readings differ
+executive-decree-91-306,42,6/2,fr,S’haoula,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,6/3,ar,العاشور,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,6/4,ar,بابا حسن,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,7/seat,ar,ڤوراية,29,claude,"the OCR’s readings agree but match no Wikidata label; the first letter has three dots above, for the sound g"
+executive-decree-91-306,42,7/1,ar,ڤوراية,29,claude,"the OCR’s readings differ; the first letter has three dots above, for the sound g"
+executive-decree-91-306,42,7/3,ar,اغبال,29,claude,the OCR’s readings differ; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,42,8/2,ar,دواودة,29,claude,the OCR’s readings differ; specks above the name
+executive-decree-91-306,42,9/seat,ar,بواسماعيل,29,claude,the OCR’s readings agree but match no Wikidata label; written as one word
+executive-decree-91-306,42,9/1,ar,بواسماعيل,29,claude,the OCR’s readings agree but match no Wikidata label; written as one word
+executive-decree-91-306,42,9/2,ar,عين توقرايت,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,10/2,ar,الارهاط,29,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,42,10/3,fr,Beni Meleuk,25,claude,"the OCR’s readings agree but match no Wikidata label; specks above the B and e, not an accent"
+executive-decree-91-306,42,10/3,ar,بني مليك,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,11/seat,ar,سيدي عمرو,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,11/1,ar,سيدي عمرو,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,11/2,ar,الناظور,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,12/seat,ar,أحمر العين,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,12/1,ar,احمر العين,29,claude,"the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem, where the seat’s name has a hamza; the foot of the article’s alif runs below the line in a thin tail; a speck above the lam"
+executive-decree-91-306,42,13/1,fr,Douéra,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,13/4,fr,Khraissia,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,13/4,ar,الخرايصية,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,42,14/1,fr,Tipaza,25,claude,the OCR’s readings differ; the z is smudged
+executive-decree-91-306,43,1/1,fr,Chelghoum Laïd,25,claude,the OCR’s readings differ
+executive-decree-91-306,43,1/3,ar,عين ملوك,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,2/seat,ar,قرارم قوقة,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,2/1,ar,قرارم قوقة,29,claude,"the OCR’s readings differ, and none is as printed; a speck between the words"
+executive-decree-91-306,43,3/1,fr,Sidi Merouane,25,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,4/2,fr,Zeghaïa,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,4/2,ar,الزغاية,29,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,4/3,ar,احمد راشدي,29,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,43,5/seat,fr,FERDJIOUA,26,claude,the OCR read FERDJOUA; the J and the I touch
+executive-decree-91-306,43,5/1,fr,Ferdjioua,26,claude,the OCR’s readings differ
+executive-decree-91-306,43,5/2,ar,يحي بني قشة,30,claude,"the OCR’s readings agree but match no Wikidata label; the ق of قشة has two dots, where 39 2/3 prints ڤ"
+executive-decree-91-306,43,6/seat,ar,تلاغمة,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,6/1,ar,تلاغمة,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,7/2,ar,بن يحي عبد الرحمن,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,7/3,fr,Ouled Khelouf,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,7/3,ar,اولاد خلوف,30,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,43,8/seat,fr,TERRAI BAINEM,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,8/seat,ar,ترعي بينان,30,claude,the OCR’s readings agree but match no Wikidata label; a speck after the name
+executive-decree-91-306,43,8/1,fr,Terrai Baïnem,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,8/1,ar,ترعي بينان,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,8/2,fr,Amira Arres,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,8/2,ar,عميرة عراس,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,8/3,fr,Tessala Lamtai,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,9/2,ar,تيبرقنت,30,claude,the OCR’s readings differ
+executive-decree-91-306,43,10/seat,ar,تسادان حدادة,30,claude,the OCR’s readings differ
+executive-decree-91-306,43,10/1,ar,تسادان حدادة,30,claude,the OCR’s readings agree but match no Wikidata label; a speck between the words
+executive-decree-91-306,43,11/2,fr,El Ayadi Barbès,26,claude,the OCR’s readings agree but match no Wikidata label; a speck before the name
+executive-decree-91-306,43,11/2,ar,العيادي بربس,30,claude,the OCR’s readings differ
+executive-decree-91-306,43,12/seat,fr,BOUHATEM,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,12/1,fr,Bouhatem,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,12/2,fr,Derradji Bousselah,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,12/2,ar,دراجي بوسلاح,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,43,13/2,ar,سيدي خليفة,30,claude,the OCR’s readings differ
+executive-decree-91-306,43,13/3,fr,Ain Tine,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,1/2,ar,بن علال,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,2/2,ar,وادي الشرفاء,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,2/3,fr,Barbouche,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,3/seat,ar,جليدة,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,3/1,ar,جليدة,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,3/2,ar,بو راشد,30,claude,the OCR’s readings agree but match no Wikidata label; printed as two words
+executive-decree-91-306,44,3/3,fr,Djemaa Ouled Chikh,26,claude,the OCR’s readings agree but match no Wikidata label; a speck after the name
+executive-decree-91-306,44,3/3,ar,جماعة أولاد الشيخ,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,4/2,ar,تبركانين,30,claude,the OCR’s readings agree but match no Wikidata label; specks above the name
+executive-decree-91-306,44,5/seat,fr,KHEMIS,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,5/1,fr,Khemis,26,claude,the OCR’s readings agree but match no Wikidata label; a speck before the K
+executive-decree-91-306,44,6/1,ar,حمام ريغة,30,claude,the OCR’s readings differ; a speck under the ر
+executive-decree-91-306,44,6/2,fr,Aïn Torki,26,claude,the OCR’s readings differ
+executive-decree-91-306,44,6/2,ar,عين التركي,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,6/3,fr,Aïn Benian,26,claude,the OCR’s readings differ
+executive-decree-91-306,44,6/3,ar,عين البنيان,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,7/2,fr,El Hoceinia,26,claude,"the OCR’s readings agree but match no Wikidata label; the E is smudged; a speck below the second i, which is not a j: a j descends further"
+executive-decree-91-306,44,7/2,ar,الحسينية,30,claude,"the OCR’s readings differ; a speck above the ن’s dot, much smaller than a dot"
+executive-decree-91-306,44,8/seat,fr,AIN LECHIAKH,26,claude,the OCR’s readings agree but match no Wikidata label; the AKH is smudged
+executive-decree-91-306,44,8/seat,ar,عين الأشياخ,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,8/1,fr,Aïn Lechiakh,26,claude,the OCR’s readings differ
+executive-decree-91-306,44,8/1,ar,عين الأشياخ,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,8/2,fr,Oued Djemaa,26,claude,the OCR’s readings differ
+executive-decree-91-306,44,8/3,fr,Aïn Soltane,26,claude,the OCR’s readings differ
+executive-decree-91-306,44,8/3,ar,عين السلطان,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,9/seat,fr,BORDJ EL EMIR KHALED,26,claude,the OCR’s readings agree but match no Wikidata label; printed on two lines
+executive-decree-91-306,44,9/seat,ar,برج الامير خالد,30,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,44,9/1,fr,Bordj El Emir Khaled,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,9/1,ar,برج الامير خالد,30,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,44,9/2,ar,طارق بن زياد,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,9/3,fr,Bir Ould Khlifa,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,9/3,ar,بئر ولد خليفة,30,claude,the OCR’s readings differ
+executive-decree-91-306,44,10/1,ar,بطحية,30,claude,the OCR’s readings differ
+executive-decree-91-306,44,10/2,ar,الحسانية,30,claude,the OCR’s readings differ
+executive-decree-91-306,44,10/3,ar,بالعاص,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,11/seat,ar,روينة,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,11/1,ar,روينة,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,11/2,ar,زدين,30,claude,"the OCR’s readings differ; a round dot of this type’s size stands over the first letter, so ز; the French edition prints Zeddine"
+executive-decree-91-306,44,12/seat,ar,العبادية,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,12/1,ar,العبادية,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,12/2,ar,عين بويحي,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,12/3,fr,Tachta Zouggagha,26,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,13/1,ar,العامرة,30,claude,the OCR’s readings differ
+executive-decree-91-306,44,13/3,ar,عريب,30,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,44,14/seat,ar,عين الدفلى,30,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,44,14/1,ar,عين الدفلى,30,claude,the OCR’s readings agree but match no Wikidata label; the ى has no dots
+executive-decree-91-306,45,1/seat,fr,MECHERIA,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,1/seat,ar,مشرية,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,1/1,fr,Mecheria,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,1/1,ar,مشرية,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,1/2,ar,عين بن خليل,31,claude,the OCR’s readings differ
+executive-decree-91-306,45,1/3,fr,El Biodh,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,2/1,fr,Aïn Sefra,27,claude,the OCR’s readings differ
+executive-decree-91-306,45,3/seat,fr,MEKMEN BEN AMAR,27,claude,the OCR’s readings agree but match no Wikidata label; printed on two lines
+executive-decree-91-306,45,3/seat,ar,مكمن بن عمر,31,claude,"the OCR’s readings agree but match no Wikidata label; a hairline 1–2 px wide rises from the top of the ر, with a speck of about 5 px beside it, where this type’s dots are round and about 30 px; read as flaws, not ز (the commune’s line, 45 3/1, prints عمر)"
+executive-decree-91-306,45,3/1,fr,Mekmen Ben Amar,27,claude,the OCR’s readings agree but match no Wikidata label; a speck before the name
+executive-decree-91-306,45,3/1,ar,مكمن بن عمر,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,3/2,ar,قصدير,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,4/2,ar,حنين بورزق,31,claude,"the OCR’s readings agree but match no Wikidata label; no dot under or inside the first letter, so ح, where the French edition prints Djeniene (ج)"
+executive-decree-91-306,45,5/seat,fr,ASLA,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,5/1,fr,Asla,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,6/seat,ar,سفيسيفة,31,claude,the OCR’s readings differ
+executive-decree-91-306,45,6/1,ar,سفيسيفة,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,45,7/1,fr,Naama,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,1/1,fr,El Maleh,27,claude,the OCR’s readings agree but match no Wikidata label; a speck under the a
+executive-decree-91-306,46,1/3,fr,Chaabat El Ham,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,1/4,fr,Oued Kihel,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,1/4,ar,وادي كيحل,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,2/seat,fr,HAMMAM BOUHADJAR,27,claude,the OCR’s readings differ; printed on two lines
+executive-decree-91-306,46,2/1,fr,Hammam Bouhadjar,27,claude,the OCR’s readings agree but match no Wikidata label; a speck before the H
+executive-decree-91-306,46,2/3,fr,Oued Barkach,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,2/3,ar,وادي برقش,31,claude,"the OCR’s readings differ; a mark 14 by 21 px stands 2 px above the alif of وادي, among specks; it is larger than this type’s hamza, which merges into the alif’s top as a bulge, and the alif’s top is plain, so read as a flaw"
+executive-decree-91-306,46,3/1,fr,Beni Saf,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,3/3,ar,الامير عبد القادر,31,claude,"the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge; a small slanted mark between the lines above the ع, unlike this type’s round dots, is not transcribed"
+executive-decree-91-306,46,4/seat,fr,AIN KIHEL,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,4/seat,ar,عين الكحيل,31,claude,"the OCR’s readings agree but match no Wikidata label; the ح comes before the ي, where the commune’s line, 46 4/1, prints الكيحل and the French edition KIHEL"
+executive-decree-91-306,46,4/1,fr,Aïn Kihel,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,4/2,fr,Aghlel,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,4/2,ar,أغلال,31,claude,"the OCR’s readings agree but match no Wikidata label; the alif carries a hamza above, its head 10 px wide over a 5 px stem, not a madda’s flat cap"
+executive-decree-91-306,46,4/3,fr,Aoubelil,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,4/4,fr,Aïn Tolba,27,claude,the OCR’s readings differ
+executive-decree-91-306,46,5/1,ar,العامرية,31,claude,"the OCR’s readings differ; a speck of about 6 px above the ع, where this type’s dots are about 30 px; read as a flaw, not غ (the French edition prints El Amria)"
+executive-decree-91-306,46,5/4,fr,El M’Saïd,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,5/4,ar,المساعيد,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,5/5,ar,أولاد بوجمعة,31,claude,the OCR’s readings differ
+executive-decree-91-306,46,6/seat,fr,AIN LARBAA,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,6/1,fr,Aïn Larbaa,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,6/2,fr,Oued Sebah,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,6/3,fr,Sidi Boumediene,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,6/4,ar,تامزورة,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,7/seat,fr,OULHASSA GHERABA,27,claude,the OCR’s readings agree but match no Wikidata label; printed on two lines
+executive-decree-91-306,46,7/seat,ar,ولهاصة الغرابة,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,7/1,fr,Oulhassa Gheraba,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,7/1,ar,ولهاصة الغرابة,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,7/2,fr,Sidi Ouriach,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,46,8/seat,fr,AIN TEMOUCHENT,27,claude,the OCR read AIN TEMOU- CHENT; hyphenated at the line break: AIN TEMOU-CHENT
+executive-decree-91-306,47,1/seat,fr,METLILI,27,claude,the OCR’s readings differ
+executive-decree-91-306,47,1/seat,ar,متليلي,31,claude,the OCR’s readings differ
+executive-decree-91-306,47,1/1,fr,Metlili,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,1/1,ar,متليلي,31,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,4/seat,fr,EL GUERARA,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,4/1,fr,El Guerara,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,6/1,ar,المنصورة,32,claude,the OCR’s readings differ
+executive-decree-91-306,47,6/2,fr,Hassi El Fehal,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,7/seat,ar,بونورة,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,7/1,ar,بونورة,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,8/seat,fr,DHAYAT BEN DHAHOUA,27,claude,the OCR’s readings agree but match no Wikidata label; printed on two lines
+executive-decree-91-306,47,8/1,fr,Dhayat Ben Dhahoua,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,9/seat,ar,غرداية,32,claude,the OCR’s readings differ
+executive-decree-91-306,47,9/1,fr,Ghardaia,27,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,47,9/1,ar,غرداية,32,claude,the OCR’s readings differ
+executive-decree-91-306,48,1/seat,ar,عين موسى,32,claude,"the OCR’s readings agree but match no Wikidata label; the seat’s line prints عين (a ي with two dots below, then a final ن with its dot), where the commune’s line below prints عمي موسى and the French edition AMMI MOUSSA; the ى has no dots"
+executive-decree-91-306,48,1/2,fr,El Ouldja,28,claude,the OCR’s readings differ
+executive-decree-91-306,48,1/3,fr,Ouled Aïch,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,2/seat,fr,ZEMMOURA,28,claude,the OCR’s readings agree but match no Wikidata label; the MM is smudged
+executive-decree-91-306,48,2/1,fr,Zemmoura,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,2/1,ar,زمورة,32,claude,"the OCR’s readings differ, and none is as printed; a blot joins the dash to the column rule; it is not part of the name"
+executive-decree-91-306,48,2/2,fr,Beni Dergoune,28,claude,"the OCR’s readings agree but match no Wikidata label; a faint stroke after Beni, over no letter"
+executive-decree-91-306,48,2/2,ar,بني درقون,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,2/3,ar,دار بن عبدالله,32,claude,"the OCR’s readings differ; printed as one word: the gap after عبد is 10 px, like the 9 px after the د of دار, where the gaps between the words are 27 and 34 px"
+executive-decree-91-306,48,3/seat,ar,المطمر,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,3/1,ar,المطمر,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,3/2,fr,Belaassel Bouzegza,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,3/2,ar,بلعسل بوزقزة,32,claude,"the OCR’s readings differ, and none is as printed; the و’s loop is open on its right, as if part of it failed to print; its head and descending tail are a و’s, where ر has no head and ع has no tail in the middle of a word; the French edition prints Bouzegza"
+executive-decree-91-306,48,3/3,fr,Sidi Khetab,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,3/4,fr,Sidi M’Hamed Ben Aouda,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,3/4,ar,سيدي امحمد بن عودة,32,claude,"the OCR’s readings agree but match no Wikidata label; a short slanted mark, 5 by 7 px, sits 1 px above the head of the ع, narrower and closer than the round dot of the غ of غرداية (47 9/seat) (10 by 8 px, 4 px clear of its letter); read as a fatha, which is not transcribed, not غ (the French edition prints Aouda)"
+executive-decree-91-306,48,4/2,ar,مرجة سيدي عابد,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,4/3,fr,Ouarizène,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,4/3,ar,ورزان,32,claude,"the OCR’s readings differ; the second letter descends below the line like the ز after it, so ر, not د; the French edition prints Ouarizène"
+executive-decree-91-306,48,4/4,ar,الاحلاف,32,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,48,6/2,ar,وادي السلام,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,6/3,ar,سيدي لزرق,32,claude,"the OCR’s readings differ; two strokes stand between the ل and the ق, the first with a dot (ز) and the second without (ر); the French edition prints Lazreg"
+executive-decree-91-306,48,7/2,ar,سيدي سعادة,32,claude,the OCR’s readings differ
+executive-decree-91-306,48,7/3,fr,Aïn Rahma,28,claude,the OCR’s readings differ
+executive-decree-91-306,48,7/4,fr,Kalaa,28,claude,the OCR’s readings differ; an ink blot over the second a and below it
+executive-decree-91-306,48,8/seat,fr,EL H’MADNA,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,8/1,fr,El H’Madna,28,claude,the OCR’s readings agree but match no Wikidata label; a speck before the name
+executive-decree-91-306,48,9/2,fr,Had Echkala,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,10/2,ar,سوق الاحد,32,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the lam-alif’s top is the plain wedge
+executive-decree-91-306,48,11/seat,fr,DJIDIOUIA,28,claude,the OCR’s readings agree but match no Wikidata label; the mark above the second I comes from the line above
+executive-decree-91-306,48,11/1,fr,Djidiouia,28,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,11/2,ar,اولاد سيدي ميهوب,32,claude,the OCR’s readings agree but match no Wikidata label; printed without a hamza: the alif’s top is no wider than its stem
+executive-decree-91-306,48,11/3,fr,El Hamri,28,claude,the OCR’s readings agree but match no Wikidata label; a speck under the m
+executive-decree-91-306,48,11/3,ar,الحمري,32,claude,the OCR’s readings agree but match no Wikidata label; a small slanted mark above the ي is not transcribed
+executive-decree-91-306,48,12/seat,fr,SIDI M’HAMED BEN ALI,28,claude,the OCR’s readings differ; printed on two lines
+executive-decree-91-306,48,12/seat,ar,سيدي محمد بن علي,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,12/1,ar,سيدي محمد بن علي,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,12/2,ar,مديونة,32,claude,the OCR’s readings differ
+executive-decree-91-306,48,12/3,ar,بني زنتيس,32,claude,the OCR’s readings agree but match no Wikidata label
+executive-decree-91-306,48,13/2,ar,بن داود,32,claude,"the OCR’s readings differ; the third letter’s head is a filled loop about 11 px wide, where a ر starts as a single stroke about 6 px wide (ورزان, 48 4/3); read as و, as in the French edition’s Bendaoud"
