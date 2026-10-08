@@ -8,8 +8,10 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
 | `runs.swift` | Prints each run of text with its position. Used for the Arabic edition of JO n° 78 of 2019, which stores its text one word at a time. |
 | `ocr.swift` | Reads rendered pages with macOS Vision OCR and prints each line with its position. |
 | `render.swift` | Renders part of a page as a PNG, to read it by eye. |
+| `crops.swift` | Renders many parts of pages as PNGs in one run. |
 | `lists.py` | Builds the lists of communes of a law from both editions. |
 | `decree.py` | Builds the names and chefs-lieux of wilayas 59 to 69 from Decree 26-206. |
+| `review.py` | Crops the printed line of every name in `readings.csv`, to check the readings against the page. |
 
 ## Method
 
@@ -50,3 +52,9 @@ swift tools/gazette/render.swift sources/joradp/A2026025.pdf 6 416 564 149 67 cr
 ```
 
 The coordinates are in PDF points from the page's bottom-left corner.
+
+To check the names already read on the page, crop each one with its neighbours. The crops are placed from the OCR's positions:
+
+```sh
+python3 tools/gazette/review.py work/review   # writes work/review/crops/*.png and work/review/readings.json
+```
