@@ -3,6 +3,8 @@ reading in data/source/readings.csv, and a JSON list describing them.
 
 Each crop shows the item with its neighbours, located from the OCR's positions: the item
 itself when the OCR read it, otherwise the space between the items before and after it.
+Decree 91-306's names are cropped from the lines tools/gazette/dairas.py placed, with the lines
+above and below, in the edition read (300 dpi in French, 400 in Arabic, to see the hamzas).
 
     python3 tools/gazette/review.py OUT_DIR
     # writes OUT_DIR/crops/*.png and OUT_DIR/readings.json
@@ -19,6 +21,7 @@ import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import annex  # noqa: E402
 import lists  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -41,6 +44,9 @@ TITLES = {
 }
 LINE = 0.024  # a line of text, as a fraction of the page height
 MARGIN = 0.012
+# Decree 91-306: each edition's PDF, the rows dairas.py made from it, and the resolution of the crops
+SCANS = {'fr': ('sources/joradp/F1991041.pdf', 300), 'ar': ('sources/joradp/A1991041.pdf', 400)}
+ROWS_91_306 = ('work/F1991041.rows.jsonl', 'work/A1991041.rows.jsonl')
 
 
 def read(path):
@@ -110,13 +116,55 @@ def region(anchors, target):
     return page, x, top, 0.46, bottom - top
 
 
+def reading_id(r):
+    """The reading's id on the review page: 'law-26-06-52-bis-10-1-ar', 'executive-decree-91-306-04-5-seat-ar'."""
+    return '-'.join(re.sub(r'[\s/]+', '-', v) for v in (r['text'], r['article'], r['item'], r['edition']))
+
+
+def lines_91_306():
+    """{(wilaya, 'daïra/item', edition): (row, OCR line)} for Decree 91-306."""
+    fr, ar = (annex.load(os.path.join(ROOT, p)) for p in ROWS_91_306)
+    with open(os.path.join(SOURCE, annex.TEXT + '.csv'), encoding='utf-8', newline='') as f:
+        rows = {(r['wilaya'], f"{r['daira']}/{r['item']}"): r for r in csv.DictReader(f)}
+    out = {}
+    for wilaya, daira, item, f, a in annex.entries(fr, ar):
+        key = (f'{wilaya:02d}', f'{daira}/{item}')
+        for edition, line in (('fr', f), ('ar', a)):
+            if line is not None:
+                out[key + (edition,)] = (rows[key], line)
+    return out
+
+
+def scan_region(line):
+    """(page, x, y, w, h) around a line of the scan, with the lines above and below."""
+    x0, x1 = max(0.0, line['x'] - 0.03), min(1.0, line['x'] + line['w'] + 0.03)
+    y0, y1 = max(0.0, line['y'] - 1.6 * line['h']), min(1.0, line['y'] + 2.6 * line['h'])
+    return line['page'], x0, y0, x1 - x0, y1 - y0
+
+
 def main():
     out = sys.argv[1]
     os.makedirs(os.path.join(out, 'crops'), exist_ok=True)
     readings = read(os.path.join(SOURCE, 'readings.csv'))
     rows, entries, requests, manifest = {}, {}, [], []
+    scans = None
     for r in readings:
         text = r['text']
+        if text == annex.TEXT:
+            if scans is None:
+                scans = lines_91_306()
+            row, line = scans[(r['article'], r['item'], r['edition'])]
+            key = reading_id(r)
+            crop = f'crops/{key}.png'
+            p, x, y, w, h = scan_region(line)
+            pdf, dpi = SCANS[r['edition']]
+            requests.append({'pdf': os.path.join(ROOT, pdf), 'page': p, 'x': x, 'y': y, 'w': w, 'h': h,
+                             'out': os.path.join(out, crop), 'dpi': dpi})
+            manifest.append({'id': key, 'text': text, 'title': 'Decree 91-306', 'article': r['article'],
+                             'item': r['item'], 'edition': r['edition'], 'reading': r['name'],
+                             'name_fr': row['name_fr'], 'name_ar': row['name_ar'], 'page': r['pdf_page'],
+                             'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'], 'crop': crop})
+            continue
         if text not in rows:
             rows[text] = {(x['article'], x['item']): x for x in read(os.path.join(SOURCE, text + '.csv'))}
             entries[text] = ocr_entries(EDITIONS[text][1])
@@ -133,7 +181,7 @@ def main():
             anchors = tuple(find_item(entries[text], {page - 1, page, page + 1}, k, name(k)) if name(k) else None
                             for k in (n - 1, n + 1))
         box = region(anchors, target)
-        key = '-'.join(re.sub(r'\s+', '-', v) for v in (text, r['article'], r['item'], r['edition']))
+        key = reading_id(r)
         if box is None:
             print(f'not located: {key}', file=sys.stderr)
             continue
@@ -143,8 +191,8 @@ def main():
                          'out': os.path.join(out, crop), 'dpi': 220})
         manifest.append({'id': key, 'text': text, 'title': TITLES[text], 'article': r['article'],
                          'item': r['item'], 'edition': r['edition'], 'reading': r['name'],
-                         'name_fr': row['name_fr'], 'page': r['pdf_page'], 'by': r['by'], 'note': r['note'],
-                         'crop': crop})
+                         'name_fr': row['name_fr'], 'name_ar': row.get('name_ar', ''), 'page': r['pdf_page'],
+                         'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'], 'crop': crop})
     subprocess.run(['swift', os.path.join(ROOT, 'tools', 'gazette', 'crops.swift')], check=True,
                    input='\n'.join(json.dumps(q) for q in requests) + '\n', text=True)
     with open(os.path.join(out, 'readings.json'), 'w', encoding='utf-8') as f:
