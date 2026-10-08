@@ -77,8 +77,6 @@ GAPS_91_306 = {
     ('30', '10', '2'): 'الرويسات',   # Rouissat, which the French leaves out
     ('34', '3', '4'): 'تكستين',      # Tixter again: both editions list it in 34 9/2
 }
-# The name whose start the press didn't print: […] stands for the missing letters
-UNPRINTED_91_306 = {('15', '17', '3'): '[…]بتين'}
 # Seats printed with a lower-case l
 SEATS_NOT_IN_CAPITALS = {'El HACHIMIA', 'OUED El ABTAL'}
 # Seats named or spelled differently from the commune that heads their list (seat -> commune)
@@ -309,10 +307,7 @@ class Dairas(unittest.TestCase):
                     self.assertEqual((r['name_fr'], r['name_ar']), ('', GAPS_91_306[key]))
                     continue
                 self.assertRegex(r['name_fr'], FRENCH)
-                if key in UNPRINTED_91_306:
-                    self.assertEqual(r['name_ar'], UNPRINTED_91_306[key])
-                else:
-                    self.assertRegex(r['name_ar'], ARABIC_SCAN)
+                self.assertRegex(r['name_ar'], ARABIC_SCAN)
                 if r['item'] == 'seat' and r['name_fr'] not in SEATS_NOT_IN_CAPITALS:
                     self.assertEqual(r['name_fr'], r['name_fr'].upper(), 'the French prints the seats in capitals')
 

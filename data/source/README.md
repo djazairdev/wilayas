@@ -47,7 +47,7 @@ The laws, the ordinance and Decrees 21-117, 26-206 and 26-253 have a text layer.
 - **Empty:** the two readings have the same letters.
 - **`eye`:** they don't, or one of them missed the name. The name was read on the rendered page, and `readings.csv` records the reading, the page, who read it, who checked it and why.
 
-So far every reading is by Claude, the AI model that ran the transcription (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects is recorded as the founder's (`by` is `founder`). The founder has checked the 61 readings of the laws, the ordinance and Decrees 21-117 and 26-206 and confirmed them all; the 1,410 of Decree 91-306 and the 17 of Decree 26-253 are next.
+Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked the 61 readings of the laws, the ordinance and Decrees 21-117 and 26-206 and confirmed them all, and 83 of the 1,410 of Decree 91-306, confirming 81 and correcting two. The rest, and the 17 of Decree 26-253, are next.
 
 The tests refuse any other value, and check that each `eye` row matches its reading.
 
@@ -64,7 +64,7 @@ The readings follow these rules:
 - Harakat, the short vowels and the shadda, aren't transcribed.
 - A hamza is read from the shape of the alif on the scan. A hamza merged into the alif's head makes it narrow on top, then a bulge, usually 9 to 12 pixels wide, where a bare alif's head is no wider than its stem; a hamza below is a mark of its own under the foot. [`tools/gazette/alifs.py`](../../tools/gazette/alifs.py) measures every alif that stands on its own and lists the names the scan contradicts; each one it lists was looked at again.
 - A broken letter is read from its traces, or from the same name printed elsewhere when they aren't enough, and the note says what shows. Specks and flaws are noted, not transcribed.
-- Letters the print doesn't show at all are marked `[…]`. Only 15 17/3 has them.
+- Letters the print doesn't show at all are marked `[…]`. Only 15 17/3 had them: the print shows only the end of the name, which Claude read "بتين", and the founder completed it on review as "إليلتين" (the French edition prints Illilten).
 - Sizes in the notes are pixels of the scan, about 305 dpi.
 
 The two editions print the same tables in the same order, but for three lines that only the Arabic prints. Their French name is empty:
