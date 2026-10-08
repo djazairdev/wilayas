@@ -1,6 +1,6 @@
-// Finds the horizontal rules of the tables on scanned pages: the lines that separate the
-// rows of the daïra tables in Decree 91-306. Prints one JSON line per rule, with its
-// position as a fraction of the page, y from the top, in each half-page column:
+// Finds the horizontal rules of the tables on rendered pages: the lines that separate the
+// rows of the daïra tables in Decrees 91-306 (a scan) and 26-253. Prints one JSON line per
+// rule, with its position as a fraction of the page, y from the top, in each half-page column:
 //   {"page": 4, "side": "right", "y": 0.2131}
 // A rule is a pixel row holding one long stroke: an unbroken run of darkish pixels (gaps of up to
 // three allowed, for the scan's breaks) over half the column's width or more. A pixel counts as

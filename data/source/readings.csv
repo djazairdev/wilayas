@@ -1470,3 +1470,20 @@ executive-decree-91-306,48,12/1,ar,سيدي محمد بن علي,32,claude,,the 
 executive-decree-91-306,48,12/2,ar,مديونة,32,claude,,the OCR’s readings differ
 executive-decree-91-306,48,12/3,ar,بني زنتيس,32,claude,,the OCR’s readings agree but match no Wikidata label
 executive-decree-91-306,48,13/2,ar,بن داود,32,claude,,"the OCR’s readings differ; the third letter’s head is a filled loop about 11 px wide, where a ر starts as a single stroke about 6 px wide (ورزان, 48 4/3); read as و, as in the French edition’s Bendaoud"
+executive-decree-26-253,07,5/3,ar,خنقة سيدي ناجي,12,claude,,the PDF’s text is garbled
+executive-decree-26-253,07,5/4,ar,المزيرعة,12,claude,,the PDF’s text is garbled
+executive-decree-26-253,13,10/3,ar,وادي الأخضر,13,claude,,"the OCR read وادي الاخضر, without the hamza the lam-alif carries"
+executive-decree-26-253,17,2/2,ar,عين معبد,14,claude,,missed by the OCR
+executive-decree-26-253,17,4/2,ar,المجبارة,14,claude,,the PDF’s text swaps the letters: اجملبارة
+executive-decree-26-253,26,4/1,ar,العمارية,15,claude,,the PDF’s text runs several lines into one
+executive-decree-26-253,26,5/3,ar,مزغنة,15,claude,,the PDF’s text runs several lines into one
+executive-decree-26-253,26,5/4,ar,العيساوية,15,claude,,the PDF’s text runs several lines into one
+executive-decree-26-253,26,8/2,ar,الزبيرية,15,claude,,the PDF’s text runs several lines into one
+executive-decree-26-253,26,8/3,ar,الدواير,15,claude,,the PDF’s text runs several lines into one; printed without a final ة
+executive-decree-26-253,26,9/1,ar,العزيزية,15,claude,,the PDF’s text is garbled
+executive-decree-26-253,26,13/seat,ar,سيدي نعمان,15,claude,,the PDF’s text runs several lines into one
+executive-decree-26-253,28,4/1,ar,سيدي عيسى,16,claude,,missed by the OCR; the final ى has no dots
+executive-decree-26-253,32,1/1,ar,البيض,16,claude,,missed by the OCR
+executive-decree-26-253,65,4/2,ar,الخميس,17,claude,,missed by the OCR
+executive-decree-26-253,68,5/1,ar,أولاد سيدي إبراهيم,18,claude,,the PDF’s text is garbled; a hamza above the first alif and one below the alif of إبراهيم
+executive-decree-26-253,68,7/4,ar,سيدي امحمد,18,claude,,the OCR cut it short

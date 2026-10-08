@@ -5,6 +5,8 @@ Each crop shows the item with its neighbours, located from the OCR's positions: 
 itself when the OCR read it, otherwise the space between the items before and after it.
 Decree 91-306's names are cropped from the lines tools/gazette/dairas.py placed, with the lines
 above and below, in the edition read (300 dpi in French, 400 in Arabic, to see the hamzas).
+Decree 26-253's are cropped the same way, at 400 dpi, from the boxes tools/gazette/tables.py
+gives its names.
 
     python3 tools/gazette/review.py OUT_DIR
     # writes OUT_DIR/crops/*.png and OUT_DIR/readings.json
@@ -23,6 +25,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import annex  # noqa: E402
 import lists  # noqa: E402
+import tables  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SOURCE = os.path.join(ROOT, 'data', 'source')
@@ -47,6 +50,10 @@ MARGIN = 0.012
 # Decree 91-306: each edition's PDF, the rows dairas.py made from it, and the resolution of the crops
 SCANS = {'fr': ('sources/joradp/F1991041.pdf', 300), 'ar': ('sources/joradp/A1991041.pdf', 400)}
 ROWS_91_306 = ('work/F1991041.rows.jsonl', 'work/A1991041.rows.jsonl')
+# Decree 26-253: the Arabic edition's PDF, and what tables.py places its names from
+PDF_26_253 = 'sources/joradp/A2026052.pdf'
+TABLES_26_253 = ('work/A2026052.runs.jsonl', 'work/A2026052.rules.jsonl',
+                 'work/A2026052.ocr.jsonl', 'work/A2026052.bands.ocr.jsonl')
 
 
 def read(path):
@@ -135,6 +142,20 @@ def lines_91_306():
     return out
 
 
+def lines_26_253():
+    """{(wilaya, 'daïra/item', 'ar'): (row, name)} for Decree 26-253, each name with its box."""
+    runs, rules, *ocr = (os.path.join(ROOT, p) for p in TABLES_26_253)
+    with open(os.path.join(SOURCE, tables.TEXT + '.csv'), encoding='utf-8', newline='') as f:
+        rows = {(r['wilaya'], f"{r['daira']}/{r['item']}"): r for r in csv.DictReader(f)}
+    out = {}
+    for wilaya, dairas in tables.arabic(runs, rules, ocr).items():
+        for d, daira in enumerate(dairas, 1):
+            items = [('seat', daira['seat'])] + [(str(i), e) for i, e in enumerate(daira['communes'], 1)]
+            for item, e in items:
+                out[(wilaya, f'{d}/{item}', 'ar')] = (rows[(wilaya, f'{d}/{item}')], e)
+    return out
+
+
 def scan_region(line):
     """(page, x, y, w, h) around a line of the scan, with the lines above and below."""
     x0, x1 = max(0.0, line['x'] - 0.03), min(1.0, line['x'] + line['w'] + 0.03)
@@ -142,25 +163,35 @@ def scan_region(line):
     return line['page'], x0, y0, x1 - x0, y1 - y0
 
 
+def name_region(e):
+    """(page, x, y, w, h) around a name of Decree 26-253, which may take two lines, with the
+    lines above and below."""
+    x0, x1 = max(0.0, e['x'] - 0.03), min(1.0, e['x'] + e['w'] + 0.03)
+    y0, y1 = max(0.0, e['y'] - 1.5 * LINE), min(1.0, e['y'] + e['h'] + 1.5 * LINE)
+    return e['page'], x0, y0, x1 - x0, y1 - y0
+
+
 def main():
     out = sys.argv[1]
     os.makedirs(os.path.join(out, 'crops'), exist_ok=True)
     readings = read(os.path.join(SOURCE, 'readings.csv'))
     rows, entries, requests, manifest = {}, {}, [], []
-    scans = None
+    placed = {}  # the daïra decrees' names, placed on the page
     for r in readings:
         text = r['text']
-        if text == annex.TEXT:
-            if scans is None:
-                scans = lines_91_306()
-            row, line = scans[(r['article'], r['item'], r['edition'])]
+        if text in (annex.TEXT, tables.TEXT):
+            if text not in placed:
+                placed[text] = lines_91_306() if text == annex.TEXT else lines_26_253()
+            row, line = placed[text][(r['article'], r['item'], r['edition'])]
             key = reading_id(r)
             crop = f'crops/{key}.png'
-            p, x, y, w, h = scan_region(line)
-            pdf, dpi = SCANS[r['edition']]
+            if text == annex.TEXT:
+                (p, x, y, w, h), (pdf, dpi), title = scan_region(line), SCANS[r['edition']], 'Decree 91-306'
+            else:
+                (p, x, y, w, h), (pdf, dpi), title = name_region(line), (PDF_26_253, 400), 'Decree 26-253'
             requests.append({'pdf': os.path.join(ROOT, pdf), 'page': p, 'x': x, 'y': y, 'w': w, 'h': h,
                              'out': os.path.join(out, crop), 'dpi': dpi})
-            manifest.append({'id': key, 'text': text, 'title': 'Decree 91-306', 'article': r['article'],
+            manifest.append({'id': key, 'text': text, 'title': title, 'article': r['article'],
                              'item': r['item'], 'edition': r['edition'], 'reading': r['name'],
                              'name_fr': row['name_fr'], 'name_ar': row['name_ar'], 'page': r['pdf_page'],
                              'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'], 'crop': crop})

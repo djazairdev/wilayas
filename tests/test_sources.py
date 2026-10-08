@@ -91,6 +91,15 @@ SEAT_SPELLINGS_91_306 = {
 }
 
 
+# Decree 26-253 rewrites the daïra tables of the 21 wilayas Law 26-06 touched: its ten parent
+# wilayas and the eleven it creates. The annex says the others are unchanged.
+WILAYAS_26_253 = ['03', '05', '07', '12', '13', '14', '17', '26', '28', '32'] + [str(n) for n in range(59, 70)]
+# Communes the decree spells differently from Law 26-06's lists, beyond accents, apostrophes,
+# capitals, hamzas and the dots of a final ي or ة (decree -> law)
+SPELLINGS_26_253 = {'fr': {'Béni Yaagoub': 'Ben Yaagoub', 'El Azizia': 'Al Azizia', 'Bougtoub': 'Bougtob'},
+                    'ar': {'سيدي عبد الرحمن': 'سيدي عبد الرحمان'}}
+
+
 def read(path):
     with open(path, encoding='utf-8', newline='') as f:
         reader = csv.DictReader(f)
@@ -115,7 +124,7 @@ def loose_ar(s):
 
 
 def row_key(r):
-    """(article, item) of a transcribed row, as readings.csv names it: for Decree 91-306,
+    """(article, item) of a transcribed row, as readings.csv names it: for the daïra decrees,
     the wilaya and 'daïra/item'."""
     return (r['wilaya'], f"{r['daira']}/{r['item']}") if 'wilaya' in r else (r['article'], r['item'])
 
@@ -320,6 +329,68 @@ class Dairas(unittest.TestCase):
                     name = seat['name_' + edition]
                     name = SEAT_SPELLINGS_91_306[edition].get(name, name)
                     self.assertEqual(loose[edition](name), loose[edition](first['name_' + edition]))
+
+
+class Dairas2026(unittest.TestCase):
+    """Executive Decree 26-253: the daïra tables of the 21 wilayas Law 26-06 touched, each daïra
+    with its seat and the communes its chef de daïra runs."""
+    fields, rows = read(os.path.join(SOURCE, 'executive-decree-26-253.csv'))
+
+    def dairas(self):
+        """{(wilaya, daïra): [rows]} in the order of the text, the seat first."""
+        out = {}
+        for r in self.rows:
+            out.setdefault((r['wilaya'], r['daira']), []).append(r)
+        return out
+
+    def test_fields(self):
+        self.assertEqual(self.fields, DAIRA_FIELDS)
+        self.assertEqual({r['text'] for r in self.rows}, {'executive-decree-26-253'})
+
+    def test_layout(self):
+        """The 21 wilayas in order, each with its daïras numbered from 1; each daïra is its seat,
+        then its communes numbered from 1."""
+        dairas = self.dairas()
+        self.assertEqual(len(dairas), 142)
+        wilayas = list(dict.fromkeys(w for w, d in dairas))
+        self.assertEqual(wilayas, WILAYAS_26_253)
+        for w in wilayas:
+            numbers = [d for x, d in dairas if x == w]
+            self.assertEqual(numbers, [str(n) for n in range(1, len(numbers) + 1)])
+        for key, rows in dairas.items():
+            with self.subTest(daira=key):
+                self.assertGreater(len(rows), 1)
+                self.assertEqual([r['item'] for r in rows], ['seat'] + [str(n) for n in range(1, len(rows))])
+
+    def test_names(self):
+        for r in self.rows:
+            with self.subTest(row=(r['wilaya'], r['daira'], r['item'])):
+                self.assertIn(r['check'], ('', 'eye'), 'every name is checked: two readings agree, or it was read on the page')
+                self.assertRegex(r['name_fr'], FRENCH)
+                self.assertRegex(r['name_ar'], ARABIC)
+
+    def test_same_communes_as_law_26_06(self):
+        """Each wilaya's daïras share out the communes Law 26-06 lists for it, spelled the same
+        but for SPELLINGS_26_253."""
+        law = lists('law-26-06')
+        loose = {'fr': loose_fr, 'ar': lambda s: loose_ar(s).replace('ى', 'ي').replace('ة', 'ه')}
+        for wilaya in WILAYAS_26_253:
+            article = str(int(wilaya) + 4) if int(wilaya) < 59 else f'52 bis {int(wilaya) - 49}'
+            mine = [r for r in self.rows if r['wilaya'] == wilaya and r['item'] != 'seat']
+            for edition in ('fr', 'ar'):
+                with self.subTest(wilaya=wilaya, edition=edition):
+                    spelled = SPELLINGS_26_253[edition]
+                    self.assertEqual(sorted(loose[edition](spelled.get(r['name_' + edition], r['name_' + edition])) for r in mine),
+                                     sorted(loose[edition](r['name_' + edition]) for r in law[article]))
+
+    def test_each_seat_heads_its_list(self):
+        """A daïra's seat is the first commune of its list, spelled the same but for an accent, an
+        apostrophe or a capital, and in Arabic a hamza."""
+        for key, rows in self.dairas().items():
+            seat, first = rows[0], rows[1]
+            with self.subTest(daira=key):
+                self.assertEqual(loose_fr(seat['name_fr']), loose_fr(first['name_fr']))
+                self.assertEqual(loose_ar(seat['name_ar']), loose_ar(first['name_ar']))
 
 
 class Readings(unittest.TestCase):
