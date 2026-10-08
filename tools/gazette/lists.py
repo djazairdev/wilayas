@@ -55,11 +55,17 @@ def article_id(raw):
     return re.sub(r'\s+', ' ', raw.replace('.', ' ')).strip().lower()
 
 
+# "Art. 7. — Les douze (12) communes suivantes constituent une wilaya :" (the laws), or
+# "Art. 34. — La wilaya de Ouargla est constituée des huit (8) communes suivantes :" (Ordinance 21-03)
 HEADER = re.compile(
-    r'Art\.?\s*(\d+(?:\.?\s*bis(?:\s*\d+)?)?)\s*\.?\s*[—–-]+\s*Les\s+([a-zà-ÿ\s-]+?)\s*\((\d+)\s*\)\s*communes\s+'
-    r'suivantes\s+constituent\s+une\s+wilaya\s*:', re.I)
+    r'Art\.?\s*(\d+(?:\.?\s*bis(?:\s*\d+)?)?)\s*\.?\s*[—–-]+\s*'
+    r'(?:Les\s+([a-zà-ÿ\s-]+?)\s*\((\d+)\s*\)\s*communes\s+suivantes\s+constituent\s+une\s+wilaya'
+    r'|La\s+wilaya\s+d(?:e\s+|[\'’]\s*).+?\s+est\s+constituée\s+des\s+([a-zà-ÿ\s-]+?)\s*\((\d+)\s*\)\s*communes\s+suivantes)'
+    r'\s*:', re.I)
 AMENDING = re.compile(r'(?<![«\w])Art\.?\s*(\d+)\s*\.?\s*[—–-]+\s*(?:Les\s+dispositions|L’intitulé|L\'intitulé)', re.I)
-LIST_END = re.compile(r'\.\s*»|»\s*\.|\.\s*(?=«|Art\b)|\.\s*$')
+# A list ends at a full stop that doesn't follow a number: before the closing quote, the next
+# article, or the next text (Ordinance 21-03's last list runs straight into Decree 21-117)
+LIST_END = re.compile(r'\.\s*»|»\s*\.|\.\s*(?=«|Art\b)|\.\s*$|(?<!\d)\.(?=\s)')
 ITEM = re.compile(r'^\s*(\d{1,2})\s*\.?\s+(.+?)\s*$')
 
 
@@ -86,7 +92,7 @@ def french_lists(lines):
         items = french_items(body)
         via = [a for p, a in amending if p < h.start()]
         out.append({'article': article_id(h.group(1)), 'via': via[-1] if via else '',
-                    'announced': int(h.group(3)), 'items': items})
+                    'announced': int(h.group(3) or h.group(5)), 'items': items})
     return out
 
 
@@ -164,7 +170,7 @@ OCR_ITEM = re.compile(r'^(\d{1,2})\s*[.\-–]\s*([^\d\s].*?)[\s،,.:”“"»«!
 # "المادة 52 مكرر 10 : تتشكل ولاية من الاثنتي عشرة (12) بلدية الآتية:" (2026), or
 # "المادّة 52 مكرر 5 : تتشكل ولاية من البلديتين الاثنتين (2) الآتيتين:" (2019). The OCR
 # often reads the opening bracket as "!" or ",".
-AR_HEADER = re.compile(r'المادّ?ة\s*(\d+)(\s*مكرر\s*(\d*))?\s*:\s*تتشكل\s+ولاية\s+من\s+.+?[!(,]+\s*(\d+)\s*\)\s*'
+AR_HEADER = re.compile(r'المادّ?ة\s*(\d+)(\s*مكرر\s*(\d*))?\s*:\s*تتشكل\s+ولاية\s+(?:[^\s:]+\s+){0,3}?من\s+.+?[!(,]+\s*(\d+)\s*\)\s*'
                        r'(?:بلدي(?:ة|ات)\s+)?الآتي(?:ة|تين)')
 AR_ARTICLE = re.compile(r'^["“”«]?\s*المادّ?ة\b')
 

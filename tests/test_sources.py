@@ -39,6 +39,7 @@ LAW_26_06 = [
     ('52 bis 14', '3', 4), ('52 bis 15', '3', 6), ('52 bis 16', '3', 10), ('52 bis 17', '3', 8),
     ('52 bis 18', '3', 21), ('52 bis 19', '3', 23), ('52 bis 20', '3', 7),
 ]
+ORDINANCE_21_03 = [('34', '2', 8), ('52 bis 6', '2', 13)]
 # Each list starts with its chef-lieu: Law 26-06's ten parent wilayas
 PARENTS_26_06 = ['Laghouat', 'Batna', 'Biskra', 'Tébessa', 'Tlemcen', 'Tiaret', 'Djelfa', 'Médéa', 'M’Sila', 'El Bayadh']
 
@@ -49,6 +50,21 @@ BISKRA_SPELLINGS = {
     'name_ar': {'البرانس': 'البرانيس', 'لشانة': 'ليشانة', 'لواء': 'ليوة', 'مخادمة': 'أمخادمة', 'مليلي': 'أمليلي'},
     'name_fr': {'Khenguet Sidi Nadji': 'Khangat Sidi Nadji', "M'Lili": 'M’Lili', 'Oumach': 'Oumache'},
 }
+# Ordinance 21-03 moves El Borma from Touggourt back to Ouargla, and spells some names
+# differently (Law 19-12 -> Ordinance 21-03)
+OUARGLA_SPELLINGS = {
+    'name_ar': {'حاسي بن عبد اللّه': 'حاسي بن عبد الله'},
+    'name_fr': {'Aïn Beïda': 'Ain Beida', 'Blidat Ameur': 'Blidate Ameur', "M'Naguar": 'M’Naguar'},
+}
+
+# The decrees completing Decree 84-79: the wilayas each one names, and the law whose new
+# lists they head (wilaya 49 is the one in article 52 bis, 50 in 52 bis 1, and so on)
+DECREES = {
+    'presidential-decree-21-117': (range(49, 59), 'law-19-12'),
+    'presidential-decree-26-206': (range(59, 70), 'law-26-06'),
+}
+# Chefs-lieux the decree spells differently from the law's list (decree -> law)
+SEAT_SPELLINGS = {'El M’Ghaier': 'El Megaier'}
 
 
 def read(path):
@@ -102,7 +118,7 @@ class Texts(unittest.TestCase):
     def test_each_text(self):
         for t in self.texts:
             with self.subTest(text=t['id']):
-                self.assertIn(t['kind'], ('law', 'presidential decree', 'executive decree'))
+                self.assertIn(t['kind'], ('law', 'ordinance', 'presidential decree', 'executive decree'))
                 self.assertEqual(t['id'], f"{t['kind'].replace(' ', '-')}-{t['number']}")
                 self.assertRegex(t['number'], r'^\d{2}-\d{2,3}$')
                 self.assertRegex(t['signed'], DATE)
@@ -126,7 +142,7 @@ class Texts(unittest.TestCase):
 
 
 class Lists(unittest.TestCase):
-    """The lists of communes in the laws that amend Law 84-09."""
+    """The lists of communes in the laws and the ordinance that amend Law 84-09."""
 
     def check_text(self, text_id, expected):
         fields, rows = read(os.path.join(SOURCE, text_id + '.csv'))
@@ -157,6 +173,17 @@ class Lists(unittest.TestCase):
         self.assertEqual(sum(len(l) for a, l in found.items() if a.startswith('52 bis')), 108)
         self.assertEqual([l[0]['name_fr'] for a, l in found.items() if not a.startswith('52 bis')], PARENTS_26_06)
 
+    def test_ordinance_21_03(self):
+        found = self.check_text('ordinance-21-03', ORDINANCE_21_03)
+        before = lists('law-19-12')
+        self.assertEqual(before['52 bis 6'][-1]['name_fr'], 'El Borma')
+        self.assertEqual(found['34'][-1]['name_fr'], 'El Borma')
+        for edition, spellings in OUARGLA_SPELLINGS.items():
+            with self.subTest(edition=edition):
+                old = [spellings.get(r[edition], r[edition]) for r in before['34'] + before['52 bis 6']]
+                new = [r[edition] for r in found['34'] + found['52 bis 6']]
+                self.assertEqual(sorted(old), sorted(new))
+
     def test_biskra_is_split_between_biskra_and_el_kantara(self):
         before, after = lists('law-19-12'), lists('law-26-06')
         for edition, spellings in BISKRA_SPELLINGS.items():
@@ -166,31 +193,36 @@ class Lists(unittest.TestCase):
                 self.assertEqual(old, new)
 
 
-class Decree(unittest.TestCase):
-    """Decree 26-206: the names and chefs-lieux of wilayas 59 to 69."""
-    fields, rows = read(os.path.join(SOURCE, 'presidential-decree-26-206.csv'))
+class Decrees(unittest.TestCase):
+    """Decrees 21-117 and 26-206: the names and chefs-lieux of wilayas 49 to 58 and 59 to 69."""
 
     def test_entries(self):
-        self.assertEqual(self.fields, DECREE_FIELDS)
-        self.assertEqual([r['item'] for r in self.rows], [str(n) for n in range(59, 70)])
-        for r in self.rows:
-            with self.subTest(wilaya=r['item']):
-                self.assertEqual(r['article'], '1')
-                for key in ('name_fr', 'seat_fr'):
-                    self.assertRegex(r[key], FRENCH)
-                for key in ('name_ar', 'seat_ar'):
-                    self.assertRegex(r[key], ARABIC)
-                self.assertIn(r['check'], ('', 'eye'))
+        for text, (codes, _) in DECREES.items():
+            fields, rows = read(os.path.join(SOURCE, text + '.csv'))
+            with self.subTest(text=text):
+                self.assertEqual(fields, DECREE_FIELDS)
+                self.assertEqual([r['item'] for r in rows], [str(n) for n in codes])
+            for r in rows:
+                with self.subTest(text=text, wilaya=r['item']):
+                    self.assertEqual(r['article'], '1')
+                    for key in ('name_fr', 'seat_fr'):
+                        self.assertRegex(r[key], FRENCH)
+                    for key in ('name_ar', 'seat_ar'):
+                        self.assertRegex(r[key], ARABIC)
+                    self.assertIn(r['check'], ('', 'eye'))
 
-    def test_each_chef_lieu_heads_its_list_in_law_26_06(self):
-        """Wilaya 59 is the one in article 52 bis 10, and so on in order. The texts
-        spell some names differently (آفلو and أفلو; Bou Saada and Bou Saâda)."""
-        new = lists('law-26-06')
-        for r in self.rows:
-            with self.subTest(wilaya=r['item']):
-                first = new[f"52 bis {int(r['item']) - 49}"][0]
-                self.assertEqual(loose_fr(first['name_fr']), loose_fr(r['seat_fr']))
-                self.assertEqual(loose_ar(first['name_ar']), loose_ar(r['seat_ar']))
+    def test_each_chef_lieu_heads_its_list(self):
+        """The texts spell some names differently (آفلو and أفلو; Bou Saada and Bou Saâda;
+        El M’Ghaier and El Megaier)."""
+        for text, (_, law) in DECREES.items():
+            new = lists(law)
+            for r in read(os.path.join(SOURCE, text + '.csv'))[1]:
+                n = int(r['item']) - 49
+                with self.subTest(text=text, wilaya=r['item']):
+                    first = new['52 bis' + (f' {n}' if n else '')][0]
+                    seat = SEAT_SPELLINGS.get(r['seat_fr'], r['seat_fr'])
+                    self.assertEqual(loose_fr(first['name_fr']), loose_fr(seat))
+                    self.assertEqual(loose_ar(first['name_ar']), loose_ar(r['seat_ar']))
 
 
 class Readings(unittest.TestCase):

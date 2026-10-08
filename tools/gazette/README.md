@@ -5,12 +5,12 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
 | Script | What it does |
 |---|---|
 | `columns.swift` | Prints the text of a text PDF column by column (macOS PDFKit). |
-| `runs.swift` | Prints each run of text with its position. Used for the Arabic edition of JO n° 78 of 2019, which stores its text one word at a time. |
+| `runs.swift` | Prints each run of text with its position. Used for the Arabic editions of JO n° 78 of 2019 and n° 22 of 2021, which store their text one word at a time. |
 | `ocr.swift` | Reads rendered pages with macOS Vision OCR and prints each line with its position. |
 | `render.swift` | Renders part of a page as a PNG, to read it by eye. |
 | `crops.swift` | Renders many parts of pages as PNGs in one run. |
-| `lists.py` | Builds the lists of communes of a law from both editions. |
-| `decree.py` | Builds the names and chefs-lieux of wilayas 59 to 69 from Decree 26-206. |
+| `lists.py` | Builds the lists of communes of a law or an ordinance from both editions. |
+| `decree.py` | Builds the names and chefs-lieux of new wilayas from Decree 21-117 (49 to 58) or Decree 26-206 (59 to 69). |
 | `review.py` | Crops the printed line of every name in `readings.csv`, to check the readings against the page. |
 
 ## Method
@@ -38,11 +38,18 @@ swift tools/gazette/runs.swift sources/joradp/A2019078.pdf 13 16 > work/A2019078
 swift tools/gazette/ocr.swift sources/joradp/A2019078.pdf 12 17 ar-SA > work/A2019078.ocr.jsonl
 python3 tools/gazette/lists.py law-19-12 work/F2019078.txt work/A2019078.runs.jsonl work/A2019078.ocr.jsonl > data/source/law-19-12.csv
 
+# Presidential Decree 21-117 and Ordinance 21-03 (JO n° 22 of 2021)
+swift tools/gazette/columns.swift fr sources/joradp/F2021022.pdf 6 8 > work/F2021022.txt
+swift tools/gazette/runs.swift sources/joradp/A2021022.pdf 7 8 > work/A2021022.runs.jsonl
+swift tools/gazette/ocr.swift sources/joradp/A2021022.pdf 7 8 ar-SA > work/A2021022.ocr.jsonl
+python3 tools/gazette/decree.py presidential-decree-21-117 work/F2021022.txt work/A2021022.runs.jsonl work/A2021022.ocr.jsonl > data/source/presidential-decree-21-117.csv
+python3 tools/gazette/lists.py ordinance-21-03 work/F2021022.txt work/A2021022.runs.jsonl work/A2021022.ocr.jsonl > data/source/ordinance-21-03.csv
+
 # Presidential Decree 26-206 (JO n° 40 of 2026)
 swift tools/gazette/columns.swift fr sources/joradp/F2026040.pdf 5 5 > work/F2026040.txt
 swift tools/gazette/columns.swift ar sources/joradp/A2026040.pdf 6 6 > work/A2026040.txt
 swift tools/gazette/ocr.swift sources/joradp/A2026040.pdf 6 6 ar-SA > work/A2026040.ocr.jsonl
-python3 tools/gazette/decree.py work/F2026040.txt work/A2026040.txt work/A2026040.ocr.jsonl > data/source/presidential-decree-26-206.csv
+python3 tools/gazette/decree.py presidential-decree-26-206 work/F2026040.txt work/A2026040.txt work/A2026040.ocr.jsonl > data/source/presidential-decree-26-206.csv
 ```
 
 `lists.py` and `decree.py` list on stderr every name still waiting to be read on the page. To read one, render it:

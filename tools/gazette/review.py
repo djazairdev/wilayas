@@ -28,11 +28,15 @@ SOURCE = os.path.join(ROOT, 'data', 'source')
 EDITIONS = {
     'law-26-06': ('sources/joradp/A2026025.pdf', 'work/A2026025.ocr.jsonl'),
     'law-19-12': ('sources/joradp/A2019078.pdf', 'work/A2019078.ocr.jsonl'),
+    'presidential-decree-21-117': ('sources/joradp/A2021022.pdf', 'work/A2021022.ocr.jsonl'),
+    'ordinance-21-03': ('sources/joradp/A2021022.pdf', 'work/A2021022.ocr.jsonl'),
     'presidential-decree-26-206': ('sources/joradp/A2026040.pdf', 'work/A2026040.ocr.jsonl'),
 }
 TITLES = {
     'law-26-06': 'Law 26-06',
     'law-19-12': 'Law 19-12',
+    'presidential-decree-21-117': 'Decree 21-117',
+    'ordinance-21-03': 'Ordinance 21-03',
     'presidential-decree-26-206': 'Decree 26-206',
 }
 LINE = 0.024  # a line of text, as a fraction of the page height

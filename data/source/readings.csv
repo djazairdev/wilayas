@@ -53,3 +53,10 @@ presidential-decree-26-206,1,66,ar,ولاية مسعد، مقرها مدينة �
 presidential-decree-26-206,1,67,ar,ولاية قصر البخاري، مقرها مدينة قصر البخاري,6,claude,the PDF's text is garbled
 presidential-decree-26-206,1,68,ar,ولاية بوسعادة، مقرها مدينة بوسعادة,6,claude,the PDF's text is garbled
 presidential-decree-26-206,1,69,ar,ولاية الأبيض سيدي الشيخ، مقرها مدينة الأبيض سيدي الشيخ,6,claude,the PDF's text is garbled
+ordinance-21-03,34,2,ar,حاسي بن عبد الله,7,claude,missed by the OCR
+ordinance-21-03,52 bis 6,3,ar,تيبسبست,7,claude,the OCR splits it over two lines
+ordinance-21-03,52 bis 6,4,ar,الزاوية العابدية,7,claude,the readings differ in spaces
+ordinance-21-03,52 bis 6,8,ar,المنقر,7,claude,the OCR cut it short
+presidential-decree-21-117,1,49,ar,ولاية تيميمون، مقرها مدينة تيميمون,8,claude,the PDF's text splits a word
+presidential-decree-21-117,1,57,ar,ولاية المغير، مقرها مدينة المغير,8,claude,the PDF's text splits a word and runs it into entry 58
+presidential-decree-21-117,1,58,ar,ولاية المنيعة، مقرها مدينة المنيعة,8,claude,the PDF's text runs it into entry 57
