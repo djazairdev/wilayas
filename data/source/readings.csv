@@ -1,0 +1,55 @@
+text,article,item,edition,name,pdf_page,by,note
+law-26-06,7,1,ar,الأغواط,4,claude,the OCR read الآغواط
+law-26-06,7,9,ar,الخنق,4,claude,both readings cut it short
+law-26-06,9,8,ar,تازولت,4,claude,the OCR cut it short
+law-26-06,9,49,ar,الحاسي,5,claude,the OCR cut it short
+law-26-06,11,22,ar,خنقة سيدي ناجي,5,claude,no match in the PDF's text
+law-26-06,16,1,ar,تبسة,5,claude,no match in the PDF's text
+law-26-06,16,2,ar,الشريعة,5,claude,no match in the PDF's text
+law-26-06,16,3,ar,السطح قنتيس,5,claude,no match in the PDF's text
+law-26-06,16,18,ar,أم علي,6,claude,missed by the OCR
+law-26-06,17,1,ar,تلمسان,6,claude,no match in the PDF's text
+law-26-06,17,2,ar,بني مستر,6,claude,no match in the PDF's text
+law-26-06,17,7,ar,الغزوات,6,claude,missed by the OCR
+law-26-06,18,4,ar,سيدي علي ملال,7,claude,no match in the PDF's text
+law-26-06,18,5,ar,عين دزاريت,7,claude,the PDF's text cuts it short
+law-26-06,21,2,ar,المجبارة,7,claude,the PDF's text is garbled
+law-26-06,30,1,ar,المدية,7,claude,missed by the OCR
+law-26-06,30,36,ar,ذراع السمار,8,claude,no match in the PDF's text
+law-26-06,32,1,ar,المسيلة,8,claude,no match in the PDF's text
+law-26-06,32,2,ar,المعاضيد,8,claude,no match in the PDF's text
+law-26-06,32,3,ar,حمام الضلعة,8,claude,the PDF's text drops a letter and a space
+law-26-06,36,1,ar,البيض,9,claude,no match in the PDF's text
+law-26-06,52 bis 10,1,ar,آفلو,9,claude,no match in the PDF's text
+law-26-06,52 bis 10,10,ar,وادي مرة,9,claude,missed by the OCR
+law-26-06,52 bis 12,5,ar,جمورة,9,claude,the PDF's text cuts it short
+law-26-06,52 bis 15,1,ar,قصر الشلالة,10,claude,no match in the PDF's text
+law-26-06,52 bis 15,2,ar,زمالة الأمير عبد القادر,10,claude,no match in the PDF's text
+law-26-06,52 bis 15,3,ar,الرشايقة,10,claude,no match in the PDF's text
+law-26-06,52 bis 16,1,ar,عين وسارة,10,claude,no match in the PDF's text
+law-26-06,52 bis 17,5,ar,سلمانة,10,claude,no match in the PDF's text
+law-26-06,52 bis 18,11,ar,سيدي دمد,10,claude,the OCR drops a letter
+law-26-06,52 bis 18,20,ar,أولاد عنتر,10,claude,both readings cut it short
+law-26-06,52 bis 19,4,ar,أولاد سيدي إبراهيم,11,claude,the PDF's text cuts it short
+law-19-12,5,7,ar,أقبلي,13,claude,missed by the OCR
+law-19-12,5,8,ar,تيت,13,claude,missed by the OCR
+law-19-12,5,13,ar,أولف,13,claude,the OCR read the number as 3
+law-19-12,34,2,ar,حاسي بن عبد اللّه,14,claude,the OCR drops the shadda
+law-19-12,37,3,ar,دبداب,14,claude,the OCR cuts it short; no match in the PDF's text
+law-19-12,52 bis 8,6,ar,سيدي عمران,16,claude,the OCR read the number as 0
+law-19-12,11,2,ar,أوماش,13,claude,the readings differ in spaces
+law-19-12,11,18,ar,أورلال,13,claude,the readings differ in spaces
+law-19-12,11,19,ar,مليلي,14,claude,the readings differ in spaces
+law-19-12,12,7,ar,العبادلة,14,claude,the readings differ in spaces
+law-19-12,37,4,ar,إن اميناس,14,claude,the readings differ in spaces
+law-19-12,43,2,ar,رباح,14,claude,the readings differ in spaces
+law-19-12,43,10,ar,ورماس,14,claude,the readings differ in spaces
+law-19-12,51,7,ar,متليلي,15,claude,the readings differ in spaces
+presidential-decree-26-206,1,62,ar,ولاية بئر العاتر، مقرها مدينة بئر العاتر,6,claude,the PDF's text is garbled
+presidential-decree-26-206,1,63,ar,ولاية العريشة، مقرها مدينة العريشة,6,claude,the PDF's text is garbled
+presidential-decree-26-206,1,64,ar,ولاية قصر الشلالة، مقرها مدينة قصر الشلالة,6,claude,the PDF's text is garbled
+presidential-decree-26-206,1,65,ar,ولاية عين وسارة، مقرها مدينة عين وسارة,6,claude,the PDF's text is garbled
+presidential-decree-26-206,1,66,ar,ولاية مسعد، مقرها مدينة مسعد,6,claude,the PDF's text runs it into entry 65
+presidential-decree-26-206,1,67,ar,ولاية قصر البخاري، مقرها مدينة قصر البخاري,6,claude,the PDF's text is garbled
+presidential-decree-26-206,1,68,ar,ولاية بوسعادة، مقرها مدينة بوسعادة,6,claude,the PDF's text is garbled
+presidential-decree-26-206,1,69,ar,ولاية الأبيض سيدي الشيخ، مقرها مدينة الأبيض سيدي الشيخ,6,claude,the PDF's text is garbled
