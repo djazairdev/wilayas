@@ -44,9 +44,9 @@ A list's number is not a commune code. The codes go back to the 1984 lists, and 
 The laws, the ordinance and Decrees 21-117 and 26-206 have a text layer. The French comes from the text of the PDF, which is exact. The Arabic is read twice, by OCR of the rendered page and from the PDF's own text, which is drawn correctly but stored out of order. `check` says what happened:
 
 - **Empty:** the two readings have the same letters.
-- **`eye`:** they don't, or one of them missed the name. The name was read on the rendered page, and `readings.csv` records the reading, the page, who read it and why.
+- **`eye`:** they don't, or one of them missed the name. The name was read on the rendered page, and `readings.csv` records the reading, the page, who read it, who checked it and why.
 
-So far every reading is by Claude, the AI model that ran the transcription (`by` is `claude`). They are reviewed against the printed pages before version 1.
+So far every reading is by Claude, the AI model that ran the transcription (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects is recorded as the founder's (`by` is `founder`). The founder has checked the 61 readings of the laws, the ordinance and Decrees 21-117 and 26-206 and confirmed them all; the 1,410 of Decree 91-306 are next.
 
 The tests refuse any other value, and check that each `eye` row matches its reading.
 

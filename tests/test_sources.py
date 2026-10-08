@@ -18,7 +18,7 @@ SOURCE = os.path.join(DATA, 'source')
 LIST_FIELDS = ['text', 'article', 'via', 'item', 'of', 'name_fr', 'name_ar', 'check']
 DECREE_FIELDS = ['text', 'article', 'item', 'name_fr', 'seat_fr', 'name_ar', 'seat_ar', 'check']
 DAIRA_FIELDS = ['text', 'wilaya', 'daira', 'item', 'name_fr', 'name_ar', 'check']
-READING_FIELDS = ['text', 'article', 'item', 'edition', 'name', 'pdf_page', 'by', 'note']
+READING_FIELDS = ['text', 'article', 'item', 'edition', 'name', 'pdf_page', 'by', 'reviewed_by', 'note']
 TEXT_FIELDS = ['id', 'kind', 'number', 'signed', 'jo_number', 'jo_date', 'url_ar', 'url_fr', 'sha256_ar', 'sha256_fr']
 
 # Arabic letters and the shadda, words separated by single spaces
@@ -323,7 +323,8 @@ class Dairas(unittest.TestCase):
 
 
 class Readings(unittest.TestCase):
-    """data/source/readings.csv: the names read on the rendered page, and who read them."""
+    """data/source/readings.csv: the names read on the rendered page, who read them and who
+    checked the reading on the page afterwards."""
     fields, readings = read(os.path.join(SOURCE, 'readings.csv'))
 
     @staticmethod
@@ -354,6 +355,9 @@ class Readings(unittest.TestCase):
                 self.assertIn(r['edition'], ('ar', 'fr'))
                 self.assertRegex(r['pdf_page'], r'^\d+$')
                 self.assertIn(r['by'], ('claude', 'founder'))
+                self.assertIn(r['reviewed_by'], ('', 'founder'))
+                if r['reviewed_by']:
+                    self.assertNotEqual(r['reviewed_by'], r['by'], 'a reading is reviewed by someone else')
                 self.assertTrue(r['note'])
                 self.assertEqual(rows[r['text']].get((r['article'], r['item'], r['edition'])), r['name'])
         # and every row read by eye has its reading
