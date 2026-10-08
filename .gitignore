@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Build output (python3 build.py)
+/dist/
+
+# Cloudflare Wrangler
+.wrangler/
+node_modules/
+
+# Local files
+.DS_Store
+.env
