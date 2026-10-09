@@ -49,6 +49,8 @@ python3 build.py
 python3 -m unittest discover -s tests
 ```
 
+[`docs/deploy.md`](docs/deploy.md) says how CI deploys the files to Cloudflare.
+
 ## Sources
 
 - Law 84-09 of 4 February 1984 on the territorial division of the country, as amended, most recently by Law 26-06 of 4 April 2026 (Journal officiel n° 25 of 5 April 2026).

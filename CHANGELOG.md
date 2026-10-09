@@ -1,8 +1,14 @@
 # Changelog
 
-Each data release is named after its data version, the date at the top of its entry (`data-2026-10-09`). The API's files carry it as `data_version`.
+The API's versions follow [semantic versioning](https://semver.org): each entry is headed with its version and its date, as `## 1.2.3 (2026-10-09)`. CI tags and releases each version as `v1.2.3` once `main` is deployed ([docs/deploy.md](docs/deploy.md#releases)). The API's files carry the date as `data_version`, and `index.json` the version.
 
-## 2026-10-09
+When a change alters what the API serves, add an entry at the top, dated the day of the change:
+
+- **Patch** (`1.0.1`): corrections to the data, such as a name misread or a citation.
+- **Minor** (`1.1.0`): new data, fields or files that leave the old ones as they are, such as a new text applied or a new field.
+- **Major** (`2.0.0`): a change that could break a client, such as a field removed or renamed. It is served under a new path, `/v2/`, and `/v1/` stays.
+
+## 1.0.0 (2026-10-09)
 
 First build, before the launch of version 1.
 

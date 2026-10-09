@@ -1,0 +1,18 @@
+// The API on Cloudflare Workers, as static assets with no Worker code (docs/deploy.md).
+// CI deploys dist/ with `wrangler deploy` once the tests and the build pass, and each pull
+// request from this repository uploads a preview version (.github/workflows/ci.yml).
+{
+  "name": "djazair-wilayas",
+  "compatibility_date": "2026-10-09",
+  "assets": {
+    "directory": "./dist",
+    // an unknown file is a 404 with an empty body; JSON error bodies would need Worker code
+    "not_found_handling": "none"
+  },
+  // The API's own address before launch, djazair-wilayas.<account>.workers.dev, and
+  // pr-<number>-djazair-wilayas.<account>.workers.dev for pull requests.
+  "workers_dev": true,
+  "preview_urls": true
+  // At launch, wilayas.djazair.dev points here (docs/deploy.md):
+  // "routes": [{ "pattern": "wilayas.djazair.dev", "custom_domain": true }]
+}

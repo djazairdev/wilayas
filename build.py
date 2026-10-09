@@ -5,8 +5,10 @@
 
 dist/v1/ holds the JSON and CSV files, the JSON Schemas (dist/v1/schemas/) and the OpenAPI
 description (dist/v1/openapi.json); public/ is copied to dist/ as it is. Each JSON file is an
-object with the data version and its payload under a named key. The data version is the date of
-the latest entry in CHANGELOG.md.
+object with the data version and its payload under a named key. The latest entry in
+CHANGELOG.md gives the version, as "## 1.2.3 (2026-10-09)": index.json and the OpenAPI
+description carry the version (1.2.3), and every file the data version, its date. The major
+version is the one in the path, v1 (tools/release.py).
 
 The schemas and the OpenAPI description are made here, from DEFS, so they always describe the
 files this script writes; tests/test_build.py checks every file against its schema.
@@ -25,8 +27,11 @@ import unicodedata
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, 'data')
 PUBLIC = os.path.join(ROOT, 'public')
-BASE_URL = 'https://wilayas.djazair.dev/v1'
-SCHEMA_VERSION = '1.0'
+API_MAJOR = 1  # dist/v1/: a breaking change is a new major version, under /v2
+API_DIR = f'v{API_MAJOR}'
+BASE_URL = f'https://wilayas.djazair.dev/{API_DIR}'
+# A changelog entry's heading: '## 1.2.3 (2026-10-09)'
+HEADING = re.compile(r'^## (\d+\.\d+\.\d+) \((\d{4}-\d{2}-\d{2})\)[ \t]*$', re.M)
 REPOSITORY = 'https://github.com/djazairdev/wilayas'
 
 # Law 26-06, art. 4, rewrites art. 54 of Law 84-09: the parent wilayas run the new ones' services
@@ -41,14 +46,31 @@ def read(name):
         return list(csv.DictReader(f))
 
 
+def changelog(text):
+    """[(version, date, entry)] of a changelog, newest first: each '## 1.2.3 (2026-10-09)' heading
+    and the text under it, up to the next heading."""
+    found = list(HEADING.finditer(text))
+    return [(m.group(1), m.group(2), text[m.end():found[i + 1].start() if i + 1 < len(found) else len(text)].strip())
+            for i, m in enumerate(found)]
+
+
+def latest(root=ROOT):
+    """(version, date, entry) of the latest entry in CHANGELOG.md."""
+    with open(os.path.join(root, 'CHANGELOG.md'), encoding='utf-8') as f:
+        found = changelog(f.read())
+    if not found:
+        raise SystemExit('CHANGELOG.md has no "## 1.2.3 (YYYY-MM-DD)" entry')
+    return found[0]
+
+
+def version():
+    """The API's version: the latest changelog entry's, as 1.2.3."""
+    return latest()[0]
+
+
 def data_version():
-    """The date of the latest entry in CHANGELOG.md: its first '## YYYY-MM-DD' heading."""
-    with open(os.path.join(ROOT, 'CHANGELOG.md'), encoding='utf-8') as f:
-        for line in f:
-            m = re.match(r'^## (\d{4}-\d{2}-\d{2})\b', line)
-            if m:
-                return m.group(1)
-    raise SystemExit('CHANGELOG.md has no "## YYYY-MM-DD" entry')
+    """The data version: the date of the latest changelog entry."""
+    return latest()[1]
 
 
 def slug(name):
@@ -250,11 +272,13 @@ FILES = {
 }
 INDEX_SCHEMA = {
     'type': 'object', 'additionalProperties': False,
-    'required': ['name', 'description', 'schema_version', 'data_version', 'base_url', 'counts', 'licences',
+    'required': ['name', 'description', 'version', 'data_version', 'base_url', 'counts', 'licences',
                  'repository', 'files'],
     'properties': {
         'name': {'const': 'wilayas'}, 'description': {'type': 'string'},
-        'schema_version': {'type': 'string'}, 'data_version': {'$ref': '#/$defs/date'},
+        'version': {'type': 'string', 'pattern': f'^{API_MAJOR}\\.[0-9]+\\.[0-9]+$',
+                    'description': 'The API\'s version: the major one is in the path'},
+        'data_version': {'$ref': '#/$defs/date'},
         'base_url': {'type': 'string'},
         'counts': {'type': 'object', 'additionalProperties': {'type': 'integer'}},
         'licences': {'type': 'object', 'additionalProperties': False, 'required': ['data', 'code'],
@@ -387,12 +411,12 @@ def change_csv(rows):
 
 def files():
     """{path under dist/v1/: (kind, content)}: kind is a schema's name for JSON, 'csv' or 'openapi'."""
-    version = data_version()
+    date = data_version()
     wilayas, dairas, communes, changes, texts, lists_ = build_records()
     out = {}
 
     def put(path, kind, key, payload):
-        out[path] = (kind, {'data_version': version, key: payload})
+        out[path] = (kind, {'data_version': date, key: payload})
 
     put('wilayas.json', 'wilayas', 'wilayas', wilayas)
     out['wilayas.csv'] = ('csv', wilaya_csv(wilayas))
@@ -415,7 +439,7 @@ def files():
         put(f"communes/{c['code']}.json", 'commune', 'commune', c)
     put('changes.json', 'changes', 'changes', changes)
     out['changes.csv'] = ('csv', change_csv(changes))
-    out['texts.json'] = ('texts', {'data_version': version, 'texts': texts, 'lists': lists_})
+    out['texts.json'] = ('texts', {'data_version': date, 'texts': texts, 'lists': lists_})
 
     # the division of 2019: 58 wilayas, the 108 communes Law 26-06 moved in their old ones
     before = [dict(c, wilaya=(c['wilaya_before'] or {}).get('wilaya', c['wilaya'])) for c in communes]
@@ -427,7 +451,7 @@ def files():
 
     for kind in ['index'] + list(FILES):
         out[f'schemas/{kind}.json'] = ('schema', schema(kind))
-    out['openapi.json'] = ('openapi', openapi(version))
+    out['openapi.json'] = ('openapi', openapi(version(), date))
     counts = {'wilayas': len(wilayas), 'dairas': len(dairas), 'communes': len(communes), 'changes': len(changes)}
     paths = [p for p in sorted(out) if '/' not in p or p.startswith(('divisions/', 'schemas/'))] + ['index.json']
     paths += ['wilayas/{code}.json', 'wilayas/{code}/communes.json', 'wilayas/{code}/communes.csv',
@@ -437,7 +461,7 @@ def files():
     out['index.json'] = ('index', {
         'name': 'wilayas',
         'description': "Algeria's wilayas, daïras and communes, from the official texts in the Journal officiel",
-        'schema_version': SCHEMA_VERSION, 'data_version': version, 'base_url': BASE_URL + '/', 'counts': counts,
+        'version': version(), 'data_version': date, 'base_url': BASE_URL + '/', 'counts': counts,
         'licences': {'data': 'CC0-1.0', 'code': 'MIT'}, 'repository': REPOSITORY, 'files': listed})
     return out
 
@@ -460,7 +484,7 @@ PATHS = [
 ]
 
 
-def openapi(version):
+def openapi(api_version, date):
     """The OpenAPI 3.1 description of the files, with the schemas as components."""
     components = {kind.replace('-', '_'): {k: v for k, v in schema(kind).items() if k not in ('$schema', '$id', '$defs')}
                   for kind in ['index'] + list(FILES)}
@@ -492,9 +516,9 @@ def openapi(version):
             paths[csv_path] = {'get': csv_op}
     return {
         'openapi': '3.1.0',
-        'info': {'title': 'wilayas', 'version': SCHEMA_VERSION,
+        'info': {'title': 'wilayas', 'version': api_version,
                  'description': "Algeria's 69 wilayas, their daïras and 1,541 communes, from the official texts. "
-                                f'Static files; data version {version}. Not an official government service.',
+                                f'Static files; data version {date}. Not an official government service.',
                  'license': {'name': 'CC0-1.0 (data), MIT (code)', 'identifier': 'CC0-1.0'}},
         'servers': [{'url': BASE_URL}],
         'paths': paths,
@@ -512,7 +536,7 @@ def write(out_dir):
     shutil.copytree(PUBLIC, out_dir)
     built = files()
     for path, (kind, content) in built.items():
-        full = os.path.join(out_dir, 'v1', path)
+        full = os.path.join(out_dir, API_DIR, path)
         os.makedirs(os.path.dirname(full), exist_ok=True)
         with open(full, 'w', encoding='utf-8', newline='') as f:
             f.write(content if kind == 'csv' else dump(content))
@@ -522,7 +546,7 @@ def write(out_dir):
 def main():
     out_dir = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'dist')
     built = write(out_dir)
-    print(f'{len(built)} files in {os.path.join(out_dir, "v1")}', file=sys.stderr)
+    print(f'{len(built)} files in {os.path.join(out_dir, API_DIR)}', file=sys.stderr)
 
 
 if __name__ == '__main__':
