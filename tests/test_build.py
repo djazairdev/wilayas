@@ -148,6 +148,9 @@ class Build(unittest.TestCase):
                 self.assertTrue(os.path.exists(os.path.join(self.v1, path)), path)
         self.assertEqual(index['counts'], {'wilayas': 69, 'dairas': 538, 'communes': 1541, 'changes': 119})
         self.assertEqual(index['data_version'], build.data_version())
+        self.assertEqual(index['version'], build.version())
+        self.assertEqual(self.load('openapi.json')['info']['version'], build.version())
+        self.assertEqual(index['base_url'], f'https://wilayas.djazair.dev/v{build.API_MAJOR}/')
 
     def test_files_agree(self):
         wilayas = self.load('wilayas.json')['wilayas']

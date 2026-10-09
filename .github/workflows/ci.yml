@@ -1,6 +1,7 @@
-# Tests, builds and deploys the API. A deploy runs only after every test and the build pass, so a
-# failing change never replaces the last good version. Deploys also wait for the DEPLOY_ENABLED
-# repository variable to be "true" (docs/deploy.md).
+# Tests, builds, deploys and releases the API. A deploy runs only after every test and the build
+# pass, so a failing change never replaces the last good version. Deploys also wait for the
+# DEPLOY_ENABLED repository variable to be "true" (docs/deploy.md). Once main is deployed, a new
+# version is tagged and released (docs/deploy.md#releases).
 name: CI
 
 on:
@@ -26,6 +27,8 @@ jobs:
         python: ['3.12', '3.13']
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # the v* tags, for the release check
       - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
@@ -33,6 +36,8 @@ jobs:
         run: python -m compileall -q build.py tools tests
       - name: Check the tables are up to date
         run: python tools/resolve.py --check
+      - name: Check the version
+        run: python tools/release.py check
       - name: Run the tests
         run: python -m unittest discover -s tests -v
 
@@ -115,3 +120,30 @@ jobs:
         env:
           URL: ${{ steps.deploy.outputs.deployment-url }}
         run: echo "Deployed to $URL" >> "$GITHUB_STEP_SUMMARY"
+
+  # The version (the latest entry in CHANGELOG.md, '## 1.2.3 (YYYY-MM-DD)') becomes the tag v1.2.3
+  # and a GitHub release once main deploys it, so every release is a version that was live. The
+  # release notes are the changelog entry; the built API and the tables are attached.
+  release:
+    name: Release the version
+    needs: deploy
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v8
+        with:
+          name: api
+          path: dist
+      - name: Tag and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/release.py publish dist
