@@ -1,0 +1,539 @@
+code,wilaya,name_fr,name_ar,listed_by,listed_article,listed_item,communes
+0101,01,Adrar,أدرار,executive-decree-21-198,01,1,3
+0104,01,Reggane,رقان,executive-decree-21-198,01,3,2
+0108,01,Tsabit,تسابيت,executive-decree-21-198,01,5,2
+0111,01,Zaouiet Kounta,زاوية كنتة,executive-decree-21-198,01,6,2
+0112,01,Aoulef,أولف,executive-decree-21-198,01,4,4
+0115,01,Fenoghil,فنوغيل,executive-decree-21-198,01,2,3
+0201,02,Chlef,الشلف,executive-decree-91-306,02,13,3
+0202,02,Ténès,تنس,executive-decree-92-66,02,2,3
+0204,02,El Karimia,الكريمية,executive-decree-91-306,02,7,3
+0206,02,Taougrite,تاوقريت,executive-decree-91-306,02,12,2
+0207,02,Béni Haoua,بني حواء,executive-decree-91-306,02,5,3
+0210,02,Ouled Farès,أولاد فارس,executive-decree-91-306,02,3,3
+0212,02,Boukadir,بوقادير,executive-decree-91-306,02,1,3
+0220,02,Zeboudja,الزبوجة,executive-decree-91-306,02,10,3
+0222,02,Abou El Hassan,أبو الحسن,executive-decree-91-306,02,9,3
+0223,02,El Marsa,المرسى,executive-decree-92-66,02,1,2
+0229,02,Oued Fodda,وادي الفضة,executive-decree-91-306,02,4,3
+0230,02,Ouled Ben Abdelkader,أولاد بن عبد القادر,executive-decree-91-306,02,8,2
+0232,02,Ain Merane,عين مران,executive-decree-91-306,02,6,2
+0301,03,Laghouat,الأغواط,executive-decree-26-253,03,1,1
+0302,03,Ksar El Hirane,قصر الحيران,executive-decree-26-253,03,2,2
+0304,03,Sidi Makhlouf,سيدي مخلوف,executive-decree-26-253,03,5,2
+0306,03,Hassi R'Mel,حاسي الرمل,executive-decree-26-253,03,4,2
+0307,03,Aïn Madhi,عين ماضي,executive-decree-26-253,03,3,5
+0310,59,Gueltat Sidi Saad,قلتة سيدي سعد,executive-decree-26-253,59,3,3
+0313,59,Brida,بريدة,executive-decree-26-253,59,2,3
+0314,59,El Ghicha,الغيشة,executive-decree-26-253,59,5,1
+0319,59,Aflou,أفلو,executive-decree-26-253,59,1,3
+0321,59,Oued Morra,وادي مرة,executive-decree-26-253,59,4,2
+0401,04,Oum El Bouaghi,أم البواقي,executive-decree-91-306,04,11,2
+0402,04,Aïn Beida,عين البيضاء,executive-decree-91-306,04,2,3
+0403,04,Aïn M’Lila,عين مليلة,executive-decree-91-306,04,3,3
+0406,04,Sigus,سيقوس,executive-decree-92-66,04,1,2
+0408,04,Aïn Babouche,عين بابوش,executive-decree-91-306,04,1,2
+0411,04,Dhalaa,الضلعة,executive-decree-91-306,04,9,2
+0412,04,Aïn Kercha,عين كرشة,executive-decree-92-66,04,3,3
+0416,04,F’Kirina,فكيرينة,executive-decree-91-306,04,8,2
+0417,04,Souk Naamane,سوق نعمان,executive-decree-91-306,04,6,3
+0422,04,Ksar Sbahi,قصر الصباحي,executive-decree-91-306,04,10,1
+0424,04,Meskiana,مسكيانة,executive-decree-91-306,04,4,4
+0425,04,Aïn Fekroun,عين الفكرون,executive-decree-92-66,04,2,2
+0501,05,Batna,باتنة,executive-decree-26-253,05,1,3
+0504,05,Merouana,مروانة,executive-decree-26-253,05,4,4
+0505,05,Seriana,سريانة,executive-decree-26-253,05,6,3
+0506,05,Menaa,منعة,executive-decree-26-253,05,16,2
+0507,05,Elmadher,المعذر,executive-decree-26-253,05,7,4
+0508,05,Tazoult,تازولت,executive-decree-26-253,05,8,2
+0509,05,N’Gaous,نقاوس,executive-decree-26-253,05,5,3
+0516,05,Arris,آريس,executive-decree-26-253,05,10,2
+0519,05,Aïn Djasser,عين جاسر,executive-decree-26-253,05,13,2
+0529,60,Seggana,سقانة,executive-decree-26-253,60,3,2
+0530,05,Ichmoul,إيشمول,executive-decree-26-253,05,17,3
+0535,05,Bouzina,بوزينة,executive-decree-26-253,05,15,2
+0536,05,Chemora,الشمرة,executive-decree-26-253,05,12,2
+0542,60,Barika,بريكة,executive-decree-26-253,60,1,3
+0543,60,Djezzar,الجزار,executive-decree-26-253,60,2,3
+0544,05,T’Kout,تكوت,executive-decree-26-253,05,14,3
+0545,05,Aïn Touta,عين التوتة,executive-decree-26-253,05,3,4
+0547,05,Teniet El Abed,ثنية العابد,executive-decree-26-253,05,9,3
+0550,05,Timgad,تيمقاد,executive-decree-26-253,05,11,2
+0551,05,Ras El Aïoun,رأس العيون,executive-decree-26-253,05,2,6
+0553,05,Ouled Si Slimane,أولاد سي سليمان,executive-decree-26-253,05,18,3
+0601,06,Béjaia,بجاية,executive-decree-91-306,06,19,2
+0602,06,Amizour,أميزور,executive-decree-91-306,06,3,4
+0607,06,Timzrit,تيمزريت,executive-decree-91-306,06,8,1
+0608,06,Souk El Tenine,سوق الاثنين,executive-decree-91-306,06,11,3
+0611,06,Tichy,تيشي,executive-decree-91-306,06,1,3
+0617,06,Ighil Ali,إغيل علي,executive-decree-91-306,06,10,2
+0620,06,Darguina,درقينة,executive-decree-91-306,06,14,3
+0622,06,Aokas,أوقاس,executive-decree-91-306,06,16,2
+0624,06,Adekar,أذكار,executive-decree-91-306,06,4,3
+0625,06,Akbou,آقبو,executive-decree-91-306,06,2,4
+0626,06,Seddouk,صدوق,executive-decree-91-306,06,5,4
+0627,06,Tazmalt,تازمالت,executive-decree-91-306,06,18,3
+0629,06,Chemini,شميني,executive-decree-91-306,06,9,4
+0634,06,Barbacha,برباشة,executive-decree-91-306,06,13,2
+0636,06,Ouzellaguène,أوزلاقن,executive-decree-91-306,06,17,1
+0639,06,Sidi Aïch,سيدي عيش,executive-decree-91-306,06,7,5
+0640,06,El Kseur,القصر,executive-decree-91-306,06,12,3
+0644,06,Kherrata,خراطة,executive-decree-91-306,06,6,2
+0650,06,Béni Maouche,بني معوش,executive-decree-91-306,06,15,1
+0701,07,Biskra,بسكرة,executive-decree-26-253,07,1,2
+0711,07,Sidi Okba,سيدي عقبة,executive-decree-26-253,07,2,4
+0712,07,M’Chounèche,مشونش,executive-decree-26-253,07,7,1
+0715,07,Zeribet El Oued,زريبة الوادي,executive-decree-26-253,07,5,4
+0717,61,El Kantara,القنطرة,executive-decree-26-253,61,1,2
+0719,61,El Outaya,الوطاية,executive-decree-26-253,61,3,1
+0720,61,Djemourah,جمورة,executive-decree-26-253,61,2,2
+0721,07,Tolga,طولقة,executive-decree-26-253,07,3,4
+0724,07,Ourlal,أورلال,executive-decree-26-253,07,4,5
+0726,07,Foughala,فوغالة,executive-decree-26-253,07,6,2
+0801,08,Béchar,بشار,executive-decree-21-198,08,1,1
+0806,08,Lahmar,الاحمر,executive-decree-21-198,08,5,3
+0810,08,Kenadsa,قنادسة,executive-decree-21-198,08,3,2
+0813,08,Taghit,تاغيت,executive-decree-21-198,08,6,1
+0817,08,Abadla,العبادلة,executive-decree-21-198,08,4,3
+0821,08,Béni Ounif,بني ونيف,executive-decree-21-198,08,2,1
+0901,09,Blida,البليدة,executive-decree-91-306,09,12,2
+0903,09,Bouinan,بوعينان,executive-decree-92-66,09,1,2
+0904,09,Oued El Alleug,وادي العلايق,executive-decree-91-306,09,7,3
+0907,09,Ouled Yaich,أولاد يعيش,executive-decree-91-306,09,4,3
+0910,09,El Affroun,العفرون,executive-decree-91-306,09,3,2
+0916,09,Mouzaïa,موزاية,executive-decree-91-306,09,9,3
+0918,09,Meftah,مفتاح,executive-decree-91-306,09,10,2
+0920,09,Boufarik,بوفاريك,executive-decree-91-306,09,1,3
+0921,09,Larbaa,الاربعاء,executive-decree-91-306,09,2,2
+0926,09,Bougara,بوقرة,executive-decree-91-306,09,6,2
+1001,10,Bouira,البويرة,executive-decree-91-306,10,12,3
+1004,10,Souk El Khemis,سوق الخميس,executive-decree-91-306,10,11,2
+1005,10,Kadiria,القادرية,executive-decree-91-306,10,6,3
+1012,10,Haizer,الحيزر,executive-decree-91-306,10,2,2
+1013,10,Lakhdaria,الأخضرية,executive-decree-91-306,10,1,6
+1015,10,El Hachimia,الهاشمية,executive-decree-91-306,10,8,2
+1018,10,Bordj Okhriss,برج أوخريص,executive-decree-91-306,10,9,4
+1033,10,Bechloul,بشلول,executive-decree-91-306,10,7,5
+1035,10,Aïn Bessem,عين بسام,executive-decree-91-306,10,5,3
+1036,10,Bir Ghbalou,بئر غبالو,executive-decree-91-306,10,10,3
+1037,10,M’Chedellah,مشد الله,executive-decree-91-306,10,3,6
+1038,10,Sour El Ghozlane,سور الغزلان,executive-decree-91-306,10,4,6
+1101,11,Tamenghasset,تامنغست,executive-decree-21-198,11,1,2
+1102,11,Abalessa,أباليسا,executive-decree-21-198,11,3,1
+1106,11,Tazrouk,تاظروك,executive-decree-21-198,11,2,2
+1201,12,Tébessa,تبسة,executive-decree-26-253,12,1,1
+1202,62,Bir El Ater,بئر العاتر,executive-decree-26-253,62,1,2
+1203,12,Chéria,الشريعة,executive-decree-26-253,12,4,2
+1205,12,El Aouinet,العوينات,executive-decree-26-253,12,3,2
+1209,62,Negrine,نقرين,executive-decree-26-253,62,2,2
+1210,12,Bir Mokkadem,بئر مقدم,executive-decree-26-253,12,8,3
+1211,12,El Kouif,الكويف,executive-decree-26-253,12,2,3
+1212,12,Morsott,مرسط,executive-decree-26-253,12,10,2
+1213,12,El Ogla,العقلة,executive-decree-26-253,12,5,4
+1219,12,Ouenza,الونزة,executive-decree-26-253,12,6,3
+1220,12,El Ma Labiod,الماء الأبيض,executive-decree-26-253,12,7,2
+1221,12,Oum Ali,أم علي,executive-decree-26-253,12,9,2
+1301,13,Tlemcen,تلمسان,executive-decree-26-253,13,1,1
+1303,13,Ain Tallout,عين تالوت,executive-decree-26-253,13,17,2
+1304,13,Remchi,الرمشي,executive-decree-26-253,13,6,5
+1306,13,Sabra,صبرة,executive-decree-26-253,13,4,2
+1307,13,Ghazaouet,الغزوات,executive-decree-26-253,13,3,4
+1313,13,Ouled Mimoun,أولاد ميمون,executive-decree-26-253,13,10,3
+1317,13,Béni Snous,بني سنوس,executive-decree-26-253,13,13,3
+1318,13,Bab El Assa,باب العسة,executive-decree-26-253,13,8,3
+1320,13,Fellaoucène,فلاوسن,executive-decree-26-253,13,16,3
+1324,13,Bensekrane,بن سكران,executive-decree-26-253,13,18,2
+1326,13,Hennaya,الحناية,executive-decree-26-253,13,19,3
+1327,13,Maghnia,مغنية,executive-decree-26-253,13,2,2
+1332,63,El Aricha,العريشة,executive-decree-26-253,63,1,2
+1335,13,Sebdou,سبدو,executive-decree-26-253,13,7,1
+1338,13,Béni Boussaïd,بني بوسعيد,executive-decree-26-253,13,14,2
+1339,13,Marsa Ben M’Hidi,مرسى بن مهيدي,executive-decree-26-253,13,15,2
+1340,13,Nédroma,ندرومة,executive-decree-26-253,13,5,2
+1341,63,Sidi Djillali,سيدي الجيلالي,executive-decree-26-253,63,2,2
+1344,13,Honaïne,حنين,executive-decree-26-253,13,12,2
+1350,13,Chetouane,شتوان,executive-decree-26-253,13,11,3
+1351,13,Mansourah,المنصورة,executive-decree-26-253,13,9,4
+1401,14,Tiaret,تيارت,executive-decree-26-253,14,1,1
+1402,14,Medroussa,مدروسة,executive-decree-26-253,14,10,3
+1406,14,Aïn Deheb,عين الذهب,executive-decree-26-253,14,12,3
+1413,14,Dahmouni,الدحموني,executive-decree-26-253,14,2,2
+1414,14,Rahouia,الرحوية,executive-decree-26-253,14,6,2
+1415,14,Mahdia,مهدية,executive-decree-26-253,14,5,4
+1416,14,Sougueur,السوقر,executive-decree-26-253,14,3,4
+1421,14,Meghila,مغيلة,executive-decree-26-253,14,11,3
+1427,14,Frenda,فرندة,executive-decree-26-253,14,4,3
+1428,14,Aïn Kermes,عين كرمس,executive-decree-26-253,14,7,5
+1429,64,Ksar Chellala,قصر الشلالة,executive-decree-26-253,64,1,3
+1433,14,Oued Lili,وادي ليلي,executive-decree-26-253,14,9,3
+1434,14,Mechraa Sfa,مشرع الصفا,executive-decree-26-253,14,8,3
+1435,64,Hamadia,حمادية,executive-decree-26-253,64,2,3
+1501,15,Tizi Ouzou,تيزى وزو,executive-decree-91-306,15,21,1
+1502,15,Aïn El Hammam,عين الحمام,executive-decree-91-306,15,2,4
+1509,15,Makouda,ماكودة,executive-decree-91-306,15,20,2
+1510,15,Draa El Mizan,ذراع الميزان,executive-decree-91-306,15,5,4
+1511,15,Tizi Ghenif,تيزى غنيف,executive-decree-91-306,15,19,2
+1517,15,Iferhounène,ايفرحونن,executive-decree-91-306,15,17,3
+1518,15,Azzazga,عزازقة,executive-decree-91-306,15,3,5
+1521,15,Larbaa Nath-Iraten,الاربعاء نايت ايراثن,executive-decree-92-66,15,1,3
+1522,15,Tizi Rached,تيزي راشد,executive-decree-92-66,15,2,2
+1524,15,Ouaguenoun,واقنون,executive-decree-91-306,15,6,3
+1529,15,Maatka,المعاتقة,executive-decree-91-306,15,14,2
+1532,15,Béni Douala,بني دوالة,executive-decree-91-306,15,12,4
+1534,15,Bouzeguène,بوزقن,executive-decree-91-306,15,11,4
+1536,15,Ouadhia,واضية,executive-decree-91-306,15,13,4
+1537,15,Azzefoun,أزفون,executive-decree-91-306,15,8,4
+1538,15,Tigzirt,تيقزرت,executive-decree-91-306,15,10,3
+1540,15,Boghni,بوغني,executive-decree-91-306,15,4,4
+1547,15,Draa Ben Khedda,ذراع بن خدة,executive-decree-91-306,15,9,4
+1548,15,Ouacif,واسيف,executive-decree-91-306,15,1,3
+1550,15,Mekla,مقلع,executive-decree-91-306,15,15,3
+1552,15,Béni Yenni,بني يني,executive-decree-91-306,15,16,3
+1701,17,Djelfa,الجلفة,executive-decree-26-253,17,1,1
+1704,17,Hassi Bahbah,حاسي بحبح,executive-decree-26-253,17,2,4
+1707,66,Faïdh El Botma,فيض البطمة,executive-decree-26-253,66,2,3
+1708,65,Birine,البيرين,executive-decree-26-253,65,2,2
+1714,17,El Idrissia,الإدريسية,executive-decree-26-253,17,3,3
+1717,66,Messaad,مسعد,executive-decree-26-253,66,1,5
+1719,65,Sidi Ladjel,سيدي لعجال,executive-decree-26-253,65,4,3
+1720,65,Had Sahary,حد الصحاري,executive-decree-26-253,65,3,3
+1725,17,Dar Chioukh,دار الشيوخ,executive-decree-26-253,17,5,3
+1726,17,Charef,الشارف,executive-decree-26-253,17,6,3
+1730,17,Aïn El Ibel,عين الإبل,executive-decree-26-253,17,4,4
+1731,65,Aïn Ouessara,عين وسارة,executive-decree-26-253,65,1,2
+1801,18,Jijel,جيجل,executive-decree-91-306,18,11,1
+1803,18,El Aouana,العوانة,executive-decree-91-306,18,5,2
+1804,18,Ziamah Mansouriah,زيامة منصورية,executive-decree-91-306,18,6,2
+1805,18,Taher,الطاهير,executive-decree-91-306,18,3,5
+1807,18,Chekfa,شقفة,executive-decree-91-306,18,8,4
+1809,18,El Milia,الميلية,executive-decree-91-306,18,1,2
+1810,18,Sidi Marouf,سيدي معروف,executive-decree-91-306,18,7,2
+1811,18,Settara,السطارة,executive-decree-91-306,18,9,2
+1812,18,El Ancer,العنصر,executive-decree-91-306,18,2,4
+1817,18,Jimla,جيملة,executive-decree-91-306,18,10,2
+1824,18,Texenna,تاكسانة,executive-decree-91-306,18,4,2
+1901,19,Sétif,سطيف,executive-decree-91-306,19,20,1
+1902,19,Aïn El Kebira,العين الكبيرة,executive-decree-91-306,19,9,3
+1903,19,Beni Aziz,بنى عزيز,executive-decree-91-306,19,2,3
+1908,19,Bir El Arch,بئر العرش,executive-decree-91-306,19,19,4
+1916,19,Babor,بابور,executive-decree-91-306,19,14,2
+1917,19,Guijel,قجال,executive-decree-91-306,19,13,2
+1920,19,El Eulma,العلمة,executive-decree-91-306,19,7,3
+1921,19,Djemila,جميلة,executive-decree-91-306,19,16,2
+1922,19,Beni Ourtilane,بنى ورتيلان,executive-decree-91-306,19,3,4
+1926,19,Aïn Arnat,عين أرنات,executive-decree-91-306,19,1,4
+1927,19,Amoucha,عموشة,executive-decree-91-306,19,12,3
+1928,19,Aïn Oulmène,عين ولمان,executive-decree-91-306,19,5,4
+1930,19,Bouandas,بوعنداس,executive-decree-91-306,19,4,4
+1932,19,Hammam Sokhna,حمام السخونة,executive-decree-91-306,19,15,3
+1939,19,Salah Bey,صالح باى,executive-decree-91-306,19,10,5
+1940,19,Aïn Azel,عين أزال,executive-decree-91-306,19,6,4
+1941,19,Gunzet,قنزات,executive-decree-91-306,19,18,2
+1943,19,Bougaa,بوقاعة,executive-decree-91-306,19,8,3
+1950,19,Hammam Guergour,حمام القرقور,executive-decree-91-306,19,11,2
+1955,19,Maoklane,ماوكلان,executive-decree-91-306,19,17,2
+2001,20,Saïda,سعيدة,executive-decree-91-306,20,6,1
+2003,20,Aïn El Hadjar,عين الحجر,executive-decree-91-306,20,1,3
+2006,20,Youb,يوب,executive-decree-91-306,20,4,2
+2009,20,Sidi Boubekeur,سيدى بوبكر,executive-decree-91-306,20,3,4
+2010,20,Al Hassasna,الحساسنة,executive-decree-91-306,20,2,3
+2014,20,Ouled Brahim,أولاد ابراهيم,executive-decree-91-306,20,5,3
+2101,21,Skikda,سكيكدة,executive-decree-91-306,21,13,3
+2103,21,El Hadaiek,الحدائق,executive-decree-91-306,21,7,3
+2104,21,Azzaba,عزابة,executive-decree-91-306,21,1,5
+2108,21,Benazouz,ابن عزوز,executive-decree-91-306,21,6,3
+2110,21,Collo,القل,executive-decree-91-306,21,5,3
+2113,21,Ouled Atia,أولاد عطية,executive-decree-91-306,21,11,3
+2115,21,Zitouna,الزيتونة,executive-decree-91-306,21,8,2
+2116,21,El Harrouch,الحروش,executive-decree-91-306,21,3,5
+2119,21,Sidi Mezghiche,سيدى مزغيش,executive-decree-91-306,21,9,3
+2123,21,Ramdane Djamel,رمضان جمال,executive-decree-91-306,21,2,2
+2126,21,Tamalous,تمالوس,executive-decree-91-306,21,4,3
+2127,21,Aïn Kechera,عين قشرة,executive-decree-91-306,21,12,2
+2128,21,Oum Toub,أم الطوب,executive-decree-91-306,21,10,1
+2201,22,Sidi Bel Abbes,سيدي بلعباس,executive-decree-91-306,22,15,1
+2202,22,Tessala,تسالة,executive-decree-91-306,22,13,3
+2204,22,Mostepha Ben Brahim,مصطفى بن إبراهيم,executive-decree-91-306,22,11,4
+2205,22,Telagh,تلاغ,executive-decree-91-306,22,4,4
+2208,22,Sidi Ali Boussidi,سيدي علي بوسيدي,executive-decree-91-306,22,10,4
+2210,22,Marhoum,مرحوم,executive-decree-91-306,22,9,3
+2214,22,Sidi Lahcène,سيدي لحسن,executive-decree-91-306,22,1,4
+2217,22,Tenira,تنيرة,executive-decree-91-306,22,6,4
+2218,22,Moulay Slissen,مولاي سليسن,executive-decree-91-306,22,8,3
+2222,22,Merine,مرين,executive-decree-91-306,22,12,4
+2223,22,Ras El Ma,رأس الماء,executive-decree-91-306,22,5,3
+2228,22,Aïn El Berd,عين البرد,executive-decree-91-306,22,7,4
+2229,22,Sfisef,الزفيزف,executive-decree-91-306,22,3,4
+2245,22,Ben Badis,ابن باديس,executive-decree-91-306,22,2,4
+2246,22,Sidi Ali Ben Youb,سيدي علي بن يوب,executive-decree-91-306,22,14,3
+2301,23,Annaba,عنابة,executive-decree-91-306,23,6,2
+2302,23,Berrahal,برحال,executive-decree-91-306,23,2,3
+2303,23,El Hadjar,الحجار,executive-decree-91-306,23,1,2
+2305,23,El Bouni,البوني,executive-decree-91-306,23,3,1
+2309,23,Aïn El Berda,العين الباردة,executive-decree-91-306,23,5,3
+2310,23,Chetaïbi,شطايبي,executive-decree-91-306,23,4,1
+2401,24,Guelma,قالمة,executive-decree-91-306,24,10,2
+2404,24,Oued Zenati,وادي زناتي,executive-decree-91-306,24,4,3
+2413,24,Aïn Makhlouf,عين مخلوف,executive-decree-91-306,24,8,3
+2415,24,Khzara,خزارة,executive-decree-91-306,24,3,3
+2418,24,Guelaat Bousbaa,قلعة بوسبع,executive-decree-91-306,24,1,6
+2419,24,Hammam Debagh,حمام دباغ,executive-decree-91-306,24,5,3
+2422,24,Hammam N’Bails,حمام النبايل,executive-decree-91-306,24,7,3
+2425,24,Bouchegouf,بوشقوف,executive-decree-91-306,24,2,4
+2426,24,Heliopolis,هيليو بوليس,executive-decree-91-306,24,6,3
+2427,24,HOUARI BOUMEDIENE,هواري بومدين,executive-decree-91-306,24,9,4
+2501,25,Constantine,قسنطينة,executive-decree-91-306,25,6,1
+2502,25,Hamma Bouziane,حامة بوزيان,executive-decree-91-306,25,4,2
+2504,25,Zighoud Youcef,زيغود يوسف,executive-decree-91-306,25,2,2
+2506,25,El Khroub,الخروب,executive-decree-18-302,25,1,2
+2507,25,Aïn Abid,عين عبيد,executive-decree-91-306,25,3,2
+2510,25,Aïn Smara,عين السمارة,executive-decree-18-302,25,2,1
+2512,25,Ibn Ziad,ابن زياد,executive-decree-91-306,25,5,2
+2601,26,Médéa,المدية,executive-decree-26-253,26,1,3
+2602,26,Ouzera,وزرة,executive-decree-26-253,26,2,4
+2604,67,Aïn Boucif,عين بوسيف,executive-decree-26-253,67,3,5
+2607,26,El Omaria,العمارية,executive-decree-26-253,26,4,3
+2609,26,EL Guelb El Kebir,القلب الكبير,executive-decree-26-253,26,12,3
+2618,67,Chelalet El Adhaoura,شلالة العذاورة,executive-decree-26-253,67,4,4
+2626,26,Sidi Naamane,سيدي نعمان,executive-decree-26-253,26,13,3
+2632,67,Aziz,عزيز,executive-decree-26-253,67,2,3
+2633,26,Souagui,السواقي,executive-decree-26-253,26,10,4
+2635,67,Ksar El Boukhari,قصر البخاري,executive-decree-26-253,67,1,3
+2636,26,El Azizia,العزيزية,executive-decree-26-253,26,9,3
+2638,67,Chahbounia,الشهبونية,executive-decree-26-253,67,5,3
+2643,26,Ouamri,وامري,executive-decree-26-253,26,11,3
+2644,26,Si Mahdjoub,سي المحجوب,executive-decree-26-253,26,7,3
+2646,26,Béni Slimane,بني سليمان,executive-decree-26-253,26,6,3
+2647,26,Berrouaghia,البرواقية,executive-decree-26-253,26,3,3
+2648,26,Seghouane,سغوان,executive-decree-26-253,26,8,4
+2652,26,Tablat,تابلاط,executive-decree-26-253,26,5,4
+2658,67,Ouled Antar,أولاد عنتر,executive-decree-26-253,67,6,3
+2701,27,Mostaganem,مستغانم,executive-decree-91-306,27,10,1
+2705,27,Aïn Nouicy,عين نويسي,executive-decree-91-306,27,6,3
+2706,27,Hassi Mameche,حاسي معمش,executive-decree-91-306,27,1,3
+2707,27,Aïn Tédeles,عين تادلس,executive-decree-91-306,27,2,4
+2711,27,Kheir Eddine,خير الدين,executive-decree-91-306,27,8,3
+2712,27,Sidi Ali,سيدي علي,executive-decree-91-306,27,4,3
+2716,27,Sidi Lakhdar,سيدى الاخضر,executive-decree-91-306,27,9,3
+2717,27,Achacha,عشعاشة,executive-decree-91-306,27,5,4
+2719,27,Bouguirat,بوقيراط,executive-decree-91-306,27,3,4
+2722,27,Masra,ماسرة,executive-decree-91-306,27,7,4
+2801,28,M’Sila,المسيلة,executive-decree-26-253,28,1,1
+2803,28,Hammam Dhalaa,حمام الضلعة,executive-decree-26-253,28,2,4
+2804,28,Ouled Derradj,أولاد دراج,executive-decree-26-253,28,3,5
+2807,68,Khoubana,الخبانة,executive-decree-26-253,68,3,3
+2809,28,Chellal,الشلال,executive-decree-26-253,28,6,4
+2811,28,Magra,مقرة,executive-decree-26-253,28,5,5
+2816,28,Sidi Aïssa,سيدي عيسى,executive-decree-26-253,28,4,3
+2817,28,Aïn El Hadjel,عين الحجل,executive-decree-26-253,28,7,2
+2820,68,Bou Saada,بوسعادة,executive-decree-26-253,68,1,3
+2821,68,Ouled Sidi Brahim,أولاد سيدي إبراهيم,executive-decree-26-253,68,5,2
+2822,68,Sidi Ameur,سيدي عامر,executive-decree-26-253,68,6,2
+2824,68,Ben Srour,بن سرور,executive-decree-26-253,68,8,4
+2841,68,Aïn El Meleh,عين الملح,executive-decree-26-253,68,7,5
+2842,68,Medjedel,امجدل,executive-decree-26-253,68,4,2
+2847,68,Djebel Messaad,جبل مساعد,executive-decree-26-253,68,2,2
+2901,29,Mascara,معسكر,executive-decree-91-306,29,16,1
+2902,29,Bouhanifia,بوحنيفية,executive-decree-91-306,29,1,3
+2903,29,Tizi,تيزي,executive-decree-91-306,29,12,3
+2906,29,Tighenif,تيغنيف,executive-decree-91-306,29,2,3
+2907,29,Rachem,الحشم,executive-decree-91-306,29,6,3
+2910,29,Oued El Abtal,وادي الأبطال,executive-decree-91-306,29,11,3
+2912,29,Ghriss,غريس,executive-decree-91-306,29,3,5
+2917,29,El Bordj,البرج,executive-decree-91-306,29,8,3
+2918,29,Aïn Fekkan,عين فكان,executive-decree-91-306,29,15,2
+2922,29,Oued Taria,وادي طاغية,executive-decree-91-306,29,13,2
+2923,29,Aouf,عوف,executive-decree-91-306,29,10,3
+2924,29,Aïn Fares,عين فارس,executive-decree-91-306,29,9,2
+2926,29,Sig,سيق,executive-decree-91-306,29,5,3
+2927,29,Oggaz,عكاز,executive-decree-91-306,29,14,3
+2930,29,Zahana,زهانة,executive-decree-91-306,29,7,2
+2931,29,Mohammedia,المحمدية,executive-decree-91-306,29,4,6
+3001,30,Ouargla,ورقلة,executive-decree-21-198,30,1,2
+3003,30,N’Goussa,نقوسة,executive-decree-21-198,30,4,1
+3004,30,Hassi Messaoud,حاسي مسعود,executive-decree-21-198,30,2,1
+3011,30,Sidi Khouiled,سيدي خويلد,executive-decree-21-198,30,3,3
+3021,30,El Borma,البرمة,executive-decree-21-198,30,5,1
+3101,31,Oran,وهران,executive-decree-91-306,31,9,1
+3102,31,Gdyel,قديل,executive-decree-91-306,31,6,3
+3103,31,Bir El Djir,بئر الجير,executive-decree-91-306,31,8,3
+3105,31,Es Senia,السانية,executive-decree-18-302,31,1,4
+3106,31,Arzew,أرزيو,executive-decree-91-306,31,3,2
+3107,31,Bethioua,بطيوة,executive-decree-91-306,31,5,3
+3109,31,Aïn Turk,عين الترك,executive-decree-91-306,31,2,4
+3111,31,Oued Tlelat,وادي تليلات,executive-decree-91-306,31,7,4
+3124,31,Boutlelis,بوتليليس,executive-decree-18-302,31,4,2
+3201,32,El Bayadh,البيض,executive-decree-26-253,32,1,1
+3202,32,Rogassa,روقاصة,executive-decree-26-253,32,4,3
+3204,32,Brézina,بريزينة,executive-decree-26-253,32,5,3
+3206,32,Boualem,بوعلام,executive-decree-26-253,32,3,5
+3207,69,El Abiodh Sidi Cheikh,الأبيض سيدي الشيخ,executive-decree-26-253,69,1,4
+3210,32,Bougtoub,بوقطب,executive-decree-26-253,32,2,3
+3213,69,Boussemghoun,بوسمغون,executive-decree-26-253,69,3,1
+3214,69,Chellala,الشلالة,executive-decree-26-253,69,2,2
+3301,33,Illizi,إيليزي,executive-decree-21-198,33,1,1
+3303,33,Deb Deb,دبداب,executive-decree-21-198,33,4,1
+3304,33,Bordj Omar Driss,برج عمر ادريس,executive-decree-21-198,33,2,1
+3306,33,In Amenas,إن أميناس,executive-decree-21-198,33,3,1
+3401,34,Bordj Bou Arréridj,برج بوعريريج,executive-decree-91-306,34,10,1
+3402,34,Ras El Oued,رأس الوادي,executive-decree-91-306,34,3,3
+3403,34,Bordj Zemmoura,برج زمورة,executive-decree-91-306,34,7,3
+3404,34,Mansourah,المنصورة,executive-decree-91-306,34,2,5
+3408,34,Ain Taghrout,عين تاغروت,executive-decree-91-306,34,9,2
+3409,34,Bordj Ghdir,برج الغدير,executive-decree-91-306,34,4,5
+3411,34,El Hamadia,الحمادية,executive-decree-91-306,34,5,4
+3413,34,Medjana,مجانة,executive-decree-91-306,34,1,4
+3415,34,Djaafra,الجعافرة,executive-decree-91-306,34,8,4
+3431,34,Bir Kasdali,بئر قصد علي,executive-decree-91-306,34,6,3
+3501,35,Boumerdes,بومرداس,executive-decree-91-306,35,10,3
+3502,35,Boudouaou,بودواو,executive-decree-91-306,35,2,3
+3505,35,Bordj Menaiel,برج منايل,executive-decree-92-66,35,1,5
+3506,35,Baghlia,بغلية,executive-decree-92-66,35,4,3
+3508,35,Naciria,الناصرية,executive-decree-92-66,35,2,2
+3510,35,Isser,يسر,executive-decree-92-66,35,3,3
+3515,35,Thenia,الثنية,executive-decree-91-306,35,5,4
+3528,35,Dellys,دلس,executive-decree-92-66,35,5,3
+3537,35,Khemis El Khechna,خميس الخشنة,executive-decree-91-306,35,7,4
+3601,36,El Tarf,الطارف,executive-decree-91-306,36,7,4
+3602,36,Bouhadjar,بوحجار,executive-decree-91-306,36,3,4
+3603,36,Ben M’Hidi,بن مهيدي,executive-decree-91-306,36,2,3
+3605,36,El Kala,القالة,executive-decree-91-306,36,4,4
+3608,36,Bouteldja,بوثلجة,executive-decree-91-306,36,6,3
+3613,36,Drean,الذرعان,executive-decree-91-306,36,1,3
+3616,36,Besbes,البسباس,executive-decree-91-306,36,5,3
+3701,37,Tindouf,تيندوف,executive-decree-91-306,37,1,2
+3801,38,Tissemsilt,تيسمسيلت,executive-decree-91-306,38,8,2
+3802,38,Bordj Bou Naama,برج بونعامة,executive-decree-91-306,38,3,4
+3803,38,Theniet El Had,ثنية الأحد,executive-decree-91-306,38,2,2
+3804,38,Lazharia,الازهرية,executive-decree-91-306,38,5,3
+3806,38,Lardjem,الارجم,executive-decree-91-306,38,4,4
+3809,38,Bordj Emir Abdelkader,برج الامير عبد القادر,executive-decree-91-306,38,7,2
+3811,38,Khemisti,خميستي,executive-decree-91-306,38,1,2
+3813,38,Ammari,عماري,executive-decree-91-306,38,6,3
+3901,39,El Oued,الوادي,executive-decree-21-198,39,1,2
+3902,39,Robbah,رباح,executive-decree-21-198,39,5,3
+3904,39,Bayadha,البياضة,executive-decree-21-198,39,8,1
+3906,39,Guemar,قمار,executive-decree-21-198,39,4,3
+3908,39,Réguiba,الرقيبة,executive-decree-21-198,39,9,2
+3911,39,Debila,الدبيلة,executive-decree-21-198,39,3,2
+3913,39,Hassi Khelifa,حاسي خليفة,executive-decree-21-198,39,6,2
+3914,39,Taleb Larbi,طالب العربي,executive-decree-21-198,39,2,3
+3918,39,Magrane,المقرن,executive-decree-21-198,39,7,2
+3926,39,Mih Ouansa,ميه ونسى,executive-decree-21-198,39,10,2
+4001,40,Khenchela,خنشلة,executive-decree-91-306,40,8,1
+4003,40,Kaïs,قايس,executive-decree-91-306,40,1,3
+4005,40,El Hamma,الحامة,executive-decree-91-306,40,2,4
+4006,40,Aïn Touila,عين الطويلة,executive-decree-91-306,40,5,2
+4008,40,Bouhmama,بوحمامة,executive-decree-91-306,40,4,4
+4011,40,Chechar,ششار,executive-decree-91-306,40,3,4
+4013,40,Babar,بابار,executive-decree-91-306,40,7,1
+4016,40,Ouled Rechache,أولاد رشاش,executive-decree-91-306,40,6,2
+4101,41,Souk Ahras,سوق أهراس,executive-decree-91-306,41,10,1
+4102,41,Sedrata,سدراتة,executive-decree-91-306,41,2,3
+4104,41,Mechroha,المشروحة,executive-decree-91-306,41,7,2
+4105,41,Ouled Driss,أولاد ادريس,executive-decree-91-306,41,5,2
+4108,41,Taoura,تاورة,executive-decree-91-306,41,4,3
+4110,41,Haddada,الحدادة,executive-decree-91-306,41,6,3
+4112,41,Merahna,المراهنة,executive-decree-91-306,41,1,3
+4114,41,Bir Bouhouche,بئر بوحوش,executive-decree-91-306,41,8,3
+4115,41,M’Daourouch,مداوروش,executive-decree-91-306,41,3,3
+4116,41,Oum El Adhaim,أم العظايم,executive-decree-91-306,41,9,3
+4201,42,Tipaza,تيبازة,executive-decree-91-306,42,14,1
+4212,42,Hadjout,حجوط,executive-decree-91-306,42,5,2
+4213,42,Sidi Amar,سيدي عمرو,executive-decree-91-306,42,11,3
+4214,42,Gouraya,ڤوراية,executive-decree-91-306,42,7,3
+4222,42,Cherchell,شرشال,executive-decree-91-306,42,3,4
+4223,42,Damous,الداموس,executive-decree-91-306,42,10,3
+4225,42,Fouka,فوكة,executive-decree-91-306,42,8,2
+4226,42,Bou Ismaïl,بواسماعيل,executive-decree-91-306,42,9,4
+4227,42,Ahmar El Aïn,احمر العين,executive-decree-91-306,42,12,3
+4235,42,Koléa,القليعة,executive-decree-91-306,42,4,3
+4301,43,Mila,ميلة,executive-decree-91-306,43,13,3
+4302,43,Ferdjioua,فرجيوة,executive-decree-91-306,43,5,2
+4303,43,Chelghoum Laïd,شلغوم العيد,executive-decree-91-306,43,1,3
+4306,43,Teleghma,تلاغمة,executive-decree-91-306,43,6,3
+4308,43,Tadjenanet,تاجنانت,executive-decree-91-306,43,7,3
+4310,43,Oued Endja,وادي النجاء,executive-decree-91-306,43,4,3
+4314,43,Bouhatem,بوحاتم,executive-decree-91-306,43,12,2
+4315,43,Rouached,الرواشد,executive-decree-91-306,43,9,2
+4317,43,Grarem Gouga,قرارم قوقة,executive-decree-91-306,43,2,2
+4318,43,Sidi Merouane,سيدي مروان,executive-decree-91-306,43,3,2
+4319,43,Tassadane Haddada,تسادان حدادة,executive-decree-91-306,43,10,2
+4323,43,Terrai Baïnem,ترعي بينان,executive-decree-91-306,43,8,3
+4330,43,Aïn Beida Harriche,عين البيضاء حريش,executive-decree-91-306,43,11,2
+4401,44,Aïn Defla,عين الدفلى,executive-decree-91-306,44,14,1
+4402,44,Miliana,مليانة,executive-decree-91-306,44,1,2
+4403,44,Boumedfaa,بومدفع,executive-decree-91-306,44,7,2
+4404,44,Khemis,الخميس,executive-decree-91-306,44,5,2
+4405,44,Hammam Righa,حمام ريغة,executive-decree-91-306,44,6,3
+4407,44,Djelida,جليدة,executive-decree-91-306,44,3,3
+4408,44,El Amra,العامرة,executive-decree-91-306,44,13,3
+4410,44,El Attaf,العطاف,executive-decree-91-306,44,4,2
+4411,44,El Abadia,العبادية,executive-decree-91-306,44,12,3
+4412,44,Djendel,جندل,executive-decree-91-306,44,2,3
+4414,44,Aïn Lechiakh,عين الأشياخ,executive-decree-91-306,44,8,3
+4416,44,Rouina,روينة,executive-decree-91-306,44,11,3
+4422,44,Bordj El Emir Khaled,برج الامير خالد,executive-decree-91-306,44,9,3
+4431,44,Bathia,بطحية,executive-decree-91-306,44,10,3
+4501,45,Naama,النعامة,executive-decree-91-306,45,7,1
+4502,45,Mecheria,مشرية,executive-decree-91-306,45,1,3
+4503,45,Aïn Sefra,عين الصفراء,executive-decree-91-306,45,2,2
+4505,45,Sfissifa,سفيسيفة,executive-decree-91-306,45,6,1
+4506,45,Moghrar,مغرار,executive-decree-91-306,45,4,2
+4507,45,Asla,عسلة,executive-decree-91-306,45,5,1
+4510,45,Mekmen Ben Amar,مكمن بن عمر,executive-decree-91-306,45,3,2
+4601,46,Aïn Témouchent,عين تموشنت,executive-decree-91-306,46,8,2
+4603,46,Aïn Kihel,عين الكيحل,executive-decree-91-306,46,4,4
+4604,46,Hammam Bouhadjar,حمام بوحجر,executive-decree-91-306,46,2,4
+4609,46,Aïn Larbaa,عين الاربعاء,executive-decree-91-306,46,6,4
+4614,46,El Maleh,المالح,executive-decree-91-306,46,1,4
+4619,46,El Amria,العامرية,executive-decree-91-306,46,5,5
+4623,46,Beni Saf,بني صاف,executive-decree-91-306,46,3,3
+4625,46,Oulhassa Gheraba,ولهاصة الغرابة,executive-decree-91-306,46,7,2
+4701,47,Ghardaïa,غرداية,executive-decree-21-198,47,1,1
+4703,47,Dhayet Bendhahoua,ضاية بن ضحوة,executive-decree-21-198,47,7,1
+4704,47,Berriane,بريان,executive-decree-21-198,47,3,1
+4705,47,Metlili,متليلي,executive-decree-21-198,47,2,2
+4706,47,El Guerrera,القرارة,executive-decree-21-198,47,4,1
+4708,47,Zelfana,زلفانة,executive-decree-21-198,47,5,1
+4710,47,Bounoura,بونورة,executive-decree-21-198,47,6,2
+4713,47,Mansoura,المنصورة,executive-decree-21-198,47,8,1
+4801,48,Relizane,غليزان,executive-decree-91-306,48,13,2
+4802,48,Oued Rhiou,وادي رهيو,executive-decree-91-306,48,4,4
+4807,48,El H’Madna,الحمادنة,executive-decree-91-306,48,8,2
+4808,48,Sidi M’Hamed Ben Ali,سيدي محمد بن علي,executive-decree-91-306,48,12,3
+4811,48,Ammi Moussa,عمي موسى,executive-decree-91-306,48,1,4
+4812,48,Zemmoura,زمورة,executive-decree-91-306,48,2,3
+4814,48,Djidiouia,جديوية,executive-decree-91-306,48,11,3
+4817,48,El Matmar,المطمر,executive-decree-91-306,48,3,4
+4819,48,Aïn Tarek,عين طارق,executive-decree-91-306,48,9,2
+4822,48,Mazouna,مازونة,executive-decree-91-306,48,5,2
+4825,48,Yellel,يلل,executive-decree-91-306,48,7,4
+4827,48,Ramka,الرمكة,executive-decree-91-306,48,10,2
+4828,48,Mendes,منداس,executive-decree-91-306,48,6,3
+4901,49,Timimoun,تيميمون,executive-decree-21-198,49,1,2
+4902,49,Charouine,شروين,executive-decree-21-198,49,4,3
+4905,49,Tinerkouk,تينركوك,executive-decree-21-198,49,3,2
+4908,49,Aougrout,أوقروت,executive-decree-21-198,49,2,3
+5001,50,Bordj Badji Mokhtar,برج باجي مختار,executive-decree-21-198,50,1,2
+5101,51,Ouled Djellal,أولاد جلال,executive-decree-21-198,51,1,3
+5104,51,Sidi Khaled,سيدي خالد,executive-decree-21-198,51,2,3
+5201,52,Beni Abbès,بني عباس,executive-decree-21-198,52,1,2
+5202,52,Ouled Khodeir,أولاد خضير,executive-decree-21-198,52,5,2
+5205,52,Igli,اقلي,executive-decree-21-198,52,3,1
+5206,52,Tabelbala,تبلبالة,executive-decree-21-198,52,6,1
+5207,52,El Ouata,الوطاء,executive-decree-21-198,52,4,2
+5208,52,Kerzaz,كرزاز,executive-decree-21-198,52,2,2
+5301,53,In Salah,إن صالح,executive-decree-21-198,53,1,2
+5302,53,In Ghar,إن غار,executive-decree-21-198,53,2,1
+5401,54,In Guezzam,إن قزام,executive-decree-21-198,54,1,1
+5402,54,Tin Zaouatine,تين زواتين,executive-decree-21-198,54,2,1
+5501,55,Touggourt,توقرت,executive-decree-21-198,55,1,4
+5507,55,El Hadjira,الحجيرة,executive-decree-21-198,55,5,2
+5508,55,Taibet,الطيبات,executive-decree-21-198,55,2,3
+5509,55,Temacine,تماسين,executive-decree-21-198,55,4,2
+5512,55,Megarine,المقارين,executive-decree-21-198,55,3,2
+5601,56,Djanet,جانت,executive-decree-21-198,56,1,2
+5701,57,El Meghaier,المغير,executive-decree-21-198,57,1,4
+5706,57,Djamaâ,جامعة,executive-decree-21-198,57,2,4
+5801,58,El Meniaâ,المنيعة,executive-decree-21-198,58,1,3

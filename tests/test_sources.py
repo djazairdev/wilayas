@@ -9,10 +9,14 @@ import csv
 import glob
 import os
 import re
-import unicodedata
+import sys
 import unittest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, 'tools'))
+# The tables the chain of texts needs, and how it compares names, are tools/resolve.py's
+from resolve import (ORDINANCE_97_14, SPELLINGS_97_14, WILAYAS_21_198, WILAYAS_26_253, chain,  # noqa: E402
+                     law_article, loose_ar, loose_fr, same_commune)
 DATA = os.path.join(ROOT, 'data')
 SOURCE = os.path.join(DATA, 'source')
 
@@ -92,9 +96,6 @@ SEAT_SPELLINGS_91_306 = {
 }
 
 
-# Decree 21-198 rewrites the daïra tables of the eight wilayas Law 19-12 took communes from and
-# adds those of the ten it created; the annex says the others are unchanged
-WILAYAS_21_198 = ['01', '07', '08', '11', '30', '33', '39', '47'] + [str(n) for n in range(49, 59)]
 # Communes it spells differently from the lists of Law 19-12, or of Ordinance 21-03 for Ouargla
 # and Touggourt, beyond accents, apostrophes, capitals, hamzas and the dots of a final ي or ة
 # (decree -> law)
@@ -108,9 +109,6 @@ SPELLINGS_21_198 = {
 # Both editions name the seat of Abalessa's daïra after Silet, a place in the commune (seat -> commune)
 SEATS_21_198 = {'fr': {'Silet Abalessa': 'Abalessa'}, 'ar': {'سيلات أباليسا': 'أباليسا'}}
 
-# Decree 26-253 rewrites the daïra tables of the 21 wilayas Law 26-06 touched: its ten parent
-# wilayas and the eleven it creates. The annex says the others are unchanged.
-WILAYAS_26_253 = ['03', '05', '07', '12', '13', '14', '17', '26', '28', '32'] + [str(n) for n in range(59, 70)]
 # Communes the decree spells differently from Law 26-06's lists, beyond accents, apostrophes,
 # capitals, hamzas and the dots of a final ي or ة (decree -> law)
 SPELLINGS_26_253 = {'fr': {'Béni Yaagoub': 'Ben Yaagoub', 'El Azizia': 'Al Azizia', 'Bougtoub': 'Bougtob'},
@@ -122,12 +120,7 @@ ONS_FRENCH = re.compile(r"^[A-Z’']+(?: [A-Z’']+)*$")
 ONS_ABBREVIATED = {'0230': ('OULED BEN.AEK', None), '0809': ('MECHRAA H. BOUMEDIENE', None),
                    '4309': (None, 'بن يحي .ع. رحمان')}
 
-# Ordinance 97-14 detaches communes from Boumerdès (article 2), Tipaza (3) and Blida (4), and
-# article 5 attaches them to Algiers: article -> (the wilaya it detaches them from, how many)
-ORDINANCE_97_14 = {'2': ('35', 6), '3': ('42', 14), '4': ('09', 4)}
 ORDINANCE_97_14_FIELDS = ['text', 'article', 'item', 'name_fr', 'name_ar', 'check']
-# Communes neither of whose names is the one Decree 91-306 gives them in their old wilaya (97-14 -> 91-306)
-SPELLINGS_97_14 = {('Khraïcia', 'خرايسية'): ('Khraissia', 'الخرايصية')}
 # ONS numbers the 24 after Algiers' 33, as 34 to 57: article 4's, then 2's, then 3's, each in the
 # ordinance's order. Names it spells differently (97-14 -> ONS), beyond accents, hyphens and capitals
 ONS_ALGIERS = ['4', '2', '3']
@@ -145,42 +138,6 @@ WILAYAS_25_87 = ['13']
 # Decree 92-66 prints one commune with commas between the three parts of its name
 COMMAS_92_66 = {('04', '2', '2'): ('El Fedjoudj, Boughrara, Saoudi', 'الفجوج، بوغرارة، سعودي')}
 SEATS_92_66 = {'fr': {'Bourdj Menaiel': 'Bordj Menaiel'}, 'ar': {}}
-# Communes Decree 92-66 spells otherwise than Decree 91-306 in both editions (92-66 -> 91-306)
-SPELLINGS_92_66 = {('Oultem', 'ولتام'): ('Oultene', 'ولتان'), ('Touarga', 'توارقة'): ('Taourga', 'تورقة')}
-# The daïras an amendment leaves without communes, by their seats in Decree 91-306: Decree 92-66
-# moves Chebli's to Bouinan, and Ordinance 97-14 moves to Algiers all the communes of six
-EMPTIED = {
-    'executive-decree-92-66': {('09', 'CHEBLI')},
-    'ordinance-97-14': {('09', 'BIRTOUTA'), ('35', 'ROUIBA'), ('42', 'CHERAGA'), ('42', 'DOUERA'), ('42', 'DRARIA'),
-                        ('42', 'ZERALDA')},
-}
-# The communes ONS's list of 2021 names otherwise than the decrees: by its code, the French name
-# the latest decree prints. Most are spellings; some communes were renamed after 1991
-# (Hamma Annassers is ONS's Mohamed Belouizdad).
-ONS_NAMES = {
-    '0203': 'Benaria', '0233': 'Oum Drou', '0420': 'Ouled Zoui', '0425': 'Aïn Fekroun', '0511': 'Inoughissen',
-    '0515': 'Metkaouek', '0539': 'Guecha', '0555': 'M’Doukel', '0610': 'Thinabdher', '0618': 'Iflaine El Maten',
-    '0912': 'Hammam El Ouane', '0913': 'Ben Khellil', '1006': 'Hanif', '1011': 'Mesdour', '1037': 'M’Chedellah',
-    '1043': 'Taourirt', '1216': 'Ghorriguer', '1225': 'Boulhef Dyn', '1311': 'Oued Chouli', '1321': 'Azail',
-    '1325': 'Aïn Nahala', '1331': 'Ain Fetah', '1348': 'Béni Khaled', '1424': 'Djillali Ben Amar',
-    '1437': 'Takhmaret', '1438': 'Sidi Abderrahmane', '1439': 'Serguine', '1506': 'Mechtras',
-    '1513': 'Aït Chaffa', '1521': 'Larbaa Nath-Iraten', '1539': 'Djebel Aïssa Mimoun', '1546': 'Béni Zeki',
-    '1604': 'Hamma Annassers', '1606': 'Bologhine', '1623': 'Dely Ibrahim', '1631': 'Maquaria',
-    '1641': 'Heraoua', '1702': 'Mouadjebar', '1719': 'Sidi Ladjel', '1724': 'Oum El Adham', '1735': 'Aïn Feka',
-    '1821': 'Ouled Yahia khadrouche', '1823': 'Khier Oued Adjoul', '1932': 'Hammam Sokhna',
-    '1953': 'Beni Oussine', '1957': 'Oued Bared', '1960': 'Telaa', '2108': 'Benazouz', '2136': 'Khenag Mayoun',
-    '2207': 'Boukhenefis', '2211': 'Tafessour', '2224': 'Aïn Tidamine', '2307': 'Chorfa', '2309': 'Aïn El Berda',
-    '2406': 'Oued Fraga', '2411': 'Badjarah', '2415': 'Khzara', '2427': 'Aïn Hsainia', '2503': 'Ben Badis',
-    '2605': 'El Aïssaouia', '2645': 'Tlelat Ed Douair', '2649': 'Meftaha', '2661': 'Sedraya',
-    '2706': 'Hassi Mameche', '2713': 'Benabdelmalek Ramdane', '2834': 'Oued Chair', '2836': 'Bir Foda',
-    '2839': 'Ouled Attia', '2938': 'El Gueithna', '3209': 'Arbaout', '3218': 'Sidi Amar', '3410': 'Sidi M’Barek',
-    '3417': 'Ouled Braham', '3428': 'El Anceur', '3429': 'Tasmart', '3522': 'Keddara', '3525': 'Touarga',
-    '3533': 'Ouled Hadjadj', '3615': 'Chbaita Mokhtar', '3819': 'Tamelaht', '4007': 'Taouzinet', '4014': 'Tamza',
-    '4111': 'Khedara', '4236': 'Hattatba', '4241': 'Beni Meleuk', '4305': 'Aïn Mellouk', '4306': 'Teleghma',
-    '4320': 'Derradji Bousselah', '4322': 'Amira Arres', '4323': 'Terrai Baïnem', '4404': 'Khemis',
-    '4419': 'Bir Ould Khlifa', '4429': 'Djemaa Ouled Chikh', '4508': 'Djeniene Bourezg', '4622': 'Oued Kihel',
-    '4813': 'Beni Dergoune', '4821': 'Ouarizène', '5303': 'Fouggaret Ezzaouia',
-}
 
 
 def read(path):
@@ -195,15 +152,6 @@ def lists(text_id):
     for row in read(os.path.join(SOURCE, text_id + '.csv'))[1]:
         out.setdefault(row['article'], []).append(row)
     return out
-
-
-def loose_fr(s):
-    s = unicodedata.normalize('NFKD', s.replace('’', "'"))
-    return ''.join(c for c in s if not unicodedata.combining(c)).casefold()
-
-
-def loose_ar(s):
-    return re.sub('[أإآ]', 'ا', s)
 
 
 def row_key(r):
@@ -579,12 +527,6 @@ class LawTables(DairaTables):
                                      sorted(loose[edition](r['name_' + edition]) for r in law[wilaya]))
 
 
-def law_article(wilaya):
-    """The article of Law 84-09 that lists a wilaya's communes: 5 for 01, 52 bis for 49, 52 bis 1 for 50."""
-    n = int(wilaya)
-    return str(n + 4) if n < 49 else '52 bis' if n == 49 else f'52 bis {n - 49}'
-
-
 class Dairas1992(DairaTables, unittest.TestCase):
     """Executive Decree 92-66: daïras it adds to or redraws in seven wilayas. A scan."""
     TEXT, WILAYAS, DAIRAS, SEATS = 'executive-decree-92-66', WILAYAS_92_66, 17, SEATS_92_66
@@ -687,141 +629,37 @@ class Ons(unittest.TestCase):
         self.assertEqual(differ, {})
 
 
-def same_commune(a, b):
-    """Whether two (French, Arabic) names are one commune's: either edition's names are the same
-    but for accents, apostrophes, hyphens, commas, spaces, capitals, the shadda, hamzas and the
-    dots of a final ي or ة."""
-    def fr(s):
-        return re.sub(r"[-' ,]", '', loose_fr(s))
-
-    def ar(s):
-        return re.sub('[ ،ّ]', '', loose_ar(s).replace('ى', 'ي').replace('ة', 'ه'))
-    return bool(a[0] and b[0] and fr(a[0]) == fr(b[0]) or a[1] and b[1] and ar(a[1]) == ar(b[1]))
-
-
-def daira_tables(text_id):
-    """{wilaya: [daïra]} of a daïra decree, each daïra {'seat': (fr, ar), 'communes': [(fr, ar)],
-    'unchanged': bool}. Decree 91-306's lines only its Arabic prints are left out, but for
-    Rouissat (GAPS_91_306)."""
-    out = {}
-    for r in read(os.path.join(SOURCE, text_id + '.csv'))[1]:
-        d = out.setdefault(r['wilaya'], {}).setdefault(r['daira'], {'seat': None, 'communes': [], 'unchanged': False})
-        if r['item'] == 'seat':
-            d['seat'] = (r['name_fr'], r['name_ar'])
-        elif r['item'] == 'unchanged':
-            d['unchanged'] = True
-        elif r['name_fr'] or (r['wilaya'], r['daira'], r['item']) == ('30', '10', '2'):
-            d['communes'].append((r['name_fr'], r['name_ar']))
-    return {w: list(dairas.values()) for w, dairas in out.items()}
+# The wilayas the laws of 2019 and 2026 create, and the wilaya each one's communes come from
+PARENTS = {'49': '01', '50': '01', '51': '07', '52': '08', '53': '11', '54': '11', '55': '30', '56': '33', '57': '39',
+           '58': '47', '59': '03', '60': '05', '61': '07', '62': '12', '63': '13', '64': '14', '65': '17', '66': '17',
+           '67': '26', '68': '28', '69': '32'}
 
 
 class Chain(unittest.TestCase):
-    """Decree 91-306's daïra tables as the later texts leave them: Decree 92-66, Ordinance 97-14,
-    Decree 18-302 and Decree 21-198 to June 2021, when ONS's list gives each wilaya's communes,
-    then Decree 25-87 and Decree 26-253.
-
-    A decree that reprints a daïra replaces the daïra with the same seat, or adds it, and takes
-    the communes it lists out of the wilaya's other daïras. A decree that rewrites a wilaya's
-    tables (21-198, 26-253) replaces them all. Ordinance 97-14 moves communes to Algiers without
-    placing them in a daïra."""
-
-    def amend(self, state, text_id, spellings=None):
-        """Applies a decree that reprints some daïras; each wilaya keeps its communes."""
-        spellings = spellings or {}
-        for wilaya, dairas in daira_tables(text_id).items():
-            mine = state[wilaya]
-            before = [c for d in mine for c in d['communes']]
-            for d in dairas:
-                same = [x for x in mine if x['seat'] and same_commune(x['seat'], d['seat'])]
-                with self.subTest(text=text_id, wilaya=wilaya, seat=d['seat']):
-                    self.assertLessEqual(len(same), 1)
-                    if d['unchanged']:
-                        self.assertEqual(len(same), 1, 'a daïra printed "sans changement" was there before')
-                        continue
-                    for c in d['communes']:
-                        old = spellings.get(c, c)
-                        for x in mine:
-                            x['communes'] = [y for y in x['communes'] if not same_commune(y, old)]
-                    if same:
-                        same[0].update(seat=d['seat'], communes=list(d['communes']))
-                    else:
-                        mine.append({'seat': d['seat'], 'communes': list(d['communes'])})
-            after = [spellings.get(c, c) for d in mine for c in d['communes']]
-            with self.subTest(text=text_id, wilaya=wilaya):
-                self.assertEqual(len(after), len(before), 'the wilaya keeps its communes')
-                for c in before:
-                    self.assertTrue(any(same_commune(c, a) for a in after), c)
-
-    @staticmethod
-    def emptied(state):
-        """{(wilaya, seat)} of the daïras without communes, which are then dropped."""
-        out = set()
-        for wilaya, dairas in state.items():
-            out |= {(wilaya, d['seat'][0]) for d in dairas if not d['communes']}
-            state[wilaya] = [d for d in dairas if d['communes']]
-        return out
+    """The texts applied in order (tools/resolve.py): Decree 91-306's daïra tables as Decree
+    92-66, Ordinance 97-14, Decree 18-302 and Decree 21-198 leave them in June 2021, when each
+    wilaya's daïras share out the communes ONS's list gives it, each once; then Decree 25-87 and
+    Decree 26-253. resolve.chain() raises Inconsistent when a step doesn't fit: a commune it
+    can't pair, a wilaya that loses or gains a commune, a daïra left empty that EMPTIED doesn't
+    name, a name in ONS_NAMES it doesn't need."""
 
     def test_chain(self):
-        state = daira_tables('executive-decree-91-306')
-        self.amend(state, 'executive-decree-92-66', SPELLINGS_92_66)
-        self.assertEqual(self.emptied(state), EMPTIED['executive-decree-92-66'])
-
-        moved = []
-        for article, rows in lists('ordinance-97-14').items():
-            wilaya = ORDINANCE_97_14[article][0]
-            for r in rows:
-                old = SPELLINGS_97_14.get((r['name_fr'], r['name_ar']), (r['name_fr'], r['name_ar']))
-                found = 0
-                for d in state[wilaya]:
-                    found += sum(1 for c in d['communes'] if same_commune(c, old))
-                    d['communes'] = [c for c in d['communes'] if not same_commune(c, old)]
-                self.assertEqual(found, 1, (wilaya, old))
-                moved.append((r['name_fr'], r['name_ar']))
-        state['16'].append({'seat': None, 'communes': moved})
-        self.assertEqual(self.emptied(state), EMPTIED['ordinance-97-14'])
-
-        self.amend(state, 'executive-decree-18-302')
-        state.update(daira_tables('executive-decree-21-198'))
-        self.assertEqual(self.emptied(state), set())
-
-        # June 2021: each wilaya's daïras share out the communes ONS lists for it, each once
-        ons = {}
-        for r in Ons.rows:
-            ons.setdefault(r['wilaya'], []).append(r)
-        self.assertEqual(sorted(state), sorted(ons))
-        used = set()
-        for wilaya, codes in ons.items():
-            communes = [c for d in state[wilaya] for c in d['communes']]
-            with self.subTest(wilaya=wilaya):
-                self.assertEqual(len(communes), len(codes))
-                matched = []
-                for c in communes:
-                    found = []
-                    for r in codes:
-                        code = r['wilaya'] + r['commune']
-                        if same_commune(c, (r['name_fr'], r['name_ar'])):
-                            found.append(code)
-                        elif code in ONS_NAMES and same_commune(c, (ONS_NAMES[code], '')):
-                            found.append(code)
-                            used.add(code)
-                    self.assertEqual(len(found), 1, (c, found))
-                    matched += found
-                self.assertEqual(sorted(matched), sorted(r['wilaya'] + r['commune'] for r in codes))
-        self.assertEqual(used, set(ONS_NAMES), 'every name in ONS_NAMES is needed')
-        in_2021 = {w: [c for d in dairas for c in d['communes']] for w, dairas in state.items()}
-
-        self.amend(state, 'executive-decree-25-87')
-        state.update(daira_tables('executive-decree-26-253'))
-        self.assertEqual(self.emptied(state), set())
+        state, in_2021, parents = chain()
         self.assertEqual(sorted(state), [f'{n:02d}' for n in range(1, 70)])
-        self.assertEqual(sum(len(d['communes']) for dairas in state.values() for d in dairas), len(Ons.rows))
+        self.assertEqual(sorted(in_2021), [f'{n:02d}' for n in range(1, 59)])
+        self.assertEqual(parents, PARENTS)
+        codes = [c.code for dairas in state.values() for d in dairas for c in d['communes']]
+        self.assertEqual(len(codes), 1541)
+        self.assertEqual(len(set(codes)), 1541)
         for wilaya, dairas in state.items():
-            communes = [c for d in dairas for c in d['communes']]
-            with self.subTest(wilaya=wilaya):
-                for i, c in enumerate(communes):
-                    self.assertFalse(any(same_commune(c, x) for x in communes[:i]), c)
-                if wilaya not in WILAYAS_26_253:
-                    self.assertEqual(communes, in_2021[wilaya])
+            if wilaya not in WILAYAS_26_253:
+                with self.subTest(wilaya=wilaya):
+                    self.assertEqual([c.code for d in dairas for c in d['communes']],
+                                     [c.code for d in in_2021[wilaya] for c in d['communes']])
+            for d in dairas:
+                for c in d['communes']:
+                    with self.subTest(code=c.code):
+                        self.assertEqual(c.code[:2], parents.get(wilaya, wilaya) if int(wilaya) > 58 else wilaya)
 
 
 class Readings(unittest.TestCase):

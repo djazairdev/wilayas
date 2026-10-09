@@ -134,11 +134,13 @@ The tables are laid out as in 1991: a row per daïra, with the seat in one colum
 
 ### The daïras in 2021
 
-The tests rebuild the daïra tables of June 2021 from the texts: Decree 91-306, then Decree 92-66, Ordinance 97-14, Decree 18-302 and Decree 21-198. Then each wilaya's daïras share out the communes ONS's list gives it, each commune once. Ordinance 97-14 moves its 24 communes to Algiers without placing them in a daïra.
+[`tools/resolve.py`](../../tools/resolve.py) rebuilds the daïra tables of June 2021 from the texts, and the tests run it: Decree 91-306, then Decree 92-66, Ordinance 97-14, Decree 18-302 and Decree 21-198. Then each wilaya's daïras share out the communes ONS's list gives it, each commune once. Ordinance 97-14 moves its 24 communes to Algiers without placing them in a daïra.
 
-Seven daïras of Decree 91-306 are left without communes on the way. Decree 92-66 gives Chebli's to the new daïra of Bouinan, and Ordinance 97-14 moves to Algiers all the communes of Birtouta (Blida), Rouiba (Boumerdès), and Chéraga, Douéra, Draria and Zéralda (Tipaza).
+Seven daïras of Decree 91-306 are left without communes on the way. Decree 92-66 gives Chebli's to the new daïra of Bouinan, and Ordinance 97-14 moves to Algiers all the communes of Birtouta (Blida), Rouiba (Boumerdès), and Chéraga, Douéra, Draria and Zéralda (Tipaza). It also moves the seats of two daïras, Sidi Moussa (Blida) and Reghaïa (Boumerdès), but not their other communes: Ouled Selama stays in Blida, and Ouled Hadjadj and Boudouaou El Bahri in Boumerdès.
 
-ONS names 98 communes otherwise than the latest decree that lists them. Most are spellings, as "Benaria" (Decree 91-306) for ONS's "BENAIRIA"; a few are new names, as Decree 91-306's "Hamma Annassers" for ONS's "MOHAMED BELOUIZDAD". The tests list all of them. Decree 25-87 and Decree 26-253 then apply as well: the 69 wilayas share out 1,541 communes, and the wilayas Decree 26-253 leaves alone keep those of 2021.
+Decree 21-198 names seven communes otherwise than Decree 91-306, beyond spelling: "Tamast" for "Tamest", "Abalessa" for "Silet Abalessa", and "M’Rara" for "M’Ghagha", among others. M'Rara is M'Ghagha only by elimination: the one commune of El M'Ghaier (57) left unpaired, and the one of El Oued (39).
+
+ONS names 98 communes otherwise than the latest decree that lists them. Most are spellings, as "Benaria" (Decree 91-306) for ONS's "BENAIRIA"; a few are new names, as Decree 91-306's "Hamma Annassers" for ONS's "MOHAMED BELOUIZDAD". `tools/resolve.py` lists all of them. Decree 25-87 and Decree 26-253 then apply as well: the 69 wilayas share out 1,541 communes, and the wilayas Decree 26-253 leaves alone keep those of 2021. Decree 26-253 names eight communes otherwise than any text before it, beyond spelling, as "Eddouair" for ONS's "TLATET EDDOUAIR" and "Abdelkader Azil" for "AZIL ABDELKADER"; each is the one commune of its wilaya left unpaired.
 
 ### ONS's code géographique
 

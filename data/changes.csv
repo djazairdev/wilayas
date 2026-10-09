@@ -1,0 +1,120 @@
+date,type,subject,from,to,by,article,item
+2026-04-05,wilaya_created,59,03,59,law-26-06,3,
+2026-04-05,wilaya_created,60,05,60,law-26-06,3,
+2026-04-05,wilaya_created,61,07,61,law-26-06,3,
+2026-04-05,wilaya_created,62,12,62,law-26-06,3,
+2026-04-05,wilaya_created,63,13,63,law-26-06,3,
+2026-04-05,wilaya_created,64,14,64,law-26-06,3,
+2026-04-05,wilaya_created,65,17,65,law-26-06,3,
+2026-04-05,wilaya_created,66,17,66,law-26-06,3,
+2026-04-05,wilaya_created,67,26,67,law-26-06,3,
+2026-04-05,wilaya_created,68,28,68,law-26-06,3,
+2026-04-05,wilaya_created,69,32,69,law-26-06,3,
+2026-04-05,commune_moved,0310,03,59,law-26-06,52 bis 10,2
+2026-04-05,commune_moved,0311,03,59,law-26-06,52 bis 10,3
+2026-04-05,commune_moved,0312,03,59,law-26-06,52 bis 10,4
+2026-04-05,commune_moved,0313,03,59,law-26-06,52 bis 10,5
+2026-04-05,commune_moved,0314,03,59,law-26-06,52 bis 10,6
+2026-04-05,commune_moved,0315,03,59,law-26-06,52 bis 10,7
+2026-04-05,commune_moved,0316,03,59,law-26-06,52 bis 10,8
+2026-04-05,commune_moved,0317,03,59,law-26-06,52 bis 10,9
+2026-04-05,commune_moved,0319,03,59,law-26-06,52 bis 10,1
+2026-04-05,commune_moved,0321,03,59,law-26-06,52 bis 10,10
+2026-04-05,commune_moved,0322,03,59,law-26-06,52 bis 10,11
+2026-04-05,commune_moved,0324,03,59,law-26-06,52 bis 10,12
+2026-04-05,commune_moved,0514,05,60,law-26-06,52 bis 11,2
+2026-04-05,commune_moved,0515,05,60,law-26-06,52 bis 11,3
+2026-04-05,commune_moved,0518,05,60,law-26-06,52 bis 11,4
+2026-04-05,commune_moved,0529,05,60,law-26-06,52 bis 11,5
+2026-04-05,commune_moved,0542,05,60,law-26-06,52 bis 11,1
+2026-04-05,commune_moved,0543,05,60,law-26-06,52 bis 11,6
+2026-04-05,commune_moved,0555,05,60,law-26-06,52 bis 11,7
+2026-04-05,commune_moved,0556,05,60,law-26-06,52 bis 11,8
+2026-04-05,commune_moved,0703,07,61,law-26-06,52 bis 12,3
+2026-04-05,commune_moved,0717,07,61,law-26-06,52 bis 12,1
+2026-04-05,commune_moved,0718,07,61,law-26-06,52 bis 12,2
+2026-04-05,commune_moved,0719,07,61,law-26-06,52 bis 12,4
+2026-04-05,commune_moved,0720,07,61,law-26-06,52 bis 12,5
+2026-04-05,commune_moved,1202,12,62,law-26-06,52 bis 13,1
+2026-04-05,commune_moved,1209,12,62,law-26-06,52 bis 13,2
+2026-04-05,commune_moved,1215,12,62,law-26-06,52 bis 13,3
+2026-04-05,commune_moved,1228,12,62,law-26-06,52 bis 13,4
+2026-04-05,commune_moved,1310,13,63,law-26-06,52 bis 14,2
+2026-04-05,commune_moved,1332,13,63,law-26-06,52 bis 14,1
+2026-04-05,commune_moved,1341,13,63,law-26-06,52 bis 14,3
+2026-04-05,commune_moved,1343,13,63,law-26-06,52 bis 14,4
+2026-04-05,commune_moved,1409,14,64,law-26-06,52 bis 15,2
+2026-04-05,commune_moved,1429,14,64,law-26-06,52 bis 15,1
+2026-04-05,commune_moved,1430,14,64,law-26-06,52 bis 15,3
+2026-04-05,commune_moved,1435,14,64,law-26-06,52 bis 15,4
+2026-04-05,commune_moved,1439,14,64,law-26-06,52 bis 15,5
+2026-04-05,commune_moved,1440,14,64,law-26-06,52 bis 15,6
+2026-04-05,commune_moved,1706,17,66,law-26-06,52 bis 17,2
+2026-04-05,commune_moved,1707,17,66,law-26-06,52 bis 17,3
+2026-04-05,commune_moved,1708,17,65,law-26-06,52 bis 16,2
+2026-04-05,commune_moved,1709,17,65,law-26-06,52 bis 16,3
+2026-04-05,commune_moved,1711,17,65,law-26-06,52 bis 16,4
+2026-04-05,commune_moved,1717,17,66,law-26-06,52 bis 17,1
+2026-04-05,commune_moved,1718,17,66,law-26-06,52 bis 17,4
+2026-04-05,commune_moved,1719,17,65,law-26-06,52 bis 16,5
+2026-04-05,commune_moved,1720,17,65,law-26-06,52 bis 16,6
+2026-04-05,commune_moved,1721,17,65,law-26-06,52 bis 16,7
+2026-04-05,commune_moved,1722,17,66,law-26-06,52 bis 17,5
+2026-04-05,commune_moved,1724,17,66,law-26-06,52 bis 17,6
+2026-04-05,commune_moved,1729,17,66,law-26-06,52 bis 17,7
+2026-04-05,commune_moved,1731,17,65,law-26-06,52 bis 16,1
+2026-04-05,commune_moved,1732,17,65,law-26-06,52 bis 16,8
+2026-04-05,commune_moved,1733,17,65,law-26-06,52 bis 16,9
+2026-04-05,commune_moved,1734,17,66,law-26-06,52 bis 17,8
+2026-04-05,commune_moved,1735,17,65,law-26-06,52 bis 16,10
+2026-04-05,commune_moved,2603,26,67,law-26-06,52 bis 18,2
+2026-04-05,commune_moved,2604,26,67,law-26-06,52 bis 18,3
+2026-04-05,commune_moved,2608,26,67,law-26-06,52 bis 18,4
+2026-04-05,commune_moved,2610,26,67,law-26-06,52 bis 18,5
+2026-04-05,commune_moved,2617,26,67,law-26-06,52 bis 18,6
+2026-04-05,commune_moved,2618,26,67,law-26-06,52 bis 18,7
+2026-04-05,commune_moved,2622,26,67,law-26-06,52 bis 18,8
+2026-04-05,commune_moved,2623,26,67,law-26-06,52 bis 18,9
+2026-04-05,commune_moved,2625,26,67,law-26-06,52 bis 18,10
+2026-04-05,commune_moved,2631,26,67,law-26-06,52 bis 18,11
+2026-04-05,commune_moved,2632,26,67,law-26-06,52 bis 18,12
+2026-04-05,commune_moved,2635,26,67,law-26-06,52 bis 18,1
+2026-04-05,commune_moved,2638,26,67,law-26-06,52 bis 18,13
+2026-04-05,commune_moved,2640,26,67,law-26-06,52 bis 18,14
+2026-04-05,commune_moved,2641,26,67,law-26-06,52 bis 18,15
+2026-04-05,commune_moved,2642,26,67,law-26-06,52 bis 18,16
+2026-04-05,commune_moved,2649,26,67,law-26-06,52 bis 18,17
+2026-04-05,commune_moved,2651,26,67,law-26-06,52 bis 18,18
+2026-04-05,commune_moved,2657,26,67,law-26-06,52 bis 18,19
+2026-04-05,commune_moved,2658,26,67,law-26-06,52 bis 18,20
+2026-04-05,commune_moved,2664,26,67,law-26-06,52 bis 18,21
+2026-04-05,commune_moved,2807,28,68,law-26-06,52 bis 19,2
+2026-04-05,commune_moved,2808,28,68,law-26-06,52 bis 19,3
+2026-04-05,commune_moved,2820,28,68,law-26-06,52 bis 19,1
+2026-04-05,commune_moved,2821,28,68,law-26-06,52 bis 19,4
+2026-04-05,commune_moved,2822,28,68,law-26-06,52 bis 19,5
+2026-04-05,commune_moved,2823,28,68,law-26-06,52 bis 19,6
+2026-04-05,commune_moved,2824,28,68,law-26-06,52 bis 19,7
+2026-04-05,commune_moved,2825,28,68,law-26-06,52 bis 19,8
+2026-04-05,commune_moved,2826,28,68,law-26-06,52 bis 19,9
+2026-04-05,commune_moved,2827,28,68,law-26-06,52 bis 19,10
+2026-04-05,commune_moved,2833,28,68,law-26-06,52 bis 19,11
+2026-04-05,commune_moved,2834,28,68,law-26-06,52 bis 19,12
+2026-04-05,commune_moved,2835,28,68,law-26-06,52 bis 19,13
+2026-04-05,commune_moved,2836,28,68,law-26-06,52 bis 19,14
+2026-04-05,commune_moved,2837,28,68,law-26-06,52 bis 19,15
+2026-04-05,commune_moved,2838,28,68,law-26-06,52 bis 19,16
+2026-04-05,commune_moved,2839,28,68,law-26-06,52 bis 19,17
+2026-04-05,commune_moved,2841,28,68,law-26-06,52 bis 19,18
+2026-04-05,commune_moved,2842,28,68,law-26-06,52 bis 19,19
+2026-04-05,commune_moved,2843,28,68,law-26-06,52 bis 19,20
+2026-04-05,commune_moved,2844,28,68,law-26-06,52 bis 19,21
+2026-04-05,commune_moved,2846,28,68,law-26-06,52 bis 19,22
+2026-04-05,commune_moved,2847,28,68,law-26-06,52 bis 19,23
+2026-04-05,commune_moved,3207,32,69,law-26-06,52 bis 20,1
+2026-04-05,commune_moved,3208,32,69,law-26-06,52 bis 20,2
+2026-04-05,commune_moved,3209,32,69,law-26-06,52 bis 20,3
+2026-04-05,commune_moved,3213,32,69,law-26-06,52 bis 20,4
+2026-04-05,commune_moved,3214,32,69,law-26-06,52 bis 20,5
+2026-04-05,commune_moved,3216,32,69,law-26-06,52 bis 20,6
+2026-04-05,commune_moved,3219,32,69,law-26-06,52 bis 20,7

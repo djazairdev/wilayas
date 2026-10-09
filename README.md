@@ -7,7 +7,8 @@ Algeria's 69 wilayas and 1,541 communes as a free, read-only JSON API, built fro
 ## What it will serve
 
 - **The 69 wilayas**, with their codes, Arabic and French names and chef-lieux.
-- **The 1,541 communes**, with the wilaya each one belongs to.
+- **The daïras**, each with its seat and its communes.
+- **The 1,541 communes**, with the wilaya and the daïra each one belongs to.
 - **The 2026 changes**: Law 26-06 of 4 April 2026 created 11 wilayas (59 to 69) and moved 108 communes into them. The parent wilayas run the new ones until 31 December 2026 at the latest. The API gives the old and the new wilaya of each moved commune, with the dates.
 - **A citation for every record**: the text, its Journal officiel issue and the article it comes from.
 
