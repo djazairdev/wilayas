@@ -3,8 +3,9 @@ reading in data/source/readings.csv, and a JSON list describing them.
 
 Each crop shows the item with its neighbours, located from the OCR's positions: the item
 itself when the OCR read it, otherwise the space between the items before and after it.
-Decree 91-306's names are cropped from the lines tools/gazette/dairas.py placed, with the lines
-above and below, in the edition read (300 dpi in French, 400 in Arabic, to see the hamzas).
+Decree 91-306's names, and Decree 92-66's, are cropped from the lines tools/gazette/dairas.py
+placed, with the lines above and below, in the edition read (300 dpi in French, 400 in Arabic, to
+see the hamzas).
 Decrees 21-198's and 26-253's are cropped the same way, at 400 dpi, from the boxes
 tools/gazette/tables.py gives their names. ONS's code géographique's are cropped from the rows
 tools/ons/codes.py rebuilds, with the codes and the rows above and below, at 400 dpi. Ordinance
@@ -54,9 +55,14 @@ TITLES = {
 }
 LINE = 0.024  # a line of text, as a fraction of the page height
 MARGIN = 0.012
-# Decree 91-306: each edition's PDF, the rows dairas.py made from it, and the resolution of the crops
-SCANS = {'fr': ('sources/joradp/F1991041.pdf', 300), 'ar': ('sources/joradp/A1991041.pdf', 400)}
-ROWS_91_306 = ('work/F1991041.rows.jsonl', 'work/A1991041.rows.jsonl')
+# Decrees 91-306 and 92-66, both scans: the title, each edition's PDF and the resolution of its
+# crops, the rows dairas.py made from each edition, and the lines only one edition prints
+SCANS = {
+    annex.TEXT: ('Decree 91-306', {'fr': ('sources/joradp/F1991041.pdf', 300), 'ar': ('sources/joradp/A1991041.pdf', 400)},
+                 ('work/F1991041.rows.jsonl', 'work/A1991041.rows.jsonl'), annex.GAPS),
+    'executive-decree-92-66': ('Decree 92-66', {'fr': ('sources/joradp/F1992013.pdf', 300), 'ar': ('sources/joradp/A1992013.pdf', 400)},
+                               ('work/F1992013.rows.jsonl', 'work/A1992013.rows.jsonl'), {}),
+}
 # Decrees 21-198 and 26-253: the Arabic edition's PDF, and what tables.py places its names from
 TABLES = {
     'executive-decree-21-198': ('Decree 21-198', 'sources/joradp/A2021038.pdf',
@@ -152,13 +158,14 @@ def reading_id(r):
     return '-'.join(re.sub(r'[\s/]+', '-', v) for v in (r['text'], r['article'], r['item'], r['edition']))
 
 
-def lines_91_306():
-    """{(wilaya, 'daïra/item', edition): (row, OCR line)} for Decree 91-306."""
-    fr, ar = (annex.load(os.path.join(ROOT, p)) for p in ROWS_91_306)
-    with open(os.path.join(SOURCE, annex.TEXT + '.csv'), encoding='utf-8', newline='') as f:
+def lines_scan(text):
+    """{(wilaya, 'daïra/item', edition): (row, OCR line)} for Decree 91-306 or 92-66."""
+    title, pdfs, paths, gaps = SCANS[text]
+    fr, ar = (annex.load(os.path.join(ROOT, p)) for p in paths)
+    with open(os.path.join(SOURCE, text + '.csv'), encoding='utf-8', newline='') as f:
         rows = {(r['wilaya'], f"{r['daira']}/{r['item']}"): r for r in csv.DictReader(f)}
     out = {}
-    for wilaya, daira, item, f, a in annex.entries(fr, ar):
+    for wilaya, daira, item, f, a in annex.entries(fr, ar, gaps):
         key = (f'{wilaya:02d}', f'{daira}/{item}')
         for edition, line in (('fr', f), ('ar', a)):
             if line is not None:
@@ -231,15 +238,15 @@ def main():
                              'name_fr': row['name_fr'], 'name_ar': row['name_ar'], 'page': r['pdf_page'],
                              'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'], 'crop': crop})
             continue
-        if text in (annex.TEXT, codes.TEXT) or text in TABLES:
+        if text in SCANS or text == codes.TEXT or text in TABLES:
             if text not in placed:
                 placed[text] = (lines_tables(text) if text in TABLES else
-                                {annex.TEXT: lines_91_306, codes.TEXT: lines_ons}[text]())
+                                lines_scan(text) if text in SCANS else lines_ons())
             row, line = placed[text][(r['article'], r['item'], r['edition'])]
             key = reading_id(r)
             crop = f'crops/{key}.png'
-            if text == annex.TEXT:
-                (p, x, y, w, h), (pdf, dpi), title = scan_region(line), SCANS[r['edition']], 'Decree 91-306'
+            if text in SCANS:
+                (p, x, y, w, h), (pdf, dpi), title = scan_region(line), SCANS[text][1][r['edition']], SCANS[text][0]
             elif text == codes.TEXT:
                 (p, x, y, w, h), (pdf, dpi), title = row_region(line), (PDF_ONS, 400), 'ONS code géographique'
             else:

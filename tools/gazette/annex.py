@@ -100,9 +100,10 @@ def names(row, language):
     return seat, row['communes']
 
 
-def entries(fr, ar):
+def entries(fr, ar, gaps=None):
     """[(wilaya, daïra, item, fr line, ar line)], item 'seat' first in each daïra; raises on any
-    difference between the editions' tables but GAPS."""
+    difference between the editions' tables but the gaps (GAPS by default)."""
+    gaps = GAPS if gaps is None else gaps
     if sorted(fr) != sorted(ar):
         raise SystemExit(f'the editions have different wilayas: {sorted(fr)} and {sorted(ar)}')
     out = []
@@ -112,7 +113,7 @@ def entries(fr, ar):
         for d, (f, a) in enumerate(zip(fr[w], ar[w]), 1):
             (fs, fc), (as_, ac) = names(f, 'fr'), names(a, 'ar')
             fc, ac = list(fc), list(ac)
-            for (gw, gd, gi), edition in sorted(GAPS.items()):
+            for (gw, gd, gi), edition in sorted(gaps.items()):
                 if (gw, gd) == (w, d):
                     (fc if edition == 'fr' else ac).insert(gi - 1, None)
             if len(fc) != len(ac):
