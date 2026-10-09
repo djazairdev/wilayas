@@ -474,7 +474,7 @@ PATHS = [
     ('/wilayas/{code}/communes.json', "One wilaya's communes", 'communes', '/wilayas/{code}/communes.csv', 'wilaya'),
     ('/wilayas/{code}/dairas.json', "One wilaya's daïras", 'dairas', None, 'wilaya'),
     ('/dairas.json', 'All the daïras', 'dairas', '/dairas.csv', None),
-    ('/dairas/{code}.json', 'One daïra, with its communes', 'daira', None, 'commune'),
+    ('/dairas/{code}.json', 'One daïra, with its communes', 'daira', None, 'daira'),
     ('/communes.json', 'The 1,541 communes', 'communes', '/communes.csv', None),
     ('/communes/{code}.json', 'One commune', 'commune', None, 'commune'),
     ('/changes.json', 'The 2026 changes: wilayas created and communes moved', 'changes', '/changes.csv', None),
@@ -482,6 +482,24 @@ PATHS = [
     ('/divisions/2019/wilayas.json', 'The 58 wilayas of the 2019 division', 'division-wilayas', None, None),
     ('/divisions/2019/communes.json', 'The communes in their wilayas of the 2019 division', 'division-communes', None, None),
 ]
+# The OpenAPI tags, which group the paths in the docs (public/docs/): (name, the paths' first
+# part, description)
+TAGS = [
+    ('Index', 'index.json', 'What the API holds, and its version'),
+    ('Wilayas', 'wilayas', 'The 69 wilayas of the 2026 division, one by one or all at once'),
+    ('Daïras', 'dairas', 'The daïras, each coded by its seat'),
+    ('Communes', 'communes', 'The 1,541 communes'),
+    ('Changes', 'changes.json', 'What the 2026 division changed: wilayas created and communes moved'),
+    ('Sources', 'texts.json', 'The official texts and lists every record cites'),
+    ('Divisions', 'divisions', 'The 58 wilayas of the 2019 division, and its communes'),
+]
+# An example code for each path parameter, so the docs can call each path as it is
+EXAMPLES = {'wilaya': '31', 'daira': '3101', 'commune': '3101'}
+
+
+def tag(path):
+    first = path.lstrip('/').split('/')[0].replace('.csv', '.json')
+    return next(name for name, part, _ in TAGS if first in (part, part + '.json'))
 
 
 def openapi(api_version, date):
@@ -494,13 +512,16 @@ def openapi(api_version, date):
     params = {
         'wilaya': {'name': 'code', 'in': 'path', 'required': True, 'description': 'The wilaya code, 01 to 69',
                    'schema': {'$ref': '#/components/schemas/wilaya_code'}},
-        'commune': {'name': 'code', 'in': 'path', 'required': True,
-                    'description': "A commune code; for a daïra, its seat's commune code",
+        'daira': {'name': 'code', 'in': 'path', 'required': True, 'description': "The daïra code: its seat's commune code",
+                  'schema': {'$ref': '#/components/schemas/commune_code'}},
+        'commune': {'name': 'code', 'in': 'path', 'required': True, 'description': 'The commune code',
                     'schema': {'$ref': '#/components/schemas/commune_code'}},
     }
+    for name, param in params.items():
+        param['example'] = EXAMPLES[name]
     paths = {}
     for path, summary, kind, csv_path, param in PATHS:
-        op = {'summary': summary, 'responses': {
+        op = {'summary': summary, 'tags': [tag(path)], 'responses': {
             '200': {'description': 'OK', 'content': {'application/json': {
                 'schema': {'$ref': f"#/components/schemas/{kind.replace('-', '_')}"}}}}}}
         if param:
@@ -508,7 +529,7 @@ def openapi(api_version, date):
             op['responses']['404'] = {'description': 'No such code'}
         paths[path] = {'get': op}
         if csv_path:
-            csv_op = {'summary': summary + ', as CSV', 'responses': {
+            csv_op = {'summary': summary + ', as CSV', 'tags': [tag(csv_path)], 'responses': {
                 '200': {'description': 'OK', 'content': {'text/csv': {'schema': {'type': 'string'}}}}}}
             if param:
                 csv_op['parameters'] = [params[param]]
@@ -521,6 +542,8 @@ def openapi(api_version, date):
                                 f'Static files; data version {date}. Not an official government service.',
                  'license': {'name': 'CC0-1.0 (data), MIT (code)', 'identifier': 'CC0-1.0'}},
         'servers': [{'url': BASE_URL}],
+        'tags': [{'name': name, 'description': description} for name, _, description in TAGS],
+        'externalDocs': {'description': 'Source and documentation', 'url': REPOSITORY},
         'paths': paths,
         'components': {'schemas': components},
     }

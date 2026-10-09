@@ -9,6 +9,7 @@ Standard library only.
 import csv
 import glob
 import gzip
+import html.parser
 import io
 import json
 import os
@@ -71,6 +72,20 @@ def validate(instance, schema, root, path='$'):
     return errors
 
 
+class Loads(html.parser.HTMLParser):
+    """The scripts and stylesheets a page loads from other sites: [(url, attributes)]."""
+
+    def __init__(self):
+        super().__init__()
+        self.external = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        url = attrs.get('src') if tag == 'script' else attrs.get('href') if tag == 'link' else None
+        if url and '://' in url:
+            self.external.append((url, attrs))
+
+
 class Build(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -125,6 +140,26 @@ class Build(unittest.TestCase):
         for ref in re.findall(r'"#/components/schemas/([a-z_0-9]+)"', json.dumps(api)):
             self.assertIn(ref, names)
         self.assertNotIn('$defs', json.dumps(api))
+        tags = [t['name'] for t in api['tags']]
+        for path, item in api['paths'].items():
+            self.assertEqual(len(item['get']['tags']), 1, path)
+            self.assertIn(item['get']['tags'][0], tags, path)
+            for param in item['get'].get('parameters', []):
+                example = path.lstrip('/').replace('{code}', param['example'])
+                self.assertTrue(os.path.exists(os.path.join(self.v1, example)), example)
+
+    def test_docs_page(self):
+        with open(os.path.join(self.dist, 'docs', 'index.html'), encoding='utf-8') as f:
+            page = f.read()
+        self.assertIn("url: '/v1/openapi.json'", page)
+        self.assertIn('validatorUrl: null', page)
+        loads = Loads()
+        loads.feed(page)
+        self.assertEqual(len(loads.external), 2)
+        for url, attrs in loads.external:
+            self.assertRegex(url, r'/swagger-ui-dist@\d+\.\d+\.\d+/', 'an exact version')
+            self.assertRegex(attrs.get('integrity') or '', r'^sha256-[A-Za-z0-9+/]{43}=$', 'an integrity hash')
+            self.assertEqual(attrs.get('crossorigin'), 'anonymous')
 
     def expand(self, template):
         """The files a path with {code} stands for."""
