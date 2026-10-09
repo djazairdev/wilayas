@@ -8,6 +8,11 @@ When a change alters what the API serves, add an entry at the top, dated the day
 - **Minor** (`1.1.0`): new data, fields or files that leave the old ones as they are, such as a new text applied or a new field.
 - **Major** (`2.0.0`): a change that could break a client, such as a field removed or renamed. It is served under a new path, `/v2/`, and `/v1/` stays.
 
+## 1.1.0 (2026-10-09)
+
+- API docs at [`/docs/`](https://wilayas.djazair.dev/docs/): the OpenAPI description in Swagger UI, where every path can be tried.
+- `openapi.json`: the paths are grouped by tags (Index, Wilayas, Daïras, Communes, Changes, Sources, Divisions), and each code parameter has an example (wilaya `31`, daïra `3101`, commune `3101`). A daïra's code parameter is described as a daïra's, no longer as a commune's.
+
 ## 1.0.0 (2026-10-09)
 
 First build, before the launch of version 1.

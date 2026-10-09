@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wilayas · API docs</title>
+<!-- Swagger UI from jsDelivr, at an exact version with integrity hashes (docs/deploy.md#docs) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.33.0/swagger-ui.css"
+      integrity="sha256-GsMk99zSfkuThrS9ZCEnHsFH6SKiLAW6JLEVFemqYyE=" crossorigin="anonymous">
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; background: #fff; font: 16px/1.5 system-ui, sans-serif; }
+  .bar { max-width: 1460px; margin: 0 auto; padding: 1rem 20px 0; }
+  .bar a { color: #3b4151; }
+</style>
+</head>
+<body>
+<p class="bar"><a href="/">wilayas</a> · <a href="/v1/openapi.json"><code>/v1/openapi.json</code></a> · <a href="https://github.com/djazairdev/wilayas">Source</a></p>
+<div id="swagger">
+  <noscript><p class="bar">These docs need JavaScript. The OpenAPI description is at <a href="/v1/openapi.json"><code>/v1/openapi.json</code></a>.</p></noscript>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.33.0/swagger-ui-bundle.js"
+        integrity="sha256-Yt9UFSkIBGSnZgrceT6rcSjGGTzjviTdweDgpKY+3C8=" crossorigin="anonymous"></script>
+<script>
+  if (window.SwaggerUIBundle) {
+    SwaggerUIBundle({
+      url: '/v1/openapi.json',
+      dom_id: '#swagger',
+      deepLinking: true,
+      docExpansion: 'list',
+      defaultModelsExpandDepth: 0,
+      supportedSubmitMethods: ['get', 'head'],
+      // no request to Swagger's online validator
+      validatorUrl: null,
+    });
+  } else {
+    document.getElementById('swagger').innerHTML =
+      '<p class="bar">The docs could not load. The OpenAPI description is at <a href="/v1/openapi.json"><code>/v1/openapi.json</code></a>.</p>';
+  }
+</script>
+</body>
+</html>

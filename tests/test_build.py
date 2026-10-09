@@ -125,6 +125,26 @@ class Build(unittest.TestCase):
         for ref in re.findall(r'"#/components/schemas/([a-z_0-9]+)"', json.dumps(api)):
             self.assertIn(ref, names)
         self.assertNotIn('$defs', json.dumps(api))
+        tags = [t['name'] for t in api['tags']]
+        for path, item in api['paths'].items():
+            self.assertEqual(len(item['get']['tags']), 1, path)
+            self.assertIn(item['get']['tags'][0], tags, path)
+            for param in item['get'].get('parameters', []):
+                example = path.lstrip('/').replace('{code}', param['example'])
+                self.assertTrue(os.path.exists(os.path.join(self.v1, example)), example)
+
+    def test_docs_page(self):
+        with open(os.path.join(self.dist, 'docs', 'index.html'), encoding='utf-8') as f:
+            page = f.read()
+        self.assertIn("url: '/v1/openapi.json'", page)
+        self.assertIn('validatorUrl: null', page)
+        tags = re.findall(r'<(?:script|link)\b[^>]*>', page)
+        external = [t for t in tags if 'https://' in t]
+        self.assertEqual(len(external), 2)
+        for tag in external:
+            self.assertRegex(tag, r'swagger-ui-dist@\d+\.\d+\.\d+/', 'an exact version')
+            self.assertRegex(tag, r'integrity="sha256-[A-Za-z0-9+/]{43}="', 'an integrity hash')
+            self.assertIn('crossorigin="anonymous"', tag)
 
     def expand(self, template):
         """The files a path with {code} stands for."""

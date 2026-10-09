@@ -57,6 +57,10 @@ python3 build.py
 npx wrangler dev
 ```
 
+## Docs
+
+`/docs/` is the OpenAPI description, `/v1/openapi.json`, in [Swagger UI](https://github.com/swagger-api/swagger-ui). The page, [`public/docs/index.html`](../public/docs/index.html), loads Swagger UI from jsDelivr at an exact version, with integrity hashes, so a changed file doesn't load. To move to a newer version, take one released at least two weeks before, and its hashes from `https://data.jsdelivr.com/v1/packages/npm/swagger-ui-dist@<version>?structure=flat` (`sha256-` and each file's `hash`). The docs' "Try it out" calls the live API, the OpenAPI description's server.
+
 ## The address
 
 The API is served at `https://wilayas.djazair.dev/v1/`, a custom domain of the Worker (`routes` in `wrangler.jsonc`). Each deploy keeps it attached; Cloudflare manages its DNS record and certificate in the `djazair.dev` zone, so the record must not be created or edited by hand. The Worker's workers.dev address stays on, for the previews of pull requests.

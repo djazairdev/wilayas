@@ -16,7 +16,7 @@ The API is a set of static, versioned files in JSON and CSV. There are no keys a
 
 ## Files
 
-Under `https://wilayas.djazair.dev/v1/` (not live yet):
+Under `https://wilayas.djazair.dev/v1/`. The [API docs](https://wilayas.djazair.dev/docs/) show every path, and you can try each one there.
 
 | Path | Contents |
 |---|---|

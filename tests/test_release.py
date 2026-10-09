@@ -105,7 +105,8 @@ class Check(unittest.TestCase):
         self.edit('data/communes.csv', 'Adrar', 'Adrarr')
         with self.assertRaises(SystemExit):
             self.check()
-        self.new_entry('1.0.1')
+        major, minor, patch = release.parse(self.version)
+        self.new_entry(f'{major}.{minor}.{patch + 1}')
         self.check()
 
     def test_a_version_not_newer_than_the_last_release_fails(self):
