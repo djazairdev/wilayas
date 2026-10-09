@@ -493,6 +493,23 @@ TAGS = [
     ('Sources', 'texts.json', 'The official texts and lists every record cites'),
     ('Divisions', 'divisions', 'The 58 wilayas of the 2019 division, and its communes'),
 ]
+# Each JSON path's operationId, which names it in the docs' links and in generated clients; a
+# CSV twin's is the same with Csv after it
+OPERATIONS = {
+    '/index.json': 'getIndex',
+    '/wilayas.json': 'listWilayas',
+    '/wilayas/{code}.json': 'getWilaya',
+    '/wilayas/{code}/communes.json': 'listWilayaCommunes',
+    '/wilayas/{code}/dairas.json': 'listWilayaDairas',
+    '/dairas.json': 'listDairas',
+    '/dairas/{code}.json': 'getDaira',
+    '/communes.json': 'listCommunes',
+    '/communes/{code}.json': 'getCommune',
+    '/changes.json': 'listChanges',
+    '/texts.json': 'listTexts',
+    '/divisions/2019/wilayas.json': 'listWilayas2019',
+    '/divisions/2019/communes.json': 'listCommunes2019',
+}
 # An example code for each path parameter, so the docs can call each path as it is
 EXAMPLES = {'wilaya': '31', 'daira': '3101', 'commune': '3101'}
 
@@ -521,7 +538,7 @@ def openapi(api_version, date):
         param['example'] = EXAMPLES[name]
     paths = {}
     for path, summary, kind, csv_path, param in PATHS:
-        op = {'summary': summary, 'tags': [tag(path)], 'responses': {
+        op = {'operationId': OPERATIONS[path], 'summary': summary, 'tags': [tag(path)], 'responses': {
             '200': {'description': 'OK', 'content': {'application/json': {
                 'schema': {'$ref': f"#/components/schemas/{kind.replace('-', '_')}"}}}}}}
         if param:
@@ -529,8 +546,9 @@ def openapi(api_version, date):
             op['responses']['404'] = {'description': 'No such code'}
         paths[path] = {'get': op}
         if csv_path:
-            csv_op = {'summary': summary + ', as CSV', 'tags': [tag(csv_path)], 'responses': {
-                '200': {'description': 'OK', 'content': {'text/csv': {'schema': {'type': 'string'}}}}}}
+            csv_op = {'operationId': OPERATIONS[path] + 'Csv', 'summary': summary + ', as CSV',
+                      'tags': [tag(csv_path)], 'responses': {
+                          '200': {'description': 'OK', 'content': {'text/csv': {'schema': {'type': 'string'}}}}}}
             if param:
                 csv_op['parameters'] = [params[param]]
                 csv_op['responses']['404'] = {'description': 'No such code'}

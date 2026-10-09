@@ -141,6 +141,10 @@ class Build(unittest.TestCase):
             self.assertIn(ref, names)
         self.assertNotIn('$defs', json.dumps(api))
         tags = [t['name'] for t in api['tags']]
+        ids = [item['get']['operationId'] for item in api['paths'].values()]
+        self.assertEqual(len(ids), len(set(ids)), 'one operationId a path')
+        for i in ids:
+            self.assertRegex(i, r'^(get|list)[A-Z][A-Za-z0-9]*$')
         for path, item in api['paths'].items():
             self.assertEqual(len(item['get']['tags']), 1, path)
             self.assertIn(item['get']['tags'][0], tags, path)
