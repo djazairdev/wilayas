@@ -28,6 +28,11 @@ daïras in each and the same number of communes in each daïra.
 
 The first command prints the bands of the annex's pages for regions.swift.
 
+Decrees 18-302 and 25-87 amend some daïras of a wilaya and print their tables across the whole
+page: `--full` after `--text` (both commands). A daïra they print with "(sans changement)" for
+its communes becomes its seat and one row with the item `unchanged`; both editions must print
+it so. The commands are in tools/gazette/README.md.
+
 Standard library only.
 """
 import csv
@@ -50,10 +55,14 @@ LINE = 0.009      # parts of one line: their middles are this close (lines are a
 SLACK = 0.005     # how far a part may stray past the edge between the sub-columns
 TALL = 0.03       # a run of the Arabic text taller than this (a line is 0.02) is several lines scrambled into one
 DASH = re.compile(r'^\s*[-–—]\s*')
-FR_HEADING = re.compile(r'^(\d{1,2})\s*[-–—]\s*WILAYA\b')
+FR_HEADING = re.compile(r'^(\d{1,2})\s*[-–—]\s*WILAYA\b', re.I)
 AR_HEADING = re.compile(r'^(\d{1,2})\s*[-–—]\s*ولاية')
 # The next text in the issue, after the last table
-END = re.compile(r'^\s*(Décret (exécutif|présidentiel)|مرسوم (تنفيذي|رئاسي))')
+END = re.compile(r'^\s*(Décret (exécutif|présidentiel)|ARRETES|Arrêté|مرسوم (تنفيذي|رئاسي)|قرارات|قرار مؤرّخ)')
+# A row that keeps a daïra as it was ("Aïn Turk | (sans changement)"), or, with no seat beside
+# it, the rest of the table
+UNCHANGED = re.compile(r'sans changement|بدون تغيير', re.I)
+FULL = False      # the tables span the page's width (Decrees 18-302 and 25-87), not a half-page column
 # A band of an undashed table that isn't a row: the column heads, or a note on the wilayas left alone
 FURNITURE = re.compile(r'Sièges|Sans changement')
 SEAT_GAP = 0.05   # in an undashed table, the communes start at least this far right of the seats
@@ -120,7 +129,11 @@ def tables(parts, rules, rtl, sources, headings, dashed=True):
 
     Where the names have no dashes (dashed is False: the French of Decree 21-198), each line is a
     name and the communes are the parts that start right of the seat's sub-column. The tables
-    end with the next text in the issue."""
+    end with the next text in the issue.
+
+    A decree that amends only some daïras (18-302, 25-87) prints the others as a seat with
+    "(sans changement)" beside it: that daïra is {'seat', 'communes': [], 'unchanged': True}. A
+    "(sans changement)" with no seat beside it stands for the rest of the table and is skipped."""
     out, current = {}, None
     pages = sorted({p['page'] for p in parts if p['src'] == 'pdf'})
 
@@ -130,17 +143,25 @@ def tables(parts, rules, rtl, sources, headings, dashed=True):
                 'w': max(p['x'] + p['w'] for p in group) - left, 'h': max(p['y'] + p['h'] for p in group) - top}
 
     for page in pages:
-        for where in (('right', 'left') if rtl else ('left', 'right')):
-            column = [p for p in parts if p['page'] == page and side(p) == where and p['y'] >= HEAD]
-            for top, bottom in bands(rules, page, where):
+        for where in (['full'] if FULL else ('right', 'left') if rtl else ('left', 'right')):
+            column = [p for p in parts if p['page'] == page and (FULL or side(p) == where) and p['y'] >= HEAD]
+            for top, bottom in bands(rules, page, 'left' if FULL else where):
                 inside = [p for p in column if top <= mid(p) < bottom]
+                number = headings(page, where, top, bottom)
+                if number is not None:  # the first may share a band with the decree's own text
+                    current = number
+                    out.setdefault(current, [])
+                    continue
                 if any(END.match(p['text']) for p in inside):
                     current = None
                     continue
-                number = headings(page, where, top, bottom)
-                if number is not None:
-                    current = number
-                    out.setdefault(current, [])
+                marks = [p for p in inside if UNCHANGED.search(p['text'])]
+                if current is not None and marks:
+                    left, right = min(p['x'] for p in marks), max(p['x'] + p['w'] for p in marks)
+                    seat = [p for p in inside if p not in marks and re.search(r'\w', p['text'])
+                            and (p['x'] + p['w'] < left - SLACK or p['x'] > right + SLACK)]
+                    if seat:
+                        out[current].append({'seat': entry(seat, page, where), 'communes': [], 'unchanged': True})
                     continue
                 if not dashed:
                     if current is None or not inside or FURNITURE.search(' '.join(p['text'] for p in inside)):
@@ -186,13 +207,17 @@ def french(runs_path, rules_path):
 
     def headings(page, where, top, bottom):
         for r in runs:
-            if r['page'] == page and side(r) == where and top <= mid(r) < bottom:
+            if r['page'] == page and (FULL or side(r) == where) and top <= mid(r) < bottom:
                 m = FR_HEADING.match(r['text'])
                 if m:
                     return f'{int(m.group(1)):02d}'
         return None
-    # Decree 26-253 puts a dash before each commune; Decree 21-198's French puts none
-    dashed = any(re.match(r'^\s*[-–—]\s*\w', r['text']) for r in runs)
+    # Decree 26-253 puts a dash before each commune; Decree 21-198's French puts none. The texts
+    # before the first heading and after the tables may have dashes of their own.
+    first = min(((r['page'], r['y']) for r in runs if FR_HEADING.match(r['text'])), default=(0, 0))
+    last = min(((r['page'], r['y']) for r in runs if END.match(r['text']) and (r['page'], r['y']) > first),
+               default=(10 ** 6, 0))
+    dashed = any(re.match(r'^\s*[-–—]\s*\w', r['text']) for r in runs if first < (r['page'], r['y']) < last)
     return tables(runs, load(rules_path), False, ['pdf'], headings, dashed)
 
 
@@ -202,7 +227,7 @@ def arabic(runs_path, rules_path, ocr_paths):
 
     def headings(page, where, top, bottom):
         for e in ocr:
-            if e['page'] == page and side(e) == where and top <= mid(e) < bottom:
+            if e['page'] == page and (FULL or side(e) == where) and top <= mid(e) < bottom:
                 m = AR_HEADING.match(e['text'].strip())
                 if m:
                     return f'{int(m.group(1)):02d}'
@@ -238,14 +263,15 @@ def readings(path=READINGS):
 
 
 def regions(runs_path, rules_path, pdf, lang, dpi):
-    """Print each band of the pages the runs cover, both half-page columns, for regions.swift."""
+    """Print each band of the pages the runs cover, both half-page columns (or the page's width,
+    with --full), for regions.swift."""
     runs, rules = load(runs_path), load(rules_path)
     for page in sorted({r['page'] for r in runs}):
-        for where, x0 in (('right', 0.5), ('left', 0.0)):
+        for where, x0, width in ((('left', 0.0, 1.0),) if FULL else (('right', 0.5, 0.5), ('left', 0.0, 0.5))):
             for top, bottom in bands(rules, page, where):
                 top = max(top, HEAD)
                 if bottom - top > MIN_BAND:
-                    print(json.dumps({'pdf': pdf, 'page': page, 'x': x0, 'y': top, 'w': 0.5, 'h': bottom - top,
+                    print(json.dumps({'pdf': pdf, 'page': page, 'x': x0, 'y': top, 'w': width, 'h': bottom - top,
                                       'dpi': dpi, 'lang': lang}))
 
 
@@ -259,19 +285,24 @@ def entries(fr, ar):
         if len(fr[wilaya]) != len(ar[wilaya]):
             raise SystemExit(f'wilaya {wilaya}: {len(fr[wilaya])} daïras in French, {len(ar[wilaya])} in Arabic')
         for d, (f, a) in enumerate(zip(fr[wilaya], ar[wilaya]), 1):
-            if len(f['communes']) != len(a['communes']):
+            if len(f['communes']) != len(a['communes']) or f.get('unchanged') != a.get('unchanged'):
                 raise SystemExit(f"wilaya {wilaya}, daïra {d} ({f['seat']['text'].get('pdf')}): {len(f['communes'])} "
                                  f"communes in French, {len(a['communes'])} in Arabic")
             out.append((wilaya, d, 'seat', f['seat'], a['seat']))
             out += [(wilaya, d, str(i), x, y) for i, (x, y) in enumerate(zip(f['communes'], a['communes']), 1)]
+            if f.get('unchanged'):
+                out.append((wilaya, d, 'unchanged', None, None))
     return out
 
 
 def main():
-    global TEXT
+    global TEXT, FULL
     if sys.argv[1] == '--text':  # another decree laid out the same way
         TEXT = sys.argv[2]
         del sys.argv[1:3]
+    if sys.argv[1] == '--full':  # its tables span the page's width
+        FULL = True
+        del sys.argv[1]
     if sys.argv[1] == 'regions':
         runs_path, rules_path, pdf, lang, *dpi = sys.argv[2:]
         regions(runs_path, rules_path, pdf, lang, int(dpi[0]) if dpi else 400)
@@ -284,6 +315,9 @@ def main():
     todo = 0
     for wilaya, d, item, f, a in rows:
         key = (wilaya, f'{d}/{item}')
+        if item == 'unchanged':  # no names: the daïra keeps its communes
+            w.writerow({'text': TEXT, 'wilaya': wilaya, 'daira': d, 'item': item, 'name_fr': '', 'name_ar': '', 'check': ''})
+            continue
         name_fr = f['text'].get('pdf') or ''
         read = seen.get(key + ('ar',))
         if read is not None:

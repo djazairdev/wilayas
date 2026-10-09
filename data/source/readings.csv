@@ -1694,3 +1694,46 @@ executive-decree-21-198,49,4/3,ar,أولاد عيسى,11,claude,founder,"the OCR
 executive-decree-21-198,51,1/3,ar,الشعيبة,11,claude,founder,the OCR missed it; the PDF’s text has the letters printed
 executive-decree-21-198,52,5/2,ar,قصابي,11,claude,founder,the PDF’s text puts a space inside the word (قص ابي); the print has none; the other OCR reading missed it
 executive-decree-21-198,55,2/2,ar,المنقر,12,claude,founder,the OCR missed it; the PDF’s text has the letters printed
+executive-decree-92-66,02,1/2,fr,Mossedek,17,claude,,not a Wikidata label
+executive-decree-92-66,02,2/2,fr,Sidi Akacha,17,claude,,not a Wikidata label
+executive-decree-92-66,02,2/2,ar,سيدي عكاشة,22,claude,,the OCR’s readings differ
+executive-decree-92-66,04,2/seat,fr,Aïn Fekroun,17,claude,,not a Wikidata label
+executive-decree-92-66,04,2/seat,ar,عين الفكرون,22,claude,,not a Wikidata label
+executive-decree-92-66,04,2/1,fr,Aïn Fekroun,17,claude,,not a Wikidata label
+executive-decree-92-66,04,2/1,ar,عين الفكرون,22,claude,,not a Wikidata label
+executive-decree-92-66,04,2/2,fr,"El Fedjoudj, Boughrara, Saoudi",17,claude,,"not a Wikidata label; one commune, printed with commas between its three parts"
+executive-decree-92-66,04,2/2,ar,الفجوج، بوغرارة، سعودي,22,claude,,"not a Wikidata label; one commune, printed with commas between its three parts"
+executive-decree-92-66,04,3/2,fr,Henchir Toumghani,17,claude,,not a Wikidata label
+executive-decree-92-66,04,3/2,ar,هنشير تومغاني,22,claude,,not a Wikidata label
+executive-decree-92-66,08,1/3,fr,Béni Ikhef,17,claude,,not a Wikidata label; printed so; Decree 91-306 has Beni Ikhlef
+executive-decree-92-66,08,2/seat,ar,الوطاء,22,claude,,not a Wikidata label
+executive-decree-92-66,08,2/1,ar,الوطاء,22,claude,,not a Wikidata label
+executive-decree-92-66,09,1/seat,ar,بوعينان,22,claude,,not a Wikidata label
+executive-decree-92-66,09,1/1,ar,بوعينان,22,claude,,not a Wikidata label
+executive-decree-92-66,15,1/seat,fr,Larbaa Nath-Iraten,17,claude,,"the OCR read Larbaa Nath- Iraten; printed on two lines, the hyphen at the end of the first is also in the commune’s name"
+executive-decree-92-66,15,1/seat,ar,الاربعاء نايت ايراثن,22,claude,,"the OCR’s readings differ; printed on two lines, stretched with tatweel"
+executive-decree-92-66,15,1/1,fr,Larbaa Nath-Iraten,17,claude,,the OCR read Larbaa Nath Iraten; the hyphen is blotted
+executive-decree-92-66,15,1/1,ar,الاربعاء نايت ايراثن,22,claude,,the OCR’s readings differ
+executive-decree-92-66,15,1/2,fr,Aït Agouacha,17,claude,,the OCR’s readings differ
+executive-decree-92-66,15,1/2,ar,آيت قواشة,22,claude,,the OCR’s readings differ; printed with a madda
+executive-decree-92-66,15,1/3,ar,ارجن,22,claude,,not a Wikidata label
+executive-decree-92-66,15,2/2,ar,آيت أومالو,22,claude,,the OCR’s readings differ; printed with a madda and a hamza
+executive-decree-92-66,28,1/seat,fr,Boussaada,17,claude,,not a Wikidata label
+executive-decree-92-66,28,1/1,fr,Boussaada,17,claude,,not a Wikidata label
+executive-decree-92-66,28,1/2,ar,ولتام,22,claude,,not a Wikidata label
+executive-decree-92-66,35,1/seat,fr,Bourdj Menaiel,17,claude,,not a Wikidata label; printed so; the commune is printed Bordj Menaiel
+executive-decree-92-66,35,1/1,fr,Bordj Menaiel,17,claude,,not a Wikidata label
+executive-decree-92-66,35,1/2,ar,جينات,23,claude,,not a Wikidata label
+executive-decree-92-66,35,1/3,fr,Lagata,17,claude,,not a Wikidata label
+executive-decree-92-66,35,1/4,fr,Zemouri,17,claude,,not a Wikidata label
+executive-decree-92-66,35,1/5,fr,Ouled Aissa,17,claude,,not a Wikidata label
+executive-decree-92-66,35,2/seat,ar,الناصرية,23,claude,,not a Wikidata label
+executive-decree-92-66,35,2/1,ar,الناصرية,23,claude,,not a Wikidata label
+executive-decree-92-66,35,2/2,ar,تمزريت,23,claude,,not a Wikidata label
+executive-decree-92-66,35,3/seat,fr,Isser,18,claude,,not a Wikidata label
+executive-decree-92-66,35,3/1,fr,Isser,18,claude,,not a Wikidata label
+executive-decree-92-66,35,3/2,fr,Chaabet El Ameur,18,claude,,not a Wikidata label
+executive-decree-92-66,35,4/3,fr,Touarga,18,claude,,not a Wikidata label
+executive-decree-92-66,35,4/3,ar,توارقة,23,claude,,not a Wikidata label
+executive-decree-92-66,35,5/2,fr,Benchoud,18,claude,,not a Wikidata label
+executive-decree-92-66,35,5/3,ar,عفر,23,claude,,not a Wikidata label

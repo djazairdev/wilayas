@@ -16,6 +16,11 @@ curly; the OCR reads it ', and we write ’.
 
     python3 tools/gazette/annex.py work/F1991041.rows.jsonl work/A1991041.rows.jsonl work/wikidata-labels.json > data/source/executive-decree-91-306.csv
 
+Decree 92-66, which reprints some of these tables as it amends them, is read the same way; its
+editions print the same entries, and its French seats are not in capitals:
+
+    python3 tools/gazette/annex.py --text executive-decree-92-66 work/F1992013.rows.jsonl work/A1992013.rows.jsonl work/wikidata-labels.json > data/source/executive-decree-92-66.csv
+
 Standard library only.
 """
 import csv
@@ -28,6 +33,7 @@ import unicodedata
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 READINGS = os.path.join(ROOT, 'data', 'source', 'readings.csv')
 TEXT = 'executive-decree-91-306'
+CAPITAL_SEATS = True  # the French seats are printed in capitals (Decree 91-306, not 92-66)
 FIELDS = ['text', 'wilaya', 'daira', 'item', 'name_fr', 'name_ar', 'check']
 # Entries one edition prints and the other doesn't: (wilaya, daïra, item) -> the edition without it
 GAPS = {
@@ -122,12 +128,16 @@ def check(line, language, seat, known):
         return ''
     found = {clean(t, language) for t in [line['text']] + line.get('alt', [])}
     name = found.pop()
-    return name if not found and name in known['fr seat' if language == 'fr' and seat else language] else None
+    return name if not found and name in known['fr seat' if language == 'fr' and seat and CAPITAL_SEATS else language] else None
 
 
 def main():
-    fr, ar = load(sys.argv[1]), load(sys.argv[2])
-    known, seen = known_names(sys.argv[3]), readings()
+    global TEXT, GAPS, CAPITAL_SEATS
+    args = sys.argv[1:]
+    if args[0] == '--text':
+        TEXT, GAPS, CAPITAL_SEATS, args = args[1], {}, False, args[2:]
+    fr, ar = load(args[0]), load(args[1])
+    known, seen = known_names(args[2]), readings()
     w = csv.DictWriter(sys.stdout, FIELDS, lineterminator='\n')
     w.writeheader()
     todo = 0

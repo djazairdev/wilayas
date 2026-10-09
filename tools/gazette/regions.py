@@ -9,6 +9,9 @@ The OCR of the whole pages (tools/gazette/ocr.swift) places the gutter.
     python3 tools/gazette/regions.py columns ar work/A1991041.ocr.jsonl [dpi]
     python3 tools/gazette/regions.py rows ar work/A1991041.ocr.jsonl work/A1991041.rules.jsonl [dpi]
 
+Another scan laid out the same way (Decree 92-66) is named before the arguments, with its PDF and
+the pages of its tables: `--pdf sources/joradp/F1992013.pdf 17 18`.
+
 Standard library only.
 """
 import json
@@ -25,8 +28,14 @@ PAD = 0.002    # each band reaches a little past its rules
 
 
 def main():
-    kind, language, ocr_path, *rest = sys.argv[1:]
+    args = sys.argv[1:]
+    other = None
+    if args[0] == '--pdf':
+        other, args = (args[1], int(args[2]), int(args[3])), args[4:]
+    kind, language, ocr_path, *rest = args
     pdf, first, last, lang = PAGES[language]
+    if other:
+        pdf, first, last = other
     with open(ocr_path, encoding='utf-8') as f:
         lines = [json.loads(line) for line in f]
     rules = dairas.read_rules(rest.pop(0)) if kind == 'rows' else {}

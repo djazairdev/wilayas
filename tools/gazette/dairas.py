@@ -17,7 +17,8 @@ one per line ("- فنوغيل" in Arabic).
     python3 tools/gazette/dairas.py ar work/A1991041.rules.jsonl work/A1991041.rows.jsonl work/A1991041.ocr.jsonl work/A1991041.columns.ocr.jsonl work/A1991041.rows.ocr.jsonl work/A1991041.rows400.ocr.jsonl
 
 writes the rows to the third file named, prints a summary per wilaya, and lists on stderr the
-rows that need a look on the page. tools/gazette/README.md has the commands that make the OCR
+rows that need a look on the page. Decree 92-66, a scan laid out the same way, takes the pages of
+its tables first: `--pages 17 18 fr ...`. tools/gazette/README.md has the commands that make the OCR
 files. Standard library only.
 """
 import bisect
@@ -30,20 +31,24 @@ import unicodedata
 
 HEAD = 0.05  # the running head (page number, title, date) is centred above this
 END = re.compile(r'DECISIONS\s+INDIVIDUELLES|مراسيم\s+فردية')
+# The line that closes an amending decree's tables (Decree 92-66). It ends a column, not the page:
+# what follows it in reading order is the column after it.
+AMENDED_END = re.compile(r'reste\s+sans\s+changement|الباقي\s+بدون\s+تغيير')
 # "03 - WILAYA DE LAGHOUAT", "02 — WILAYADE CHLEF (Suite)", "32 - EL BAYADH", or just "42 -" at the
 # top of a column, where the OCR lost the rest of the heading
-FR_WILAYA = re.compile(r'^([0-9]{1,2})\s*[-—–]+\s*(?:WILAYA\s*D|[A-Z]{2})|^([0-9]{1,2})\s*[-—–]?\s*$')
+FR_WILAYA = re.compile(r'^([0-9]{1,2})\s*[-—–]+\s*(?:WILAYA\s*D|[A-Z]{2})|^([0-9]{1,2})\s*[-—–]?\s*$'
+                       r'|^([0-9]{1,2})\s*[-—–]*\s*Wilaya\s+d')  # Decree 92-66: "04 Wilaya d'Oum El Bouaghi"
 # "03 - ولاية الأغواط", "10 - البويرة", "38 ولاية تيسمسيلت", "/ 30 - ولاية ورقلة", in Western digits:
 # the OCR reads the odd dash as "١٠"
 AR_WILAYA = re.compile(r'^\W*([0-9]{1,2})\s*(?:[-—–.]+\s*\.?\s*(?:ولاية\s*)?[ء-ي]|ولاية)')
 # The tables' column headings as the OCR reads them ("chet de daira concerné", "دئرة ى"), the
 # rest of a heading whose number the OCR read as a line of its own, page numbers and dates
-FR_SKIP = re.compile(r"Si[eè]ge'?s|Communes?\s+à\s+animer|che[ft]\s+de\s+da[iï]ra|WILAYA\s*D|^\d+$", re.I)
+FR_SKIP = re.compile(r"Si[eè]ge'?s|Communes?\s+à\s+animer|Communes?\s+animées|^de\s+da[iï]ra\s+concern|che[ft]\s+de\s+da[iï]ra|WILAYA\s*D|^\d+$", re.I)
 AR_SKIP = re.compile(r'ينشط|كل\s+رئيس|دا?ئرة\W*\s*م?[عغ]ن|^دا?ئ?رة\s+\S{2,4}$|^د[ئا]?رة\b|^ال?مق[ـ]*ا?ر\b|صفر\s+عام|ولاية|تابع|^\d+$|^\W*$')
 DASH = re.compile(r'^\W*[-–]')
 
 
-def read(paths, first, last, language):
+def read(paths, first, last, language, amending=False):
     """The OCR lines of the annex: none from the running heads, or from the individual decisions
     that follow it on its last page (their heading spans both columns, so only the OCR of the whole
     page reads it). Lines from the later files complete those of the first."""
@@ -51,7 +56,15 @@ def read(paths, first, last, language):
         with open(path, encoding='utf-8') as f:
             return [e for e in map(json.loads, f) if first <= e['page'] <= last and e['y'] + e['h'] / 2 >= HEAD]
     lines = load(paths[0])
-    end = min(((e['page'], e['y']) for e in lines if END.search(e['text'])), default=(last + 1, 0.0))
+    if amending:
+        def order(e):  # (page, column in reading order, y)
+            left = e['x'] + e['w'] / 2 < 0.5
+            return (e['page'], int(left if language == 'ar' else not left), e['y'])
+        end = min((order(e) for e in lines if AMENDED_END.search(e['text'])), default=(last + 1, 0, 0.0))
+    else:
+        def order(e):
+            return (e['page'], e['y'])
+        end = min((order(e) for e in lines if END.search(e['text'])), default=(last + 1, 0.0))
     for path in paths[1:]:
         found = load(path)
         # a box drawn around two lines, which this OCR reads one by one
@@ -65,7 +78,7 @@ def read(paths, first, last, language):
             elif plausible(e, language):
                 new.append(e)
         lines += new
-    return [e for e in lines if (e['page'], e['y']) < end]
+    return [e for e in lines if order(e) < end]
 
 
 def plausible(e, language):
@@ -154,7 +167,7 @@ def tables(lines, language):
             # a heading the other OCR read better ("2 واة" for "29 - ولاية معسكر")
             m = next((m for t in [text] + e.get('alt', []) if len(t) < 60 for m in [wilaya_re.search(t.strip())] if m), None)
             if m:
-                current = {'wilaya': int(m.group(1) or m.group(2)), 'page': page, 'side': side,
+                current = {'wilaya': int(next(g for g in m.groups() if g)), 'page': page, 'side': side,
                            'bounds': bounds, 'lines': []}
                 out.append(current)
                 continue
@@ -260,11 +273,15 @@ def doubts(seat, communes, language):
 
 
 def main():
-    language, rules_path, rows_path, *paths = sys.argv[1:]
-    first, last = (3, 28) if language == 'fr' else (3, 32)
+    args = sys.argv[1:]
+    pages = None
+    if args[0] == '--pages':  # another scan laid out the same way (Decree 92-66)
+        pages, args = (int(args[1]), int(args[2])), args[3:]
+    language, rules_path, rows_path, *paths = args
+    first, last = pages or ((3, 28) if language == 'fr' else (3, 32))
     rules = read_rules(rules_path)
     by_wilaya, out = {}, []
-    for t in tables(read(paths, first, last, language), language):
+    for t in tables(read(paths, first, last, language, amending=pages is not None), language):
         for seat, communes in rows(t, rules, language):
             by_wilaya.setdefault(t['wilaya'], []).append((seat, communes))
             out.append({'wilaya': t['wilaya'], 'page': t['page'], 'side': t['side'], 'seat': seat, 'communes': communes})
