@@ -9,6 +9,7 @@ Standard library only.
 import csv
 import glob
 import gzip
+import html.parser
 import io
 import json
 import os
@@ -69,6 +70,20 @@ def validate(instance, schema, root, path='$'):
         for i, item in enumerate(instance):
             errors += validate(item, schema['items'], root, f'{path}[{i}]')
     return errors
+
+
+class Loads(html.parser.HTMLParser):
+    """The scripts and stylesheets a page loads from other sites: [(url, attributes)]."""
+
+    def __init__(self):
+        super().__init__()
+        self.external = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        url = attrs.get('src') if tag == 'script' else attrs.get('href') if tag == 'link' else None
+        if url and '://' in url:
+            self.external.append((url, attrs))
 
 
 class Build(unittest.TestCase):
@@ -138,13 +153,13 @@ class Build(unittest.TestCase):
             page = f.read()
         self.assertIn("url: '/v1/openapi.json'", page)
         self.assertIn('validatorUrl: null', page)
-        tags = re.findall(r'<(?:script|link)\b[^>]*>', page)
-        external = [t for t in tags if 'https://' in t]
-        self.assertEqual(len(external), 2)
-        for tag in external:
-            self.assertRegex(tag, r'swagger-ui-dist@\d+\.\d+\.\d+/', 'an exact version')
-            self.assertRegex(tag, r'integrity="sha256-[A-Za-z0-9+/]{43}="', 'an integrity hash')
-            self.assertIn('crossorigin="anonymous"', tag)
+        loads = Loads()
+        loads.feed(page)
+        self.assertEqual(len(loads.external), 2)
+        for url, attrs in loads.external:
+            self.assertRegex(url, r'/swagger-ui-dist@\d+\.\d+\.\d+/', 'an exact version')
+            self.assertRegex(attrs.get('integrity') or '', r'^sha256-[A-Za-z0-9+/]{43}=$', 'an integrity hash')
+            self.assertEqual(attrs.get('crossorigin'), 'anonymous')
 
     def expand(self, template):
         """The files a path with {code} stands for."""
