@@ -10,7 +10,8 @@ Decrees 21-198's and 26-253's are cropped the same way, at 400 dpi, from the box
 tools/gazette/tables.py gives their names. ONS's code géographique's are cropped from the rows
 tools/ons/codes.py rebuilds, with the codes and the rows above and below, at 400 dpi. Ordinance
 97-14's names are in the text of its articles: each crop is the whole article, in the edition
-read, at 400 dpi.
+read, at 400 dpi. Decree 84-79's entries are cropped from the boxes of the list's OCR at 400 dpi,
+with the entries above and below.
 
     python3 tools/gazette/review.py OUT_DIR
     # writes OUT_DIR/crops/*.png and OUT_DIR/readings.json
@@ -31,6 +32,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import annex  # noqa: E402
 import ordinance  # noqa: E402
 import lists  # noqa: E402
+import names84  # noqa: E402
 import tables  # noqa: E402
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'ons'))
 import codes  # noqa: E402
@@ -72,6 +74,8 @@ TABLES = {
                                 ('work/A2026052.runs.jsonl', 'work/A2026052.rules.jsonl',
                                  'work/A2026052.ocr.jsonl', 'work/A2026052.bands.ocr.jsonl')),
 }
+# Decree 84-79: the OCR of each edition's list at 400 dpi
+LIST_84_79 = {'fr': 'work/F1984014.list.ocr.jsonl', 'ar': 'work/A1984014.list.ocr.jsonl'}
 # ONS's code géographique: the PDF, and the characters codes.py rebuilds its rows from
 PDF_ONS = 'sources/ons/code_geo_2021.pdf'
 CHARS_ONS = 'work/ons/2021.chars.jsonl'
@@ -217,6 +221,16 @@ def name_region(e):
     return e['page'], x0, y0, x1 - x0, y1 - y0
 
 
+def entry_region(entries, n):
+    """(pdf, page, x, y, w, h) around entry n of Decree 84-79's list (from 1), with the entries
+    above and below it in the same column."""
+    _, boxes, (pdf, page, x, y, w, h) = entries[n - 1]
+    near = [b for _, bs, place in entries[max(0, n - 2):n + 1] if place == entries[n - 1][2] for b in bs]
+    y0, y1 = min(b['y'] for b in near), max(b['y'] + b['h'] for b in near)
+    y0, y1 = max(0.0, y0 - MARGIN), min(1.0, y1 + MARGIN)
+    return pdf, page, x, y0, w, y1 - y0
+
+
 def main():
     out = sys.argv[1]
     os.makedirs(os.path.join(out, 'crops'), exist_ok=True)
@@ -237,6 +251,23 @@ def main():
                              'item': r['item'], 'edition': r['edition'], 'reading': r['name'],
                              'name_fr': row['name_fr'], 'name_ar': row['name_ar'], 'page': r['pdf_page'],
                              'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'], 'crop': crop})
+            continue
+        if text == names84.TEXT:
+            if text not in rows:
+                rows[text] = {x['item']: x for x in read(os.path.join(SOURCE, text + '.csv'))}
+            edition = r['edition']
+            if (text, edition) not in placed:
+                placed[(text, edition)] = names84.grouped(names84.load(os.path.join(ROOT, LIST_84_79[edition])), edition)
+            row, key = rows[text][r['item']], reading_id(r)
+            crop = f'crops/{key}.png'
+            pdf, p, x, y, w, h = entry_region(placed[(text, edition)], int(r['item']))
+            requests.append({'pdf': os.path.join(ROOT, pdf), 'page': p, 'x': x, 'y': y, 'w': w, 'h': h,
+                             'out': os.path.join(out, crop), 'dpi': 400})
+            manifest.append({'id': key, 'text': text, 'title': 'Decree 84-79', 'article': r['article'],
+                             'item': r['item'], 'edition': edition, 'reading': r['name'],
+                             'name_fr': f"{row['name_fr']} / {row['seat_fr']}", 'name_ar': f"{row['name_ar']} / {row['seat_ar']}",
+                             'page': r['pdf_page'], 'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'],
+                             'crop': crop})
             continue
         if text in SCANS or text == codes.TEXT or text in TABLES:
             if text not in placed:

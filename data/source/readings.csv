@@ -1737,3 +1737,44 @@ executive-decree-92-66,35,4/3,fr,Touarga,18,claude,founder,not a Wikidata label
 executive-decree-92-66,35,4/3,ar,توارقة,23,claude,founder,not a Wikidata label
 executive-decree-92-66,35,5/2,fr,Benchoud,18,claude,founder,not a Wikidata label
 executive-decree-92-66,35,5/3,ar,عفر,23,claude,founder,not a Wikidata label
+decree-84-79,1,01,fr,Adrar / Adrar,3,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,01,ar,أدرار / أدرار,4,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,03,ar,الاغواط / الاغواط,4,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,04,ar,أم البواقى / أم البواقى,4,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,06,fr,Bejaïa / Bejaïa,3,claude,,the OCR’s readings agree on “Bejala”: the ï is printed like an l with two dots
+decree-84-79,1,10,fr,Bouira / Bouira,3,claude,,the OCR’s readings differ
+decree-84-79,1,11,fr,Tamanghasset / Tamanghasset,3,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,11,ar,تامنغست / تامنغست,4,claude,,the OCR’s readings differ
+decree-84-79,1,12,fr,Tebessa / Tebessa,3,claude,,the OCR’s readings differ
+decree-84-79,1,13,fr,Tlemcen / Tlemcen,3,claude,,the OCR’s readings differ; neither reading finds the entry’s parts
+decree-84-79,1,14,fr,Tiaret / Tiaret,3,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,15,fr,Tizi Ouzou / Tizi Ouzou,3,claude,,the OCR’s readings differ
+decree-84-79,1,15,ar,تيزى وزو / تيزى وزو,5,claude,,the OCR’s readings differ; the 400-dpi reading doesn’t find the entry’s parts
+decree-84-79,1,16,fr,Alger / Alger,3,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,16,ar,الجزائر / الجزائر,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,17,fr,Djelfa / Djelfa,3,claude,,the OCR’s readings differ
+decree-84-79,1,18,fr,Jijel / Jijel,3,claude,,the OCR’s readings differ
+decree-84-79,1,19,fr,Sétif / Sétif,3,claude,,the OCR’s readings differ
+decree-84-79,1,20,fr,Saïda / Saïda,3,claude,,the OCR’s readings differ; the ï is printed like an l with two dots
+decree-84-79,1,22,fr,Sidi Bel Abbès / Sidi Bel Abbès,3,claude,,the OCR’s readings differ
+decree-84-79,1,22,ar,سيدى بلعباس / سيدى بلعباس,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,26,fr,Médéa / Médéa,3,claude,,the OCR’s readings differ
+decree-84-79,1,26,ar,المدية / المدية,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,27,fr,Mostaganem / Mostaganem,4,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,27,ar,مستغانم / مستغانم,5,claude,,the OCR’s readings differ
+decree-84-79,1,30,fr,Ouargla / Ouargla,4,claude,,the OCR’s readings differ
+decree-84-79,1,32,fr,El Bayadh / El Bayadh,4,claude,,the OCR’s readings differ
+decree-84-79,1,32,ar,البيض / البيض,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,33,fr,Illizi / Illizi,4,claude,,the OCR’s readings differ
+decree-84-79,1,33,ar,ايليزى / ايليزى,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,34,fr,Bordj Bou Arréridj / Bordj Bou Arréridj,4,claude,,the OCR’s readings differ
+decree-84-79,1,35,fr,Boumerdes / Boumerdes,4,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,35,ar,بومرداس / بومرداس,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,36,fr,El Tarf / El Tarf,4,claude,,the OCR’s readings differ
+decree-84-79,1,38,ar,تيسمسيلت / تيسمسيلت,5,claude,,the OCR’s readings differ; the 400-dpi reading doesn’t find the entry’s parts
+decree-84-79,1,39,fr,El Oued / El Oued,4,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,39,ar,الوادى / الوادى,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,44,ar,عين الدفلى / عين الدفلى,5,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,45,fr,Naama / Naama,4,claude,,the OCR’s readings agree but match no Wikidata label
+decree-84-79,1,46,fr,Aïn Temouchent / Aïn Temouchent,4,claude,,the OCR’s readings differ
+decree-84-79,1,46,ar,عين تيموشنت / عين تيموشنت,5,claude,,the OCR’s readings differ

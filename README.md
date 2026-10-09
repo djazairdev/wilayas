@@ -16,6 +16,7 @@ The API is a set of static, versioned files in JSON and CSV. There are no keys a
 ## Sources
 
 - Law 84-09 of 4 February 1984 on the territorial division of the country, as amended, most recently by Law 26-06 of 4 April 2026 (Journal officiel n° 25 of 5 April 2026).
+- Decree 84-79 of 3 April 1984 (Journal officiel n° 14 of 3 April 1984), which names wilayas 1 to 48 and their chefs-lieux.
 - Presidential Decree 26-206 of 25 May 2026 (Journal officiel n° 40 of 3 June 2026), which names and numbers the new wilayas.
 - Ordinance 97-14 of 31 May 1997 (Journal officiel n° 38 of 4 June 1997), which moved 24 communes of Boumerdès, Tipaza and Blida to Algiers.
 - Executive Decree 91-306 of 24 August 1991 (Journal officiel n° 41 of 4 September 1991), which lists the communes of each daïra.

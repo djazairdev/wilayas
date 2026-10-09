@@ -242,7 +242,7 @@ class Texts(unittest.TestCase):
     def test_each_text(self):
         for t in self.texts:
             with self.subTest(text=t['id']):
-                self.assertIn(t['kind'], ('law', 'ordinance', 'presidential decree', 'executive decree'))
+                self.assertIn(t['kind'], ('law', 'ordinance', 'decree', 'presidential decree', 'executive decree'))
                 self.assertEqual(t['id'], f"{t['kind'].replace(' ', '-')}-{t['number']}")
                 self.assertRegex(t['number'], r'^\d{2}-\d{2,3}$')
                 self.assertRegex(t['signed'], DATE)
@@ -389,6 +389,36 @@ class Decrees(unittest.TestCase):
                     seat = SEAT_SPELLINGS.get(r['seat_fr'], r['seat_fr'])
                     self.assertEqual(loose_fr(first['name_fr']), loose_fr(seat))
                     self.assertEqual(loose_ar(first['name_ar']), loose_ar(r['seat_ar']))
+
+
+class Decree8479(unittest.TestCase):
+    """Decree 84-79: the names and chefs-lieux of wilayas 01 to 48. Both editions are scans,
+    transcribed without harakat."""
+    fields, rows = read(os.path.join(SOURCE, 'decree-84-79.csv'))
+
+    def test_entries(self):
+        self.assertEqual(self.fields, DECREE_FIELDS)
+        self.assertEqual([r['item'] for r in self.rows], [f'{n:02d}' for n in range(1, 49)])
+        for r in self.rows:
+            with self.subTest(wilaya=r['item']):
+                self.assertEqual(r['article'], '1')
+                for key in ('name_fr', 'seat_fr'):
+                    self.assertRegex(r[key], FRENCH)
+                for key in ('name_ar', 'seat_ar'):
+                    self.assertRegex(r[key], ARABIC_SCAN)
+                self.assertIn(r['check'], ('', 'eye'), 'every name is checked: two readings agree, or it was read on the page')
+
+    def test_each_wilaya_is_named_after_its_chef_lieu(self):
+        for r in self.rows:
+            with self.subTest(wilaya=r['item']):
+                self.assertEqual((r['name_fr'], r['name_ar']), (r['seat_fr'], r['seat_ar']))
+
+    def test_each_chef_lieu_is_its_wilayas_first_commune(self):
+        """ONS numbers each wilaya's chef-lieu 01, but for Algiers, whose 01 is Alger Centre."""
+        ons = {(o['wilaya'], o['commune']): (o['name_fr'], o['name_ar']) for o in read(os.path.join(SOURCE, 'ons-2021.csv'))[1]}
+        for r in self.rows:
+            with self.subTest(wilaya=r['item']):
+                self.assertEqual(same_commune((r['seat_fr'], r['seat_ar']), ons[(r['item'], '01')]), r['item'] != '16')
 
 
 class Dairas(unittest.TestCase):
@@ -807,7 +837,9 @@ class Readings(unittest.TestCase):
             if r['check'] != 'eye':
                 continue
             key = row_key(r)
-            if 'seat_ar' in r:
+            if text_id == 'decree-84-79':
+                out[key + ('ar',)], out[key + ('fr',)] = (f"{r['name_ar']} / {r['seat_ar']}", f"{r['name_fr']} / {r['seat_fr']}")
+            elif 'seat_ar' in r:
                 out[key + ('ar',)] = f"ولاية {r['name_ar']}، مقرها مدينة {r['seat_ar']}"
                 out[key + ('fr',)] = None
             else:

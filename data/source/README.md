@@ -4,6 +4,7 @@ One file per official text, as printed in the Journal officiel, in both editions
 
 | File | Text | Rows |
 |---|---|---|
+| `decree-84-79.csv` | Decree 84-79 of 3 April 1984: the names and chefs-lieux of wilayas 01 to 48 ([below](#decree-84-79)) | 48 |
 | `executive-decree-91-306.csv` | Executive Decree 91-306 of 24 August 1991: the daïras of the 48 wilayas, each with its seat and the communes its chef de daïra runs | 2096 |
 | `executive-decree-92-66.csv` | Executive Decree 92-66 of 12 February 1992: the daïras it adds to or redraws in Decree 91-306's tables for seven wilayas ([below](#decrees-92-66-18-302-and-25-87)) | 63 |
 | `ordinance-97-14.csv` | Ordinance 97-14 of 31 May 1997: the communes it detaches from Boumerdès, Tipaza and Blida and attaches to Algiers (articles 2 to 5) ([below](#ordinance-97-14)) | 24 |
@@ -35,7 +36,7 @@ The files of the laws and of the ordinance have one row per commune per list:
 
 The file of Ordinance 97-14 has the same columns but `via` and `of`: `article` is the article of the ordinance that names the commune (2, 3 or 4), and `item` its place in the article.
 
-The files of Decrees 21-117 and 26-206 have one row per wilaya: `item` is the wilaya's number, `name_fr` and `name_ar` its name, and `seat_fr` and `seat_ar` its chef-lieu.
+The files of Decrees 84-79, 21-117 and 26-206 have one row per wilaya: `item` is the wilaya's number, `name_fr` and `name_ar` its name, and `seat_fr` and `seat_ar` its chef-lieu.
 
 The files of the daïra decrees (91-306, 92-66, 18-302, 21-198, 25-87 and 26-253) have one row per daïra seat and one per commune, in the order of the annex:
 
@@ -63,9 +64,17 @@ The laws, Ordinance 21-03 and Decrees 18-302, 21-117, 21-198, 25-87, 26-206 and 
 - **Empty:** the two readings have the same letters. In the daïra tables of Decrees 18-302, 21-198, 25-87 and 26-253, and in ONS's list, they must also put the spaces in the same places: there the text layer sometimes puts a space inside a word, and the OCR one after a letter that doesn't join the next.
 - **`eye`:** they don't, or one of them missed the name. The name was read on the rendered page, and `readings.csv` records the reading, the page, who read it, who checked it and why.
 
-Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked all 1,738 readings against the printed page: the 61 of the laws, Ordinance 21-03 and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 43 of Decree 92-66, the 20 of Ordinance 97-14, the 18 of Decree 21-198, the 25 of Decree 26-253 and the 161 of ONS's list. The founder confirmed all of them but two of Decree 91-306, which the founder corrected; those two are the founder's own readings (`by` is `founder`), so `reviewed_by` is empty.
+Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked the first 1,738 readings against the printed page: the 61 of the laws, Ordinance 21-03 and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 43 of Decree 92-66, the 20 of Ordinance 97-14, the 18 of Decree 21-198, the 25 of Decree 26-253 and the 161 of ONS's list. The founder confirmed all of them but two of Decree 91-306, which the founder corrected; those two are the founder's own readings (`by` is `founder`), so `reviewed_by` is empty. The 41 readings of Decree 84-79 wait for the founder's check.
 
 The tests refuse any other value, and check that each `eye` row matches its reading.
+
+### Decree 84-79
+
+Law 84-09 of 4 February 1984 created the 48 wilayas, and Decree 84-79 of 3 April 1984 fixes their names and chefs-lieux (article 1), in the order of their numbers: "01 — wilaya d'Adrar avec chef-lieu à Adrar". Each wilaya is named after its chef-lieu. Decrees 21-117 and 26-206 complete the list for wilayas 49 to 69.
+
+Both editions of JO n° 14 of 1984 are scans, read as Ordinance 97-14 is: each page by OCR whole, and the list again at 400 dpi. The entries come in order, so an entry's place gives its number. A name is taken from the OCR when both readings agree and it is the label of a commune in Wikidata; the other entries were read on the rendered page, 25 French and 16 Arabic. In `readings.csv`, `item` is the wilaya's number and `name` the whole entry, "Adrar / Adrar": the wilaya's name, then its chef-lieu's. The Arabic is transcribed without harakat.
+
+ONS numbers each wilaya's chef-lieu 01, but for Algiers: the decree's chef-lieu is "Alger", and ONS's 16-01 is the commune of Alger Centre.
 
 ### Decree 91-306
 
@@ -150,6 +159,8 @@ The texts don't always agree with each other. Law 26-06 prints the commune "آف
 Decree 92-66 spells "Oultem" (ولتام) and "Touarga" (توارقة) where Decree 91-306 prints "Oultene" (ولتان) and "Taourga" (تورقة), and spells others differently by a letter in one edition, as "Mossedek" for "Moussedek".
 
 Decree 21-198 spells 18 names differently from Law 19-12 or Ordinance 21-03, 10 French and 8 Arabic, among them "Tamast", "Temacine", "تاظروك" and "الطريفاوي" where the law prints "Tamest", "Tamacine", "تازروق" and "تريفاوي". The tests list all of them.
+
+Decree 84-79 spells some names without the accents and hamzas later texts print, as "Bejaïa", "Tebessa" and "Boumerdes", or "الاغواط"; and its Arabic ends names with ى where later texts print ي, as "أم البواقى" and "تيزى وزو".
 
 Each file keeps its own text's spelling. The API uses the spelling of the latest text that names the place, and gives the others as aliases.
 

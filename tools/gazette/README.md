@@ -21,6 +21,7 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
 | `sheets.py`, `grid.swift` | Lay out on sheets, to read by eye, the names of Decree 91-306 that the OCR doesn't settle. |
 | `bitmap.swift` | Renders parts of pages as black-and-white bitmaps, to measure the letters. |
 | `alifs.py` | Checks the hamzas of Decree 91-306's Arabic names against the shapes of the alifs on the scan. |
+| `names84.py` | Builds the names and chefs-lieux of wilayas 01 to 48 from Decree 84-79, from the OCR of both editions. |
 | `ordinance.py` | Builds the communes Ordinance 97-14 moves to Algiers from the OCR of both editions. |
 | `tables.py` | Builds the daïra tables of Decree 26-253, or with `--text` of Decrees 18-302, 21-198 and 25-87, from both editions' text and rules, and the OCR of the Arabic. `--full` reads tables that span the page's width (18-302 and 25-87). |
 
@@ -63,6 +64,13 @@ swift tools/gazette/columns.swift fr sources/joradp/F2026040.pdf 5 5 > work/F202
 swift tools/gazette/columns.swift ar sources/joradp/A2026040.pdf 6 6 > work/A2026040.txt
 swift tools/gazette/ocr.swift sources/joradp/A2026040.pdf 6 6 ar-SA > work/A2026040.ocr.jsonl
 python3 tools/gazette/decree.py presidential-decree-26-206 work/F2026040.txt work/A2026040.txt work/A2026040.ocr.jsonl > data/source/presidential-decree-26-206.csv
+
+# Decree 84-79 (JO n° 14 of 1984): both editions are scans
+swift tools/gazette/ocr.swift sources/joradp/F1984014.pdf 1 14 fr-FR > work/F1984014.ocr.jsonl
+swift tools/gazette/ocr.swift sources/joradp/A1984014.pdf 1 20 ar-SA > work/A1984014.ocr.jsonl
+python3 tools/gazette/names84.py regions fr | swift tools/gazette/regions.swift > work/F1984014.list.ocr.jsonl
+python3 tools/gazette/names84.py regions ar | swift tools/gazette/regions.swift > work/A1984014.list.ocr.jsonl
+python3 tools/gazette/names84.py work/F1984014.ocr.jsonl work/F1984014.list.ocr.jsonl work/A1984014.ocr.jsonl work/A1984014.list.ocr.jsonl work/wikidata-labels.json > data/source/decree-84-79.csv
 
 # Executive Decree 91-306 (JO n° 41 of 1991): both editions are scans
 swift tools/gazette/ocr.swift sources/joradp/F1991041.pdf 3 28 fr-FR > work/F1991041.ocr.jsonl
@@ -130,7 +138,7 @@ python3 tools/gazette/tables.py regions work/A2026052.runs.jsonl work/A2026052.r
 python3 tools/gazette/tables.py work/F2026052.runs.jsonl work/F2026052.rules.jsonl work/A2026052.runs.jsonl work/A2026052.rules.jsonl work/A2026052.ocr.jsonl work/A2026052.bands.ocr.jsonl > data/source/executive-decree-26-253.csv
 ```
 
-`lists.py`, `decree.py`, `ordinance.py` and `tables.py` list on stderr every name still waiting to be read on the page. To read one, render it:
+`lists.py`, `decree.py`, `names84.py`, `ordinance.py` and `tables.py` list on stderr every name still waiting to be read on the page. To read one, render it:
 
 ```sh
 swift tools/gazette/render.swift sources/joradp/A2026025.pdf 6 416 564 149 67 crop.png 300
