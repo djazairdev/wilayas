@@ -15,7 +15,7 @@ When a change alters what the API serves, add an entry at the top, dated the day
 
 ## 1.0.0 (2026-10-09)
 
-First build, before the launch of version 1.
+The first version.
 
 - The 69 wilayas, 538 daïras and 1,541 communes, from the official texts in the Journal officiel and ONS's code géographique of 2021 ([data/README.md](data/README.md)).
 - The 2026 changes: the 11 wilayas Law 26-06 creates and the 108 communes it moves to them.

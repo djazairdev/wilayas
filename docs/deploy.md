@@ -1,6 +1,6 @@
 # Deploying
 
-The API is a Cloudflare Worker named `djazair-wilayas`, made of static assets, the files `build.py` writes to `dist/`, behind a small Worker, [`src/worker.js`](../src/worker.js), that every request goes through ([below](#responses)). [`wrangler.jsonc`](../wrangler.jsonc) configures it, and the CI workflow ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) deploys it.
+The API is a Cloudflare Worker named `djazair-wilayas`, served at [`wilayas.djazair.dev`](#the-address). It is made of the static files `build.py` writes to `dist/`, and of a small script, [`src/worker.js`](../src/worker.js), that every request goes through ([below](#responses)). [`wrangler.jsonc`](../wrangler.jsonc) configures it, and the CI workflow ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) deploys it.
 
 ## What CI does
 
@@ -11,9 +11,9 @@ On every pull request and every push to `main`, CI runs the tests on Python 3.12
 
 A deploy runs only after every test and the build pass, so a failing change never replaces the last good version.
 
-## Turning deploys on
+## Deploy settings
 
-Deploys need three settings, and CI skips them, with a notice, until all three are there:
+Deploys need three settings, and CI skips them, with a notice, unless all three are there:
 
 | Setting | Kind | Where |
 |---|---|---|
@@ -21,9 +21,9 @@ Deploys need three settings, and CI skips them, with a notice, until all three a
 | `CLOUDFLARE_ACCOUNT_ID` | Secret | Organisation secret of djazairdev, shared with this repository |
 | `DEPLOY_ENABLED` | Variable | This repository: Settings → Secrets and variables → Actions → Variables. Set it to `true` |
 
-`DEPLOY_ENABLED` decides when the API first goes live, and can turn deploys off again without touching the secrets.
+All three are set: `DEPLOY_ENABLED` has been `true` since the first deploy, on 9 October 2026. Setting it to anything else pauses deploys, and releases with them, without touching the secrets.
 
-The first deploy must come from `main`, by a push or by running the workflow by hand (Actions → CI → Run workflow): a pull request can upload a preview only once the Worker exists.
+If the Worker is ever deleted, the next deploy must come from `main`, by a push or by running the workflow by hand (Actions → CI → Run workflow): a pull request can upload a preview only once the Worker exists.
 
 ## Releases
 
