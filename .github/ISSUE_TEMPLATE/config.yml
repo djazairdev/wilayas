@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security problem
+    url: https://github.com/djazairdev/.github/blob/main/SECURITY.md
+    about: "Please don't open a public issue for a security problem: report it privately."
+  - name: Report someone's behaviour
+    url: https://github.com/djazairdev/.github/blob/main/CODE_OF_CONDUCT.md#reporting
+    about: "Email conduct@djazair.dev. Reports stay private."

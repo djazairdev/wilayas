@@ -1,0 +1,31 @@
+name: Data error
+description: A name, code, daïra, date or citation that doesn't match the official texts.
+title: "Data error: "
+labels: ["data error"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. The API gives each name as the latest official text prints it, even when the spelling looks odd ([why](https://github.com/djazairdev/wilayas/blob/main/data/README.md)). A report needs the text or other evidence: we check every report against it and fix confirmed errors within 7 days, in a new version listed in the [changelog](https://github.com/djazairdev/wilayas/blob/main/CHANGELOG.md).
+  - type: input
+    id: record
+    attributes:
+      label: Record
+      description: "The commune, daïra or wilaya, with its code, or the address of the file."
+      placeholder: "communes/0717.json, El Kantara"
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong
+      description: "Quote the field as the API gives it, and say what it should be."
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: "The official text that says so: its number and date, the Journal officiel issue, the article, and the page if you can. A link to the PDF on joradp.dz helps."
+    validations:
+      required: true

@@ -73,6 +73,10 @@ python3 -m unittest discover -s tests
 
 To serve them as Cloudflare does, run `npx wrangler dev`. [`docs/deploy.md`](docs/deploy.md) says how CI tests, deploys and releases each change, and how the API answers.
 
+## Contributing
+
+Contributions are welcome, including from first-time contributors: start with an issue labelled [good first issue](https://github.com/djazairdev/wilayas/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) or [help wanted](https://github.com/djazairdev/wilayas/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22), and read [CONTRIBUTING.md](CONTRIBUTING.md). We reply to newcomers' pull requests within 7 days. Found a wrong name, code or citation? Use the [Data error form](https://github.com/djazairdev/wilayas/issues/new?template=data-error.yml), with the text that shows it.
+
 ## Sources
 
 - Law 84-09 of 4 February 1984 on the territorial division of the country, as amended, most recently by Law 26-06 of 4 April 2026 (Journal officiel n° 25 of 5 April 2026).
