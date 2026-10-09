@@ -5,10 +5,11 @@ Each crop shows the item with its neighbours, located from the OCR's positions: 
 itself when the OCR read it, otherwise the space between the items before and after it.
 Decree 91-306's names are cropped from the lines tools/gazette/dairas.py placed, with the lines
 above and below, in the edition read (300 dpi in French, 400 in Arabic, to see the hamzas).
-Decree 26-253's are cropped the same way, at 400 dpi, from the boxes tools/gazette/tables.py
-gives its names. ONS's code géographique's are cropped from the rows tools/ons/codes.py rebuilds,
-with the codes and the rows above and below, at 400 dpi. Ordinance 97-14's names are in the text of
-its articles: each crop is the whole article, in the edition read, at 400 dpi.
+Decrees 21-198's and 26-253's are cropped the same way, at 400 dpi, from the boxes
+tools/gazette/tables.py gives their names. ONS's code géographique's are cropped from the rows
+tools/ons/codes.py rebuilds, with the codes and the rows above and below, at 400 dpi. Ordinance
+97-14's names are in the text of its articles: each crop is the whole article, in the edition
+read, at 400 dpi.
 
     python3 tools/gazette/review.py OUT_DIR
     # writes OUT_DIR/crops/*.png and OUT_DIR/readings.json
@@ -56,10 +57,15 @@ MARGIN = 0.012
 # Decree 91-306: each edition's PDF, the rows dairas.py made from it, and the resolution of the crops
 SCANS = {'fr': ('sources/joradp/F1991041.pdf', 300), 'ar': ('sources/joradp/A1991041.pdf', 400)}
 ROWS_91_306 = ('work/F1991041.rows.jsonl', 'work/A1991041.rows.jsonl')
-# Decree 26-253: the Arabic edition's PDF, and what tables.py places its names from
-PDF_26_253 = 'sources/joradp/A2026052.pdf'
-TABLES_26_253 = ('work/A2026052.runs.jsonl', 'work/A2026052.rules.jsonl',
-                 'work/A2026052.ocr.jsonl', 'work/A2026052.bands.ocr.jsonl')
+# Decrees 21-198 and 26-253: the Arabic edition's PDF, and what tables.py places its names from
+TABLES = {
+    'executive-decree-21-198': ('Decree 21-198', 'sources/joradp/A2021038.pdf',
+                                ('work/A2021038.runs.jsonl', 'work/A2021038.rules.jsonl',
+                                 'work/A2021038.ocr.jsonl', 'work/A2021038.bands.ocr.jsonl')),
+    'executive-decree-26-253': ('Decree 26-253', 'sources/joradp/A2026052.pdf',
+                                ('work/A2026052.runs.jsonl', 'work/A2026052.rules.jsonl',
+                                 'work/A2026052.ocr.jsonl', 'work/A2026052.bands.ocr.jsonl')),
+}
 # ONS's code géographique: the PDF, and the characters codes.py rebuilds its rows from
 PDF_ONS = 'sources/ons/code_geo_2021.pdf'
 CHARS_ONS = 'work/ons/2021.chars.jsonl'
@@ -160,10 +166,10 @@ def lines_91_306():
     return out
 
 
-def lines_26_253():
-    """{(wilaya, 'daïra/item', 'ar'): (row, name)} for Decree 26-253, each name with its box."""
-    runs, rules, *ocr = (os.path.join(ROOT, p) for p in TABLES_26_253)
-    with open(os.path.join(SOURCE, tables.TEXT + '.csv'), encoding='utf-8', newline='') as f:
+def lines_tables(text):
+    """{(wilaya, 'daïra/item', 'ar'): (row, name)} for Decree 21-198 or 26-253, each name with its box."""
+    runs, rules, *ocr = (os.path.join(ROOT, p) for p in TABLES[text][2])
+    with open(os.path.join(SOURCE, text + '.csv'), encoding='utf-8', newline='') as f:
         rows = {(r['wilaya'], f"{r['daira']}/{r['item']}"): r for r in csv.DictReader(f)}
     out = {}
     for wilaya, dairas in tables.arabic(runs, rules, ocr).items():
@@ -197,7 +203,7 @@ def scan_region(line):
 
 
 def name_region(e):
-    """(page, x, y, w, h) around a name of Decree 26-253, which may take two lines, with the
+    """(page, x, y, w, h) around a name of Decree 21-198 or 26-253, which may take two lines, with the
     lines above and below."""
     x0, x1 = max(0.0, e['x'] - 0.03), min(1.0, e['x'] + e['w'] + 0.03)
     y0, y1 = max(0.0, e['y'] - 1.5 * LINE), min(1.0, e['y'] + e['h'] + 1.5 * LINE)
@@ -225,9 +231,10 @@ def main():
                              'name_fr': row['name_fr'], 'name_ar': row['name_ar'], 'page': r['pdf_page'],
                              'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'], 'crop': crop})
             continue
-        if text in (annex.TEXT, tables.TEXT, codes.TEXT):
+        if text in (annex.TEXT, codes.TEXT) or text in TABLES:
             if text not in placed:
-                placed[text] = {annex.TEXT: lines_91_306, tables.TEXT: lines_26_253, codes.TEXT: lines_ons}[text]()
+                placed[text] = (lines_tables(text) if text in TABLES else
+                                {annex.TEXT: lines_91_306, codes.TEXT: lines_ons}[text]())
             row, line = placed[text][(r['article'], r['item'], r['edition'])]
             key = reading_id(r)
             crop = f'crops/{key}.png'
@@ -236,7 +243,7 @@ def main():
             elif text == codes.TEXT:
                 (p, x, y, w, h), (pdf, dpi), title = row_region(line), (PDF_ONS, 400), 'ONS code géographique'
             else:
-                (p, x, y, w, h), (pdf, dpi), title = name_region(line), (PDF_26_253, 400), 'Decree 26-253'
+                (p, x, y, w, h), (pdf, dpi), title = name_region(line), (TABLES[text][1], 400), TABLES[text][0]
             requests.append({'pdf': os.path.join(ROOT, pdf), 'page': p, 'x': x, 'y': y, 'w': w, 'h': h,
                              'out': os.path.join(out, crop), 'dpi': dpi})
             manifest.append({'id': key, 'text': text, 'title': title, 'article': r['article'],

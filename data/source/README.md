@@ -11,6 +11,7 @@ One file per official text, as printed in the Journal officiel, in both editions
 | `ordinance-21-03.csv` | Ordinance 21-03 of 25 March 2021: the lists of Ouargla and Touggourt, which it rewrites (articles 34 and 52 bis 6) | 21 |
 | `law-26-06.csv` | Law 26-06 of 4 April 2026: the lists it rewrites (articles 7 to 36) and the eleven wilayas it creates (52 bis 10 to 52 bis 20) | 404 |
 | `presidential-decree-26-206.csv` | Presidential Decree 26-206 of 25 May 2026: the names and chefs-lieux of wilayas 59 to 69 | 11 |
+| `executive-decree-21-198.csv` | Executive Decree 21-198 of 11 May 2021: the daïras of the 18 wilayas Law 19-12 changed or created, whose tables it rewrites or adds in Decree 91-306's annex ([below](#decree-21-198)) | 240 |
 | `executive-decree-26-253.csv` | Executive Decree 26-253 of 15 July 2026: the daïras of the 21 wilayas Law 26-06 changed or created, whose tables it rewrites or adds in Decree 91-306's annex | 546 |
 | `ons-2021.csv` | ONS's code géographique national of June 2021: the code of each of the 1,541 communes of the 58 wilayas, with its names ([below](#onss-code-géographique)) | 1541 |
 | `readings.csv` | Names read on the rendered page ([below](#how-each-name-was-checked)) | |
@@ -33,11 +34,11 @@ The file of Ordinance 97-14 has the same columns but `via` and `of`: `article` i
 
 The files of Decrees 21-117 and 26-206 have one row per wilaya: `item` is the wilaya's number, `name_fr` and `name_ar` its name, and `seat_fr` and `seat_ar` its chef-lieu.
 
-The files of Decrees 91-306 and 26-253 have one row per daïra seat and one per commune, in the order of the annex:
+The files of Decrees 91-306, 21-198 and 26-253 have one row per daïra seat and one per commune, in the order of the annex:
 
 | Column | Meaning |
 |---|---|
-| `wilaya` | The wilaya's number, as its heading prints it: `01` to `48` in Decree 91-306; in Decree 26-253, the 21 wilayas whose tables it rewrites or adds |
+| `wilaya` | The wilaya's number, as its heading prints it: `01` to `48` in Decree 91-306; in Decrees 21-198 and 26-253, the wilayas whose tables they rewrite or add |
 | `daira` | The daïra's place in its wilaya's table, from 1 |
 | `item` | `seat` for the seat of the daïra, which comes first; then the commune's place in the daïra's list, from 1 |
 | `name_fr`, `name_ar`, `check` | As above. A name an edition doesn't print is empty ([below](#decree-91-306)) |
@@ -54,12 +55,12 @@ A wilaya keeps its communes' codes, gaps included, when a law takes some of them
 
 ## How each name was checked
 
-The laws, the ordinance and Decrees 21-117, 26-206 and 26-253 have a text layer. The French comes from the text of the PDF, which is exact. The Arabic is read twice, by OCR of the rendered page and from the PDF's own text, which is drawn correctly but stored out of order. `check` says what happened:
+The laws, Ordinance 21-03 and Decrees 21-117, 21-198, 26-206 and 26-253 have a text layer. The French comes from the text of the PDF, which is exact. The Arabic is read twice, by OCR of the rendered page and from the PDF's own text, which is drawn correctly but stored out of order. `check` says what happened:
 
-- **Empty:** the two readings have the same letters.
+- **Empty:** the two readings have the same letters. In the daïra tables of Decrees 21-198 and 26-253, and in ONS's list, they must also put the spaces in the same places: there the text layer sometimes puts a space inside a word, and the OCR one after a letter that doesn't join the next.
 - **`eye`:** they don't, or one of them missed the name. The name was read on the rendered page, and `readings.csv` records the reading, the page, who read it, who checked it and why.
 
-Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked 1,649 readings against the printed page: the 61 of the laws, Ordinance 21-03 and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 17 of Decree 26-253 and the 161 of ONS's list. The founder confirmed all of them but two of Decree 91-306, which the founder corrected. The 20 readings of Ordinance 97-14 are still to be checked.
+Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked 1,649 readings against the printed page: the 61 of the laws, Ordinance 21-03 and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 17 of Decree 26-253 and the 161 of ONS's list. The founder confirmed all of them but two of Decree 91-306, which the founder corrected. The 46 readings added since are still to be checked: the 20 of Ordinance 97-14, the 18 of Decree 21-198 and 8 more of Decree 26-253.
 
 The tests refuse any other value, and check that each `eye` row matches its reading.
 
@@ -95,11 +96,17 @@ The names are in the text of the articles, not in lists. Both editions of JO n°
 
 Each commune is one of its old wilaya's in Decree 91-306, by its French or its Arabic name; Khraïcia (خرايسية) is Khraissia (الخرايصية) there.
 
+### Decree 21-198
+
+Decree 21-198 does for Law 19-12 what Decree 26-253 does for Law 26-06. It rewrites the tables of the eight wilayas Law 19-12 took communes from (01, 07, 08, 11, 30, 33, 39 and 47), adds those of the ten it created (49 to 58), and says the other tables are unchanged. Its 78 daïras share out the 162 communes of those wilayas, as Law 19-12 lists them and Ordinance 21-03 rewrites them for Ouargla and Touggourt, each commune once.
+
+Both editions of JO n° 38 of 2021 have a text layer and are read as Decree 26-253's are, but the French prints each commune on its own line without a dash: there each line is a name. The 18 Arabic names read on the rendered page are four the OCR missed, one it misread, two where it put a space after a letter that doesn't join the next, and eleven where the text layer puts a space inside a word ("س يدي عون" for "سيدي عون"); in all of them the text layer's letters are the print's. Both editions name the seat of the daïra of Abalessa "Silet Abalessa" (سيلات أباليسا), after a place in the commune.
+
 ### Decree 26-253
 
 Decree 26-253 amends Decree 91-306's annex. It rewrites the tables of the ten wilayas Law 26-06 took communes from (03, 05, 07, 12, 13, 14, 17, 26, 28 and 32), adds those of the eleven it created (59 to 69), and says the other tables are unchanged. Its 142 daïras share out the 404 communes Law 26-06 lists for those wilayas, each commune once.
 
-The tables are laid out as in 1991: a row per daïra, with the seat in one column and its communes in the other, each after a dash. Both editions of JO n° 52 of 2026 have a text layer, and each name is placed in its row from the positions of its text, between the rules found on the rendered page. The French is the text of the PDF. In the Arabic, the text layer garbles the wilaya headings and runs a few lines together, so the Arabic is also read by OCR, of whole pages and of each row at 400 dpi, and the wilaya numbers come from the OCR. A name is kept from the text layer when an OCR reading has the same letters. The other 17 were read on the rendered page: names the text layer garbles or runs together, and names the OCR missed, misread or cut short. In `readings.csv` they are cited as for Decree 91-306: `article` is the wilaya, and `item` the daïra and the item.
+The tables are laid out as in 1991: a row per daïra, with the seat in one column and its communes in the other, each after a dash. Both editions of JO n° 52 of 2026 have a text layer, and each name is placed in its row from the positions of its text, between the rules found on the rendered page. The French is the text of the PDF. In the Arabic, the text layer garbles the wilaya headings and runs a few lines together, so the Arabic is also read by OCR, of whole pages and of each row at 400 dpi, and the wilaya numbers come from the OCR. A name is kept from the text layer when an OCR reading has the same letters and the same spaces. The other 25 were read on the rendered page: names the text layer garbles or runs together, names the OCR missed, misread or cut short, and eight where the OCR puts a space after a letter that doesn't join the next ("أو لاد" for "أولاد"); in all eight, the text layer's spacing is the print's. In `readings.csv` they are cited as for Decree 91-306: `article` is the wilaya, and `item` the daïra and the item.
 
 ### ONS's code géographique
 
@@ -116,6 +123,8 @@ The number of communes in each wilaya matches the texts: ONS puts 57 communes in
 ## Spellings
 
 The texts don't always agree with each other. Law 26-06 prints the commune "آفلو" and Decree 26-206 prints the wilaya "أفلو"; Decree 26-253 prints both, "آفلو" for the seat of the daïra and "أفلو" for the commune. Law 19-12 prints "لواء", "Oumach" and "Khenguet Sidi Nadji" where Law 26-06 prints "ليوة", "Oumache" and "Khangat Sidi Nadji". Ordinance 21-03 prints "حاسي بن عبد الله", "Ain Beida" and "Blidate Ameur" where Law 19-12 prints "حاسي بن عبد اللّه", "Aïn Beïda" and "Blidat Ameur". Decree 21-117 names the chef-lieu of wilaya 57 "El M’Ghaier", and Law 19-12 lists the commune as "El Megaier". Within Decree 91-306, a daïra's seat is printed apart from its list of communes, and the seat's commune heads the list. Fourteen times the two differ by more than capitals, accents, hyphens, hamzas or the dots of a final ي or ة: the seat "BEDJIA" heads the commune "Béjaia", "GUENZET" heads "Gunzet", "MOSTEFA BEN BRAHIM" heads "Mostepha Ben Brahim", and "عين موسى" heads "عمي موسى". Two seats, "El HACHIMIA" and "OUED El ABTAL", print "El" in small letters. In Decree 26-253 a seat and its commune differ five times, only by an accent, a capital, the shape of an apostrophe, or the hamza or madda on an alif. Decree 26-253 spells 26 names differently from Law 26-06, 19 French and 7 Arabic. Most differ by an accent, an apostrophe or a capital, as the decree's "Aïn Yagout" for the law's "Ain Yagout", or by the dots of a final ي; four differ by more: the decree prints "Béni Yaagoub", "El Azizia", "Bougtoub" and "سيدي عبد الرحمن" where the law prints "Ben Yaagoub", "Al Azizia", "Bougtob" and "سيدي عبد الرحمان". The tests list all of them.
+
+Decree 21-198 spells 18 names differently from Law 19-12 or Ordinance 21-03, 10 French and 8 Arabic, among them "Tamast", "Temacine", "تاظروك" and "الطريفاوي" where the law prints "Tamest", "Tamacine", "تازروق" and "تريفاوي". The tests list all of them.
 
 Each file keeps its own text's spelling. The API uses the spelling of the latest text that names the place, and gives the others as aliases.
 

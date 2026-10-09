@@ -5,16 +5,16 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
 | Script | What it does |
 |---|---|
 | `columns.swift` | Prints the text of a text PDF column by column (macOS PDFKit). |
-| `runs.swift` | Prints each run of text with its position. Used for the Arabic editions of JO n° 78 of 2019 and n° 22 of 2021, which store their text one word at a time, and for both editions of JO n° 52 of 2026, to place the names in Decree 26-253's tables. |
+| `runs.swift` | Prints each run of text with its position. Used for the Arabic editions of JO n° 78 of 2019 and n° 22 of 2021, which store their text one word at a time, and for both editions of JO n° 38 of 2021 and n° 52 of 2026, to place the names in the tables of Decrees 21-198 and 26-253. |
 | `ocr.swift` | Reads rendered pages with macOS Vision OCR and prints each line with its position. |
 | `render.swift` | Renders part of a page as a PNG, to read it by eye. |
 | `crops.swift` | Renders many parts of pages as PNGs in one run. |
 | `lists.py` | Builds the lists of communes of a law or an ordinance from both editions. |
 | `decree.py` | Builds the names and chefs-lieux of new wilayas from Decree 21-117 (49 to 58) or Decree 26-206 (59 to 69). |
 | `review.py` | Crops the printed line of every name in `readings.csv`, to check the readings against the page. |
-| `rules.swift` | Finds the rules between the rows of the tables on rendered pages (Decrees 91-306 and 26-253). |
+| `rules.swift` | Finds the rules between the rows of the tables on rendered pages (Decrees 91-306, 21-198 and 26-253). |
 | `regions.py` | Prints the parts of Decree 91-306's pages to read again by OCR: each half-page column, or each row of a table. |
-| `regions.swift` | Reads those parts, or the rows of Decree 26-253's tables that `tables.py` prints, with macOS Vision OCR, as `ocr.swift` reads whole pages. |
+| `regions.swift` | Reads those parts, or the rows of the tables that `tables.py` prints (Decrees 21-198 and 26-253), with macOS Vision OCR, as `ocr.swift` reads whole pages. |
 | `dairas.py` | Builds the daïra tables of one edition of Decree 91-306 from the OCR and the rules. |
 | `wikidata.py` | Fetches the labels of Algeria's communes from Wikidata (CC0), which the OCR's readings are checked against. Nothing from Wikidata goes into the data. |
 | `annex.py` | Pairs the two editions' tables of Decree 91-306 and checks each name. |
@@ -22,7 +22,7 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
 | `bitmap.swift` | Renders parts of pages as black-and-white bitmaps, to measure the letters. |
 | `alifs.py` | Checks the hamzas of Decree 91-306's Arabic names against the shapes of the alifs on the scan. |
 | `ordinance.py` | Builds the communes Ordinance 97-14 moves to Algiers from the OCR of both editions. |
-| `tables.py` | Builds the daïra tables of Decree 26-253 from both editions' text and rules, and the OCR of the Arabic. |
+| `tables.py` | Builds the daïra tables of Decree 26-253, or with `--text` of Decree 21-198, from both editions' text and rules, and the OCR of the Arabic. |
 
 ## Method
 
@@ -31,7 +31,7 @@ These scripts transcribe the official texts in the Journal officiel into `data/s
   - Where they have the same letters, the PDF's characters are kept.
   - Every other name is read on the rendered page and recorded, with who read it, in [`data/source/readings.csv`](../../data/source/readings.csv).
 - Both editions must give the same articles, with the same number of communes in each list.
-- **Tables** (Decree 26-253): each name is placed in its table from the positions of its text, between the rules found on the rendered page. The Arabic text layer garbles the wilaya headings and runs a few lines together, so the Arabic is also read by OCR, of whole pages and of each row at 400 dpi, and the wilaya numbers come from the OCR's headings. Both editions must give the same wilayas, with the same number of daïras in each and of communes in each daïra.
+- **Tables** (Decrees 21-198 and 26-253): each name is placed in its table from the positions of its text, between the rules found on the rendered page. The Arabic text layer garbles the wilaya headings and runs a few lines together, so the Arabic is also read by OCR, of whole pages and of each row at 400 dpi, and the wilaya numbers come from the OCR's headings. A name is kept from the text layer when an OCR reading has the same letters and the same spaces. Both editions must give the same wilayas, with the same number of daïras in each and of communes in each daïra.
 - **Scans** (Decree 91-306, both editions): each page is read by OCR four ways: whole and by half-page column at 300 dpi, and by row of the tables at 300 and 400 dpi. A name is taken from the OCR when every reading agrees and is the label of a commune in Wikidata. Every other name is read on the rendered page and recorded in `readings.csv`. Both editions must give the same tables, but for the lines listed in `GAPS` in `annex.py`. Ordinance 97-14 (both editions) is read the same way, whole and by its articles at 400 dpi; both editions must give the same number of communes in each article.
 
 ## Commands
@@ -84,6 +84,15 @@ swift tools/gazette/ocr.swift sources/joradp/F1997038.pdf 1 12 fr-FR > work/F199
 swift tools/gazette/ocr.swift sources/joradp/A1997038.pdf 1 8 ar-SA > work/A1997038.ocr.jsonl
 python3 tools/gazette/ordinance.py regions | swift tools/gazette/regions.swift > work/1997038.articles.ocr.jsonl
 python3 tools/gazette/ordinance.py work/F1997038.ocr.jsonl work/A1997038.ocr.jsonl work/1997038.articles.ocr.jsonl work/wikidata-labels.json > data/source/ordinance-97-14.csv
+
+# Executive Decree 21-198 (JO n° 38 of 2021)
+swift tools/gazette/runs.swift sources/joradp/F2021038.pdf 8 11 > work/F2021038.runs.jsonl
+swift tools/gazette/runs.swift sources/joradp/A2021038.pdf 9 12 > work/A2021038.runs.jsonl
+swift tools/gazette/rules.swift sources/joradp/F2021038.pdf 8 11 > work/F2021038.rules.jsonl
+swift tools/gazette/rules.swift sources/joradp/A2021038.pdf 9 12 > work/A2021038.rules.jsonl
+swift tools/gazette/ocr.swift sources/joradp/A2021038.pdf 9 12 ar-SA > work/A2021038.ocr.jsonl
+python3 tools/gazette/tables.py regions work/A2021038.runs.jsonl work/A2021038.rules.jsonl sources/joradp/A2021038.pdf ar-SA 400 | swift tools/gazette/regions.swift > work/A2021038.bands.ocr.jsonl
+python3 tools/gazette/tables.py --text executive-decree-21-198 work/F2021038.runs.jsonl work/F2021038.rules.jsonl work/A2021038.runs.jsonl work/A2021038.rules.jsonl work/A2021038.ocr.jsonl work/A2021038.bands.ocr.jsonl > data/source/executive-decree-21-198.csv
 
 # Executive Decree 26-253 (JO n° 52 of 2026)
 swift tools/gazette/runs.swift sources/joradp/F2026052.pdf 10 16 > work/F2026052.runs.jsonl

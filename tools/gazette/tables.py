@@ -15,8 +15,9 @@ its place on the page.
   in either reading starts a commune. Where the PDF's text and an OCR reading have the same
   letters, the PDF's characters are kept. Any other name is read on the rendered page, and
   data/source/readings.csv records the reading (`check` is `eye`). A name with neither is listed
-  on stderr, and its `check` says why it needs reading: `differs`, `pdf` (no OCR reading) or
-  `ocr` (no text in the PDF). The tests refuse all three.
+  on stderr, and its `check` says why it needs reading: `spaces` (the letters agree, the spaces
+  don't), `differs`, `pdf` (no OCR reading) or `ocr` (no text in the PDF). The tests refuse all
+  four.
 
 The Arabic text layer garbles the wilaya headings, so the Arabic tables take their wilaya
 numbers from the OCR's headings. The editions must give the same wilayas, the same number of
@@ -51,6 +52,11 @@ TALL = 0.03       # a run of the Arabic text taller than this (a line is 0.02) i
 DASH = re.compile(r'^\s*[-–—]\s*')
 FR_HEADING = re.compile(r'^(\d{1,2})\s*[-–—]\s*WILAYA\b')
 AR_HEADING = re.compile(r'^(\d{1,2})\s*[-–—]\s*ولاية')
+# The next text in the issue, after the last table
+END = re.compile(r'^\s*(Décret (exécutif|présidentiel)|مرسوم (تنفيذي|رئاسي))')
+# A band of an undashed table that isn't a row: the column heads, or a note on the wilayas left alone
+FURNITURE = re.compile(r'Sièges|Sans changement')
+SEAT_GAP = 0.05   # in an undashed table, the communes start at least this far right of the seats
 
 
 def load(path):
@@ -102,7 +108,7 @@ def name(parts, sources, rtl):
     return out
 
 
-def tables(parts, rules, rtl, sources, headings):
+def tables(parts, rules, rtl, sources, headings, dashed=True):
     """{wilaya: [{'seat': name, 'communes': [name]}]} in the order of the annex, each name
     {'text': {source: text}, 'page', 'side', 'x', 'y', 'w', 'h'}, with its box on the page. parts are
     the PDF's runs (source 'pdf') and, for the Arabic, the OCR's lines (source: the pass, 0, 1, ...),
@@ -110,7 +116,11 @@ def tables(parts, rules, rtl, sources, headings):
 
     headings(page, side, top, bottom) gives the wilaya number a band announces, if any. A band
     with a heading is never a row: above the first one stands the decree's own text, whose
-    Arabic clauses start with a dash too."""
+    Arabic clauses start with a dash too.
+
+    Where the names have no dashes (dashed is False: the French of Decree 21-198), each line is a
+    name and the communes are the parts that start right of the seat's sub-column. The tables
+    end with the next text in the issue."""
     out, current = {}, None
     pages = sorted({p['page'] for p in parts if p['src'] == 'pdf'})
 
@@ -124,10 +134,24 @@ def tables(parts, rules, rtl, sources, headings):
             column = [p for p in parts if p['page'] == page and side(p) == where and p['y'] >= HEAD]
             for top, bottom in bands(rules, page, where):
                 inside = [p for p in column if top <= mid(p) < bottom]
+                if any(END.match(p['text']) for p in inside):
+                    current = None
+                    continue
                 number = headings(page, where, top, bottom)
                 if number is not None:
                     current = number
                     out.setdefault(current, [])
+                    continue
+                if not dashed:
+                    if current is None or not inside or FURNITURE.search(' '.join(p['text'] for p in inside)):
+                        continue
+                    first = min(p['x'] for p in inside)
+                    edge = min((p['x'] for p in inside if p['x'] > first + SEAT_GAP), default=None)
+                    if edge is None:
+                        raise SystemExit(f'page {page} {where}, band {top:.3f}: no communes beside the seat')
+                    seat = [p for p in inside if p['x'] < edge]
+                    communes = by_line([p for p in inside if p['x'] >= edge])
+                    out[current].append({'seat': entry(seat, page, where), 'communes': [entry(n, page, where) for n in communes]})
                     continue
                 dashes = [p for p in inside if DASH.match(p['text'])]
                 if current is None or not dashes:
@@ -167,7 +191,9 @@ def french(runs_path, rules_path):
                 if m:
                     return f'{int(m.group(1)):02d}'
         return None
-    return tables(runs, load(rules_path), False, ['pdf'], headings)
+    # Decree 26-253 puts a dash before each commune; Decree 21-198's French puts none
+    dashed = any(re.match(r'^\s*[-–—]\s*\w', r['text']) for r in runs)
+    return tables(runs, load(rules_path), False, ['pdf'], headings, dashed)
 
 
 def arabic(runs_path, rules_path, ocr_paths):
@@ -189,11 +215,15 @@ def letters(s):
 
 
 def check_arabic(text):
-    """(name, check): the PDF's text, '' when an OCR reading has the same letters; otherwise the
-    best reading there is and why the name must be read on the page."""
+    """(name, check): the PDF's text, '' when an OCR reading has the same letters and the same
+    spaces; otherwise the best reading there is and why the name must be read on the page. Neither
+    reading's spaces can be trusted: Decree 21-198's text layer puts spaces inside words ("س يدي
+    عون"), and the OCR often puts one after a letter that doesn't join the next ("أو لاد")."""
     pdf, ocr = text.get('pdf'), [v for k, v in text.items() if k != 'pdf' and v]
-    if pdf and any(letters(o) == letters(pdf) for o in ocr):
+    if pdf and any(o.split() == pdf.split() for o in ocr):
         return pdf, ''
+    if pdf and any(letters(o) == letters(pdf) for o in ocr):
+        return pdf, 'spaces'
     if not pdf:
         return (ocr[0] if ocr else ''), 'ocr'
     return pdf, ('differs' if ocr else 'pdf')
@@ -238,6 +268,10 @@ def entries(fr, ar):
 
 
 def main():
+    global TEXT
+    if sys.argv[1] == '--text':  # another decree laid out the same way
+        TEXT = sys.argv[2]
+        del sys.argv[1:3]
     if sys.argv[1] == 'regions':
         runs_path, rules_path, pdf, lang, *dpi = sys.argv[2:]
         regions(runs_path, rules_path, pdf, lang, int(dpi[0]) if dpi else 400)

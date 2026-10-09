@@ -92,6 +92,22 @@ SEAT_SPELLINGS_91_306 = {
 }
 
 
+# Decree 21-198 rewrites the daïra tables of the eight wilayas Law 19-12 took communes from and
+# adds those of the ten it created; the annex says the others are unchanged
+WILAYAS_21_198 = ['01', '07', '08', '11', '30', '33', '39', '47'] + [str(n) for n in range(49, 59)]
+# Communes it spells differently from the lists of Law 19-12, or of Ordinance 21-03 for Ouargla
+# and Touggourt, beyond accents, apostrophes, capitals, hamzas and the dots of a final ي or ة
+# (decree -> law)
+SPELLINGS_21_198 = {
+    'fr': {'Tamast': 'Tamest', 'Idelès': 'Idlès', 'Hassi Ben Abdellah': 'Hassi Ben Abdelah', 'Deb Deb': 'Debdeb',
+           'Tamter': 'Tamtert', 'Fouggaret Ezzaouia': 'Foggaret Ezzaouia', 'Temacine': 'Tamacine',
+           'Blidat Ameur': 'Blidate Ameur', 'Bordj El Houasse': 'Bordj El Haouasse', 'El Meghaier': 'El Megaier'},
+    'ar': {'تاظروك': 'تازروق', 'الطريفاوي': 'تريفاوي', 'أولاد السعيد': 'أولاد سعيد', 'بسباس': 'البسباس',
+           'تبلبالة': 'تبلبلة', 'تين زواتين': 'تين زاوتين', 'النزلة': 'نزلة', 'زاوية العابدية': 'الزاوية العابدية'},
+}
+# Both editions name the seat of Abalessa's daïra after Silet, a place in the commune (seat -> commune)
+SEATS_21_198 = {'fr': {'Silet Abalessa': 'Abalessa'}, 'ar': {'سيلات أباليسا': 'أباليسا'}}
+
 # Decree 26-253 rewrites the daïra tables of the 21 wilayas Law 26-06 touched: its ten parent
 # wilayas and the eleven it creates. The annex says the others are unchanged.
 WILAYAS_26_253 = ['03', '05', '07', '12', '13', '14', '17', '26', '28', '32'] + [str(n) for n in range(59, 70)]
@@ -394,10 +410,16 @@ class Dairas(unittest.TestCase):
                     self.assertEqual(loose[edition](name), loose[edition](first['name_' + edition]))
 
 
-class Dairas2026(unittest.TestCase):
-    """Executive Decree 26-253: the daïra tables of the 21 wilayas Law 26-06 touched, each daïra
-    with its seat and the communes its chef de daïra runs."""
-    fields, rows = read(os.path.join(SOURCE, 'executive-decree-26-253.csv'))
+class DairaTables:
+    """A decree that rewrites or adds daïra tables in Decree 91-306's annex: each daïra with its
+    seat and the communes its chef de daïra runs. Subclasses give the text, its wilayas, how many
+    daïras, and the lists of the law each wilaya's communes must match."""
+    TEXT, WILAYAS, DAIRAS, SPELLINGS = None, None, None, None
+    SEATS = {'fr': {}, 'ar': {}}  # seats named otherwise than the commune that heads their list
+
+    @classmethod
+    def setUpClass(cls):
+        cls.fields, cls.rows = read(os.path.join(SOURCE, cls.TEXT + '.csv'))
 
     def dairas(self):
         """{(wilaya, daïra): [rows]} in the order of the text, the seat first."""
@@ -406,17 +428,21 @@ class Dairas2026(unittest.TestCase):
             out.setdefault((r['wilaya'], r['daira']), []).append(r)
         return out
 
+    def law(self):
+        """{wilaya: [rows of the law's list]}"""
+        raise NotImplementedError
+
     def test_fields(self):
         self.assertEqual(self.fields, DAIRA_FIELDS)
-        self.assertEqual({r['text'] for r in self.rows}, {'executive-decree-26-253'})
+        self.assertEqual({r['text'] for r in self.rows}, {self.TEXT})
 
     def test_layout(self):
-        """The 21 wilayas in order, each with its daïras numbered from 1; each daïra is its seat,
+        """The wilayas in order, each with its daïras numbered from 1; each daïra is its seat,
         then its communes numbered from 1."""
         dairas = self.dairas()
-        self.assertEqual(len(dairas), 142)
+        self.assertEqual(len(dairas), self.DAIRAS)
         wilayas = list(dict.fromkeys(w for w, d in dairas))
-        self.assertEqual(wilayas, WILAYAS_26_253)
+        self.assertEqual(wilayas, self.WILAYAS)
         for w in wilayas:
             numbers = [d for x, d in dairas if x == w]
             self.assertEqual(numbers, [str(n) for n in range(1, len(numbers) + 1)])
@@ -432,28 +458,53 @@ class Dairas2026(unittest.TestCase):
                 self.assertRegex(r['name_fr'], FRENCH)
                 self.assertRegex(r['name_ar'], ARABIC)
 
-    def test_same_communes_as_law_26_06(self):
-        """Each wilaya's daïras share out the communes Law 26-06 lists for it, spelled the same
-        but for SPELLINGS_26_253."""
-        law = lists('law-26-06')
+    def test_same_communes_as_the_law(self):
+        """Each wilaya's daïras share out the communes the law lists for it, spelled the same
+        but for SPELLINGS."""
+        law = self.law()
         loose = {'fr': loose_fr, 'ar': lambda s: loose_ar(s).replace('ى', 'ي').replace('ة', 'ه')}
-        for wilaya in WILAYAS_26_253:
-            article = str(int(wilaya) + 4) if int(wilaya) < 59 else f'52 bis {int(wilaya) - 49}'
+        for wilaya in self.WILAYAS:
             mine = [r for r in self.rows if r['wilaya'] == wilaya and r['item'] != 'seat']
             for edition in ('fr', 'ar'):
                 with self.subTest(wilaya=wilaya, edition=edition):
-                    spelled = SPELLINGS_26_253[edition]
+                    spelled = self.SPELLINGS[edition]
                     self.assertEqual(sorted(loose[edition](spelled.get(r['name_' + edition], r['name_' + edition])) for r in mine),
-                                     sorted(loose[edition](r['name_' + edition]) for r in law[article]))
+                                     sorted(loose[edition](r['name_' + edition]) for r in law[wilaya]))
 
     def test_each_seat_heads_its_list(self):
         """A daïra's seat is the first commune of its list, spelled the same but for an accent, an
-        apostrophe or a capital, and in Arabic a hamza."""
+        apostrophe or a capital, and in Arabic a hamza, or as SEATS says."""
         for key, rows in self.dairas().items():
             seat, first = rows[0], rows[1]
             with self.subTest(daira=key):
-                self.assertEqual(loose_fr(seat['name_fr']), loose_fr(first['name_fr']))
-                self.assertEqual(loose_ar(seat['name_ar']), loose_ar(first['name_ar']))
+                fr, ar = self.SEATS['fr'].get(seat['name_fr'], seat['name_fr']), self.SEATS['ar'].get(seat['name_ar'], seat['name_ar'])
+                self.assertEqual(loose_fr(fr), loose_fr(first['name_fr']))
+                self.assertEqual(loose_ar(ar), loose_ar(first['name_ar']))
+
+
+def law_article(wilaya):
+    """The article of Law 84-09 that lists a wilaya's communes: 5 for 01, 52 bis for 49, 52 bis 1 for 50."""
+    n = int(wilaya)
+    return str(n + 4) if n < 49 else '52 bis' if n == 49 else f'52 bis {n - 49}'
+
+
+class Dairas2021(DairaTables, unittest.TestCase):
+    """Executive Decree 21-198: the daïra tables of the 18 wilayas Law 19-12 touched."""
+    TEXT, WILAYAS, DAIRAS, SPELLINGS = 'executive-decree-21-198', WILAYAS_21_198, 78, SPELLINGS_21_198
+    SEATS = SEATS_21_198
+
+    def law(self):
+        lists_ = dict(lists('law-19-12'), **lists('ordinance-21-03'))
+        return {w: lists_[law_article(w)] for w in self.WILAYAS}
+
+
+class Dairas2026(DairaTables, unittest.TestCase):
+    """Executive Decree 26-253: the daïra tables of the 21 wilayas Law 26-06 touched."""
+    TEXT, WILAYAS, DAIRAS, SPELLINGS = 'executive-decree-26-253', WILAYAS_26_253, 142, SPELLINGS_26_253
+
+    def law(self):
+        law = lists('law-26-06')
+        return {w: law[str(int(w) + 4) if int(w) < 59 else f'52 bis {int(w) - 49}'] for w in self.WILAYAS}
 
 
 class Ons(unittest.TestCase):
