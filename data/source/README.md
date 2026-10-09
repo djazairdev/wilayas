@@ -5,6 +5,7 @@ One file per official text, as printed in the Journal officiel, in both editions
 | File | Text | Rows |
 |---|---|---|
 | `executive-decree-91-306.csv` | Executive Decree 91-306 of 24 August 1991: the daïras of the 48 wilayas, each with its seat and the communes its chef de daïra runs | 2096 |
+| `ordinance-97-14.csv` | Ordinance 97-14 of 31 May 1997: the communes it detaches from Boumerdès, Tipaza and Blida and attaches to Algiers (articles 2 to 5) ([below](#ordinance-97-14)) | 24 |
 | `law-19-12.csv` | Law 19-12 of 11 December 2019: the lists it rewrites (articles 5 to 51) and the ten wilayas it creates (52 bis to 52 bis 9) | 162 |
 | `presidential-decree-21-117.csv` | Presidential Decree 21-117 of 22 March 2021: the names and chefs-lieux of wilayas 49 to 58 | 10 |
 | `ordinance-21-03.csv` | Ordinance 21-03 of 25 March 2021: the lists of Ouargla and Touggourt, which it rewrites (articles 34 and 52 bis 6) | 21 |
@@ -27,6 +28,8 @@ The files of the laws and of the ordinance have one row per commune per list:
 | `of` | The number of communes the article announces |
 | `name_fr`, `name_ar` | The name as printed in the French and Arabic editions |
 | `check` | How the name was checked ([below](#how-each-name-was-checked)) |
+
+The file of Ordinance 97-14 has the same columns but `via` and `of`: `article` is the article of the ordinance that names the commune (2, 3 or 4), and `item` its place in the article.
 
 The files of Decrees 21-117 and 26-206 have one row per wilaya: `item` is the wilaya's number, `name_fr` and `name_ar` its name, and `seat_fr` and `seat_ar` its chef-lieu.
 
@@ -56,7 +59,7 @@ The laws, the ordinance and Decrees 21-117, 26-206 and 26-253 have a text layer.
 - **Empty:** the two readings have the same letters.
 - **`eye`:** they don't, or one of them missed the name. The name was read on the rendered page, and `readings.csv` records the reading, the page, who read it, who checked it and why.
 
-Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked all 1,649 readings against the printed page: the 61 of the laws, the ordinance and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 17 of Decree 26-253 and the 161 of ONS's list. The founder confirmed all of them but two of Decree 91-306, which the founder corrected.
+Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked 1,649 readings against the printed page: the 61 of the laws, Ordinance 21-03 and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 17 of Decree 26-253 and the 161 of ONS's list. The founder confirmed all of them but two of Decree 91-306, which the founder corrected. The 20 readings of Ordinance 97-14 are still to be checked.
 
 The tests refuse any other value, and check that each `eye` row matches its reading.
 
@@ -84,6 +87,14 @@ The two editions print the same tables in the same order, but for three lines th
 
 So the French lists 1,540 communes and the Arabic 1,543 lines. With Rouissat, the decree covers 1,541 communes: one more than the 1,540 of Law 84-09 (art. 3).
 
+### Ordinance 97-14
+
+Ordinance 97-14 of 31 May 1997 defines the new territorial frame of the wilayas of Algiers, Boumerdès, Tipaza and Blida. It detaches six communes from Boumerdès (article 2), fourteen from Tipaza (article 3) and four from Blida (article 4), and article 5 attaches them to Algiers from 31 July 1997. Ordinance 97-15, in the same issue, made Algiers the Governorate of Greater Algiers; it was dissolved in 2000, and the 24 communes stayed in Algiers.
+
+The names are in the text of the articles, not in lists. Both editions of JO n° 38 of 1997 are scans, read as Decree 91-306 is: each page by OCR whole, and the articles again at 400 dpi. A name is taken from the OCR when both readings agree and it is the label of a commune in Wikidata; the other 20 were read on the rendered page, 11 French and 9 Arabic. In every case the two readings agreed with each other and with the print; they are names Wikidata spells otherwise. The Arabic is transcribed without harakat, as Decree 91-306 is: the print puts a shadda on half of the names. In `readings.csv`, `article` is the article and `item` the commune's place in it.
+
+Each commune is one of its old wilaya's in Decree 91-306, by its French or its Arabic name; Khraïcia (خرايسية) is Khraissia (الخرايصية) there.
+
 ### Decree 26-253
 
 Decree 26-253 amends Decree 91-306's annex. It rewrites the tables of the ten wilayas Law 26-06 took communes from (03, 05, 07, 12, 13, 14, 17, 26, 28 and 32), adds those of the eleven it created (59 to 69), and says the other tables are unchanged. Its 142 daïras share out the 404 communes Law 26-06 lists for those wilayas, each commune once.
@@ -100,7 +111,7 @@ The rows are ruled with dotted lines drawn over the letters, and the rule hides 
 
 In `readings.csv`, `article` is the wilaya and `item` the commune's number.
 
-The number of communes in each wilaya matches the texts, but for four: ONS puts 57 communes in Algiers, where Decree 91-306 has 33, and 24 fewer in Blida, Boumerdès and Tipaza. The text that moved them is still to be found and transcribed.
+The number of communes in each wilaya matches the texts: ONS puts 57 communes in Algiers, Decree 91-306's 33 and the 24 of Ordinance 97-14. It numbers the 24 after Algiers' own, 34 to 57: Blida's four, then Boumerdès' six, then Tipaza's fourteen, each in the ordinance's order. So a wilaya that receives communes numbers them after its own, where a new wilaya numbers its communes from 01.
 
 ## Spellings
 

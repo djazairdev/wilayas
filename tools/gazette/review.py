@@ -7,7 +7,8 @@ Decree 91-306's names are cropped from the lines tools/gazette/dairas.py placed,
 above and below, in the edition read (300 dpi in French, 400 in Arabic, to see the hamzas).
 Decree 26-253's are cropped the same way, at 400 dpi, from the boxes tools/gazette/tables.py
 gives its names. ONS's code géographique's are cropped from the rows tools/ons/codes.py rebuilds,
-with the codes and the rows above and below, at 400 dpi.
+with the codes and the rows above and below, at 400 dpi. Ordinance 97-14's names are in the text of
+its articles: each crop is the whole article, in the edition read, at 400 dpi.
 
     python3 tools/gazette/review.py OUT_DIR
     # writes OUT_DIR/crops/*.png and OUT_DIR/readings.json
@@ -26,6 +27,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import annex  # noqa: E402
+import ordinance  # noqa: E402
 import lists  # noqa: E402
 import tables  # noqa: E402
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'ons'))
@@ -61,6 +63,15 @@ TABLES_26_253 = ('work/A2026052.runs.jsonl', 'work/A2026052.rules.jsonl',
 # ONS's code géographique: the PDF, and the characters codes.py rebuilds its rows from
 PDF_ONS = 'sources/ons/code_geo_2021.pdf'
 CHARS_ONS = 'work/ons/2021.chars.jsonl'
+# Ordinance 97-14: each article in each edition, (pdf, page, x, y, w, h)
+ARTICLES_97_14 = {
+    ('fr', '2'): ('sources/joradp/F1997038.pdf', 4, 0.5, 0.835, 0.47, 0.06),
+    ('fr', '3'): ('sources/joradp/F1997038.pdf', 4, 0.5, 0.9, 0.47, 0.08),
+    ('fr', '4'): ('sources/joradp/F1997038.pdf', 5, 0.02, 0.07, 0.47, 0.06),
+    ('ar', '2'): ('sources/joradp/A1997038.pdf', 5, 0.03, 0.415, 0.47, 0.08),
+    ('ar', '3'): ('sources/joradp/A1997038.pdf', 5, 0.03, 0.495, 0.47, 0.1),
+    ('ar', '4'): ('sources/joradp/A1997038.pdf', 5, 0.03, 0.6, 0.47, 0.055),
+}
 
 
 def read(path):
@@ -201,6 +212,19 @@ def main():
     placed = {}  # the daïra decrees' names, placed on the page
     for r in readings:
         text = r['text']
+        if text == ordinance.TEXT:
+            if text not in rows:
+                rows[text] = {(x['article'], x['item']): x for x in read(os.path.join(SOURCE, text + '.csv'))}
+            row, key = rows[text][(r['article'], r['item'])], reading_id(r)
+            crop = f'crops/{key}.png'
+            pdf, p, x, y, w, h = ARTICLES_97_14[(r['edition'], r['article'])]
+            requests.append({'pdf': os.path.join(ROOT, pdf), 'page': p, 'x': x, 'y': y, 'w': w, 'h': h,
+                             'out': os.path.join(out, crop), 'dpi': 400})
+            manifest.append({'id': key, 'text': text, 'title': 'Ordinance 97-14', 'article': r['article'],
+                             'item': r['item'], 'edition': r['edition'], 'reading': r['name'],
+                             'name_fr': row['name_fr'], 'name_ar': row['name_ar'], 'page': r['pdf_page'],
+                             'by': r['by'], 'reviewed_by': r['reviewed_by'], 'note': r['note'], 'crop': crop})
+            continue
         if text in (annex.TEXT, tables.TEXT, codes.TEXT):
             if text not in placed:
                 placed[text] = {annex.TEXT: lines_91_306, tables.TEXT: lines_26_253, codes.TEXT: lines_ons}[text]()

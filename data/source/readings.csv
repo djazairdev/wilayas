@@ -1648,3 +1648,23 @@ ons-2021,53,03,ar,فقارة الزاوية,65,claude,founder,the PDF stores its
 ons-2021,54,02,ar,تين زواتين,65,claude,founder,the PDF's text has a space the print doesn't (تين زو اتي ن)
 ons-2021,58,02,ar,حاسي الفحل,66,claude,founder,the PDF stores its letters out of order (احسي فلحال)
 ons-2021,58,03,ar,حاسي القارة,66,claude,founder,the PDF stores its letters out of order (احسي قلاارة)
+ordinance-97-14,2,2,fr,Bordj-El-Bahri,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,2,ar,برج البحري,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the final ي, not transcribed"
+ordinance-97-14,2,4,fr,Heraoua,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,5,fr,Rouiba,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,6,fr,Réghaïa,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,6,ar,الرغاية,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the ر, not transcribed"
+ordinance-97-14,3,1,fr,Aïn Bénian,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,1,ar,عين البنيان,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the ي, not transcribed, and stretches the word after it"
+ordinance-97-14,3,2,fr,Staouéli,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,4,fr,Mâalma,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,4,ar,معالمة,5,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,9,ar,العاشور,5,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,10,ar,الدرارية,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the د and the ي, not transcribed"
+ordinance-97-14,3,11,fr,Douéra,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,12,ar,بابا حسن,5,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,13,fr,Khraïcia,4,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,13,ar,خرايسية,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the second ي, not transcribed"
+ordinance-97-14,4,1,ar,بئر توتة,5,claude,,the OCR’s readings agree but match no Wikidata label; the hamza sits on a yā’ seat
+ordinance-97-14,4,2,fr,Tessala-El-Merdja,5,claude,,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,4,2,ar,تسالة المرجة,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the س, not transcribed"

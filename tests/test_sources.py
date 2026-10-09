@@ -105,10 +105,21 @@ SPELLINGS_26_253 = {'fr': {'Béni Yaagoub': 'Ben Yaagoub', 'El Azizia': 'Al Aziz
 ONS_FRENCH = re.compile(r"^[A-Z’']+(?: [A-Z’']+)*$")
 ONS_ABBREVIATED = {'0230': ('OULED BEN.AEK', None), '0809': ('MECHRAA H. BOUMEDIENE', None),
                    '4309': (None, 'بن يحي .ع. رحمان')}
-# Communes per wilaya in the 2021 list that the texts transcribed so far don't give: 24 communes
-# of Blida, Boumerdès and Tipaza are in Algiers, moved by a text still to be found
-# (wilaya -> (ONS 2021, the texts))
-ONS_MOVED = {'09': (25, 29), '16': (57, 33), '35': (32, 38), '42': (28, 42)}
+
+# Ordinance 97-14 detaches communes from Boumerdès (article 2), Tipaza (3) and Blida (4), and
+# article 5 attaches them to Algiers: article -> (the wilaya it detaches them from, how many)
+ORDINANCE_97_14 = {'2': ('35', 6), '3': ('42', 14), '4': ('09', 4)}
+ORDINANCE_97_14_FIELDS = ['text', 'article', 'item', 'name_fr', 'name_ar', 'check']
+# Communes neither of whose names is the one Decree 91-306 gives them in their old wilaya (97-14 -> 91-306)
+SPELLINGS_97_14 = {('Khraïcia', 'خرايسية'): ('Khraissia', 'الخرايصية')}
+# ONS numbers the 24 after Algiers' 33, as 34 to 57: article 4's, then 2's, then 3's, each in the
+# ordinance's order. Names it spells differently (97-14 -> ONS), beyond accents, hyphens and capitals
+ONS_ALGIERS = ['4', '2', '3']
+ONS_SPELLINGS_97_14 = {
+    'fr': {'Heraoua': 'HARAOUA', 'Mâalma': 'MAHELMA', 'Baba Hassen': 'BABA HASSAN'},
+    'ar': {'تسالة المرجة': 'تسالة المرجى', 'أولاد شبل': 'أولاد الشبل', 'هراوة': 'الهراوة', 'الرغاية': 'رغاية',
+           'السويدانية': 'سويدانية', 'الدرارية': 'درارية'},
+}
 
 
 def read(path):
@@ -243,6 +254,48 @@ class Lists(unittest.TestCase):
                 old = sorted(spellings.get(r[edition], r[edition]) for r in before['11'])
                 new = sorted(r[edition] for r in after['11'] + after['52 bis 12'])
                 self.assertEqual(old, new)
+
+
+class Ordinance9714(unittest.TestCase):
+    """Ordinance 97-14 of 31 May 1997: the communes it moves to Algiers. Both editions are scans,
+    transcribed without harakat."""
+    fields, rows = read(os.path.join(SOURCE, 'ordinance-97-14.csv'))
+
+    def test_fields(self):
+        self.assertEqual(self.fields, ORDINANCE_97_14_FIELDS)
+
+    def test_articles(self):
+        found = lists('ordinance-97-14')
+        self.assertEqual({a: len(l) for a, l in found.items()}, {a: n for a, (_, n) in ORDINANCE_97_14.items()})
+        self.assertEqual(list(found), sorted(found))
+        for article, items in found.items():
+            self.assertEqual([r['item'] for r in items], [str(n) for n in range(1, len(items) + 1)])
+            for r in items:
+                with self.subTest(article=article, item=r['item']):
+                    self.assertRegex(r['name_fr'], FRENCH)
+                    self.assertRegex(r['name_ar'], ARABIC_SCAN)
+                    self.assertIn(r['check'], ('', 'eye'), 'every name is checked: two readings agree, or it was read on the page')
+
+    def test_each_commune_was_in_the_wilaya_it_leaves(self):
+        """Each commune is one of its old wilaya's in Decree 91-306, by its French or its Arabic name."""
+        decree = [r for r in read(os.path.join(SOURCE, 'executive-decree-91-306.csv'))[1] if r['item'] != 'seat']
+        for r in self.rows:
+            with self.subTest(article=r['article'], item=r['item']):
+                fr, ar = SPELLINGS_97_14.get((r['name_fr'], r['name_ar']), (r['name_fr'], r['name_ar']))
+                wilaya = [d for d in decree if d['wilaya'] == ORDINANCE_97_14[r['article']][0]]
+                self.assertTrue([d for d in wilaya if loose_fr(d['name_fr']).replace('-', ' ') == loose_fr(fr).replace('-', ' ')
+                                 or loose_ar(d['name_ar']) == loose_ar(ar)])
+
+    def test_ons_numbers_them_after_algiers_own(self):
+        found = lists('ordinance-97-14')
+        moved = [r for a in ONS_ALGIERS for r in found[a]]
+        ons = [r for r in read(os.path.join(SOURCE, 'ons-2021.csv'))[1] if r['wilaya'] == '16']
+        self.assertEqual([r['commune'] for r in ons[-len(moved):]], [f'{n:02d}' for n in range(34, 58)])
+        for r, o in zip(moved, ons[-len(moved):]):
+            with self.subTest(commune=o['commune']):
+                fr = ONS_SPELLINGS_97_14['fr'].get(r['name_fr'], r['name_fr'])
+                self.assertEqual(loose_fr(fr).replace('-', ' ').upper(), loose_fr(o['name_fr']).upper())
+                self.assertEqual(ONS_SPELLINGS_97_14['ar'].get(r['name_ar'], r['name_ar']), o['name_ar'])
 
 
 class Decrees(unittest.TestCase):
@@ -446,13 +499,17 @@ class Ons(unittest.TestCase):
 
     def test_communes_per_wilaya(self):
         """As many communes in each wilaya as the texts give it: Decree 91-306 for the wilayas the
-        2019 reform left alone, and the lists of Law 19-12, or of Ordinance 21-03 where it rewrote
-        them, for the others (article 5 of Law 84-09 is wilaya 01, 52 bis is 49)."""
+        2019 reform left alone, less the communes Ordinance 97-14 moves to Algiers, and the lists
+        of Law 19-12, or of Ordinance 21-03 where it rewrote them, for the others (article 5 of
+        Law 84-09 is wilaya 01, 52 bis is 49)."""
         gaps = {('18', '10', '3'), ('34', '3', '4')}  # the Arabic's extra lines in Decree 91-306
         expected = {}
         for r in read(os.path.join(SOURCE, 'executive-decree-91-306.csv'))[1]:
             if r['item'] != 'seat' and (r['wilaya'], r['daira'], r['item']) not in gaps:
                 expected[r['wilaya']] = expected.get(r['wilaya'], 0) + 1
+        for article, (wilaya, count) in ORDINANCE_97_14.items():
+            expected[wilaya] -= count
+            expected['16'] += count
         for text_id in ('law-19-12', 'ordinance-21-03'):
             for article, rows in lists(text_id).items():
                 rest = article[len('52 bis'):].strip() if article.startswith('52 bis') else None
@@ -463,7 +520,7 @@ class Ons(unittest.TestCase):
             got[r['wilaya']] = got.get(r['wilaya'], 0) + 1
         self.assertEqual(sum(got.values()), sum(expected.values()))
         differ = {w: (got.get(w), expected.get(w)) for w in sorted(set(got) | set(expected)) if got.get(w) != expected.get(w)}
-        self.assertEqual(differ, ONS_MOVED)
+        self.assertEqual(differ, {})
 
 
 class Readings(unittest.TestCase):
