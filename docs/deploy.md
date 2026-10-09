@@ -1,6 +1,6 @@
 # Deploying
 
-The API is a Cloudflare Worker named `djazair-wilayas`, made only of static assets: the files `build.py` writes to `dist/`. There is no Worker code. [`wrangler.jsonc`](../wrangler.jsonc) configures it, and the CI workflow ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) deploys it.
+The API is a Cloudflare Worker named `djazair-wilayas`, made of static assets, the files `build.py` writes to `dist/`, behind a small Worker, [`src/worker.js`](../src/worker.js), that every request goes through ([below](#responses)). [`wrangler.jsonc`](../wrangler.jsonc) configures it, and the CI workflow ([`.github/workflows/ci.yml`](../.github/workflows/ci.yml)) deploys it.
 
 ## What CI does
 
@@ -48,7 +48,16 @@ A release always follows a successful deploy, so every release is a version that
 - `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`;
 - `X-Content-Type-Options: nosniff`.
 
-JSON files are served as `application/json`, CSV files as `text/csv; charset=utf-8`. An unknown path, such as a commune code that doesn't exist, is a 404 with an empty body (`not_found_handling: "none"`).
+JSON files are served as `application/json`, CSV files as `text/csv; charset=utf-8`.
+
+Every request goes through the Worker first (`run_worker_first`), because Cloudflare would otherwise answer a CORS preflight for a file with a 405. The Worker passes `GET` and `HEAD` to the files and answers the rest itself, each answer with `Access-Control-Allow-Origin: *`:
+
+- a CORS preflight (`OPTIONS`), which a browser sends before a request with headers of its own, such as `Authorization`: a 204 that allows `GET`, `HEAD` and `OPTIONS` and the headers asked for;
+- `/v1` and `/v1/`, the base URL `index.json` gives: a 302 to `/v1/index.json`;
+- any other path, such as a commune code that doesn't exist: a 404 with an empty body;
+- any other method: a 405.
+
+So every request to the API counts toward the account's Workers requests: 100,000 a day on the Workers free plan, shared by the account's Workers, or 10 million a month on the paid plan. Past the free plan's limit, the API answers with errors until the next day.
 
 To serve `dist/` locally as Cloudflare would:
 
