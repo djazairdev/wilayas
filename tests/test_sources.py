@@ -1,4 +1,5 @@
-"""Checks on the transcriptions of the official texts (data/source/) and on data/texts.csv.
+"""Checks on the transcriptions of the official texts and of ONS's code géographique (data/source/),
+and on data/texts.csv and data/ons.csv.
 
     python3 -m unittest discover -s tests
 
@@ -20,6 +21,8 @@ DECREE_FIELDS = ['text', 'article', 'item', 'name_fr', 'seat_fr', 'name_ar', 'se
 DAIRA_FIELDS = ['text', 'wilaya', 'daira', 'item', 'name_fr', 'name_ar', 'check']
 READING_FIELDS = ['text', 'article', 'item', 'edition', 'name', 'pdf_page', 'by', 'reviewed_by', 'note']
 TEXT_FIELDS = ['id', 'kind', 'number', 'signed', 'jo_number', 'jo_date', 'url_ar', 'url_fr', 'sha256_ar', 'sha256_fr']
+ONS_FIELDS = ['id', 'title', 'published', 'url', 'sha256']
+CODE_FIELDS = ['text', 'wilaya', 'commune', 'name_fr', 'name_ar', 'check']
 
 # Arabic letters and the shadda, words separated by single spaces
 ARABIC = re.compile(r'^[ء-يّ]+(?: [ء-يّ]+)*$')
@@ -97,6 +100,16 @@ WILAYAS_26_253 = ['03', '05', '07', '12', '13', '14', '17', '26', '28', '32'] + 
 SPELLINGS_26_253 = {'fr': {'Béni Yaagoub': 'Ben Yaagoub', 'El Azizia': 'Al Azizia', 'Bougtoub': 'Bougtob'},
                     'ar': {'سيدي عبد الرحمن': 'سيدي عبد الرحمان'}}
 
+# ONS's code géographique of 2021 prints its French names in capitals; two abbreviate, and one
+# Arabic name abbreviates with dots
+ONS_FRENCH = re.compile(r"^[A-Z’']+(?: [A-Z’']+)*$")
+ONS_ABBREVIATED = {'0230': ('OULED BEN.AEK', None), '0809': ('MECHRAA H. BOUMEDIENE', None),
+                   '4309': (None, 'بن يحي .ع. رحمان')}
+# Communes per wilaya in the 2021 list that the texts transcribed so far don't give: 24 communes
+# of Blida, Boumerdès and Tipaza are in Algiers, moved by a text still to be found
+# (wilaya -> (ONS 2021, the texts))
+ONS_MOVED = {'09': (25, 29), '16': (57, 33), '35': (32, 38), '42': (28, 42)}
+
 
 def read(path):
     with open(path, encoding='utf-8', newline='') as f:
@@ -123,7 +136,9 @@ def loose_ar(s):
 
 def row_key(r):
     """(article, item) of a transcribed row, as readings.csv names it: for the daïra decrees,
-    the wilaya and 'daïra/item'."""
+    the wilaya and 'daïra/item'; for ONS's list, the wilaya and the commune."""
+    if 'commune' in r:
+        return r['wilaya'], r['commune']
     return (r['wilaya'], f"{r['daira']}/{r['item']}") if 'wilaya' in r else (r['article'], r['item'])
 
 
@@ -169,7 +184,7 @@ class Texts(unittest.TestCase):
                     self.assertRegex(t['sha256_' + edition], r'^[0-9a-f]{64}$')
 
     def test_every_transcription_is_of_a_known_text(self):
-        ids = {t['id'] for t in self.texts}
+        ids = {t['id'] for t in self.texts} | {t['id'] for t in read(os.path.join(DATA, 'ons.csv'))[1]}
         for path in glob.glob(os.path.join(SOURCE, '*.csv')):
             name = os.path.basename(path)[:-4]
             if name != 'readings':
@@ -386,6 +401,69 @@ class Dairas2026(unittest.TestCase):
             with self.subTest(daira=key):
                 self.assertEqual(loose_fr(seat['name_fr']), loose_fr(first['name_fr']))
                 self.assertEqual(loose_ar(seat['name_ar']), loose_ar(first['name_ar']))
+
+
+class Ons(unittest.TestCase):
+    """ONS's code géographique national of June 2021: the code of each of the 1,541 communes of the
+    58 wilayas, with their names as printed."""
+    fields, rows = read(os.path.join(SOURCE, 'ons-2021.csv'))
+
+    def test_sources(self):
+        fields, lists = read(os.path.join(DATA, 'ons.csv'))
+        self.assertEqual(fields, ONS_FIELDS)
+        for t in lists:
+            with self.subTest(list=t['id']):
+                self.assertRegex(t['id'], r'^ons-\d{4}$')
+                self.assertEqual(t['published'][:4], t['id'][4:])
+                self.assertRegex(t['published'], r'^\d{4}(-\d{2})?$')
+                self.assertTrue(t['url'].startswith('https://www.ons.dz/IMG/'))
+                self.assertRegex(t['sha256'], r'^[0-9a-f]{64}$')
+
+    def test_fields(self):
+        self.assertEqual(self.fields, CODE_FIELDS)
+
+    def test_codes(self):
+        codes = [r['wilaya'] + r['commune'] for r in self.rows]
+        self.assertEqual(len(codes), 1541)
+        self.assertEqual(len(set(codes)), len(codes))
+        self.assertEqual(sorted({r['wilaya'] for r in self.rows}), [f'{n:02d}' for n in range(1, 59)])
+        for r in self.rows:
+            self.assertRegex(r['commune'], r'^\d{2}$')
+            self.assertNotEqual(r['commune'], '00')
+        # each wilaya's communes in the order of their codes, gaps and all
+        for w in {r['wilaya'] for r in self.rows}:
+            numbers = [r['commune'] for r in self.rows if r['wilaya'] == w]
+            self.assertEqual(numbers, sorted(numbers), w)
+
+    def test_names(self):
+        for r in self.rows:
+            with self.subTest(code=r['wilaya'] + r['commune']):
+                self.assertEqual(r['text'], 'ons-2021')
+                self.assertIn(r['check'], ('', 'eye'))
+                fr, ar = ONS_ABBREVIATED.get(r['wilaya'] + r['commune'], (None, None))
+                self.assertEqual(r['name_fr'], fr) if fr else self.assertRegex(r['name_fr'], ONS_FRENCH)
+                self.assertEqual(r['name_ar'], ar) if ar else self.assertRegex(r['name_ar'], ARABIC)
+
+    def test_communes_per_wilaya(self):
+        """As many communes in each wilaya as the texts give it: Decree 91-306 for the wilayas the
+        2019 reform left alone, and the lists of Law 19-12, or of Ordinance 21-03 where it rewrote
+        them, for the others (article 5 of Law 84-09 is wilaya 01, 52 bis is 49)."""
+        gaps = {('18', '10', '3'), ('34', '3', '4')}  # the Arabic's extra lines in Decree 91-306
+        expected = {}
+        for r in read(os.path.join(SOURCE, 'executive-decree-91-306.csv'))[1]:
+            if r['item'] != 'seat' and (r['wilaya'], r['daira'], r['item']) not in gaps:
+                expected[r['wilaya']] = expected.get(r['wilaya'], 0) + 1
+        for text_id in ('law-19-12', 'ordinance-21-03'):
+            for article, rows in lists(text_id).items():
+                rest = article[len('52 bis'):].strip() if article.startswith('52 bis') else None
+                wilaya = 49 + int(rest or 0) if rest is not None else int(article) - 4
+                expected[f'{wilaya:02d}'] = len(rows)
+        got = {}
+        for r in self.rows:
+            got[r['wilaya']] = got.get(r['wilaya'], 0) + 1
+        self.assertEqual(sum(got.values()), sum(expected.values()))
+        differ = {w: (got.get(w), expected.get(w)) for w in sorted(set(got) | set(expected)) if got.get(w) != expected.get(w)}
+        self.assertEqual(differ, ONS_MOVED)
 
 
 class Readings(unittest.TestCase):

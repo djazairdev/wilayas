@@ -1487,3 +1487,164 @@ executive-decree-26-253,32,1/1,ar,البيض,16,claude,founder,missed by the OCR
 executive-decree-26-253,65,4/2,ar,الخميس,17,claude,founder,missed by the OCR
 executive-decree-26-253,68,5/1,ar,أولاد سيدي إبراهيم,18,claude,founder,the PDF’s text is garbled; a hamza above the first alif and one below the alif of إبراهيم
 executive-decree-26-253,68,7/4,ar,سيدي امحمد,18,claude,founder,the OCR cut it short
+ons-2021,01,11,ar,زاوية كنته,4,claude,,the PDF stores its letters out of order (اويزة كتنه)
+ons-2021,01,13,ar,تيمقتن,4,claude,,the PDF stores its letters out of order (يت مقتن)
+ons-2021,01,15,ar,فنوغيل,4,claude,,"the OCR read فنو غيل; the print has no space there, as the PDF has none"
+ons-2021,02,05,ar,تاجنة,4,claude,,the PDF's text has a space the print doesn't (ت اجنة)
+ons-2021,03,05,ar,حاسى الدلاعة,6,claude,,the PDF stores its letters out of order (احسىلدلااع ة)
+ons-2021,03,23,ar,الحويطة,6,claude,,the PDF stores its letters out of order (لحاويطة)
+ons-2021,04,20,ar,أولاد زواى,7,claude,,the PDF stores its letters out of order (ولاأد زاو ى)
+ons-2021,05,11,ar,اينوغيسن,8,claude,,"the OCR read اينو غيسن; the print has no space there, as the PDF has none"
+ons-2021,05,21,ar,تغرغار,8,claude,,"the OCR read تغر غار; the print has no space there, as the PDF has none"
+ons-2021,05,29,ar,سقانة,8,claude,,the PDF stores its letters out of order (قسانة)
+ons-2021,05,48,ar,وادى الطاقة,9,claude,,the PDF's text has a space the print doesn't (وادى الطا قة)
+ons-2021,05,60,ar,بولهيلات,9,claude,,the PDF stores its letters out of order (بول يهلات)
+ons-2021,06,04,ar,تاوريرت إغيل,10,claude,,the PDF stores its letters out of order (تا ريورتإ غيل)
+ons-2021,06,09,ar,مسيسنة,10,claude,,the PDF stores م يسسنة and the OCR read مسيسنة and سيسنة
+ons-2021,06,10,ar,تينبدار,10,claude,,the PDF's text has a space the print doesn't (تينب دار)
+ons-2021,06,13,ar,كنديرة,10,claude,,the PDF stores its letters out of order (ندكيرة)
+ons-2021,06,24,ar,أدكار,10,claude,,the PDF stores its letters out of order (دأ كار)
+ons-2021,06,35,ar,بنى كسيلة,11,claude,,the PDF stores its letters out of order (نبى كسيلة)
+ons-2021,06,36,ar,أوزلاقن,11,claude,,"the OCR read أوز لاقن; the print has no space there, as the PDF has none"
+ons-2021,06,41,ar,مالبو,11,claude,,the PDF stores its letters out of order (م لابو)
+ons-2021,07,03,ar,البرانيس,12,claude,,the PDF stores its letters out of order (لارباين س)
+ons-2021,07,15,ar,زريبة الوادى,12,claude,,the PDF stores its letters out of order (زربية الوادى)
+ons-2021,07,22,ar,لواء,12,claude,,the PDF stores its letters out of order (لاو ء)
+ons-2021,07,23,ar,ليشانة,12,claude,,the PDF stores its letters out of order (ل شيانة)
+ons-2021,08,06,ar,الأحمر,13,claude,,the PDF stores its letters out of order (لأاحمر)
+ons-2021,10,06,ar,أحنيف,15,claude,,the PDF stores its letters out of order (حأ نيف)
+ons-2021,10,10,ar,روراوة,15,claude,,the PDF stores its letters out of order (روار وة)
+ons-2021,10,16,ar,عومار,15,claude,,the PDF stores its letters out of order (عوم را)
+ons-2021,10,34,ar,بوكرام,16,claude,,the PDF stores its letters out of order (وبكار م)
+ons-2021,10,37,ar,مشدالة,16,claude,,the PDF stores its letters out of order (شمدلاة)
+ons-2021,10,44,ar,المقراني,16,claude,,the OCR read المقرانى
+ons-2021,11,01,ar,تامنغست,16,claude,,the PDF stores its letters out of order (تامن سغ ت)
+ons-2021,11,02,ar,أباليسا,16,claude,,the PDF stores its letters out of order (أبا ل سي ا)
+ons-2021,11,05,ar,إدلس,16,claude,,the PDF stores its letters out of order (دلسإ)
+ons-2021,13,21,ar,العزايل,18,claude,,the PDF stores its letters out of order (لا عزايل)
+ons-2021,13,36,ar,بني وارسوس,19,claude,,the PDF stores its letters out of order (نبياو رسوس)
+ons-2021,13,42,ar,بنى بهدل,19,claude,,the PDF stores its letters out of order (نىببهدل)
+ons-2021,13,44,ar,هنين,19,claude,,the PDF stores its letters out of order (نهين)
+ons-2021,14,05,ar,عين دزاريت,20,claude,,the PDF stores its letters out of order (يعند زاريت)
+ons-2021,14,13,ar,دحمونى,20,claude,,the PDF stores its letters out of order (حد مونى)
+ons-2021,15,01,ar,تيزي وزو,22,claude,,"the OCR read تيزى وزو: the dots of its final ي fall on the dotted rule under the row, which covers all but their tops"
+ons-2021,15,07,ar,ايرجن,22,claude,,the PDF stores its letters out of order (يا رجن)
+ons-2021,15,08,ar,تيميزارت,22,claude,,the PDF stores its letters out of order (يتيم زارت)
+ons-2021,15,17,ar,ايفرحونن,22,claude,,the PDF stores its letters out of order (ا فريحونن)
+ons-2021,15,24,ar,وا قنون,22,claude,,"the OCR read واقنون; the print has a space after the alif, as the PDF does"
+ons-2021,15,28,ar,آيت محمود,22,claude,,the OCR read ايت محمود
+ons-2021,15,33,ar,إليلتن,22,claude,,the PDF stores its letters out of order (إيللت ن)
+ons-2021,15,34,ar,بوزقن,23,claude,,the OCR read پوزقن
+ons-2021,15,36,ar,واضية,23,claude,,the PDF stores its letters out of order (اوضية)
+ons-2021,15,38,ar,تقزيرت,23,claude,,the PDF stores its letters out of order (قتيز رت)
+ons-2021,15,45,ar,يطافن,23,claude,,the PDF stores its letters out of order (ياط فن)
+ons-2021,15,49,ar,إيجر,23,claude,,the PDF stores its letters out of order (يإجر)
+ons-2021,15,56,ar,آيت يحى موسى,23,claude,,the OCR read ايت يحى موسى
+ons-2021,15,58,ar,آيت خليلي,23,claude,,"the OCR read آيت خليلى: the dots of its final ي fall on the dotted rule under the row, which covers all but their tops"
+ons-2021,16,54,ar,الدويرة,25,claude,,the PDF stores its letters out of order (لداويرة)
+ons-2021,16,56,ar,خرايسية,25,claude,,the PDF's text has a space the print doesn't (خرا يسية)
+ons-2021,17,13,ar,المليليحة,26,claude,,the PDF stores its letters out of order (لملايلحي ة)
+ons-2021,17,21,ar,قرنيني,26,claude,,the PDF stores its letters out of order (رنقيني)
+ons-2021,17,35,ar,عين فقه,27,claude,,the PDF stores its letters out of order (يعن قفه)
+ons-2021,18,22,ar,بودريعة بني ياجيس,28,claude,,the PDF stores its letters out of order (ودريبعةنبي ياجيس)
+ons-2021,19,54,ar,آيت تيزي,30,claude,,the OCR read ايت تيزي
+ons-2021,20,07,ar,هونت,31,claude,,the PDF stores its letters out of order (وهتن)
+ons-2021,21,30,ar,فلفلة,32,claude,,the PDF stores its letters out of order (لففلة)
+ons-2021,21,31,ar,الشرايع,32,claude,,the PDF stores its letters out of order (لاشريا ع)
+ons-2021,21,32,ar,قنواع,32,claude,,the PDF stores its letters out of order (نقاو ع)
+ons-2021,22,07,ar,بو خنفيس,33,claude,,the PDF stores its letters out of order (و خبنفيس)
+ons-2021,22,30,ar,عين أدن,34,claude,,the PDF stores يعن دنأ and the OCR read عين آدن and عين أدن
+ons-2021,22,39,ar,سهالة الثورة,34,claude,,the PDF stores its letters out of order (سه لاة الثورة)
+ons-2021,22,47,ar,شيطوان بليلة,34,claude,,the PDF stores its letters out of order (شيط وان ب يللة)
+ons-2021,22,49,ar,تاودموت,34,claude,,the PDF stores its letters out of order (تا دوموت)
+ons-2021,22,51,ar,بن عشيبة الشيلية,34,claude,,the PDF stores its letters out of order (بن عيبشةلشايلية)
+ons-2021,22,52,ar,حاسى دحو,34,claude,,the OCR read حاسي دحو
+ons-2021,23,08,ar,سرايدي,35,claude,,the PDF stores its letters out of order (س ايردي)
+ons-2021,23,09,ar,عين الباردة,35,claude,,the PDF stores its letters out of order (يعن بالاردة)
+ons-2021,23,12,ar,التريعات,35,claude,,the PDF stores its letters out of order (لتاريعات)
+ons-2021,24,03,ar,بوعاتي محمود,36,claude,,the PDF stores its letters out of order (وبعتا ي محمود)
+ons-2021,24,18,ar,قلعة بوصبع,36,claude,,the PDF's text has a space the print doesn't (قلعة بو صبع)
+ons-2021,24,25,ar,بوشقوف,36,claude,,the PDF stores its letters out of order (وشبقوف)
+ons-2021,26,27,ar,أولاد بوعشرة,38,claude,,"the OCR read أولاد بو عشرة; the print has no space there, as the PDF has none"
+ons-2021,26,36,ar,العزيزية,39,claude,,the PDF stores its letters out of order (لا عزيزية)
+ons-2021,26,49,ar,مفاتحة,39,claude,,the PDF stores its letters out of order (مف تاحة)
+ons-2021,27,19,ar,بوقيراط,40,claude,,the PDF stores its letters out of order (وقيبراط)
+ons-2021,27,25,ar,أولاد بوغالم,40,claude,,"the OCR read أولاد بو غالم; the print has no space there, as the PDF has none"
+ons-2021,28,40,ar,السوامع,42,claude,,the PDF stores its letters out of order (لسا وامع)
+ons-2021,29,07,ar,الحشم,43,claude,,the PDF's text has a space the print doesn't (ال حشم)
+ons-2021,29,15,ar,ماقضة,43,claude,,the PDF stores its letters out of order (م قاضة)
+ons-2021,29,20,ar,خلوية,43,claude,,the PDF stores its letters out of order (خولي ة)
+ons-2021,29,22,ar,واد التاغية,43,claude,,the PDF's text has a space the print doesn't (واد التا غية)
+ons-2021,29,25,ar,عين أفرص,43,claude,,the PDF stores its letters out of order (يعنأ فرص)
+ons-2021,29,33,ar,فراقيق,44,claude,,the PDF stores its letters out of order (فار قيق)
+ons-2021,29,37,ar,بوهني,44,claude,,the PDF stores its letters out of order (وبنه ي)
+ons-2021,29,38,ar,القيطنة,44,claude,,the PDF stores its letters out of order (ال طقينة)
+ons-2021,29,45,ar,نسمط,44,claude,,"the PDF stores its letters out of order (سن مط) and the OCR read سمط, without the ن"
+ons-2021,29,47,ar,السهايلية,44,claude,,the PDF stores its letters out of order (لسا هايلية)
+ons-2021,31,14,ar,بوفاتيس,46,claude,,the PDF stores its letters out of order (بوف تيسا)
+ons-2021,31,23,ar,مسرغين,46,claude,,"the OCR read مسر غين; the print has no space there, as the PDF has none"
+ons-2021,32,05,ar,الغاسول,47,claude,,the PDF stores its letters out of order (الغ ساول)
+ons-2021,32,06,ar,بوعلام,47,claude,,"the OCR read بو علام; the print has no space there, as the PDF has none"
+ons-2021,32,09,ar,أربوات,47,claude,,the PDF stores its letters out of order (أرب اتو)
+ons-2021,32,19,ar,المحرة,47,claude,,the PDF stores its letters out of order (لاحم رة)
+ons-2021,33,06,ar,ان أميناس,48,claude,,the PDF stores its letters out of order (انأ م ناسي)
+ons-2021,34,04,ar,المنصورة,49,claude,,the PDF stores its letters out of order (لمناصورة)
+ons-2021,34,07,ar,اليشير,49,claude,,the PDF stores its letters out of order (ال شيير)
+ons-2021,34,10,ar,سيدي امبارك,49,claude,,the PDF stores its letters out of order (سيدي مباارك)
+ons-2021,34,16,ar,إلماين,49,claude,,"the whole-page OCR missed the line and the row OCR read الماين, without the hamza"
+ons-2021,34,21,ar,تقلعيت,49,claude,,the PDF stores its letters out of order (قتعل يت)
+ons-2021,34,23,ar,أولاد سيدي براهيم,49,claude,,the PDF stores its letters out of order (ولاد سيأدي براهيم)
+ons-2021,34,26,ar,تكستار,49,claude,,the PDF stores its letters out of order (كتستار)
+ons-2021,34,29,ar,تسامرت,49,claude,,the PDF stores its letters out of order (تس مارت)
+ons-2021,34,31,ar,بئر قاصد علي,49,claude,,"the OCR read بئر قاصد على: the dots of its final ي fall on the dotted rule under the row, which covers all but their tops"
+ons-2021,35,01,ar,بومرداس,50,claude,,"the OCR read يومر داس; the gaps after the و and the ر look wide on the print, but the PDF places no space there"
+ons-2021,35,04,ar,أعفير,50,claude,,the PDF's text has a space the print doesn't (أ عفير)
+ons-2021,35,11,ar,زموري,50,claude,,the OCR read زمورى and رمورى
+ons-2021,35,12,ar,سي مصطفى,50,claude,,"the OCR read سى مصطفى: the final letter of سي sits on the dotted rule under the row, which would cover its dots; the PDF stores ي"
+ons-2021,35,13,ar,تيجلابين,50,claude,,the PDF stores its letters out of order (يجتلابين)
+ons-2021,35,19,ar,قورصو,50,claude,,the PDF stores its letters out of order (وقصر و)
+ons-2021,35,22,ar,بوزقزة قدارة,50,claude,,the PDF stores its letters out of order (وبزقةز قدارة)
+ons-2021,35,32,ar,بودواو البحرى,50,claude,,the PDF stores ودب اوو البحرى and the OCR read پودواو البحرى and بودواو البحرى
+ons-2021,36,10,ar,بريحان,51,claude,,the PDF stores its letters out of order (بير حان)
+ons-2021,36,14,ar,شحانى,51,claude,,the PDF stores its letters out of order (حش انى)
+ons-2021,36,24,ar,رمل السوق,51,claude,,the PDF stores its letters out of order (مرلالسوق)
+ons-2021,38,09,ar,برج الامير عبد القادر,52,claude,,the PDF stores its letters out of order (رج الاميبر عبد القدار)
+ons-2021,38,19,ar,تملاحت,52,claude,,the PDF stores its letters out of order (ت لامحت)
+ons-2021,39,02,ar,رباح,53,claude,,the PDF stores its letters out of order (براح)
+ons-2021,39,14,ar,طالب العربي,53,claude,,"the OCR read طالب العربى: the dots of its final ي fall on the dotted rule under the row, which covers all but their tops"
+ons-2021,39,19,ar,بني قشة,53,claude,,"the OCR read بنى قشة: the dots of its final ي fall on the dotted rule under the row, which covers all but their tops"
+ons-2021,41,04,ar,المشروحة,55,claude,,the PDF stores its letters out of order (لمشارحو ة)
+ons-2021,41,11,ar,الخضارة,55,claude,,the PDF stores its letters out of order (لخاضارة)
+ons-2021,41,12,ar,المراهنة,55,claude,,the PDF stores its letters out of order (لامار هنة)
+ons-2021,41,22,ar,الراقوبة,55,claude,,the PDF stores its letters out of order (لاار قوبة)
+ons-2021,42,41,ar,بني ميلك,56,claude,,the PDF stores its letters out of order (نبي مليك)
+ons-2021,43,05,ar,عين الملوك,57,claude,,the PDF stores its letters out of order (يعنالملوك)
+ons-2021,43,09,ar,بن يحي .ع. رحمان,57,claude,,"the OCR read بن يحى ع رحمان: the dots of its final ي fall on the dotted rule under the row, which covers all but their tops"
+ons-2021,43,13,ar,تيبرقنت,57,claude,,"the OCR read تيبر قنت; the print has no space there, as the PDF has none"
+ons-2021,43,16,ar,تسالة لمطاعي,57,claude,,"the OCR read تسالة لمطاعى: the dots of its final ي fall on the dotted rule under the row, which covers all but their tops"
+ons-2021,43,17,ar,القرارم قوقة,57,claude,,the PDF stores its letters out of order (لقارا مرقوقة)
+ons-2021,43,21,ar,مينار زارزة,57,claude,,the PDF stores its letters out of order (ينامراز رزة)
+ons-2021,43,22,ar,اعميرة اراس,57,claude,,the PDF stores its letters out of order (ا ميعرةا راس)
+ons-2021,43,23,ar,ترعى باينان,57,claude,,"the PDF stores ترعى ب يناان, with a space the print doesn't have, and the OCR read ترعي باينان and ترعى باينان; no dots show under the ى"
+ons-2021,43,30,ar,عين البيضاء احريش,57,claude,,the PDF stores its letters out of order (ين العبيضاء حريشا)
+ons-2021,44,15,ar,واد الجمعة,58,claude,,the PDF stores its letters out of order (واد لجامعة)
+ons-2021,44,22,ar,برج الأمير خالد,58,claude,,the PDF stores its letters out of order (برج الأ يرمخلاد)
+ons-2021,44,36,ar,بلعاص,59,claude,,the PDF stores its letters out of order (لعاصب)
+ons-2021,45,10,ar,مكمن بن عمار,59,claude,,the PDF stores its letters out of order (مكمن بن عم را)
+ons-2021,46,22,ar,أولاد الكيحل,60,claude,,the PDF's text has a space the print doesn't (أولاد ال كيح ل)
+ons-2021,47,08,ar,زلفانة,61,claude,,the PDF's text has a space the print doesn't (زلف انة)
+ons-2021,48,14,ar,جديوية,62,claude,,the PDF stores its letters out of order (دجييو ة)
+ons-2021,48,21,ar,واريزان,62,claude,,the PDF stores its letters out of order (ور يازان)
+ons-2021,48,28,ar,منداس,62,claude,,the PDF stores its letters out of order (مناد س)
+ons-2021,48,30,ar,بني زنطيس,63,claude,,the PDF stores its letters out of order (بني زن يطس)
+ons-2021,48,38,ar,أولاد سيدي الميهوب,63,claude,,the PDF stores its letters out of order (ولادأسيديا ميلهوب)
+ons-2021,49,04,ar,أولاد سعيد,63,claude,,the PDF stores its letters out of order (ولادأ سعيد)
+ons-2021,49,05,ar,تينركوك,63,claude,,"the PDF stores ت ني ركوك, with spaces the print doesn't have, and the OCR read تينركوك and تينر كوك"
+ons-2021,49,08,ar,أوقروت,63,claude,,the PDF stores its letters out of order (أوقر تو)
+ons-2021,51,02,ar,رأس الميعاد,64,claude,,the PDF stores its letters out of order (أر س الميعاد)
+ons-2021,52,02,ar,أولاد خضير,64,claude,,the PDF stores its letters out of order (ولادأ خ يضر)
+ons-2021,52,05,ar,أقلى,64,claude,,the PDF stores its letters out of order (قألى)
+ons-2021,53,03,ar,فقارة الزاوية,65,claude,,the PDF stores its letters out of order (قافةر الزاوية)
+ons-2021,54,02,ar,تين زواتين,65,claude,,the PDF's text has a space the print doesn't (تين زو اتي ن)
+ons-2021,58,02,ar,حاسي الفحل,66,claude,,the PDF stores its letters out of order (احسي فلحال)
+ons-2021,58,03,ar,حاسي القارة,66,claude,,the PDF stores its letters out of order (احسي قلاارة)

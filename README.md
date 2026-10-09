@@ -19,6 +19,7 @@ The API is a set of static, versioned files in JSON and CSV. There are no keys a
 - Presidential Decree 26-206 of 25 May 2026 (Journal officiel n° 40 of 3 June 2026), which names and numbers the new wilayas.
 - Executive Decree 91-306 of 24 August 1991 (Journal officiel n° 41 of 4 September 1991), which lists the communes of each daïra.
 - Executive Decree 26-253 of 15 July 2026 (Journal officiel n° 52 of 21 July 2026), which rewrites those lists for the 21 wilayas Law 26-06 changed or created.
+- The code géographique national of ONS, the statistics office (June 2021), for the commune codes.
 
 This is not an official government service.
 
