@@ -1,0 +1,11 @@
+# The build, the tools and the tests use only Python's standard library, so GitHub Actions are
+# the only dependencies to keep up to date.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']
