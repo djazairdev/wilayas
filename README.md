@@ -14,6 +14,41 @@ Algeria's 69 wilayas and 1,541 communes as a free, read-only JSON API, built fro
 
 The API is a set of static, versioned files in JSON and CSV. There are no keys and no sign-up, and any website can call it.
 
+## Files
+
+Under `https://wilayas.djazair.dev/v1/` (not live yet):
+
+| Path | Contents |
+|---|---|
+| `index.json` | Counts, versions, licences and the list of files |
+| `wilayas.json`, `wilayas.csv` | The 69 wilayas |
+| `wilayas/{code}.json` | One wilaya, with its daïras and communes |
+| `wilayas/{code}/communes.json`, `.csv` | One wilaya's communes |
+| `wilayas/{code}/dairas.json` | One wilaya's daïras |
+| `dairas.json`, `dairas.csv` | All the daïras |
+| `dairas/{code}.json` | One daïra, with its communes. A daïra's code is its seat's commune code |
+| `communes.json`, `communes.csv` | The 1,541 communes |
+| `communes/{code}.json` | One commune |
+| `changes.json`, `changes.csv` | The 2026 changes: the wilayas created and the communes moved |
+| `texts.json` | The official texts cited, with links to their PDFs |
+| `divisions/2019/wilayas.json`, `communes.json` | The 58 wilayas of the 2019 division |
+| `openapi.json`, `schemas/*.json` | The OpenAPI description and the JSON Schemas |
+
+Each JSON file is an object with `data_version`, the date of the data, and its payload under a named key:
+
+```json
+{"data_version": "2026-10-09", "commune": {"code": "0717", "name": {"ar": "القنطرة", "fr": "El Kantara"}, "wilaya": "61", "daira": "0717", "wilaya_before": {"wilaya": "07", "until": "2026-04-05", "by": {"text": "law-26-06", "article": "52 bis 12", "item": "1"}}, "…": "…"}}
+```
+
+## Build
+
+The data is in [`data/`](data/), and its README describes every table and column. To build the files into `dist/` and run the tests, with Python 3.12 and nothing else:
+
+```bash
+python3 build.py
+python3 -m unittest discover -s tests
+```
+
 ## Sources
 
 - Law 84-09 of 4 February 1984 on the territorial division of the country, as amended, most recently by Law 26-06 of 4 April 2026 (Journal officiel n° 25 of 5 April 2026).
