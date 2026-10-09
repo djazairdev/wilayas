@@ -1648,49 +1648,49 @@ ons-2021,53,03,ar,فقارة الزاوية,65,claude,founder,the PDF stores its
 ons-2021,54,02,ar,تين زواتين,65,claude,founder,the PDF's text has a space the print doesn't (تين زو اتي ن)
 ons-2021,58,02,ar,حاسي الفحل,66,claude,founder,the PDF stores its letters out of order (احسي فلحال)
 ons-2021,58,03,ar,حاسي القارة,66,claude,founder,the PDF stores its letters out of order (احسي قلاارة)
-ordinance-97-14,2,2,fr,Bordj-El-Bahri,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,2,2,ar,برج البحري,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the final ي, not transcribed"
-ordinance-97-14,2,4,fr,Heraoua,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,2,5,fr,Rouiba,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,2,6,fr,Réghaïa,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,2,6,ar,الرغاية,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the ر, not transcribed"
-ordinance-97-14,3,1,fr,Aïn Bénian,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,1,ar,عين البنيان,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the ي, not transcribed, and stretches the word after it"
-ordinance-97-14,3,2,fr,Staouéli,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,4,fr,Mâalma,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,4,ar,معالمة,5,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,9,ar,العاشور,5,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,10,ar,الدرارية,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the د and the ي, not transcribed"
-ordinance-97-14,3,11,fr,Douéra,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,12,ar,بابا حسن,5,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,13,fr,Khraïcia,4,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,3,13,ar,خرايسية,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the second ي, not transcribed"
-ordinance-97-14,4,1,ar,بئر توتة,5,claude,,the OCR’s readings agree but match no Wikidata label; the hamza sits on a yā’ seat
-ordinance-97-14,4,2,fr,Tessala-El-Merdja,5,claude,,the OCR’s readings agree but match no Wikidata label
-ordinance-97-14,4,2,ar,تسالة المرجة,5,claude,,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the س, not transcribed"
-executive-decree-26-253,05,16/2,ar,تيغرغار,11,claude,,"the OCR puts a space after the ر, which doesn’t join the next letter; the print has none"
-executive-decree-26-253,07,4/1,ar,أورلال,12,claude,,"the OCR puts a space after the ر, which doesn’t join the next letter; the print has none"
-executive-decree-26-253,28,3/seat,ar,أولاد دراج,15,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
-executive-decree-26-253,28,3/5,ar,أولاد عدي القبالة,15,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; the other OCR reading drops letters (أواد عدي الة)"
-executive-decree-26-253,28,6/2,ar,أولاد ماضي,16,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
-executive-decree-26-253,60,1/3,ar,امدوكال,16,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; printed with a bare alif"
-executive-decree-26-253,67,6/seat,ar,أولاد عنتر,18,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
-executive-decree-26-253,68,5/seat,ar,أولاد سيدي إبراهيم,18,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
-executive-decree-21-198,01,1/3,ar,أولاد أحمد تيمي,9,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; the other OCR reading missed it"
-executive-decree-21-198,01,3/2,ar,سالي,9,claude,,the PDF’s text puts a space inside the word (سا لي); the print has none
-executive-decree-21-198,01,4/4,ar,أقبلي,9,claude,,the PDF’s text puts a space inside the word (أقب لي); the print has none; the hamza stands above the alif
-executive-decree-21-198,07,5/1,ar,أورلال,9,claude,,the PDF’s text puts a space inside the word (أو رلال); the print has none
-executive-decree-21-198,07,5/5,ar,مخادمة,9,claude,,the PDF’s text puts a space inside the word (مخاد مة); the print has none
-executive-decree-21-198,07,9/seat,ar,مشونش,9,claude,,the PDF’s text puts a space inside the word (مش ونش); the print has none
-executive-decree-21-198,39,4/3,ar,ورماس,10,claude,,the PDF’s text puts a space inside the word (ور ماس); the print has none
-executive-decree-21-198,39,5/1,ar,رباح,10,claude,,the PDF’s text puts a space inside the word (ربا ح); the print has none
-executive-decree-21-198,39,7/2,ar,سيدي عون,10,claude,,the PDF’s text puts a space inside the word (س يدي عون); the print has none
-executive-decree-21-198,47,1/1,ar,غرداية,11,claude,,the PDF’s text puts a space inside the word (غردا ية); the print has none
-executive-decree-21-198,47,2/2,ar,سبسب,11,claude,,the OCR missed it; the PDF’s text has the letters printed
-executive-decree-21-198,49,1/seat,ar,تيميمون,11,claude,,"the OCR’s readings differ, and none is as printed (يميمون, نيميمون); the PDF’s text has the letters printed"
-executive-decree-21-198,49,1/2,ar,أولاد السعيد,11,claude,,the OCR missed it; the PDF’s text has the letters printed
-executive-decree-21-198,49,2/2,ar,دلدول,11,claude,,the PDF’s text puts a space inside the word (د لدول); the print has none
-executive-decree-21-198,49,4/3,ar,أولاد عيسى,11,claude,,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; the other OCR reading drops the ي (أولاد عسى)"
-executive-decree-21-198,51,1/3,ar,الشعيبة,11,claude,,the OCR missed it; the PDF’s text has the letters printed
-executive-decree-21-198,52,5/2,ar,قصابي,11,claude,,the PDF’s text puts a space inside the word (قص ابي); the print has none; the other OCR reading missed it
-executive-decree-21-198,55,2/2,ar,المنقر,12,claude,,the OCR missed it; the PDF’s text has the letters printed
+ordinance-97-14,2,2,fr,Bordj-El-Bahri,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,2,ar,برج البحري,5,claude,founder,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the final ي, not transcribed"
+ordinance-97-14,2,4,fr,Heraoua,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,5,fr,Rouiba,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,6,fr,Réghaïa,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,2,6,ar,الرغاية,5,claude,founder,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the ر, not transcribed"
+ordinance-97-14,3,1,fr,Aïn Bénian,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,1,ar,عين البنيان,5,claude,founder,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the ي, not transcribed, and stretches the word after it"
+ordinance-97-14,3,2,fr,Staouéli,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,4,fr,Mâalma,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,4,ar,معالمة,5,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,9,ar,العاشور,5,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,10,ar,الدرارية,5,claude,founder,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the د and the ي, not transcribed"
+ordinance-97-14,3,11,fr,Douéra,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,12,ar,بابا حسن,5,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,13,fr,Khraïcia,4,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,3,13,ar,خرايسية,5,claude,founder,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the second ي, not transcribed"
+ordinance-97-14,4,1,ar,بئر توتة,5,claude,founder,the OCR’s readings agree but match no Wikidata label; the hamza sits on a yā’ seat
+ordinance-97-14,4,2,fr,Tessala-El-Merdja,5,claude,founder,the OCR’s readings agree but match no Wikidata label
+ordinance-97-14,4,2,ar,تسالة المرجة,5,claude,founder,"the OCR’s readings agree but match no Wikidata label; the print puts a shadda on the س, not transcribed"
+executive-decree-26-253,05,16/2,ar,تيغرغار,11,claude,founder,"the OCR puts a space after the ر, which doesn’t join the next letter; the print has none"
+executive-decree-26-253,07,4/1,ar,أورلال,12,claude,founder,"the OCR puts a space after the ر, which doesn’t join the next letter; the print has none"
+executive-decree-26-253,28,3/seat,ar,أولاد دراج,15,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
+executive-decree-26-253,28,3/5,ar,أولاد عدي القبالة,15,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; the other OCR reading drops letters (أواد عدي الة)"
+executive-decree-26-253,28,6/2,ar,أولاد ماضي,16,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
+executive-decree-26-253,60,1/3,ar,امدوكال,16,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; printed with a bare alif"
+executive-decree-26-253,67,6/seat,ar,أولاد عنتر,18,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
+executive-decree-26-253,68,5/seat,ar,أولاد سيدي إبراهيم,18,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none"
+executive-decree-21-198,01,1/3,ar,أولاد أحمد تيمي,9,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; the other OCR reading missed it"
+executive-decree-21-198,01,3/2,ar,سالي,9,claude,founder,the PDF’s text puts a space inside the word (سا لي); the print has none
+executive-decree-21-198,01,4/4,ar,أقبلي,9,claude,founder,the PDF’s text puts a space inside the word (أقب لي); the print has none; the hamza stands above the alif
+executive-decree-21-198,07,5/1,ar,أورلال,9,claude,founder,the PDF’s text puts a space inside the word (أو رلال); the print has none
+executive-decree-21-198,07,5/5,ar,مخادمة,9,claude,founder,the PDF’s text puts a space inside the word (مخاد مة); the print has none
+executive-decree-21-198,07,9/seat,ar,مشونش,9,claude,founder,the PDF’s text puts a space inside the word (مش ونش); the print has none
+executive-decree-21-198,39,4/3,ar,ورماس,10,claude,founder,the PDF’s text puts a space inside the word (ور ماس); the print has none
+executive-decree-21-198,39,5/1,ar,رباح,10,claude,founder,the PDF’s text puts a space inside the word (ربا ح); the print has none
+executive-decree-21-198,39,7/2,ar,سيدي عون,10,claude,founder,the PDF’s text puts a space inside the word (س يدي عون); the print has none
+executive-decree-21-198,47,1/1,ar,غرداية,11,claude,founder,the PDF’s text puts a space inside the word (غردا ية); the print has none
+executive-decree-21-198,47,2/2,ar,سبسب,11,claude,founder,the OCR missed it; the PDF’s text has the letters printed
+executive-decree-21-198,49,1/seat,ar,تيميمون,11,claude,founder,"the OCR’s readings differ, and none is as printed (يميمون, نيميمون); the PDF’s text has the letters printed"
+executive-decree-21-198,49,1/2,ar,أولاد السعيد,11,claude,founder,the OCR missed it; the PDF’s text has the letters printed
+executive-decree-21-198,49,2/2,ar,دلدول,11,claude,founder,the PDF’s text puts a space inside the word (د لدول); the print has none
+executive-decree-21-198,49,4/3,ar,أولاد عيسى,11,claude,founder,"the OCR puts a space after the و, which doesn’t join the next letter; the print has none; the other OCR reading drops the ي (أولاد عسى)"
+executive-decree-21-198,51,1/3,ar,الشعيبة,11,claude,founder,the OCR missed it; the PDF’s text has the letters printed
+executive-decree-21-198,52,5/2,ar,قصابي,11,claude,founder,the PDF’s text puts a space inside the word (قص ابي); the print has none; the other OCR reading missed it
+executive-decree-21-198,55,2/2,ar,المنقر,12,claude,founder,the OCR missed it; the PDF’s text has the letters printed
