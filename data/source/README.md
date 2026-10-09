@@ -56,7 +56,7 @@ The laws, the ordinance and Decrees 21-117, 26-206 and 26-253 have a text layer.
 - **Empty:** the two readings have the same letters.
 - **`eye`:** they don't, or one of them missed the name. The name was read on the rendered page, and `readings.csv` records the reading, the page, who read it, who checked it and why.
 
-Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked all 1,488 readings of the official texts against the printed page: the 61 of the laws, the ordinance and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306 and the 17 of Decree 26-253. The founder confirmed all of them but two of Decree 91-306, which the founder corrected. The 161 readings of ONS's list are still to be checked.
+Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checks each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrects becomes the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked all 1,649 readings against the printed page: the 61 of the laws, the ordinance and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 17 of Decree 26-253 and the 161 of ONS's list. The founder confirmed all of them but two of Decree 91-306, which the founder corrected.
 
 The tests refuse any other value, and check that each `eye` row matches its reading.
 
