@@ -57,6 +57,6 @@ python3 build.py
 npx wrangler dev
 ```
 
-## At launch
+## The address
 
-`wilayas.djazair.dev` becomes a custom domain of the Worker: uncomment `routes` in `wrangler.jsonc`. The API's address before then is the Worker's workers.dev address.
+The API is served at `https://wilayas.djazair.dev/v1/`, a custom domain of the Worker (`routes` in `wrangler.jsonc`). Each deploy keeps it attached; Cloudflare manages its DNS record and certificate in the `djazair.dev` zone, so the record must not be created or edited by hand. The Worker's workers.dev address stays on, for the previews of pull requests.
