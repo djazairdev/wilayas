@@ -33,7 +33,9 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: Check syntax
-        run: python -m compileall -q build.py tools tests
+        run: |
+          python -m compileall -q build.py tools tests
+          node --check src/worker.js
       - name: Check the tables are up to date
         run: python tools/resolve.py --check
       - name: Check the version
@@ -86,8 +88,8 @@ jobs:
             echo "::notice::Deploy skipped: DEPLOY_ENABLED is not true, or the Cloudflare secrets are missing (see docs/deploy.md)."
           fi
 
-  # The API is a Cloudflare Worker made only of static assets (wrangler.jsonc). main becomes the
-  # live version; a pull request uploads a version that only its preview address serves.
+  # The API is a Cloudflare Worker: the static files and src/worker.js (wrangler.jsonc). main
+  # becomes the live version; a pull request uploads a version that only its preview address serves.
   deploy:
     name: Deploy to Cloudflare
     needs: deploy-settings
@@ -100,7 +102,7 @@ jobs:
       name: ${{ github.event_name != 'pull_request' && 'production' || 'preview' }}
       url: ${{ steps.deploy.outputs.deployment-url }}
     steps:
-      - uses: actions/checkout@v7       # for wrangler.jsonc
+      - uses: actions/checkout@v7       # for wrangler.jsonc and src/worker.js
         with:
           persist-credentials: false
       - uses: actions/download-artifact@v8

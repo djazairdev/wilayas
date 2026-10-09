@@ -1,12 +1,17 @@
-// The API on Cloudflare Workers, as static assets with no Worker code (docs/deploy.md).
+// The API on Cloudflare Workers: the static files in dist/, behind a small Worker that answers
+// CORS preflights and the base URL, and passes every other request to the files (docs/deploy.md).
 // CI deploys dist/ with `wrangler deploy` once the tests and the build pass, and each pull
 // request from this repository uploads a preview version (.github/workflows/ci.yml).
 {
   "name": "djazair-wilayas",
   "compatibility_date": "2026-10-09",
+  "main": "src/worker.js",
   "assets": {
     "directory": "./dist",
-    // an unknown file is a 404 with an empty body; JSON error bodies would need Worker code
+    "binding": "ASSETS",
+    // the Worker sees every request, preflights for files included (src/worker.js)
+    "run_worker_first": true,
+    // a path no file matches is a 404, which the Worker gives an empty body
     "not_found_handling": "none"
   },
   // The API's address, wilayas.djazair.dev: Cloudflare creates its DNS record and certificate
