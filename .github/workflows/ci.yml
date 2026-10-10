@@ -1,7 +1,8 @@
-# Tests, builds, deploys and releases the API. A deploy runs only after every test and the build
-# pass, so a failing change never replaces the last good version. Deploys also wait for the
-# DEPLOY_ENABLED repository variable to be "true" (docs/deploy.md). Once main is deployed, a new
-# version is tagged and released (docs/deploy.md#releases).
+# Tests and builds the API on every pull request and push. Production deploys only a release:
+# when release-please tags vX.Y.Z, the release workflow starts this one on the tag, which deploys
+# it and attaches its files to the release (docs/deploy.md#releases). A maintainer can also deploy
+# main by hand (Actions > CI > Run workflow). A deploy runs only after every test and the build pass,
+# and waits for the DEPLOY_ENABLED repository variable to be "true" (docs/deploy.md).
 name: CI
 
 on:
@@ -28,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0 # the v* tags, for the release check
+          persist-credentials: false
       - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
@@ -66,10 +67,10 @@ jobs:
   deploy-settings:
     name: Check deploy settings
     needs: build
-    # main (pushed, or started by hand) deploys to production; pull requests from this
-    # repository upload a preview; anything else only tests and builds.
+    # A release tag, or main started by hand, deploys to production; pull requests from this
+    # repository upload a preview; anything else, pushes to main included, only tests and builds.
     if: >-
-      github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+      (github.event_name == 'workflow_dispatch' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')))
       || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     outputs:
@@ -88,7 +89,7 @@ jobs:
             echo "::notice::Deploy skipped: DEPLOY_ENABLED is not true, or the Cloudflare secrets are missing (see docs/deploy.md)."
           fi
 
-  # The API is a Cloudflare Worker: the static files and src/worker.js (wrangler.jsonc). main
+  # The API is a Cloudflare Worker: the static files and src/worker.js (wrangler.jsonc). A release
   # becomes the live version; a pull request uploads a version that only its preview address serves.
   deploy:
     name: Deploy to Cloudflare
@@ -123,20 +124,17 @@ jobs:
           URL: ${{ steps.deploy.outputs.deployment-url }}
         run: echo "Deployed to $URL" >> "$GITHUB_STEP_SUMMARY"
 
-  # The version (the latest entry in CHANGELOG.md, '## 1.2.3 (YYYY-MM-DD)') becomes the tag v1.2.3
-  # and a GitHub release once main deploys it, so every release is a version that was live. The
-  # release notes are the changelog entry; the built API and the tables are attached.
+  # Once a release is live, its files are attached to it: the built API as a zip and the tables.
   release:
-    name: Release the version
+    name: Attach the files to the release
     needs: deploy
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-python@v7
         with:
@@ -145,7 +143,7 @@ jobs:
         with:
           name: api
           path: dist
-      - name: Tag and release
+      - name: Attach the files
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python tools/release.py publish dist
+        run: python tools/release.py attach "$GITHUB_REF_NAME" dist

@@ -30,8 +30,9 @@ PUBLIC = os.path.join(ROOT, 'public')
 API_MAJOR = 1  # dist/v1/: a breaking change is a new major version, under /v2
 API_DIR = f'v{API_MAJOR}'
 BASE_URL = f'https://wilayas.djazair.dev/{API_DIR}'
-# A changelog entry's heading: '## 1.2.3 (2026-10-09)'
-HEADING = re.compile(r'^## (\d+\.\d+\.\d+) \((\d{4}-\d{2}-\d{2})\)[ \t]*$', re.M)
+# A changelog entry's heading: '## 1.2.3 (2026-10-09)', or as release-please writes it,
+# '## [1.2.3](https://github.com/…/compare/v1.2.2...v1.2.3) (2026-10-09)'
+HEADING = re.compile(r'^## (?:\[(\d+\.\d+\.\d+)\]\([^)\s]+\)|(\d+\.\d+\.\d+)) \((\d{4}-\d{2}-\d{2})\)[ \t]*$', re.M)
 REPOSITORY = 'https://github.com/djazairdev/wilayas'
 
 # Law 26-06, art. 4, rewrites art. 54 of Law 84-09: the parent wilayas run the new ones' services
@@ -47,10 +48,10 @@ def read(name):
 
 
 def changelog(text):
-    """[(version, date, entry)] of a changelog, newest first: each '## 1.2.3 (2026-10-09)' heading
-    and the text under it, up to the next heading."""
+    """[(version, date, entry)] of a changelog, newest first: each heading (HEADING) and the text
+    under it, up to the next heading."""
     found = list(HEADING.finditer(text))
-    return [(m.group(1), m.group(2), text[m.end():found[i + 1].start() if i + 1 < len(found) else len(text)].strip())
+    return [(m.group(1) or m.group(2), m.group(3), text[m.end():found[i + 1].start() if i + 1 < len(found) else len(text)].strip())
             for i, m in enumerate(found)]
 
 

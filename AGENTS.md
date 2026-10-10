@@ -1,6 +1,6 @@
 # Instructions for coding agents
 
-<!-- djazairdev-template: 1.1.0 -->
+<!-- djazairdev-template: 1.4.0 -->
 
 This file tells coding agents (Claude Code, Codex, Cursor, Copilot and others) how to work in this repository. [CONTRIBUTING.md](CONTRIBUTING.md) says the same for people.
 
@@ -15,7 +15,7 @@ python3 build.py                          # build dist/
 python3 -m compileall -q build.py tools tests
 node --check src/worker.js
 python3 tools/resolve.py --check          # the tables match the transcriptions
-python3 tools/release.py check            # a change to the API's files has a new version (needs the tags)
+python3 tools/release.py check            # the version is right for /v1/
 python3 -m unittest discover -s tests     # the tests CI runs
 ```
 
@@ -26,7 +26,7 @@ python3 -m unittest discover -s tests     # the tests CI runs
 - **The data comes only from official texts**, transcribed as printed. Never copy another dataset, even an open one, and never "fix" a spelling the text prints. Wikidata may be compared with, never copied from.
 - **Never edit `data/*.csv` by hand.** Change the transcription in `data/source/`, then run `python3 tools/resolve.py`.
 - **Who read a name.** In `data/source/readings.csv`, a reading an agent made records the agent in `by`, never a person; only the maintainer fills `reviewed_by`.
-- **Versions.** A change to the API's files needs a new entry in `CHANGELOG.md` (`## 1.2.3 (YYYY-MM-DD)`), as [docs/deploy.md](docs/deploy.md#releases) says.
+- **Versions.** Title pull requests as Conventional Commits: `fix(data): …` for a correction, `feat: …` for new data, fields or files, `docs:`, `test:`, `ci:`, `chore:` when the API's files don't change. release-please makes the version and the changelog from them ([docs/deploy.md](docs/deploy.md#releases)): never edit `CHANGELOG.md` or `version.txt` by hand.
 - Don't put the Worker's workers.dev address in any file: write `<account>`.
-- Don't push, merge, deploy, publish a release, or change repository settings unless the maintainer asks. A merge to `main` deploys the API and can release a version.
+- Don't push, merge, deploy, publish a release, or change repository settings unless the maintainer asks. Merging the release pull request releases and deploys a version.
 - Never commit secrets, tokens or personal data, and don't change the licences.

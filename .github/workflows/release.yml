@@ -1,0 +1,61 @@
+# Versions and releases with release-please (docs/deploy.md#releases), from the djazairdev project
+# template.
+#
+# On every push to main, release-please reads the commits since the last release (the squashed
+# pull request titles, in Conventional Commits form) and keeps one pull request open, "chore(main):
+# release X.Y.Z", that sets the next version in version.txt and writes CHANGELOG.md. Merging that pull
+# request tags vX.Y.Z and publishes the GitHub release; CI then deploys the tag and attaches the
+# API's files to the release.
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release-please:
+    name: Release pull request and release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # tags, releases, the release branch
+      issues: write          # labels on the release pull request
+      pull-requests: write   # the release pull request
+      actions: write         # starts the checks on the release pull request
+    steps:
+      - id: release
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7  # v5.0.0
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      # A pull request made with GITHUB_TOKEN starts no workflows, so the checks the ruleset
+      # requires would never run on the release pull request. Start them on its branch by hand:
+      # their results attach to its commit, as a pull request's would.
+      - name: Run the checks on the release pull request
+        if: steps.release.outputs.prs_created == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          for branch in $(gh pr list --repo "$REPO" --state open --label 'autorelease: pending' --json headRefName --jq '.[].headRefName'); do
+            gh workflow run ci.yml --repo "$REPO" --ref "$branch"
+            gh workflow run pr-title.yml --repo "$REPO" --ref "$branch"
+          done
+
+      # A tag made with GITHUB_TOKEN starts no workflows, so start CI on the new tag: it tests,
+      # builds and deploys the release, then attaches the built API and the tables to it.
+      - name: Deploy the release
+        if: steps.release.outputs.release_created == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ steps.release.outputs.tag_name }}
+        run: gh workflow run ci.yml --repo "$REPO" --ref "$TAG"
