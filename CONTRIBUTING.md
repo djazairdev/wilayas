@@ -58,7 +58,29 @@ Use `test:`, `ci:`, `chore:` or `refactor:` for other changes that leave the API
 3. Run the checks above.
 4. Open the pull request with a title as above, say what it changes and why, and link the issue (`Closes #12`).
 
-CI runs the checks, and a maintainer reviews the pull request. We may ask for changes; that's normal. Pull requests are squash-merged, so the title becomes the commit's message.
+CI runs the checks. Pull requests are squash-merged, so the title becomes the commit's message.
+
+## Review
+
+- A maintainer reviews every pull request; we may ask for changes, which is normal.
+- **CI on a pull request from a fork waits until a maintainer approves the run.** That's a safety setting, not a judgement on your change.
+- Answer review comments with new commits rather than a force-push, so the conversation stays readable. The squash merge tidies the history.
+- A maintainer merges once CI passes and every conversation is resolved.
+- Nothing is closed automatically. If a pull request goes quiet for a long time, we ask before we close it.
+
+## AI-assisted contributions
+
+You're welcome to use AI coding tools, on these terms:
+
+- **You are the author.** Understand every line you submit, and be ready to explain it in review. "The model wrote it" doesn't answer a review comment.
+- **Say so.** Tick the AI box in the pull request template, and name the tool and what it did. A commit may credit it in a `Co-Authored-By:` or `Assisted-by:` trailer.
+- **Run the checks yourself,** and report the results you actually got.
+- **Point your agent at [AGENTS.md](AGENTS.md).** Most coding agents read it on their own, and its rules bind them as they bind you.
+- **No autonomous agents.** A person writes or reviews every issue, pull request and comment; an agent may not open them on its own.
+- **A name, code or citation a tool read from a text** is recorded as the tool's reading, never a person's (`by` in `data/source/readings.csv`, as [AGENTS.md](AGENTS.md) says), and a maintainer reviews it.
+- **Check what a tool finds** before you report it, and report security problems privately. An unchecked report is closed.
+- **Keep private things out of AI tools:** unpublished security reports, other people's personal data, and any secret.
+- Maintainers may close a low-effort generated pull request or issue without a detailed review.
 
 ## Our pledge
 
@@ -70,4 +92,4 @@ Everyone follows the [code of conduct](https://github.com/djazairdev/.github/blo
 
 ## Licence
 
-By contributing, you agree that your code is released under the [MIT licence](LICENSE) and your data under [CC0 1.0](LICENSE-data).
+The code is released under the [MIT licence](LICENSE) and the data under [CC0 1.0](LICENSE-data). By submitting a contribution, you agree that it's released under the same terms, as section D.6 of [GitHub's Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) provides, and that you have the right to submit it. Data comes only from the official texts (*How the data works*): never from another dataset, even an open one.

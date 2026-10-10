@@ -1,6 +1,6 @@
 # Instructions for coding agents
 
-<!-- djazairdev-template: 1.4.0 -->
+<!-- djazairdev-template: 1.5.0 -->
 
 This file tells coding agents (Claude Code, Codex, Cursor, Copilot and others) how to work in this repository. [CONTRIBUTING.md](CONTRIBUTING.md) says the same for people.
 
@@ -28,5 +28,5 @@ python3 -m unittest discover -s tests     # the tests CI runs
 - **Who read a name.** In `data/source/readings.csv`, a reading an agent made records the agent in `by`, never a person; only the maintainer fills `reviewed_by`.
 - **Versions.** Title pull requests as Conventional Commits: `fix(data): …` for a correction, `feat: …` for new data, fields or files, `docs:`, `test:`, `ci:`, `chore:` when the API's files don't change. release-please makes the version and the changelog from them ([docs/deploy.md](docs/deploy.md#releases)): never edit `CHANGELOG.md` or `version.txt` by hand.
 - Don't put the Worker's workers.dev address in any file: write `<account>`.
-- Don't push, merge, deploy, publish a release, or change repository settings unless the maintainer asks. Merging the release pull request releases and deploys a version.
+- Don't push, merge, deploy, publish a release, or change repository settings unless the maintainer asks. Never open an issue, a pull request or a comment on your own: a person reviews and submits them ([CONTRIBUTING.md](CONTRIBUTING.md#ai-assisted-contributions)). Merging the release pull request releases and deploys a version.
 - Never commit secrets, tokens or personal data, and don't change the licences.
