@@ -1,6 +1,6 @@
 # Instructions for coding agents
 
-<!-- djazairdev-template: 1.0.0 -->
+<!-- djazairdev-template: 1.1.0 -->
 
 This file tells coding agents (Claude Code, Codex, Cursor, Copilot and others) how to work in this repository. [CONTRIBUTING.md](CONTRIBUTING.md) says the same for people.
 
