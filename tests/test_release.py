@@ -1,5 +1,5 @@
-"""Checks on tools/release.py and CHANGELOG.md: the changelog's entries, and the check that a
-change to the API's files gets a new version.
+"""Checks on tools/release.py and CHANGELOG.md: the changelog's entries, the version's checks, and
+the guard that a change to the API's files gets a title that releases it.
 
     python3 -m unittest discover -s tests
 
@@ -21,7 +21,7 @@ import build  # noqa: E402
 import release  # noqa: E402
 
 # What a throwaway repository needs to build the API
-TREE = ['build.py', 'CHANGELOG.md', 'public'] + release.TABLES
+TREE = ['build.py', 'CHANGELOG.md', 'version.txt', 'public'] + release.TABLES
 
 
 class Changelog(unittest.TestCase):
@@ -38,18 +38,22 @@ class Changelog(unittest.TestCase):
         self.assertEqual(release.current()[0], build.version())
 
     def test_entries_parse(self):
-        text = ('# Changelog\n\n## 1.2.3 (2026-10-09) is a heading\n\n## 1.1.0 (2026-11-25)\n\n- New.\n\n'
-                '## 1.0.0 (2026-10-09)\n\n- Old.\n')
-        self.assertEqual(build.changelog(text), [('1.1.0', '2026-11-25', '- New.'), ('1.0.0', '2026-10-09', '- Old.')])
+        text = ('# Changelog\n\n## 1.2.3 (2026-10-09) is a heading\n\n'
+                '## [1.2.0](https://github.com/djazairdev/wilayas/compare/v1.1.0...v1.2.0) (2026-12-01)\n\n\n'
+                '### Features\n\n* New data.\n\n## 1.1.0 (2026-11-25)\n\n- New.\n\n## 1.0.0 (2026-10-09)\n\n- Old.\n')
+        self.assertEqual(build.changelog(text), [('1.2.0', '2026-12-01', '### Features\n\n* New data.'),
+                                                 ('1.1.0', '2026-11-25', '- New.'), ('1.0.0', '2026-10-09', '- Old.')])
 
-    def test_release_notes_link_to_the_tag(self):
-        notes = release.release_notes('See [the data](data/README.md), [OSM](https://x.org) and [below](#b).', 'v1.0.0')
-        self.assertEqual(notes, 'See [the data](https://github.com/djazairdev/wilayas/blob/v1.0.0/data/README.md), '
-                                '[OSM](https://x.org) and [below](#b).')
+    def test_titles_that_release(self):
+        for title in ['fix: wrong name for Adrar', 'fix(data): a citation', 'feat: postal codes', 'perf: smaller files',
+                      'revert: fix: x', 'refactor!: rename a field']:
+            self.assertTrue(release.releases(title), title)
+        for title in ['docs: the setup', 'chore(main): release 1.2.0', 'ci: cache', 'Fix the data', 'fix:no space', '']:
+            self.assertFalse(release.releases(title), title)
 
 
-class Check(unittest.TestCase):
-    """release.check() in a throwaway repository that holds what build.py needs."""
+class Repository(unittest.TestCase):
+    """release.py in a throwaway repository that holds what build.py needs."""
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -60,6 +64,7 @@ class Check(unittest.TestCase):
             (shutil.copytree if os.path.isdir(src) else shutil.copy)(src, dst)
         self.git('init', '-q')
         self.commit()
+        self.git('tag', 'base')
         self.version = release.current()[0]
         self.saved = release.ROOT
         release.ROOT = self.root
@@ -85,40 +90,36 @@ class Check(unittest.TestCase):
             f.write(text.replace(old, new, 1))
         self.commit()
 
-    def check(self):
+    def run_quietly(self, function, *args):
         with contextlib.redirect_stdout(io.StringIO()):
-            release.check()
+            function(*args)
 
-    def new_entry(self, version, date='2099-01-01'):
+    def new_version(self, version, date='2099-01-01'):
         self.edit('CHANGELOG.md', f'## {self.version} (', f'## {version} ({date})\n\n- A change.\n\n## {self.version} (')
+        self.edit('version.txt', self.version, version)
 
-    def test_a_new_version_passes(self):
-        self.check()
-
-    def test_a_released_version_whose_files_are_the_same_passes(self):
-        self.git('tag', 'v' + self.version)
-        self.edit('CHANGELOG.md', 'When a change alters', 'When a change to the data alters')
-        self.check()
-
-    def test_changed_files_need_a_new_version(self):
-        self.git('tag', 'v' + self.version)
-        self.edit('data/communes.csv', 'Adrar', 'Adrarr')
-        with self.assertRaises(SystemExit):
-            self.check()
-        major, minor, patch = release.parse(self.version)
-        self.new_entry(f'{major}.{minor}.{patch + 1}')
-        self.check()
-
-    def test_a_version_not_newer_than_the_last_release_fails(self):
-        self.git('tag', 'v1.2.0')
-        self.new_entry('1.1.9')
-        with self.assertRaises(SystemExit):
-            self.check()
+    def test_the_version_passes(self):
+        self.run_quietly(release.check)
 
     def test_the_major_version_is_the_path(self):
-        self.new_entry('2.0.0')
+        self.new_version('2.0.0')
         with self.assertRaises(SystemExit):
-            self.check()
+            self.run_quietly(release.check)
+
+    def test_version_txt_matches_the_changelog(self):
+        self.edit('version.txt', self.version, '9.9.9')
+        with self.assertRaises(SystemExit):
+            self.run_quietly(release.check)
+
+    def test_unchanged_files_take_any_title(self):
+        self.edit('CHANGELOG.md', '# Changelog', '# The changelog')
+        self.run_quietly(release.guard, 'base', 'docs: the changelog')
+
+    def test_changed_files_need_a_title_that_releases_them(self):
+        self.edit('data/communes.csv', 'Adrar', 'Adrarr')
+        with self.assertRaises(SystemExit):
+            self.run_quietly(release.guard, 'base', 'docs: a name')
+        self.run_quietly(release.guard, 'base', 'fix(data): a name')
 
 
 if __name__ == '__main__':

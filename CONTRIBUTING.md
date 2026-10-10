@@ -28,11 +28,9 @@ The same commands CI runs on every pull request:
 python3 -m compileall -q build.py tools tests
 node --check src/worker.js          # only if you changed the Worker; needs Node.js
 python3 tools/resolve.py --check    # the tables in data/ are up to date
-python3 tools/release.py check      # a change to the API's files has a new version
+python3 tools/release.py check      # the version is right for /v1/
 python3 -m unittest discover -s tests
 ```
-
-`release.py check` compares the API with the last release, so fetch the tags first if your clone doesn't have them: `git fetch --tags https://github.com/djazairdev/wilayas`.
 
 ## How the data works
 
@@ -43,16 +41,24 @@ python3 -m unittest discover -s tests
 
 ## Versions
 
-When a change alters what the API serves, add an entry at the top of [`CHANGELOG.md`](CHANGELOG.md), headed with the new version and today's date: a patch (`1.1.2`) for a correction, a minor version (`1.2.0`) for new data, fields or files. `release.py check` fails until you do. CI releases the version once the change is deployed ([how](docs/deploy.md#releases)). A change to the docs or the tests alone needs no new version.
+You don't pick the version or edit [`CHANGELOG.md`](CHANGELOG.md): the pull request's title does it ([how](docs/deploy.md#releases)). If your change alters what the API serves, a check makes sure the title releases it:
+
+| Title | When | Version |
+|---|---|---|
+| `fix(data): wrong name for commune 3101` | A correction to the data | Patch, `1.1.2` |
+| `feat: add the 2026 daïras` | New data, fields or files | Minor, `1.2.0` |
+| `docs: explain the codes` | Docs, tests, tools: the API's files don't change | None |
+
+Use `test:`, `ci:`, `chore:` or `refactor:` for other changes that leave the API as it is. A change that could break a client (`feat!:`) needs a new path, `/v2/`: talk to the maintainers first.
 
 ## Send a pull request
 
 1. Fork the repository and create a branch from `main`.
 2. Make one change per pull request, with a test when you change behaviour.
 3. Run the checks above.
-4. Open the pull request, say what it changes and why, and link the issue (`Closes #12`).
+4. Open the pull request with a title as above, say what it changes and why, and link the issue (`Closes #12`).
 
-CI runs the checks, and a maintainer reviews the pull request. We may ask for changes; that's normal.
+CI runs the checks, and a maintainer reviews the pull request. We may ask for changes; that's normal. Pull requests are squash-merged, so the title becomes the commit's message.
 
 ## Our pledge
 
