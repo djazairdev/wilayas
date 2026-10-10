@@ -95,7 +95,12 @@ class Repository(unittest.TestCase):
             function(*args)
 
     def new_version(self, version, date='2099-01-01'):
-        self.edit('CHANGELOG.md', f'## {self.version} (', f'## {version} ({date})\n\n- A change.\n\n## {self.version} (')
+        # Above the latest entry, whichever form release-please gave its heading
+        full = os.path.join(self.root, 'CHANGELOG.md')
+        with open(full, encoding='utf-8') as f:
+            text = f.read()
+        latest = build.HEADING.search(text).group(0)
+        self.edit('CHANGELOG.md', latest, f'## {version} ({date})\n\n- A change.\n\n{latest}')
         self.edit('version.txt', self.version, version)
 
     def test_the_version_passes(self):
