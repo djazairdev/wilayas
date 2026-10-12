@@ -19,37 +19,26 @@ curl https://wilayas.djazair.dev/v1/communes/3101.json
 ```js
 const { wilayas } = await fetch('https://wilayas.djazair.dev/v1/wilayas.json').then((r) => r.json());
 ```
+
+```python
 import json
 import urllib.request
 
-url = "https://wilayas.djazair.dev/v1/communes/3101.json"
-req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-
-with urllib.request.urlopen(req) as response:
-    data = json.loads(response.read().decode("utf-8"))
+with urllib.request.urlopen("https://wilayas.djazair.dev/v1/communes/3101.json") as response:
+    data = json.load(response)
     print(data["commune"]["name"]["fr"])
-```
 
 ```php
 <?php
-$url = "https://wilayas.djazair.dev/v1/communes/3101.json";
-$options = [
-    "http" => [
-        "header" => "User-Agent: Mozilla/5.0\r\n"
-    ]
-];
-$context = stream_context_create($options);$response = file_get_contents($url, false,$context);
-$data = json_decode($response, true);
+$data = json_decode(file_get_contents("https://wilayas.djazair.dev/v1/communes/3101.json"), true);
 
 echo $data["commune"]["name"]["fr"] . PHP_EOL;
 ```
-
 
 - Every response allows any origin (`Access-Control-Allow-Origin: *`), preflights included, so a web page can call the API directly.
 - Responses may be cached for an hour (`Cache-Control: public, max-age=3600`); the data changes only with a new version.
 - A code that doesn't exist, such as `/v1/communes/9999.json`, is a 404 with an empty body.
 - To work offline, download a release: each one holds the whole API as a zip and the tables as CSV.
-```python
 
 ## Files
 
