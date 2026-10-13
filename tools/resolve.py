@@ -41,6 +41,10 @@ import re
 import sys
 import unicodedata
 
+if sys.version_info < (3, 12):
+    sys.exit(f'wilayas needs Python 3.12 or later, and this is Python {sys.version.split()[0]}. '
+             'CONTRIBUTING.md, "Set up", says how to get it.')
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data')
 SOURCE = os.path.join(DATA, 'source')

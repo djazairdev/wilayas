@@ -25,6 +25,10 @@ import sys
 import tarfile
 import tempfile
 
+if sys.version_info < (3, 12):
+    sys.exit(f'wilayas needs Python 3.12 or later, and this is Python {sys.version.split()[0]}. '
+             'CONTRIBUTING.md, "Set up", says how to get it.')
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 import build  # noqa: E402
