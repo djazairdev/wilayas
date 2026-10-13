@@ -27,6 +27,7 @@ import urllib.request
 with urllib.request.urlopen("https://wilayas.djazair.dev/v1/communes/3101.json") as response:
     data = json.load(response)
     print(data["commune"]["name"]["fr"])
+```
 
 ```php
 <?php
