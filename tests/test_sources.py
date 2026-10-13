@@ -38,6 +38,11 @@ DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 # Who read a name: Claude, the founder, or a contributor, by their GitHub username
 READER = re.compile(r'^(claude|founder|[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?)$')
 
+# A daïra's seat is printed apart from the commune that heads its list
+SEAT_DIFFERS = ("the daïra's seat and the first commune of its list differ: the text prints the name twice, so a correction "
+                "to one usually needs the other. If the text really prints them differently, add the pair to {} in "
+                "tests/test_sources.py.")
+
 
 def same_names(test, mine, theirs, table, labels=('this text', 'the other text'), loose=lambda s: s):
     """Fail, saying which names differ and what to do, unless mine and theirs name the same places.
@@ -447,7 +452,8 @@ class Dairas(unittest.TestCase):
                 with self.subTest(daira=key, edition=edition):
                     name = seat['name_' + edition]
                     name = SEAT_SPELLINGS_91_306[edition].get(name, name)
-                    self.assertEqual(loose[edition](name), loose[edition](first['name_' + edition]))
+                    self.assertEqual(loose[edition](name), loose[edition](first['name_' + edition]),
+                                     SEAT_DIFFERS.format('SEAT_SPELLINGS_91_306'))
 
 
 class DairaTables:
@@ -517,8 +523,9 @@ class DairaTables:
                 continue
             with self.subTest(daira=key):
                 fr, ar = self.SEATS['fr'].get(seat['name_fr'], seat['name_fr']), self.SEATS['ar'].get(seat['name_ar'], seat['name_ar'])
-                self.assertEqual(loose_fr(fr), loose_fr(first['name_fr']))
-                self.assertEqual(loose_ar(ar), loose_ar(first['name_ar']))
+                table = f"the SEATS of {type(self).__name__}"
+                self.assertEqual(loose_fr(fr), loose_fr(first['name_fr']), SEAT_DIFFERS.format(table))
+                self.assertEqual(loose_ar(ar), loose_ar(first['name_ar']), SEAT_DIFFERS.format(table))
 
 
 class LawTables(DairaTables):

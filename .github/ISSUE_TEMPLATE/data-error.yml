@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you. The API gives each name as the latest official text prints it, even when the spelling looks odd ([why](https://github.com/djazairdev/wilayas/blob/main/data/README.md)). A report needs the text or other evidence: we check every report against it and fix confirmed errors within 7 days, in a new version listed in the [changelog](https://github.com/djazairdev/wilayas/blob/main/CHANGELOG.md).
+        Thank you. The API gives each name as the latest official text prints it, even when the spelling looks odd ([why](https://github.com/djazairdev/wilayas/blob/main/data/source/README.md#spellings)). A report needs the text or other evidence: we check every report against it and fix confirmed errors within 7 days, in a new version listed in the [changelog](https://github.com/djazairdev/wilayas/blob/main/CHANGELOG.md).
   - type: input
     id: record
     attributes:

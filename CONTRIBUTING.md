@@ -10,19 +10,33 @@ Thanks for helping. Newcomers are welcome: you don't need to be an expert, and n
 
 ## Set up
 
-Everything runs on Python 3.12 or later with the standard library only: there is nothing to install.
+Everything runs on **Python 3.12 or later**, with the standard library only: there is nothing else to install.
 
-```bash
-git clone https://github.com/djazairdev/wilayas
-cd wilayas
-python3 build.py          # writes the API's files to dist/
-```
+- **Check your version** with `python3 --version`. macOS comes with Python 3.9, which is too old: install the latest from [python.org](https://www.python.org/downloads/), or with `brew install python`.
+- **On Windows,** install Python from [python.org](https://www.python.org/downloads/) and type `py` wherever this guide says `python3`.
 
-To serve `dist/` as Cloudflare does, with the Worker in `src/worker.js`, run `npx wrangler dev` (it needs Node.js).
+New to pull requests? GitHub's guide to [contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) walks through each step below.
+
+1. [Fork the repository](https://github.com/djazairdev/wilayas/fork), then clone your fork and make a branch:
+
+   ```bash
+   git clone https://github.com/<your-username>/wilayas
+   cd wilayas
+   git switch -c fix-the-thing
+   ```
+
+2. Build the API and look at it:
+
+   ```bash
+   python3 build.py                      # writes the API's files to dist/ in under a second
+   python3 -m http.server -d dist 8000   # then open http://localhost:8000/v1/index.json
+   ```
+
+   To serve it exactly as Cloudflare does, with the Worker in `src/worker.js` (its headers and the docs page), run `npx wrangler dev` instead. That one needs Node.js.
 
 ## Run the checks
 
-The same commands CI runs on every pull request:
+The same commands CI runs on every pull request. They take about 15 seconds:
 
 ```bash
 python3 -m compileall -q build.py tools tests
@@ -38,6 +52,35 @@ python3 -m unittest discover -s tests
 - **As printed.** The transcriptions in [`data/source/`](data/source/) give each name as the text prints it. A spelling that looks wrong is not an error if the text prints it that way ([why](data/source/README.md#spellings)).
 - **Never edit the tables by hand.** [`tools/resolve.py`](tools/resolve.py) makes the tables in `data/` from the transcriptions: correct the transcription, then run `python3 tools/resolve.py`. [`data/README.md`](data/README.md) describes every table and column.
 - A change to `data/source/` needs the text that supports it, linked in the pull request.
+- **Arabic and French only.** The official texts print names in those two languages, so the API has no other. Names in Tamazight, or translations, come in only when an official text prints them.
+
+### Words you'll meet
+
+| Word | Meaning |
+|---|---|
+| wilaya | One of Algeria's 69 provinces |
+| daïra | A district of a wilaya, which groups communes |
+| commune | A municipality, the smallest division |
+| chef-lieu | A wilaya's capital |
+| seat | The commune a daïra is named after |
+| JO | The *Journal officiel*, Algeria's official gazette, printed in an Arabic and a French edition |
+| ONS | The *Office national des statistiques*, which publishes the communes' codes |
+| transcription | A text's names, copied as printed, in [`data/source/`](data/source/) |
+| reading | A name read on the printed page by a person or a tool, recorded in [`data/source/readings.csv`](data/source/readings.csv) |
+
+[`data/source/README.md`](data/source/README.md) explains how each text was transcribed. You don't need to read it to contribute.
+
+## Correct a name
+
+The most useful fix is a name that doesn't match the printed text.
+
+1. **Find where the name comes from.** Each record in the API says so: in [`communes/0302.json`](https://wilayas.djazair.dev/v1/communes/0302.json), `names_from` gives the text that names it (`executive-decree-26-253`), and `listed_by` its row in that text (`"article": "03", "item": "2/1"`: wilaya 03, daïra 2, item 1). The row is in `data/source/executive-decree-26-253.csv`, and [`data/texts.csv`](data/texts.csv) links the text's PDFs, in Arabic and in French.
+2. **Compare it with the print.** If the transcription differs from the page, that's an error to fix. If the page itself looks wrong, it isn't: we keep names as printed ([why](data/source/README.md#spellings)).
+3. **Fix the row** in `data/source/`, letter for letter as printed. A daïra's seat is printed apart from the commune that heads its list, so if you correct one, check the other. Then record that you read it on the page: set the row's `check` to `eye`, and add a row to [`data/source/readings.csv`](data/source/readings.csv) with the text, article and item, the edition (`ar` or `fr`), the name, the PDF's page number, your GitHub username in `by`, `reviewed_by` left empty (a maintainer fills it), and a short note on what was wrong. If the name already has a row there, update that row instead.
+4. **Rebuild the tables and run the checks:** `python3 tools/resolve.py`, then the commands in *Run the checks*. The tests compare each text with the others. If one says that names differ, its message lists them: correct the other text too if it's also wrong, or, if the two texts really print the name differently, add the pair to the table it names in `tests/test_sources.py`.
+5. **Open the pull request** with a title such as `fix(data): Ksar El Hirane in Decree 26-253`, and link the PDF page that shows the name.
+
+If you'd rather not change files, the [Data error form](https://github.com/djazairdev/wilayas/issues/new?template=data-error.yml) is just as welcome.
 
 ## Versions
 
@@ -53,10 +96,10 @@ Use `test:`, `ci:`, `chore:` or `refactor:` for other changes that leave the API
 
 ## Send a pull request
 
-1. Fork the repository and create a branch from `main`.
-2. Make one change per pull request, with a test when you change behaviour.
-3. Run the checks above.
-4. Open the pull request with a title as above, say what it changes and why, and link the issue (`Closes #12`).
+1. Make one change per pull request, on a branch of your fork (see *Set up*), with a test when you change behaviour.
+2. Run the checks above.
+3. Push your branch (`git push -u origin fix-the-thing`) and open the pull request, with a title as above. Say what it changes and why, and link the issue (`Closes #12`).
+4. If CI fails and you can't tell why, say so in the pull request: we'll help.
 
 CI runs the checks. Pull requests are squash-merged, so the title becomes the commit's message.
 
@@ -70,17 +113,7 @@ CI runs the checks. Pull requests are squash-merged, so the title becomes the co
 
 ## AI-assisted contributions
 
-You're welcome to use AI coding tools, on these terms:
-
-- **You are the author.** Understand every line you submit, and be ready to explain it in review. "The model wrote it" doesn't answer a review comment.
-- **Say so.** Tick the AI box in the pull request template, and name the tool and what it did. A commit may credit it in a `Co-Authored-By:` or `Assisted-by:` trailer.
-- **Run the checks yourself,** and report the results you actually got.
-- **Point your agent at [AGENTS.md](AGENTS.md).** Most coding agents read it on their own, and its rules bind them as they bind you.
-- **No autonomous agents.** A person writes or reviews every issue, pull request and comment; an agent may not open them on its own.
-- **A name, code or citation a tool read from a text** is recorded as the tool's reading, never a person's (`by` in `data/source/readings.csv`, as [AGENTS.md](AGENTS.md) says), and a maintainer reviews it.
-- **Check what a tool finds** before you report it, and report security problems privately. An unchecked report is closed.
-- **Keep private things out of AI tools:** unpublished security reports, other people's personal data, and any secret.
-- Maintainers may close a low-effort generated pull request or issue without a detailed review.
+AI coding tools are welcome. You are the author: understand every line you submit, run the checks yourself, and say in the pull request which tool you used and what it did. A name a tool read from a text is the tool's reading (`by` in `data/source/readings.csv`), never yours. No agent opens an issue, a pull request or a comment on its own. [AGENTS.md](AGENTS.md) has the rules your agent follows.
 
 ## Our pledge
 

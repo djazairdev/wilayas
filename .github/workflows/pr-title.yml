@@ -1,5 +1,6 @@
 # Checks that a pull request's title is a Conventional Commit, such as "fix: wrong code for Adrar"
-# or "feat(api): add postal codes" (starters/release-please/README.md). Pull requests are
+# or "feat(api): add postal codes" (the template's starters/release-please/README.md,
+# https://github.com/djazairdev/project-template/blob/main/starters/release-please/README.md). Pull requests are
 # squash-merged, so the title becomes the commit release-please reads. From the djazairdev project
 # template, with one check of wilayas's own: a change to the API's files needs a title that releases
 # it (docs/deploy.md#releases).

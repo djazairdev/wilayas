@@ -1,5 +1,7 @@
 # Transcriptions
 
+*You don't need to read this page to contribute: to correct a name, follow [CONTRIBUTING.md](../../CONTRIBUTING.md#correct-a-name). It explains how each text was transcribed.*
+
 One file per official text, as printed in the Journal officiel, in both editions, and one for the commune codes of ONS, the statistics office. The texts are listed in [`../texts.csv`](../texts.csv) and ONS's lists in [`../ons.csv`](../ons.csv), with links to their PDFs and the checksums of the files we read. The API is built from these transcriptions; they are never edited to "fix" a spelling ([why](#spellings)).
 
 | File | Text | Rows |
@@ -66,7 +68,7 @@ The laws, Ordinance 21-03 and Decrees 18-302, 21-117, 21-198, 25-87, 26-206 and 
 
 Claude, the AI model that ran the transcription, made every reading (`by` is `claude`). Before version 1, the project's founder checked each one against the printed page: `reviewed_by` is then `founder`, and a reading the founder corrected became the founder's (`by` is `founder`), its note saying what Claude had read. The founder has checked all 1,779 readings against the printed page: the 61 of the laws, Ordinance 21-03 and Decrees 21-117 and 26-206, the 1,410 of Decree 91-306, the 43 of Decree 92-66, the 20 of Ordinance 97-14, the 18 of Decree 21-198, the 25 of Decree 26-253, the 161 of ONS's list and the 41 of Decree 84-79. The founder confirmed all of them but two of Decree 91-306, which the founder corrected; those two are the founder's own readings (`by` is `founder`), so `reviewed_by` is empty.
 
-The tests refuse any other value, and check that each `eye` row matches its reading.
+Now a contributor who reads a name on the page records their own GitHub username in `by`, and a maintainer fills `reviewed_by` once they have checked it ([how](../../CONTRIBUTING.md#correct-a-name)). The tests refuse any other value in `reviewed_by`, and check that each `eye` row matches its reading.
 
 ### Decree 84-79
 

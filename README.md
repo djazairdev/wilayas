@@ -19,16 +19,16 @@ curl https://wilayas.djazair.dev/v1/communes/3101.json
 const { wilayas } = await fetch('https://wilayas.djazair.dev/v1/wilayas.json').then((r) => r.json());
 ```
 
-Everything else is in [`docs/`](docs/): [the files and how to call them](docs/api.md), [the official texts](docs/sources.md), and [how CI deploys and releases](docs/deploy.md). [`data/README.md`](data/README.md) describes the tables.
+Python and PHP examples are in [docs/api.md](docs/api.md#calling-it). Everything else is in [`docs/`](docs/): [the files and how to call them](docs/api.md), [the official texts](docs/sources.md), and [how CI deploys and releases](docs/deploy.md). [`data/README.md`](data/README.md) describes the tables.
 
 ## Make your first contribution
 
 1. Pick an issue labelled [good first issue](https://github.com/djazairdev/wilayas/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22).
 2. Comment on it to say you're working on it.
-3. Follow [CONTRIBUTING.md](CONTRIBUTING.md) to set up, test and open a pull request. It needs only Python.
+3. Follow [CONTRIBUTING.md](CONTRIBUTING.md) to set up, test and open a pull request. It needs only Python 3.12 or later.
 4. We reply to newcomers' pull requests within 7 days. A review or a merge may take longer.
 
-You can help without writing code, too: check names and codes against the official texts, improve the docs, or try the API in your project and tell us what's missing.
+You can help without writing code, too: check names and codes against the official texts ([how](CONTRIBUTING.md#correct-a-name)), improve the docs, or try the API in your project and tell us what's missing.
 
 ## Feedback
 
@@ -36,15 +36,11 @@ You can help without writing code, too: check names and codes against the offici
 - [Report a data error](https://github.com/djazairdev/wilayas/issues/new?template=data-error.yml): a name, code or citation that doesn't match the official texts
 - [Report a bug](https://github.com/djazairdev/wilayas/issues/new?template=bug.yml)
 - [Suggest an improvement](https://github.com/djazairdev/wilayas/issues/new?template=idea.yml), or 👍 the [improvements](https://github.com/djazairdev/wilayas/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement+sort%3Areactions-%2B1-desc) you want most
-- [Propose a new project](https://github.com/djazairdev/djazair.dev/discussions/categories/ideas) for Algeria
+- [Propose a new project](https://github.com/djazairdev/djazair.dev/discussions/categories/ideas)
 - Follow djazairdev on [Facebook](https://www.facebook.com/djazairdev) and [X](https://x.com/djazairdev) for news
 
-Ask in Arabic, Tamazight, French or English. Code, docs and issue titles are in English, so everyone can search them. Report security problems [privately](https://github.com/djazairdev/wilayas/security/policy), never in an issue.
+Report security problems [privately](https://github.com/djazairdev/wilayas/security/policy), never in an issue.
 
 ## Licence
 
 Data: [CC0 1.0](LICENSE-data), use it for anything. Code: [MIT](LICENSE). This is not an official government service.
-
----
-
-Part of [djazairdev](https://github.com/djazairdev): growing Algeria's open-source community through useful projects, welcoming first contributions and collaboration. Find more projects in the [djazair.dev Hub](https://djazair.dev/en/hub/). Everyone follows our [code of conduct](https://github.com/djazairdev/.github/blob/main/CODE_OF_CONDUCT.md).

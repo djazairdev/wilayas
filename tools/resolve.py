@@ -119,7 +119,7 @@ ONS_NAMES = {
     '4813': 'Beni Dergoune', '4821': 'Ouarizène', '5303': 'Fouggaret Ezzaouia',
 }
 # Communes ONS lists under a new name that no later text prints: they take ONS’s names (the
-# founder's decision, 9 October 2026), and the decrees' become aliases
+# maintainer's decision, 9 October 2026), and the decrees' become aliases
 RENAMED = {'1604', '2427'}
 # Decree 91-306's Arabic prints Boudria Beni Yadjis on two lines, as two communes; its Arabic name
 # is ONS's

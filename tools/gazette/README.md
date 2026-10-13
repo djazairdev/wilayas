@@ -1,6 +1,6 @@
 # Gazette tools
 
-These scripts transcribe the official texts in the Journal officiel into `data/source/`. They ran once, on a Mac, to make the files there; the build and the tests don't need them. To check a name, read the text itself: every text in `data/texts.csv` links to its PDFs.
+These scripts transcribe the official texts in the Journal officiel into `data/source/`. They ran once, on a Mac, to make the files there. You don't need them to contribute: the build and the tests don't use them, and most need macOS. To check a name, read the text itself: every text in `data/texts.csv` links to its PDFs.
 
 | Script | What it does |
 |---|---|
