@@ -36,7 +36,7 @@ You can help without writing code, too: check names and codes against the offici
 - [Report a data error](https://github.com/djazairdev/wilayas/issues/new?template=data-error.yml): a name, code or citation that doesn't match the official texts
 - [Report a bug](https://github.com/djazairdev/wilayas/issues/new?template=bug.yml)
 - [Suggest an improvement](https://github.com/djazairdev/wilayas/issues/new?template=idea.yml), or 👍 the [improvements](https://github.com/djazairdev/wilayas/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement+sort%3Areactions-%2B1-desc) you want most
-- [Propose a new project](https://github.com/djazairdev/djazair.dev/discussions/categories/ideas)
+- [Propose a new project](https://github.com/orgs/djazairdev/discussions/categories/ideas)
 - Follow djazairdev on [Facebook](https://www.facebook.com/djazairdev) and [X](https://x.com/djazairdev) for news
 
 Report security problems [privately](https://github.com/djazairdev/wilayas/security/policy), never in an issue.
