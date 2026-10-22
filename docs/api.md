@@ -41,6 +41,27 @@ echo $data["commune"]["name"]["fr"] . PHP_EOL;
 - A code that doesn't exist, such as `/v1/communes/9999.json`, is a 404 with an empty body.
 - To work offline, download a release: each one holds the whole API as a zip and the tables as CSV.
 
+## In a spreadsheet
+
+You can load the API's CSV files directly into a spreadsheet without writing code.
+
+**Google Sheets**
+
+1. Download [`communes.csv`](https://wilayas.djazair.dev/v1/communes.csv).
+2. In Google Sheets, select **File → Import → Upload** and upload the downloaded CSV file.
+3. Untick **Convert text to numbers, dates, and formulas** before importing.
+
+Check that `0101` in `code` and `1/1` in `listed_item` remain unchanged.
+
+**Excel**
+
+1. Go to **Data → From Web** and enter `https://wilayas.djazair.dev/v1/communes.csv`.
+2. In the preview, select **Transform Data**.
+3. In Power Query, set these six columns to **Text**: `code`, `wilaya`, `daira`, `wilaya_before`, `listed_article`, and `listed_item`. If prompted, choose **Replace current**.
+4. Select **Close & Load**.
+
+Check that `0101` remains `0101`, values such as `1/1` in `listed_item` remain text rather than dates, values such as `01` in `listed_article` retain their leading zeros, and no conversion errors remain.
+
 ## Files
 
 | Path | Contents |
