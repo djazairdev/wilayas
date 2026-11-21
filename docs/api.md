@@ -22,6 +22,7 @@ const { wilayas } = await fetch('https://wilayas.djazair.dev/v1/wilayas.json').t
 
 - Every response allows any origin (`Access-Control-Allow-Origin: *`), preflights included, so a web page can call the API directly.
 - Responses may be cached for an hour (`Cache-Control: public, max-age=3600`); the data changes only with a new version.
+- `/v1/communes` redirects to `/v1/communes.json` for clients that omit the file extension.
 - A code that doesn't exist, such as `/v1/communes/9999.json`, is a 404 with an empty body.
 - To work offline, download a release: each one holds the whole API as a zip and the tables as CSV.
 
