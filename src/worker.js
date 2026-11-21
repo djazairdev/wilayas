@@ -27,6 +27,14 @@ export default {
     if (pathname === '/v1' || pathname === '/v1/') {
       return new Response(null, { status: 302, headers: { ...CORS, Location: '/v1/index.json', 'Cache-Control': CACHE } });
     }
+    if (pathname === '/v1/communes') {
+      const url = new URL(request.url);
+      url.pathname += '.json';
+      return new Response(null, {
+        status: 308,
+        headers: { ...CORS, Location: `${url.pathname}${url.search}`, 'Cache-Control': CACHE },
+      });
+    }
     const response = await env.ASSETS.fetch(request);
     if (response.status !== 404) {
       return response;

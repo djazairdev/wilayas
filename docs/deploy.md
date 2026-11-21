@@ -57,6 +57,7 @@ Every request goes through the Worker first (`run_worker_first`), because Cloudf
 
 - a CORS preflight (`OPTIONS`), which a browser sends before a request with headers of its own, such as `Authorization`: a 204 that allows `GET`, `HEAD` and `OPTIONS` and the headers asked for;
 - `/v1` and `/v1/`, the base URL `index.json` gives: a 302 to `/v1/index.json`;
+- `/v1/communes`: a 308 to `/v1/communes.json` for clients that omit the file extension;
 - any other path, such as a commune code that doesn't exist: a 404 with an empty body;
 - any other method: a 405.
 
