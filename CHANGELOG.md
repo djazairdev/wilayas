@@ -6,6 +6,13 @@ The API's versions follow [semantic versioning](https://semver.org). [release-pl
 - **Minor** (`1.1.0`), from `feat:` titles: new data, fields or files that leave the old ones as they are, such as a new text applied or a new field.
 - **Major** (`2.0.0`): a change that could break a client, such as a field removed or renamed. It is served under a new path, `/v2/`, and `/v1/` stays.
 
+## [1.1.3](https://github.com/djazairdev/wilayas/compare/v1.1.2...v1.1.3) (2026-11-21)
+
+
+### Bug Fixes
+
+* **api:** redirect extensionless communes endpoint ([#31](https://github.com/djazairdev/wilayas/issues/31)) ([edd94dc](https://github.com/djazairdev/wilayas/commit/edd94dcb72963a0798e75a16e4a18b8671f45c86))
+
 ## [1.1.2](https://github.com/djazairdev/wilayas/compare/v1.1.1...v1.1.2) (2026-10-10)
 
 
